@@ -1,0 +1,119 @@
+﻿<div>
+    <div data-bind="visible: message, text: message, css: messageClass"></div>
+
+    <form role="form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="playerManager.identificationDocuments.labels.licensee"></span>
+            </label>
+            <div class="col-sm-8">
+                <p class="form-control-static" data-bind="text: licensee()"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="playerManager.identificationDocuments.labels.brand"></span>
+            </label>
+            <div class="col-sm-8">
+                <p class="form-control-static" data-bind="text: brand()"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">
+                <span>Username</span>
+            </label>
+            <div class="col-sm-8">
+                <p class="form-control-static" data-bind="text: username()"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="playerManager.identificationDocuments.labels.documentType"></span><span data-bind="visible: !submitted()" class="red">*</span>
+            </label>
+            <div class="col-sm-8">
+                <select class="form-control"
+                        data-bind="options: documentTypes, value: documentType, visible: !submitted()"></select>
+                <p class="form-control-static" data-bind="text: documentType, visible: submitted()"></p>
+            </div>
+        </div>
+
+        <div class="form-group" data-bind="visible: isIdOrCredit">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="playerManager.identificationDocuments.labels.cardNumber"></span><span data-bind="visible: !submitted()" class="red">*</span>
+            </label>
+            <div class="col-sm-8">
+                <div>
+                    <input class="form-control" data-bind="value: cardNumber, visible: !submitted()" />
+                </div>
+                <span class="red" data-bind="validationMessage: cardNumber"></span>
+                <p class="form-control-static" data-bind="text: cardNumber, visible: submitted()"></p>
+            </div>
+        </div>
+
+        <div class="form-group" data-bind="visible: isIdOrCredit">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="playerManager.identificationDocuments.labels.cardExpirationDate"></span><span data-bind="visible: !submitted()" class="red">*</span>
+            </label>
+            <div class="field-box col-sm-8">
+                <div class="input-group date" data-bind="datetimepicker: cardExpirationDate, visible: !submitted(), datepickerOptions: { language: 'en', picktime: false, format: 'yyyy/MM/dd', autoclose: true }">
+                    <input class="form-control add-on" data-format="yyyy/mm/dd" data-bind="value: cardExpirationDate" type="text">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <span class="red" data-bind="validationMessage: cardExpirationDate"></span>
+                <p class="form-control-static" data-bind="text: cardExpirationDate, visible: submitted()"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-bind="attr: { for: uploadId1FieldId() }" class="col-sm-3 control-label">
+                <span data-bind="text: firstFileUploaderLabel"></span><span data-bind="visible: !submitted()" class="red">*</span>
+            </label>
+            <div class="col-sm-8">
+                <div class="ace-file-input ace-file-multiple" data-bind="visible: !submitted()">
+                    <input type="file" data-bind="attr: { id: uploadId1FieldId() }, value: idFrontImage" name="uploadId1">
+                </div>
+                <img style="width: 300px; height: 200px;" data-bind="visible: submitted, attr: {src: uploadId1Src}">
+                <span class="red" data-bind="validationMessage: idFrontImage"></span>
+            </div>
+        </div>
+
+        <div class="form-group" data-bind="visible: isIdOrCredit">
+            <label data-bind="attr: { for: uploadId2FieldId() }" class="col-sm-3 control-label">
+                <span data-i18n="playerManager.identificationDocuments.labels.idBackUpload"></span><span data-bind="visible: !submitted()" class="red">*</span>
+            </label>
+            <div class="col-sm-8">
+                <div class="ace-file-input ace-file-multiple" data-bind="visible: !submitted()">
+                    <input type="file" data-bind="attr: { id: uploadId2FieldId() }, value: idBackImage" name="uploadId2">
+                </div>
+                <img style="width: 300px; height: 200px;" data-bind="visible: submitted, attr: {src: uploadId2Src}">
+                <span class="red" data-bind="validationMessage: idBackImage"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="app:common.remarks"></span>
+            </label>
+            <div class="col-sm-8 field-box">
+                <textarea class="form-control" data-bind="value: remarks, visible: !submitted()"></textarea>
+                <p class="form-control-static" data-bind="visible: submitted, text: remarks"></p>
+                <span class="red" data-bind="validationMessage: remarks"></span>
+            </div>
+        </div>
+
+        <div class="clearfix form-actions">
+            <div class="center">
+                <button class="btn btn-white btn-round" data-bind="click: cancel, visible: !submitted()" data-i18n="common.cancel"></button>
+                &nbsp; &nbsp; &nbsp;
+                <button class="btn btn-white btn-round" data-bind="click: cancel, visible: submitted()" data-i18n="common.close"></button>
+                &nbsp; &nbsp; &nbsp;
+                <button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="common.save"></button>
+            </div>
+        </div>
+    </form>
+</div>

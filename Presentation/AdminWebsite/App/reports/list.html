@@ -1,0 +1,14 @@
+﻿<div data-bind="grid: {
+    source: reports,
+    useResizeManager: true
+}">
+    <header>
+        <span data-bind="actionButtons: { context: $data, buttons: [
+            { name: 'open', click: openReport, enabled: viewEnabled.bind($data), text: 'app:common.view', icon: 'file-text-o' }
+        ]}"></span>
+    </header>
+    <column hidden name="path" data-value="$root.reportPath.bind($root) @view" />
+    <column name="name" width="200" title="Report Name" data-value="@name" />
+    <column title="Licensee" data-value="'All'" />
+    <column title="Brand" data-value="'All'" />
+</div>

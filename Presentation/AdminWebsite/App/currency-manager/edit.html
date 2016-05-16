@@ -1,0 +1,34 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label data-bind="attr: { for: codeFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:currencies.code"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: codeFieldId() }, value: fields.code, visible: !isCodeReadOnly()" /> <span class="red" data-bind="validationMessage: fields.code"></span>
+            <p class="form-control-static" data-bind="visible: isCodeReadOnly, text: fields.code"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: nameFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:currencies.name"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: nameFieldId() }, value: fields.name, visible: !submitted()" /> <span class="red" data-bind="validationMessage: fields.name"></span>
+            <p class="form-control-static" data-bind="text: fields.name, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: remarksFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:currencies.remarks"></span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: remarksFieldId() }, value: fields.remarks, visible: !submitted()" />
+            <p class="form-control-static" data-bind="text: fields.remarks, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

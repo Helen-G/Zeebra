@@ -1,0 +1,104 @@
+﻿<section class="site-header">
+    <div class="container">
+        <div class="header-left">
+            <a href="~/"><img src="~/Content/images/logo.png" alt="" class="header_logo"></a>
+        </div>
+        <div class="header-right">
+            <div id="login-wrapper" class="login-wrapper">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            Hi, @User.Identity.Name
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-login" data-bind="click: logout" data-i18n="login.logout"></button>
+                        </div>
+                        @Html.Partial("_PartialLanguages")
+                    </form>
+                }
+                else
+                {
+                    <form class="form-inline" role="form" data-bind="submit: signIn">
+                        <div class="form-group">
+                            <span class="not-a-member" data-i18n="login.notMemberYet"></span>
+                            <a href="#" class="join-now" data-bind="click: toRegister, enable: !requestInProgress()" data-i18n="login.joinNow"></a>
+                        </div>
+                        <div class="form-group" data-bind="css: {'has-error': username.hasError()}">
+                            <input type=" text" class="form-control" placeholder="Username" autofocus data-bind="value: username">
+                        </div>
+                        <div class="form-group password" data-bind="css: {'has-error': password.hasError()}">
+                            <input type="password" class="form-control" placeholder="Password" data-bind="value: password">
+                            <p><a href="#forgotPassword" target="_blank" data-toggle="modal" class="small" data-i18n="login.forgotPasswordQuestion"></a></p>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-login" type="submit" data-bind="enable: !requestInProgress()" data-i18n="login.login"></button>
+                        </div>
+                        @Html.Partial("_PartialLanguages")
+                    </form>
+                    
+                    // Add Modal to show messages
+                    <div class="modal fade" id="login-messages">
+                        <div class="modal-dialog modal-warning text-center">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><i class="fa fa-fw fa-times-circle"></i></button>
+                                    <h5 class="modal-title">Error</h5>
+
+                                    <ul data-bind="foreach: messages" class="modal-list">
+                                        <li data-bind="text: $data"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="forgotPassword" aria-hidden="true" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content modal-info text-left">
+                            <div class="modal-body">
+                                <button data-dismiss="modal" aria-label="Close" class="close"><i class="fa fa-fw fa-times-circle"></i></button>
+                                <div class="modal-password-step step-1">
+                                    <h5 class="modal-title" data-i18n="login.forgotPasswordQuestion"></h5>
+                                    <p style="margin-bottom: 1.5em" data-i18n="login.enterUsernameAndEmailToReset"></p>
+                                    <div class="row form-group">
+                                        <label class="control-label col-md-8 col-md-offset-2" data-i18n="common.username"></label>
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <input type="text" placeholder="username" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-md-8 col-md-offset-2" data-i18n="common.email"></label>
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <input type="email" placeholder="email@example.com" class="form-control">
+                                            <p style="margin-top: .5em"><small><em data-i18n="login.youWillBeAskedSecQuestOnReset"></em></small></p>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 1.5em; margin-bottom: 1.5em" class="row">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <button id="forgetPasswordSubmit" type="button" class="btn btn-info btn-block" data-i18n="common.submit"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-password-step step-2">
+                                    <h5 class="modal-title" data-i18n="login.emailWithLinkToResetWasSent"></h5>
+                                    <p data-i18n="login.emailWillBeSentIfAssociatedWithYourAccount"></p>
+                                    <div style="margin-top: 1.5em; margin-bottom: 1.5em" class="row">
+                                        <div class="col-md-4 col-md-offset-2">
+                                            <button type="button" class="btn btn-info btn-block" data-i18n="login.signIn"></button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-info btn-block" data-i18n="common.contactSupport"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

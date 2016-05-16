@@ -1,0 +1,21 @@
+﻿<div class="modal-content" style="width: 400px;">
+    <div class="modal-header">
+        <h4 data-bind="text: title"></h4>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-danger" data-bind="visible: error, text: error"></div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" data-bind="text: form.label"></label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" data-bind="attr: { id: form.ctrl }, value: form.fields[form.ctrl]" maxlength="200" autofocus />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-bind="click: ok, enable: !submitted(), text: submitButtonText"></button>
+        <button class="btn btn-primary" data-bind="click: clear, enable: !submitted()" data-i18n="app:common.clear"></button>
+        <button class="btn btn-primary" data-bind="click: close, enable: !submitted()" data-i18n="app:common.cancel"></button>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="form-group">
+    <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.qualification"></strong></h5>
+    <h6 class="col-sm-offset-1" data-i18n="bonus.templateFields.qualificationDescr"></h6>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.hasClaimed"></label>
+    <div class="col-sm-8">
+        <select class="form-control" data-bind="options: bonuses, optionsCaption: emptyCaption, optionsText: 'Name', optionsValue: 'Id', value: ParentBonusId"></select> <span class="red" data-bind="validationMessage: ParentBonusId"></span>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.playerRegisteredFrom"></label>
+    <div class="col-sm-8">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            <input type="text" data-bind="date: true, format: 'YYYY/MM/DD', value:  PlayerRegistrationDateFrom" />
+            <span style="margin-left: 25px;" data-i18n="common.to"></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            <input type="text" data-bind="date: true, format: 'YYYY/MM/DD', value:  PlayerRegistrationDateTo" />
+        </div>
+        <span class="red" data-bind="validationMessage: PlayerRegistrationDateFrom"></span>
+        <span class="red" data-bind="validationMessage: PlayerRegistrationDateTo"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.playerAccountWithin"></label>
+    <div class="col-sm-8">
+        <input class="form-control input-small" data-bind="value: vWithinRegistrationDays, numericInt: vWithinRegistrationDays" maxlength="5" /> <label data-i18n="bonus.templateFields.playerAccountWithinAppendix"></label>
+        <span class="red" data-bind="validationMessage: WithinRegistrationDays"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label">
+        <span data-i18n="bonus.templateFields.vipLevel"></span> <span class="red">*</span>
+    </label>
+    <div data-bind="multiSelect: {
+                                    allItems: availableVips,
+                                    optionsText: 'Name',
+                                    optionsValue: 'Code',
+                                    selected: {
+                                        labelText: 'bonus.templateFields.selectedVips',
+                                        items: vVipLevels},
+                                    availableLabelText: 'bonus.templateFields.availableVips'}"></div>
+    <span class="red" data-bind="validationMessage: VipLevels"></span>
+    <span class="red" data-bind="validationMessage: vVipLevels"></span>
+</div>
+
+<div class="form-group">
+    <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.disqualification"></strong></h5>
+    <h6 class="col-sm-offset-1" data-i18n="bonus.templateFields.disqualificationDescr"></h6>
+</div>
+<!-- exclude bonuses -->
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.hasClaimed"></label>
+    <!-- ko foreach: availableExcOperations -->
+    <div class="radio inline-radio">
+        <label>
+            <input type="radio" class="ace" data-bind="checkedValue: $data.id, checked: $root.ExcludeOperation" />
+            <span class="lbl" data-bind="text: name"></span>
+        </label>
+    </div>
+    <!-- /ko -->
+    <div data-bind="multiSelect: {
+                                    allItems: bonuses,
+                                    optionsText: 'Name',
+                                    optionsValue: 'Id',
+                                    selected: {
+                                        labelText: 'bonus.templateFields.selectedBonuses',
+                                        items: ExcludeBonuses},
+                                    availableLabelText: 'bonus.templateFields.bonuses'}"></div>
+    <span class="red" data-bind="validationMessage: ExcludeBonuses"></span>
+</div>
+<!-- exclude fraud risk levels -->
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.fraudRiskLevelsLabel"></label>
+    <div data-bind="multiSelect: {
+                                    allItems: riskLevels,
+                                    optionsText: 'Name',
+                                    optionsValue: 'Id',
+                                    selected: {
+                                        labelText: 'bonus.templateFields.selectedFraudRiskLevels',
+                                        items: ExcludeRiskLevels},
+                                    availableLabelText: 'bonus.templateFields.fraudRiskLevels'}"></div>
+    <span class="red" data-bind="validationMessage: ExcludeRiskLevels"></span>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.issuancePerPlayer"></label>
+
+    <div class="col-sm-6">
+        <input class="col-md-3" type="text" data-bind="value: vPlayerRedemptionsLimit, numericInt: vPlayerRedemptionsLimit" maxlength="9" />
+        <div class="col-md-3">
+            <select class="form-control" data-bind="options: availablePlayerRedemptionsLimitTypes, value: PlayerRedemptionsLimitType, optionsText: 'name', optionsValue: 'id'"></select>
+        </div>
+        <span class="red" data-bind="validationMessage: RedemptionsLimit"></span>
+    </div>
+
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label">
+        <span data-i18n="bonus.templateFields.issuanceLimit"></span>
+    </label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control" data-bind="value: vRedemptionsLimit, numericInt: vRedemptionsLimit" maxlength="15" /><span class="red" data-bind="validationMessage: RedemptionsLimit"></span>
+    </div>
+</div>

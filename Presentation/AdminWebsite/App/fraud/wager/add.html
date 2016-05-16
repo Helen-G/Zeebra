@@ -1,0 +1,53 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+<form id="wallet-manager-form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> <span data-i18n="app:common.licensee"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<select class="form-control" id="licensee-select" data-bind="visible: submitted() && licensees().length !== 1 && !isEdit(), enable: !isEdit(), options: licensees, optionsValue: 'id', optionsText: 'name', value: licenseeId"></select><span class="red" data-bind="validationMessage: licenseeId"></span>
+			<p class="form-control-static" data-bind="text: licenseeName, visible: !submitted() || licensees().length === 1 || isEdit()"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> <span data-i18n="app:common.brand"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<select class="form-control" id="brand-select" data-bind="visible: submitted() && brands().length !== 1 && !isEdit(), enable: !isEdit(), options: brands, optionsValue: 'id', optionsText: 'name', value: brandId"></select><span class="red" data-bind="validationMessage: brandId"></span>
+			<p class="form-control-static" data-bind="text: brandName, visible: !submitted() || brands().length === 1 || isEdit()"></p>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> <span data-i18n="app:common.currency"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<select class="form-control" id="brand-select" data-bind="visible: submitted() && currencies().length !== 1 && !isEdit(), enable: !isEdit(), options: currencies, value: currency"></select><span class="red" data-bind="validationMessage: currency"></span>
+			<p class="form-control-static" data-bind="text: currency, visible: !submitted() || currencies().length === 1 || isEdit()"></p>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> <span data-i18n="">Criteria</span><span class="red">*</span></label>
+		<div class="col-sm-6 field-box">
+			<div class="col-sm-8 field-box">
+				<label><input type="checkbox" data-bind="checked: isCheckDepositWagering, disable: isEdit(), enable: submitted()"> Check Deposit Wagering</label><span class="red" data-bind="validationMessage: isCheckDepositWagering"></span>
+			</div>
+<!--			<div class="col-sm-8 field-box">-->
+<!--				<label><input type="checkbox" data-bind="checked: isCheckManualAdjustmentWagering, disable: isEdit(), enable: submitted()"> Check Manual Adjustment Wagering</label><span class="red" data-bind="validationMessage: isCheckDepositWagering"></span>-->
+<!--			</div>-->
+<!--			<div class="col-sm-8 field-box">-->
+<!--				<label><input type="checkbox" data-bind="checked: isCheckRebateWagering, disable: isEdit(), enable: submitted()"> Check Rebate Wagering</label><span class="red" data-bind="validationMessage: isCheckDepositWagering"></span>-->
+<!--			</div>-->
+		</div>
+	</div>
+
+	<div class="clearfix form-actions">
+		<div class="center">
+			<button type="button" class="btn btn-default btn-round" data-bind="text: closeButtonLabel, click: close"></button>
+			&nbsp; &nbsp; &nbsp;
+			<button type="button" class="btn btn-primary btn-round" data-bind="visible: $root.submitted(), text: 'Clear', click: clear"></button>
+			&nbsp; &nbsp; &nbsp;
+			<button type="submit" class="btn btn-primary btn-round" data-bind="visible: $root.submitted(), click: submit, enable: isValid" data-i18n="app:common.save"></button>
+		</div>
+	</div>
+
+</form>

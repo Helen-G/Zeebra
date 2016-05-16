@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+
+    <meta name="description" content="@ViewBag.MetaDescription" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @RenderSection("headStyles", required: false)
+    @RenderSection("headScripts", required: false)
+    <script src="~/Scripts/bootstrap-validation.js"></script>
+</head>
+<body class="@ViewBag.BodyClass">
+    @RenderBody()
+
+    @RenderSection("bodyBottomScripts", required: false)
+</body>
+</html>

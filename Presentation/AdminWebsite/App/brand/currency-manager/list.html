@@ -1,0 +1,15 @@
+﻿<div data-bind="attr: {id: naming.homeId}" >
+    <div class="jqgrid-title-bar" id="currency-list-jqgrid-title-bar">
+        <form data-bind="attr: {id: naming.searchFormId}" action="#" class="pull-left">
+            <input data-bind="attr: {id: naming.searchNameFieldId}" type="text" data-i18n="[placeholder]app:currencies.currencyName" />
+            <button id="currency-name-search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-success btn-round" id="btn-currency-assign" data-bind="click: assign, visible: isManageAllowed()">
+                <span data-i18n="app:common.manage"></span>
+            </button>
+        </div>
+    </div>
+    <table data-bind="attr: {id: naming.gridBodyId}"></table>
+    <div data-bind="attr: {id: naming.pagerId}"></div>
+</div>

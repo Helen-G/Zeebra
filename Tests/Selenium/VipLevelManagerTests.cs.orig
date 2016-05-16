@@ -1,0 +1,190 @@
+<<<<<<< HEAD
+using AFT.RegoV2.Core.Shared.Data;
+using AFT.RegoV2.Tests.Common;
+using AFT.RegoV2.Tests.Common.Base;
+using AFT.RegoV2.Tests.Common.Extensions;
+using AFT.RegoV2.Tests.Common.Pages.BackEnd;
+using NUnit.Framework;
+
+namespace AFT.RegoV2.Tests.Selenium
+{
+    class VipLevelManagerTests : SeleniumBaseForAdminWebsite
+    {
+        private const string DefaultLicensee = "Flycow";
+        private const string DefaultBrand = "138";
+        private DashboardPage _dashboardPage;
+
+        VipLevelManagerPage _vipLevelsPage;
+
+        public override void BeforeEach()
+        {
+            base.BeforeEach();
+
+            _driver.Manage().Cookies.DeleteAllCookies();
+            _dashboardPage = _driver.LoginToAdminWebsiteAsSuperAdmin();
+        }
+
+        [Test, CategorySmoke]
+        public void Can_create_vip_level_with_product_limit()
+        {
+            //create a product
+            var productName = "product" + TestDataGenerator.GetRandomString(5);
+            
+            var productManagerPage = _dashboardPage.Menu.ClickProductManagerMenuItem();
+            var newProductForm = productManagerPage.OpenNewProductForm();
+            var submittedProductForm = newProductForm.Submit(productName, "Casino", "Token");
+            
+            //add a product to a licensee
+            var licenseeManagerPage = submittedProductForm.Menu.ClickLicenseeManagerItem();
+            var editLicenseeForm = licenseeManagerPage.OpenEditLicenseeForm(DefaultLicensee);
+            var viewLicenseeForm = editLicenseeForm.EditAssignedProducts(productName);
+            viewLicenseeForm.CloseTab("View Licensee");
+            
+            //assign a product to the default brand
+            var supportedProductsPage = licenseeManagerPage.Menu.ClickSupportedProductsMenuItem();
+            var manageProductsPage = supportedProductsPage.OpenManageProductsPage();
+            var editedLicenseeForm = manageProductsPage.AssignProduct(DefaultLicensee, DefaultBrand, productName);
+            
+            //add a bet level to the product
+            var betLevelName = TestDataGenerator.GetRandomString(5);
+            var betLevelCode = TestDataGenerator.GetRandomString(4);
+            var betLevelNameCode = string.Format(betLevelCode + " " + "-" + " " + betLevelName);
+            
+            var betLevelsPage = editedLicenseeForm.Menu.ClickBetLevelsMenuItem();
+            var newBetLevelForm = betLevelsPage.OpenNewBetLevelForm();
+            newBetLevelForm.SelectProduct(productName);
+            newBetLevelForm.AddBetLevelDetails(betLevelName, betLevelCode);
+            var submittedBetLevelForm = newBetLevelForm.Submit();
+            
+            // create a vip level
+            var vipLevelData = SeleniumTestDataGenerator.CreateValidVipLevelData(DefaultLicensee, brand:"138");
+            
+            _vipLevelsPage = submittedBetLevelForm.Menu.ClickVipLevelManagerMenuItem();
+            var newVipLevelForm = _vipLevelsPage.OpenNewVipLevelForm();
+            newVipLevelForm.EnterVipLevelDetails(vipLevelData);
+            newVipLevelForm.AddProductLimit(productName, betLevelNameCode, "CAD");
+            var submittedVipLevelForm = newVipLevelForm.Submit();
+
+            Assert.AreEqual("VIP Level has been created successfully.", submittedVipLevelForm.ConfirmationMessage);
+            Assert.AreEqual(vipLevelData.Licensee, submittedVipLevelForm.Licensee);
+            Assert.AreEqual(vipLevelData.Brand, submittedVipLevelForm.Brand);
+            Assert.AreEqual(vipLevelData.Code, submittedVipLevelForm.Code);
+            Assert.AreEqual(vipLevelData.Name, submittedVipLevelForm.Name);
+        }
+
+        [Test]
+        public void Can_deactivate_vip_level()
+        {
+            var vipLevelData = SeleniumTestDataGenerator.CreateValidVipLevelData(DefaultLicensee, DefaultBrand);
+
+            var newForm = _vipLevelsPage.OpenNewVipLevelForm();
+            var submittedForm = newForm.Submit(vipLevelData);
+            submittedForm.CloseTab("View VIP Level");
+
+            _driver.SelectRecordInGrid(vipLevelData.Name, searchBoxId: "vip-level-name-search", searchButtonId: "vip-level-name-search-button");
+            var deactivateDialog = _vipLevelsPage.OpenDeactivateDialog();
+            deactivateDialog.Deactivate();
+
+            _driver.FilterGrid(vipLevelData.Name, searchBoxId: "vip-level-name-search",
+                searchButtonId: "vip-level-name-search-button");
+
+            Assert.IsTrue(_vipLevelsPage.CheckDeactivatedVipLevelStatus());
+        }
+    }
+}
+=======
+using AFT.RegoV2.Core.Shared.Data;
+using AFT.RegoV2.Tests.Common;
+using AFT.RegoV2.Tests.Common.Base;
+using AFT.RegoV2.Tests.Common.Extensions;
+using AFT.RegoV2.Tests.Common.Pages.BackEnd;
+using NUnit.Framework;
+
+namespace AFT.RegoV2.Tests.Selenium
+{
+    class VipLevelManagerTests : SeleniumBaseForAdminWebsite
+    {
+        private const string DefaultLicensee = "Flycow";
+        private const string DefaultBrand = "138";
+        private DashboardPage _dashboardPage;
+        VipLevelManagerPage _vipLevelsPage;
+
+        public override void BeforeEach()
+        {
+            base.BeforeEach();
+
+            _driver.Manage().Cookies.DeleteAllCookies();
+            _dashboardPage = _driver.LoginToAdminWebsiteAsSuperAdmin();
+        }
+
+        [Test, CategorySmoke]
+        public void Can_create_vip_level_with_product_limit()
+        {
+            //create a product
+            var productName = "product" + TestDataGenerator.GetRandomString(5);
+            
+            var productManagerPage = _dashboardPage.Menu.ClickProductManagerMenuItem();
+            var newProductForm = productManagerPage.OpenNewProductForm();
+            var submittedProductForm = newProductForm.Submit(productName, "Casino", "Token");
+            
+            //add a product to a licensee
+            var licenseeManagerPage = submittedProductForm.Menu.ClickLicenseeManagerItem();
+            var editLicenseeForm = licenseeManagerPage.OpenEditLicenseeForm(DefaultLicensee);
+            var viewLicenseeForm = editLicenseeForm.EditAssignedProducts(productName);
+            viewLicenseeForm.CloseTab("View Licensee");
+            
+            //assign a product to the default brand
+            var supportedProductsPage = licenseeManagerPage.Menu.ClickSupportedProductsMenuItem();
+            var manageProductsPage = supportedProductsPage.OpenManageProductsPage();
+            var editedLicenseeForm = manageProductsPage.AssignProduct(DefaultLicensee, DefaultBrand, productName);
+            
+            //add a bet level to the product
+            var betLevelName = TestDataGenerator.GetRandomString(5);
+            var betLevelCode = TestDataGenerator.GetRandomString(4);
+            var betLevelNameCode = string.Format(betLevelCode + " " + "-" + " " + betLevelName);
+            
+            var betLevelsPage = editedLicenseeForm.Menu.ClickBetLevelsMenuItem();
+            var newBetLevelForm = betLevelsPage.OpenNewBetLevelForm();
+            newBetLevelForm.SelectProduct(productName);
+            newBetLevelForm.AddBetLevelDetails(betLevelName, betLevelCode);
+            var submittedBetLevelForm = newBetLevelForm.Submit();
+            
+            // create a vip level
+            var vipLevelData = SeleniumTestDataGenerator.CreateValidVipLevelData(DefaultLicensee, DefaultBrand);
+            
+            _vipLevelsPage = submittedBetLevelForm.Menu.ClickVipLevelManagerMenuItem();
+            var newVipLevelForm = _vipLevelsPage.OpenNewVipLevelForm();
+            newVipLevelForm.EnterVipLevelDetails(vipLevelData);
+            newVipLevelForm.AddProductLimit(productName, betLevelNameCode, "CAD");
+            var submittedVipLevelForm = newVipLevelForm.Submit();
+
+            Assert.AreEqual("VIP Level has been created successfully.", submittedVipLevelForm.ConfirmationMessage);
+            Assert.AreEqual(vipLevelData.Licensee, submittedVipLevelForm.Licensee);
+            Assert.AreEqual(vipLevelData.Brand, submittedVipLevelForm.Brand);
+            Assert.AreEqual(vipLevelData.Code, submittedVipLevelForm.Code);
+            Assert.AreEqual(vipLevelData.Name, submittedVipLevelForm.Name);
+        }
+
+        [Test]
+        public void Can_deactivate_vip_level()
+        {
+            var vipLevelData = SeleniumTestDataGenerator.CreateValidVipLevelData(DefaultLicensee, "831");
+
+            //create a vip level for brand '831'
+            _vipLevelsPage = _dashboardPage.Menu.ClickVipLevelManagerMenuItem();
+            var newForm = _vipLevelsPage.OpenNewVipLevelForm();
+            var submittedForm = newForm.Submit(vipLevelData);
+            submittedForm.CloseTab("View VIP Level");
+
+            //deactivate the vip level
+            _driver.SelectRecordInGrid(vipLevelData.Name, searchBoxId: "vip-level-name-search", searchButtonId: "vip-level-name-search-button");
+            var deactivateDialog = _vipLevelsPage.OpenDeactivateDialog();
+            deactivateDialog.Deactivate();
+            _driver.FilterGrid(vipLevelData.Name, searchBoxId: "vip-level-name-search",
+                searchButtonId: "vip-level-name-search-button");
+
+            Assert.IsTrue(_vipLevelsPage.CheckDeactivatedVipLevelStatus());
+        }
+    }
+}
+>>>>>>> origin/develop

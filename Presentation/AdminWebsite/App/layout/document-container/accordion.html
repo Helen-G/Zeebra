@@ -1,0 +1,22 @@
+﻿<div data-bind="foreach: items" class="accordion-style1 panel-group accordion-style2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-bind="click: $root.selectItem.bind($root, $root.activeItem() != $data ? $data : null), css: { collapsed: $root.activeItem() != $data }, attr: { id: signature.id }">
+                    <i class="bigger-110 ace-icon fa" data-bind="css: $root.activeItem() == $data ? 'fa-angle-down' : 'fa-angle-right'"></i>
+                    &nbsp;<span data-bind="text: signature.title"></span>
+                </a>
+            </h4>
+        </div>
+        <div class="panel-collapse" data-bind="visibleAnimated: $root.activeItem() == $data" style="height: auto;">
+            <div class="panel-body">
+                <!-- ko if: documentModel() != null -->
+                <div class="document-loader">
+                    <center><img src="Content/images/loading.gif"/></center>
+                </div>
+                <div data-bind="compose: { model: documentModel, activationData: signature.data }" style="visibility: hidden;"></div>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</div>

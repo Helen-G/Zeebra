@@ -1,0 +1,12 @@
+﻿<div data-bind="attr: {id: naming.homeId}">
+	<div class="jqgrid-title-bar" data-bind="attr: {id: naming.titleBarId}">
+		<div class="btn-group pull-right">
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: add, visible: isAddAllowed"><i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: edit, enable: selectedRowId, visible: isEditAllowed"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: showActivateDialog, enable: selectedRowId && !isActive(), visible: isActivateAllowed"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.activate"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: showActivateDialog, enable: selectedRowId && isActive(), visible: isDeactivateAllowed"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.deactivate"></span></button>
+		</div>
+	</div>
+	<table data-bind="attr: {id: naming.gridBodyId}"></table>
+	<div data-bind="attr: {id: naming.pagerId}"></div>
+</div>

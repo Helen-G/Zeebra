@@ -1,0 +1,180 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="widget-box">
+                <div class="widget-header">
+                    <h4 class="widget-title smaller">Base Info</h4>
+                </div>
+                <div class="widget-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Licensee</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.Licensee"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Brand</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.Brand"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Username</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.Username"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Reference Code</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.ReferenceCode"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Status</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.Status"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Internal Account</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.InternalAccount"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Currency</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.Currency"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Payment Method</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.PaymentMethod"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Amount</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.Amount"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Sumitted by</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.Submitted"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Date Submitted</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: baseInfo.DateSubmitted"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="widget-box">
+                <div class="widget-header">
+                    <h4 class="widget-title smaller">Bank Information</h4>
+                </div>
+                <div class="widget-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Bank Name</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: bankInformation.BankName, visible: !isSubmitted()"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Bank Account Name</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: bankInformation.BankAccountName, visible: !isSubmitted()"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Bank Account Number</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: bankInformation.BankAccountNumber, visible: !isSubmitted()"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Branch</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: bankInformation.Branch, visible: !isSubmitted()"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Swift Code</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: bankInformation.Swift, visible: !isSubmitted()"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Address</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: bankInformation.Address, visible: !isSubmitted()"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">City</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: bankInformation.City, visible: !isSubmitted()"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="">Province</label>
+                        <div class="col-sm-8 field-box">
+                            <p class="form-control-static" data-bind="text: bankInformation.Province, visible: !isSubmitted()"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span data-i18n="app:common.remarks"></span> <span class="red">*</span></label>
+                <div class="col-sm-8 field-box">
+                    <textarea class="form-control" data-bind="value: remark, visible: !isSubmitted() "></textarea><span class="red" data-bind="validationMessage: remark"></span>
+                    <span class="red"></span>
+                    <p class="form-control-static" data-bind="text: remark, visible: isSubmitted()"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="clearfix form-actions">
+                <div class="center">
+                    <button class="btn btn-info btn-round" data-bind="click: close, visible: !isSubmitted()">Cancel</button>
+                    <button class="btn btn-info btn-round" data-bind="click: close, visible: isSubmitted()">Close</button>
+                    <button class="btn btn-white btn-round" data-bind="click: submit, visible: !isSubmitted()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

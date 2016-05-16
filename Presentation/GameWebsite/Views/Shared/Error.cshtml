@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+    var m = Model;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+    <style type="text/css"> 
+        code {
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <hgroup>
+        <h1>Error.</h1>
+        <h2>An error occurred while processing your request.</h2>
+        <hr/>
+        <code>
+            @m.Exception.ToString()
+        </code>
+    </hgroup>
+</body>
+</html>

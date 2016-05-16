@@ -1,0 +1,107 @@
+﻿<div id="add-role-home">
+    <div data-bind="visible: message, text: message, css: messageCss"></div>
+    <form role="form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="admin.roleFields.roleCode"></span> <span class="red">*</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="form-control" data-bind="value: Model.code, visible: !isReadOnly()" />
+                <span class="red" data-bind="validationMessage: Model.code"></span>
+                <p class="form-control-static" data-bind="text: Model.code, visible: isReadOnly"></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="admin.roleFields.roleName"></span> <span class="red">*</span>
+            </label>
+            <div class="col-sm-8">
+                <input class="form-control" data-bind="value: Model.name, visible: !isReadOnly()" />
+                <span class="red" data-bind="validationMessage: Model.name"></span>
+                <p class="form-control-static" data-bind="text: Model.name, visible: isReadOnly"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="admin.roleFields.roleLicensee"></span><span class="red">*</span>
+            </label>
+            <div data-bind="multiSelect: {
+        allItems: Model.licensees,
+        optionsText: 'name',
+        optionsValue: 'id',
+        selected: {
+            labelText: 'admin.roleFields.assignedLicensees',
+            items: Model.assignedLicensees},
+        availableLabelText: 'admin.roleFields.availableLicensees'}, visible: !isReadOnly() && !Model.isLicenseeLocked()"></div>
+            <span class="red" data-bind="validationMessage: Model.assignedLicensees"></span>
+            <div class="col-sm-8">
+                <p class="form-control-static" data-bind="text: Model.displayLicensees, visible: isReadOnly() || Model.isLicenseeLocked()"></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="admin.roleFields.roleDescription"></span>
+            </label>
+            <div class="col-sm-8">
+                <textarea class="form-control" data-bind="value: Model.description, visible: !isReadOnly()" />
+                <p class="form-control-static" data-bind="text: Model.description, visible: isReadOnly"></p>
+            </div>
+        </div>
+
+        <div class="form-group" data-bind=" visible: !isReadOnly()">
+            <label class="col-sm-3 control-label">
+                <span data-i18n="admin.roleFields.copyFromRole"></span>
+            </label>
+            <div class="col-sm-8">
+                <select class="form-control" data-bind="options: Model.roles, value: Model.roleId, optionsText: 'name', optionsValue: 'id', optionsCaption: 'Select Role'"></select>
+            </div>
+        </div>
+
+        <div class="center">
+            <div id="security-grid" data-bind="grid: {
+                    source: gridHelper.roles,
+                    tree: { parent: 'parentId' }
+                }, visible: !isReadOnly()">
+
+                <header>
+                    <div id="permission-search-form" action="#" class="pull-left">
+                        <input id="permission-search" type="text" placeholder="Permission" />
+                        <button id="permission-search-button" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+                    </div>
+
+                    <div class="btn-group pull-left">
+                        <button class="btn btn-sm btn-primary btn-round" data-bind="click: expandGrid"><i class="ace-icon fa fa-caret-down"></i> <span data-i18n="app:common.expand"></span></button>
+                        <button class="btn btn-sm btn-primary btn-round" data-bind="click: collapseGrid"><i class="ace-icon fa fa-caret-right"></i> <span data-i18n="app:common.collapse"></span></button>
+                    </div>
+                </header>
+
+                <column hidden data-value="@id" />
+                <column hidden data-value="@level" />
+                <column hidden data-value="@sortkey" />
+                <column title="app:common.name" width="500" data-value="@name" />
+                <column title="Allowed">
+                    <input type="checkbox" data-value="~$root.Model.checkedPermissions().indexOf @id" />
+                </column>
+            </div>
+
+            <div id="view-permissions-grid" data-bind="grid: { source: Model.selectedModules  }, visible: isReadOnly">
+                <column hidden data-value="@id" />
+                <column title="Module" data-value="@name"></column>
+                <column title="Permissions" data-value="@permissions"></column>
+            </div>
+        </div>
+
+        <div class=" clearfix form-actions">
+            <div class="center">
+                <button class="btn btn-white btn-round" data-bind="click: cancel, text: cancelText" data-i18n="common.cancel"></button>
+                &nbsp; &nbsp; &nbsp;
+                <button class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+                &nbsp; &nbsp; &nbsp;
+                <button class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="common.save"></button>
+            </div>
+        </div>
+    </form>
+
+    <table id="role-permissions-list"></table>
+</div>

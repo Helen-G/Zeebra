@@ -1,0 +1,11 @@
+﻿<form action="#" class="pull-left">
+    <div class="input-search-wrap">
+        <input type="text" placeholder="Search" data-bind="value: $root.search" />
+        <i class="fa fa-times fa-color-blue"></i>
+    </div>
+    <button id="search-button" type="submit" class="btn btn-xs btn-primary btn-round"><i class="fa fa-search"></i></button>
+    <i class="fa fa-caret-down fa-2x fa-color-blue" data-bind="click: showFilter, visible: !filtersExpanded()"></i>
+    <i class="fa fa-caret-up fa-2x fa-color-blue" data-bind="click: hideFilter, visible: filtersExpanded()"></i>
+    <span data-bind="actionButtons: { buttons: buttons(), context: parentContext }"></span>
+    <div class="custom-filters" data-bind="visible: filtersExpanded, compose: { model: 'controls/filters', activationData: [ filters ] }"></div>
+</form>

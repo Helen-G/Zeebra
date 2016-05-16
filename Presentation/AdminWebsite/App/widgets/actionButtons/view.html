@@ -1,0 +1,19 @@
+﻿<div class="btn-group">
+    <!-- ko foreach: outsideButtons -->
+    <button class="btn btn-sm btn-primary btn-round" data-bind="click: btnClick, visible: visible, css: { disabled: disabled, 'btn-success': isGreen, 'btn-danger': isRed }, attr: { name: name }">
+        <i class="ace-icon fa" data-bind="css: icon, visible: iconVisible"></i>
+        <span data-bind="text: text"></span>
+    </button>
+    <!-- /ko -->
+    <div class="btn-more-wrap" data-bind="visible: moreVisible">
+        <button class="btn btn-sm btn-primary btn-round" data-bind="click: toggleMoreExpanded"><i class="ace-icon fa" data-bind="css: { 'fa-caret-down': !moreExpanded(), 'fa-caret-up': moreExpanded() }"></i> More</button>
+        <ul id="list-more" data-bind="foreach: insideButtons, visible: moreExpanded">
+            <li class="bg-primary">
+                <a data-bind="click: btnClick, visible: visible, css: { disabled: disabled }, attr: { name: name }">
+                    <i class="ace-icon fa" data-bind="css: icon, visible: iconVisible"></i>
+                    <span data-bind="text: text"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

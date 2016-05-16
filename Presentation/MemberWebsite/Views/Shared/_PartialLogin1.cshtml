@@ -1,0 +1,149 @@
+<section class="site-header">
+    <div class="container">
+        <div class="header-left"><img src="~/Content/images/logo.png" alt="" class="header_logo"></div>
+        <div class="header-right">
+            <div id="login-wrapper" class="login-wrapper">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <a href="#forgotPassword" target="_blank" data-toggle="modal" class="small">Forgot login details?</a>
+                        </div>
+                        <div class="form-group">
+                            Hi, @User.Identity.Name
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-login" data-bind="click: logout">Logout</button>
+                        </div>
+                        <div class="dropdown inline-block drop-select-language">
+                            <button id="selectLanguage" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>English</span><i class="flag flag-us"></i><span class="caret"></span></button>
+                            <ul role="menu" aria-labelledby="selectLanguage" class="dropdown-menu">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://uiux-regov2-member-website.flycowdev.com/en-us/Home/Register"><i class="flag flag-us"></i>English</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://uiux-regov2-member-website.flycowdev.com/zh-cn/Home/Register"><i class="flag flag-cn"></i>??</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://uiux-regov2-member-website.flycowdev.com/ja-jp/Home/Register"><i class="flag flag-jp"></i>???</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://uiux-regov2-member-website.flycowdev.com/es-es/Home/Register"><i class="flag flag-es"></i>Espanol</a></li>
+                            </ul>
+                        </div>
+                    </form>
+                    //@Html.ActionLink("English", "SetCulture", new { cultureCode = "en-US", returnPath = Request.Url.AbsoluteUri }, new { @class = "btn-info btn-xs" })
+                    //@Html.ActionLink("??", "SetCulture", new { cultureCode = "zh-TW", returnPath = Request.Url.AbsoluteUri }, new { @class = "btn-default btn-xs" })
+
+
+                }
+                else
+                {
+                    <form class="form-inline" role="form" data-bind="submit: signIn">
+                        <div class="form-group">
+                            <span class="not-a-member">Not a member yet ? </span>
+                            <a href="#" class="join-now" data-bind="click: toRegister, enable: !requestInProgress()">join now</a>
+                        </div>
+
+                        <div class="form-group" data-bind="css: {'has-error': username.hasError()}">
+                            <input type=" text" class="form-control" placeholder="Username" autofocus data-bind="value: username">
+                        </div>
+
+                        <div class="form-group password" data-bind="css: {'has-error': password.hasError()}">
+                            <input type="password" class="form-control" placeholder="Password" data-bind="value: password">
+                            <p><a href="#forgotPassword" target="_blank" data-toggle="modal" class="small">Forgot Password?</a></p>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-login" type="submit" data-bind="enable: !requestInProgress()">login</button>
+                        </div>
+
+                        <div class="dropdown inline-block drop-select-language">
+                            <button id="selectLanguage" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>English</span><i class="flag flag-us"></i><span class="caret"></span></button>
+                            <ul role="menu" aria-labelledby="selectLanguage" class="dropdown-menu">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://uiux-regov2-member-website.flycowdev.com/en-us/Home/Register"><i class="flag flag-us"></i>English</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://uiux-regov2-member-website.flycowdev.com/zh-cn/Home/Register"><i class="flag flag-cn"></i>??</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://uiux-regov2-member-website.flycowdev.com/ja-jp/Home/Register"><i class="flag flag-jp"></i>???</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://uiux-regov2-member-website.flycowdev.com/es-es/Home/Register"><i class="flag flag-es"></i>Espanol</a></li>
+                            </ul>
+                        </div>
+                    </form>
+                    //@Html.ActionLink("English", "SetCulture", new { cultureCode = "en-US", returnPath = Request.Url.AbsoluteUri }, new { @class = "btn-info btn-xs" })
+                    //@Html.ActionLink("??", "SetCulture", new { cultureCode = "zh-TW", returnPath = Request.Url.AbsoluteUri }, new { @class = "btn-default btn-xs" })
+                    
+                    // Add Modal to show messages
+                    <div class="modal fade" id="login-messages">
+                        <div class="modal-dialog modal-warning text-center">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><i class="fa fa-fw fa-times-circle"></i></button>
+                                    <h5 class="modal-title">Error</h5>
+
+                                    <ul data-bind="foreach: messages" class="modal-list">
+                                        <li data-bind="text: $data"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                }
+
+                <div id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="forgotPassword" aria-hidden="true" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content modal-info text-left">
+                            <div class="modal-body">
+                                <button data-dismiss="modal" aria-label="Close" class="close"><i class="fa fa-fw fa-times-circle"></i></button>
+                                <div class="modal-password-step step-1">
+                                    <h5 class="modal-title">Forgot password?</h5>
+                                    <p style="margin-bottom: 1.5em">Please enter your username and email to reset your password.</p>
+                                    <div class="row form-group">
+                                        <label class="control-label col-md-8 col-md-offset-2">Username:</label>
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <input type="text" placeholder="username" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-md-8 col-md-offset-2">Email:</label>
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <input type="email" placeholder="email@example.com" class="form-control">
+                                            <p style="margin-top: .5em"><small><em>*Once you reset the password you will be asked to answer a security question.</em></small></p>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 1.5em; margin-bottom: 1.5em" class="row">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <button id="forgetPasswordSubmit" type="button" class="btn btn-info btn-block">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-password-step step-2">
+                                    <h5 class="modal-title">We sent you an email with a link to reset your password.</h5>
+                                    <p>An email will only be sent if the email is associated to a your account.</p>
+                                    <div style="margin-top: 1.5em; margin-bottom: 1.5em" class="row">
+                                        <div class="col-md-4 col-md-offset-2">
+                                            <button type="button" class="btn btn-info btn-block">Sign in</button>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-info btn-block">Contact support</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</section>
+
+<nav class="site-menu-wrapper">
+    <ul class="site-menu">
+        <li id="home"><a href="/" class="active"><span>home        </span></a></li>
+        <li id="register"><a href="https://www.demo.com/register.html"><span>Register      </span></a></li>
+        <li id="casino"><a href="http://www.demo.com/games.html"><span>casino</span></a></li>
+        <li id="live"><a href="http://www.demo.com/live-casino.html"><span>Live Casino           </span></a></li>
+        <li id="bingo"><a href="http://www.demo.com/bingo.html"><span>Bingo</span></a></li>
+        <li id="cashier"><a href="https://www.demo.com/deposit.html"><span>cashier</span></a></li>
+        <li id="promotions"><a href="http://www.demo.com/promotions.html"><span>promotions</span></a></li>
+        <li id="news"><a href="http://www.demo.com/news.html"><span>news</span></a></li>
+        <li id="support" class="last"><a href="http://www.demo.com/support.html"><span>support</span></a></li>
+    </ul>
+</nav>
+

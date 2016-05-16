@@ -1,0 +1,150 @@
+﻿<div class="alert" style="" data-bind="visible: displayMessage, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" enctype="multipart/form-data" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: username"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Currency</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: currencyCode"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Player Name</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: playerName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Amount</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: amount"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Brand</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: brand"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.referenceCode"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: transactionNumber"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Payment Method</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: paymentMethod"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Status</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: status"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Submitted By</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: createdBy"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Date Submitted</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: created"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Verified By</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: verifiedBy"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Date Verified</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: verified"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Bank Account ID</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankAccountId"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Bank Name</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Province</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankProvince"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Bank Branch</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankBranch"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Bank Account Name</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankAccountName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Bank Account Number</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankAccountNumber"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: actualAmountFieldId() }" class="col-sm-3 control-label">Actual Amount <span class="red">*</span></label>
+        <div class="col-sm-8">
+            <input name="actualAmount" class="form-control" data-bind="attr: { id: actualAmountFieldId() }, value: actualAmount, visible: !submitted()" /> <span class="red" data-bind="validationMessage: actualAmount"></span>
+            <p class="form-control-static" data-bind="text: actualAmount, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: feeFieldId() }" class="col-sm-3 control-label">Fee</label>
+        <div class="col-sm-8">
+            <input name="fee" class="form-control" data-bind="attr: { id: feeFieldId() }, value: fee, visible: !submitted()" /> <span class="red" data-bind="validationMessage: fee"></span>
+            <p class="form-control-static" data-bind="text: fee, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: playerRemarkFieldId() }" class="col-sm-3 control-label">Player Remark</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" data-bind="attr: { id: playerRemarkFieldId() }, value: playerRemark, visible: !submitted()"></textarea> <span class="red" data-bind="validationMessage: playerRemark"></span>
+            <p class="form-control-static" data-bind="visible: submitted, text: playerRemark"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: remarkFieldId() }" class="col-sm-3 control-label">Remark <span class="red">*</span></label>
+        <div class="col-sm-8">
+            <textarea class="form-control" data-bind="attr: { id: remarkFieldId() }, value: remark, visible: !submitted()"></textarea> <span class="red" data-bind="validationMessage: remark"></span>
+            <p class="form-control-static" data-bind="visible: submitted, text: remark"></p>
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-white btn-round" data-bind="click: close, visible: !submitted()">Cancel</button>
+
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-success btn-round" data-bind="click: submit, visible: !submitted() && action() == 'approve'">Approve</button>
+            <button type="submit" class="btn btn-warning  btn-round" data-bind="click: submit, visible: !submitted() && action() == 'reject'">Reject</button>
+            <button type="button" class="btn btn-info btn-round" data-bind="click: close, visible: submitted">Close</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,69 @@
+<form role="form" class="form-horizontal">
+    <div class="alert alert-success" data-bind="visible: created" data-i18n="bonus.bonusManager.createdSuccessfully"></div>
+    <div class="alert alert-success" data-bind="visible: edited" data-i18n="bonus.bonusManager.editedSuccessfully"></div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="common.licensee"></label>
+        <label class="col-sm-8 control-label" data-bind="text: LicenseeName" style="text-align: left;"></label>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="common.brand"></label>
+        <label class="col-sm-8 control-label" data-bind="text: BrandName" style="text-align: left;"></label>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.template"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: vTemplateName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.name"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Name"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.code"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: vCode"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.activityRange"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: vActivityRange"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.common.description"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static-multilines" data-bind="text: Description"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.bonusFields.application"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.bonusFields.applicationDescr"></h6>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.duration"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: vDuration"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.bonusFields.issuance"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.bonusFields.issuanceDescr"></h6>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.allowClaim"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static"><span data-bind="text: DaysToClaim"></span> <span data-i18n ="bonus.bonusFields.allowClaimAppendix"></span></p>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-white btn-round" data-bind="click: cancel" data-i18n="common.close"></button>
+        </div>
+    </div>
+</form>

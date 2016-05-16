@@ -1,0 +1,33 @@
+﻿namespace AFT.RegoV2.Core.Report.Data.Admin
+{
+    public enum AdminActivityLogCategory
+    {
+        Brand,
+        Licensee,
+        Currency,
+        Language,
+        Country,
+        VipLevel,
+        BackendIPRegulation,
+        PlayerIPRegulation,
+        Report,
+        WithdrawalCreated,
+        BankAccount,
+        ContentTranslation,
+        FraudRiskLevel,
+        TransferFundSettings,
+        OfflineDeposit,
+        Bank,
+        PlayerBankAccount,
+        PaymentSetings,
+        Wallet,
+        Bonus,
+        Player,
+        Role,
+        User,
+        PaymentLevel,
+        Game,
+        Product,
+        IdentificationDocumentSettings
+    }
+}

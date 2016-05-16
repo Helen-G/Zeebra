@@ -1,0 +1,87 @@
+﻿using System.Web.Http.Dependencies;
+using AFT.RegoV2.BoundedContexts.Brand;
+using AFT.RegoV2.BoundedContexts.Event;
+using AFT.RegoV2.BoundedContexts.Report;
+using AFT.RegoV2.Core.Domain.GameServerIntegration;
+using AFT.RegoV2.Core.Domain.Player;
+using AFT.RegoV2.Core.Services.Security;
+using AFT.RegoV2.Domain;
+using AFT.RegoV2.Domain.Bonus;
+
+using AFT.RegoV2.Domain.Payment;
+using AFT.RegoV2.Infrastructure.DataAccess.Bonus;
+using AFT.RegoV2.Infrastructure.DataAccess.Brand;
+using AFT.RegoV2.Infrastructure.DataAccess.Event;
+using AFT.RegoV2.Infrastructure.DataAccess.GameServerIntegration;
+using AFT.RegoV2.Infrastructure.DataAccess.MessageTemplate;
+using AFT.RegoV2.Infrastructure.DataAccess.Payment.Repository;
+using AFT.RegoV2.Infrastructure.DataAccess.Player.Repository;
+using AFT.RegoV2.Infrastructure.DataAccess.Report;
+using AFT.RegoV2.Infrastructure.DataAccess.Wallet;
+using AFT.RegoV2.Infrastructure.DependencyResolution;
+using AFT.RegoV2.WinService.Workers;
+using Microsoft.Practices.Unity;
+using Quartz;
+using Quartz.Impl;
+using Quartz.Spi;
+using Unity.WebApi;
+using WinService.Workers;
+using AFT.RegoV2.Domain.BoundedContexts.Wallet;
+
+namespace AFT.RegoV2.WinService
+{
+	class WinServiceContainer
+	{
+		private static IUnityContainer _container;
+
+		static WinServiceContainer()
+		{
+			_container = new ApplicationContainer();
+		}
+
+		public static IUnityContainer GetContainer()
+        {
+			_container.RegisterType<IReportRepository, ReportRepository>();
+			_container.RegisterType<IBrandRepository, BrandRepository>();
+			_container.RegisterType<IPlayerRepository, PlayerRepository>();
+			_container.RegisterType<IGameServerIntegrationRepository, GameServerIntegrationRepository>();
+			_container.RegisterType<IEventRepository, EventRepository>();
+			_container.RegisterType<IBonusRepository, BonusRepository>();
+			_container.RegisterType<IMessageTemplateRepository, MessageTemplateRepository>();
+			_container.RegisterType<IPaymentRepository, PaymentRepository>();
+			_container.RegisterType<ISecurityRepository, SecurityRepository>();
+			_container.RegisterType<IWalletRepository, WalletRepository>();
+			_container.RegisterType<IJobFactory, UnityJobFactory>();
+			_container.RegisterInstance<ISchedulerFactory>(new StdSchedulerFactory());
+
+			_container.RegisterType<CompositeWorker>();
+			_container.RegisterType<IDependencyResolver, UnityDependencyResolver>();
+
+			_container.RegisterType<IWorker, WebApiWorker>("WebApi");
+			_container.RegisterType<IWorker, SmsNotificationWorker>("SmsNotifications");
+			_container.RegisterType<IWorker, EmailNotificationWorker>("EmailNotifications");
+
+            #region Reports
+
+            // Player Reports
+            _container.RegisterType<IWorker, PlayerReportWorker>("PlayerReport");
+            _container.RegisterType<IWorker, PlayerBetHistoryReportWorker>("PlayerBetHistoryReport");
+
+            // Payment Reports
+            _container.RegisterType<IWorker, DepositReportWorker>("DepositReport");
+
+            // Brand Reports
+            _container.RegisterType<IWorker, BrandReportWorker>("BrandReport");
+            _container.RegisterType<IWorker, LicenseeReportWorker>("LicenseeReport");
+<<<<<<< HEAD
+			_container.RegisterType<IWorker, BonusWorker>("BonusWorker");
+=======
+            _container.RegisterType<IWorker, VipLevelReportWorker>("VipLevelReport");
+
+            #endregion
+
+>>>>>>> develop
+            return _container;
+		}
+    }
+}

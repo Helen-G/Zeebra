@@ -1,0 +1,36 @@
+<div id="redemption-grid" data-bind="grid: {
+        source: '/Redemption/Data',
+        fields: ['Id', 'PlayerId', 'Username', 'BonusName', 'LicenseeName', 'BrandName', 'Amount', 'ActivationState',
+                 'Rollover', 'LockedAmount', 'RolloverState', 'CreatedOn', 'UpdatedOn'],
+        filter: ko.computed(function() { return {
+            'Player.Name': search()
+        }}),
+        defaultSort: { field: 'Player.Name' },
+        paging: true,
+        useResizeManager: true,
+        useBrandFilter: true
+    }">
+    <header>
+        <form id="redemption-search" action="#" class="pull-left">
+            <input id="redemption-username-search" type="text" data-i18n="[placeholder]common.username" />
+            <button id="redemption-username-search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openViewTab, enable: redemptionId"><i class="ace-icon fa fa-file-text-o"></i> <span data-i18n="common.view"></span></button>
+            <button class="btn btn-sm btn-danger btn-round" data-bind="click: cancel, enable: canBeCanceled"><i class="ace-icon fa fa-trash-o"></i> <span data-i18n="common.cancel"></span></button>
+        </div>
+    </header>
+    <column name="Id" hidden data-value="@Id" />
+    <column name="PlayerId" hidden data-value="@PlayerId" />
+    <column title="app:common.username" sort-field="Player.Name" width="150" data-value="@Username" />
+    <column title="app:bonus.bonusFields.name" sort-field="Bonus.Name" width="150" data-value="@BonusName" />
+    <column title="app:common.licensee" width="130" data-value="@LicenseeName" />
+    <column title="app:common.brand" width="120" data-value="@BrandName" />
+    <column title="app:bonus.templateFields.bonusAmount" sort-field="Amount" width="120" data-value="@Amount" />
+    <column title="app:bonus.redemptionFields.activationState" sort-field="ActivationState" width="120" data-value="$root.activationFormatter.call @" />
+    <column title="app:bonus.redemptionFields.rollover" sort-field="Rollover" width="200" data-value="@Rollover" />
+    <column title="app:bonus.redemptionFields.lockedAmount" sort-field="LockedAmount" width="120" data-value="@LockedAmount" />
+    <column title="app:bonus.redemptionFields.rolloverState" sort-field="RolloverState" width="100" data-value="$root.rolloverFormatter.call @" />
+    <column title="app:common.dateCreated" sort-field="CreatedOn" width="150" data-value="@CreatedOn" />
+    <column title="app:common.dateUpdated" sort-field="UpdatedOn" width="150" data-value="@UpdatedOn" />
+</div>

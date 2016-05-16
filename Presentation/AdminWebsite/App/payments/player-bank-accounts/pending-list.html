@@ -1,0 +1,15 @@
+﻿<div data-bind="attr: {id: naming.homeId}" class="tab-pane in active">
+    <div class="jqgrid-title-bar" data-bind="attr: {id: naming.titleBarId}">
+        <form data-bind="attr: {id: naming.searchFormId}" action="#" class="pull-left">
+            <input data-bind="attr: {id: naming.searchNameFieldId}" type="text" data-i18n="[placeholder]app:banks.bankAccountName" />
+            <button data-bind="attr: {id: naming.searchButtonId}" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openViewTab, visible: isViewAllowed, enable: selectedRowId"><i class="ace-icon fa fa-file-text-o"></i> <span data-i18n="app:common.view"></span></button>
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: openVerifyDialog, visible: isVerifyAllowed, enable: selectedRowId"><i class="ace-icon fa fa-check"></i> <span data-i18n="app:common.verify"></span></button>
+            <button class="btn btn-sm btn-danger btn-round" data-bind="click: openRejectDialog, visible: isRejectAllowed, enable: selectedRowId"><i class="ace-icon fa fa-ban"></i> <span data-i18n="app:common.reject"></span></button>
+        </div>
+    </div>
+    <table data-bind="attr: {id: naming.gridBodyId}"></table>
+    <div data-bind="attr: {id: naming.pagerId}"></div>
+</div>

@@ -1,0 +1,31 @@
+﻿<div>
+    <div id="currencyexchange-list" data-bind="grid: {
+        source: '/CurrencyExchange/Data',
+        fields: gridFields(),
+        filter: baseFilter,
+        defaultSort: { field: 'CurrencyTo.Code' },
+        paging: defaultPaging,
+        useResizeManager: true,
+    }">
+        <header>
+            <form class="pull-left" id="currency-name-search">
+                <div class="custom-filters" data-bind="visible: filterVisible, compose: { model: 'controls/filters', activationData: [filterColumns(), filtersCriteria()] }"></div>
+                <button type="submit" class="btn btn-sm btn-white btn-round" id="currency-name-search-button" data-i18n="app:common.search"></button>
+            </form>
+            <div class="btn-group pull-right" id="currencyexchange-home">
+                <button class="btn btn-sm btn-primary btn-round" data-bind="click: showFilter, visible: filterInvisible"><i class="ace-icon fa fa-filter"></i> <span data-i18n="app:report.common.showFilter"></span></button>
+                <button class="btn btn-sm btn-primary btn-round" data-bind="click: hideFilter, visible: filterVisible"><i class="ace-icon fa fa-filter"></i> <span data-i18n="app:report.common.hideFilter"></span></button>
+                <button id="new-currencyexchange" class="btn btn-sm btn-success btn-round" data-bind="click: openAddTab, visible: isAddAllowed"><i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span></button>
+                <button id="edit-currencyexchange" class="btn btn-sm btn-primary btn-round" data-bind="click: openEditTab, visible: isEditAllowed, enable: id, css: { disabled: isBaseCurrency() }"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span></button>
+                <button id="view-currencyexchange" class="btn btn-sm btn-primary btn-round" data-bind="click: openViewTab, visible: isViewAllowed, enable: id"><i class="ace-icon fa fa-file-text-o"></i> <span data-i18n="app:common.view"></span></button>
+            </div>
+        </header>
+        <column title="app:common.licensee" sort-field="Brand.LicenseeName" width="120" data-value="@['Brand.LicenseeName']" />
+        <column title="app:common.brand" sort-field="Brand.Name" width="120" data-value="@['Brand.Name']" />
+        <column title="app:currencies.currencyCode" sort-field="CurrencyTo.Code" width="120" data-value="@['CurrencyTo.Code']" />
+        <column title="app:currencies.currencyName" sort-field="CurrencyTo.Name" width="200" data-value="@['CurrencyTo.Name']" />
+        <column title="app:currencies.exchangeRate" sort-field="CurrentRate" width="120" data-value="@CurrentRate.toFixed 2" />
+        <column title="app:currencies.baseCurrency" sort-field="IsBaseCurrency" width="120" data-value="if @IsBaseCurrency then 'Yes' else 'No'" />
+    </div>
+</div>
+

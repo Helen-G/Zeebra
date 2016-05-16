@@ -1,0 +1,48 @@
+﻿<div>
+    <div data-bind="grid: {
+        source: [{name: 'Alex', age: 12}, {name: 'Max', age: 30}]
+    }">
+        <column data-value='"Hello, #{@name}. You are one of #{$parent.length} people."' width="500" />
+        <column title="Is adult?" data-value="if @age < 18 then 'Child' else 'Adult'" />
+    </div>
+    <br />
+    <div id="bonus-grid" data-bind="grid: {
+        source: '/Bonus/BonusData',
+        fields: ['Name', 'Code', 'Type', 'IsFirstDeposit', 'Mode', 'ActiveFrom', 'ActiveTo', 'Licensee', 'BrandId', 'Product', 'IsActive', 'CreatedBy', 'CreatedOn', 'UpdatedBy', 'UpdatedOn', 'Remark'],
+        filter: ko.computed(function() { return {
+            'Template.BrandId': shell.brand() ? shell.brand().id() : null,
+            Name: search()
+        }}),
+        defaultSort: { field: 'Name' },
+        paging: true,
+        useResizeManager: true
+    }">
+        <header>
+            <form id="bonus-search" action="#" class="pull-left">
+                <input id="name-search" type="text" data-i18n="[placeholder]app:common.name" />
+                <button type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+            </form>
+            <div class="btn-group pull-right">
+                <button class="btn btn-sm btn-success btn-round" data-bind="click: openAddBonusTab"><i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span></button>
+                <button class="btn btn-sm btn-primary btn-round" data-bind="click: openEditBonusTab, css: { disabled: !bonusId() }"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span></button>
+                <button class="btn btn-sm btn-primary btn-round" data-bind="click: openViewBonusTab, css: { disabled: !bonusId() }"><i class="ace-icon fa fa-file-text-o"></i> <span data-i18n="app:common.view"></span></button>
+                <button class="btn btn-sm btn-primary btn-round" data-bind="click: function(){showModalDialog(true)}, css: { disabled: !bonusId() || isBonusActive() }"><i class="ace-icon fa fa-bolt"></i> <span data-i18n="common.activate"></span></button>
+                <button class="btn btn-sm btn-primary btn-round" data-bind="click: function(){showModalDialog(false)}, css: { disabled: !isBonusActive() }"><i class="ace-icon fa fa-ban"></i> <span data-i18n="common.deactivate"></span></button>
+            </div>
+        </header>
+        <column title="app:common.name" sort-field="Name" width="200" data-value="@Name" />
+        <column title="app:bonus.bonusFields.code" sort-field="Code" width="120" data-value="@Code" />
+        <column title="app:common.type" sort-field="Type" width="120" data-value="$root.typeFormatter.call @" />
+        <column title="app:bonus.templateFields.mode" width="100" data-value="@Mode" />
+        <column title="app:bonus.bonusFields.startDate" sort-field="ActiveFrom" width="100" data-value="@ActiveFrom" />
+        <column title="app:bonus.bonusFields.endDate" sort-field="ActiveTo" width="100" data-value="@ActiveTo" />
+        <column title="app:common.licensee" width="130" data-value="@Licensee" />
+        <column title="app:brand.name" sort-field="BrandId" width="120" data-value="$root.brandFormatter.call @" />
+        <column title="app:payment.product" width="100" data-value="@Product" />
+        <column title="app:bonus.bonusFields.status" sort-field="IsActive" width="80" data-value="$root.statusFormatter.call @" />
+        <column title="app:common.createdBy" sort-field="CreatedBy" width="130" data-value="@CreatedBy" />
+        <column title="app:common.dateCreated" sort-field="CreatedOn" width="150" data-value="@CreatedOn" />
+        <column title="app:common.updatedBy" sort-field="UpdatedBy" width="130" data-value="@UpdatedBy" />
+        <column title="app:common.dateUpdated" sort-field="UpdatedOn" width="150" data-value="@UpdatedOn" />
+    </div>
+</div>

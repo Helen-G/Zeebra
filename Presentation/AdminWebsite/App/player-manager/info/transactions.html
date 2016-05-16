@@ -1,0 +1,41 @@
+<div data-bind="grid: {
+            source: 'PlayerInfo/Transactions',
+            fields: ['Type', 'Amount', 'Balance', 'CreatedOn', 'Wallet', 'Currency', 'Description', 'PerformedBy', 'TransactionId'],
+            filter: ko.computed(function() { return { }}),
+            defaultSort: { field: 'CreatedOn', direction: 'desc' },
+            paging: true,
+            useResizeManager: { height: 600 },
+            sendAlso: ko.computed(function() { return [ { playerId: playerId }]; })
+        }">
+    <header>
+        <form action="#" class="pull-left">
+            <div class="custom-filters" data-bind="compose: { model: 'controls/filters', activationData:
+                [[
+                ['CreatedOn', 'Date', 'date'],
+                ['Wallet', 'Wallet', 'list', walletsName()],
+                ['CurrencyCode', 'Currency', 'list', ['CAD']],
+                ['Type', 'Type', 'list', transactionTypeNames()],
+                ['MainBalanceAmount', 'Amount', 'numeric'],
+                ['MainBalance', 'Balance', 'numeric'],
+                ['Description', 'Description', 'text'],
+                ['PerformedBy', 'Performed By', 'text'],
+                ['TransactionId', 'Transaction ID', 'text'],
+                ]] }">
+            </div>
+            <button id="transactions-search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+    </header>
+    <column title="app:playerManager.transactions.date" sort-field="CreatedOn" width="180" data-value="$root.moment(@CreatedOn).format 'YYYY-MM-DD hh:mm:ssA'" />
+    <column title="app:playerManager.transactions.wallet" sort-field="Wallet" width="180" data-value="@Wallet" />
+    <column title="app:playerManager.transactions.currency" sort-field="Currency" width="180" data-value="@Currency" />
+    <column title="app:playerManager.transactions.type" sort-field="Type" width="200" data-value="$root.typeFormatter.call @" />
+    <column title="app:playerManager.transactions.amount" sort-field="Amount" width="180">
+        <div class="pull-right" data-value="@Amount.toFixed 2"></div>
+    </column>
+    <column title="app:playerManager.transactions.balance" sort-field="Balance" width="180">
+        <div class="pull-right" data-value="@Balance.toFixed 2"></div>
+    </column>
+    <column title="app:playerManager.transactions.description" sort-field="Description" width="250" data-value="@Description" />
+    <column title="app:playerManager.transactions.performedBy" sort-field="PerformedBy" width="180" data-value="@PerformedBy" />
+    <column title="app:playerManager.transactions.transactionId" sort-field="TransactionId" width="250" data-value="@TransactionId" />
+</div>

@@ -1,0 +1,11 @@
+﻿<div>
+    <div data-bind="compose: { view: 'layout/shell/header' }"></div>
+    <div class="main-container" id="main-container">
+        <div data-bind="compose: nav.sidebar"></div>
+        <div class="main-content" id="main-content" data-bind="compose: { view: 'layout/document-container/documents', model: nav.mainContainer }"></div>
+    </div>
+    <div class="navbar-fixed-bottom">
+        <div class="container-fluid" data-bind="compose: { view: 'layout/document-container/tabs', model: nav.mainContainer }"></div>
+    </div>
+    <div id="initial-loader"></div>
+</div>

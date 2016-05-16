@@ -1,0 +1,2925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AF5B416D-7007-447B-B7CE-ED79B3B42086}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AFT.RegoV2.AdminWebsite</RootNamespace>
+    <AssemblyName>AFT.RegoV2.AdminWebsite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
+    <NuGetPackageImportStamp>9429ffdd</NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>$(SolutionDir)\packages\FluentValidation.5.1.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc">
+      <HintPath>$(SolutionDir)\packages\FluentValidation.MVC4.5.1.0.0\lib\Net40\FluentValidation.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>$(SolutionDir)\packages\ServiceStack.Common.3.9.71\lib\net35\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>$(SolutionDir)\packages\ServiceStack.Common.3.9.71\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>$(SolutionDir)\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(SolutionDir)\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Mvc4">
+      <HintPath>$(SolutionDir)\packages\Unity.Mvc4.1.4.0.0\lib\net45\Unity.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>$(SolutionDir)\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>$(SolutionDir)\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>$(SolutionDir)\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminWebsiteContainerFactory.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="BOResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BOResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ErrorHandling\HandleApplicationErrorAttribute.cs" />
+    <Compile Include="Common\ErrorHandling\SessionExpireAttributte.cs" />
+    <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Common\Format.cs" />
+    <Compile Include="Common\IpFiltering\AuthorizeIPAddressAttribute.cs" />
+    <Compile Include="Common\jqGridHelper.cs" />
+    <Compile Include="Common\jqGrid\ComparisonOperator.cs" />
+    <Compile Include="Common\jqGrid\GridFilter.cs" />
+    <Compile Include="Common\jqGrid\GridSetting.cs" />
+    <Compile Include="Common\jqGrid\jqGridHtmlHelper.cs" />
+    <Compile Include="Common\jqGrid\Navigator.cs" />
+    <Compile Include="Common\jqGrid\SearchOption.cs" />
+    <Compile Include="Common\jqGrid\SearchPackage.cs" />
+    <Compile Include="Common\jqGrid\SearchPackageFilter.cs" />
+    <Compile Include="Common\jqGrid\SearchResult.cs" />
+    <Compile Include="Common\jqGrid\JSFunctionConverter.cs" />
+    <Compile Include="Common\LabelHelper.cs" />
+    <Compile Include="Common\ListHelper.cs" />
+    <Compile Include="Common\ControllerEx.cs" />
+    <Compile Include="Common\Logger\ElmahErrorLogger.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Admin\AuthenticationLogController.cs" />
+    <Compile Include="Controllers\Admin\AdminIpRegulationsController.cs" />
+    <Compile Include="Controllers\Admin\AdminActivityLogController.cs" />
+    <Compile Include="Controllers\Admin\AdminManagerController.cs" />
+    <Compile Include="Controllers\Admin\BrandIpRegulationsController.cs" />
+    <Compile Include="Controllers\Admin\IdentificationDocumentSettingsController.cs" />
+    <Compile Include="Controllers\AutoVerificationController.cs" />
+    <Compile Include="Controllers\BankAccountsController.cs" />
+    <Compile Include="Controllers\Bonus\BonusTemplateController.cs" />
+    <Compile Include="Controllers\Bonus\PlayerBonusController.cs" />
+    <Compile Include="Controllers\CurrencyExchangeController.cs" />
+    <Compile Include="Controllers\Fraud\FraudController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\PlayerBankAccountController.cs" />
+    <Compile Include="Controllers\BanksController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\BetLevelsController.cs" />
+    <Compile Include="Controllers\Player\AddPlayerCommand.cs" />
+    <Compile Include="Controllers\Player\ChangeVipLevelCommand.cs" />
+    <Compile Include="Controllers\Player\EditPlayerCommand.cs" />
+    <Compile Include="Controllers\Player\SendNewPasswordCommand.cs" />
+    <Compile Include="Controllers\WageringController.cs" />
+    <Compile Include="Controllers\TransferSettingsController.cs" />
+    <Compile Include="Controllers\Bonus\RedemptionController.cs" />
+    <Compile Include="Controllers\GameIntegration\GamesController.cs" />
+    <Compile Include="Controllers\GameIntegration\GameProvidersController.cs" />
+    <Compile Include="Controllers\MessageTemplateController.cs" />
+    <Compile Include="Controllers\VipManagerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OfflineWithdrawController.cs" />
+    <Compile Include="Controllers\OfflineDepositController.cs" />
+    <Compile Include="Controllers\Bonus\BonusController.cs" />
+    <Compile Include="Controllers\LicenseeController.cs" />
+    <Compile Include="Controllers\PaymentSettingsController.cs" />
+    <Compile Include="Controllers\PaymentLevelController.cs" />
+    <Compile Include="Controllers\Player\PlayerInfoController.cs" />
+    <Compile Include="Controllers\Player\PlayerManagerController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\Admin\RoleManagerController.cs" />
+    <Compile Include="Controllers\WalletController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ValidationErrors.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationErrors.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Validators\LoginValidator.cs" />
+    <Compile Include="Validators\ProductSettingsValidator.cs" />
+    <Compile Include="ViewModels\Content\BaseMessageTemplateModel.cs" />
+    <Compile Include="ViewModels\Content\AddMessageTemplateModel.cs" />
+    <Compile Include="ViewModels\Content\EditMessageTemplateModel.cs" />
+    <Compile Include="ViewModels\EditIpRegulationModel.cs" />
+    <Compile Include="ViewModels\EditRoleModel.cs" />
+    <Compile Include="ViewModels\EditUserModel.cs" />
+    <Compile Include="ViewModels\EditVipLevelModel.cs" />
+    <Compile Include="ViewModels\EditLicenseeModel.cs" />
+    <Compile Include="ViewModels\EditPaymentLevelModel.cs" />
+    <Compile Include="ViewModels\GameIntegration\EditGameServerModel.cs" />
+    <Compile Include="ViewModels\HtmlExtensions.cs" />
+    <Compile Include="ViewModels\IdentificationDocumentSettingsModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\OfflineDepositViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\AuthUser.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\UserDataViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App\admin\admin-authentication-log\request-headers.html" />
+    <Content Include="App\admin\admin-authentication-log\request-headers.js">
+      <DependentUpon>request-headers.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-authentication-log\request-headers.min.js">
+      <DependentUpon>request-headers.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\dialogs\reset-password-dialog.html" />
+    <Content Include="App\admin\admin-manager\dialogs\reset-password-dialog.js">
+      <DependentUpon>reset-password-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\dialogs\reset-password-dialog.min.js">
+      <DependentUpon>reset-password-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\add.html" />
+    <Content Include="App\admin\identification-document-settings\add.js">
+      <DependentUpon>add.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\add.min.js">
+      <DependentUpon>add.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\edit.html" />
+    <Content Include="App\admin\identification-document-settings\edit.js">
+      <DependentUpon>edit.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\edit.min.js">
+      <DependentUpon>edit.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\list.html" />
+    <Content Include="App\admin\identification-document-settings\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\model\model.js">
+      <DependentUpon>model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\model\model.min.js">
+      <DependentUpon>model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\member-authentication-log\list.html" />
+    <Content Include="App\admin\member-authentication-log\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\member-authentication-log\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-authentication-log\list.html" />
+    <Content Include="App\admin\admin-authentication-log\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-authentication-log\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-activity-log\remark-dialog.html" />
+    <Content Include="App\admin\admin-activity-log\list.html" />
+    <Content Include="App\admin\admin-activity-log\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-activity-log\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-activity-log\remark-dialog.js">
+      <DependentUpon>remark-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-activity-log\remark-dialog.min.js">
+      <DependentUpon>remark-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\add-user.html" />
+    <Content Include="App\admin\admin-manager\add-user.js">
+      <DependentUpon>add-user.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\add-user.min.js">
+      <DependentUpon>add-user.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\dialogs\user-status-dialog.html" />
+    <Content Include="App\admin\admin-manager\dialogs\user-status-dialog.js">
+      <DependentUpon>user-status-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\dialogs\user-status-dialog.min.js">
+      <DependentUpon>user-status-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\edit-user.html" />
+    <Content Include="App\admin\admin-manager\edit-user.js">
+      <DependentUpon>edit-user.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\edit-user.min.js">
+      <DependentUpon>edit-user.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\list.html" />
+    <Content Include="App\admin\admin-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\model\user-model.js">
+      <DependentUpon>user-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\model\user-model.min.js">
+      <DependentUpon>user-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\reset-password.html" />
+    <Content Include="App\admin\admin-manager\reset-password.js">
+      <DependentUpon>reset-password.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\reset-password.min.js">
+      <DependentUpon>reset-password.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\view-user.html" />
+    <Content Include="App\admin\admin-manager\view-user.js">
+      <DependentUpon>view-user.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\view-user.min.js">
+      <DependentUpon>view-user.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\admin-add-edit-ip-regulation.html" />
+    <Content Include="App\admin\ip-regulations\admin\admin-add-edit-ip-regulation.js">
+      <DependentUpon>admin-add-edit-ip-regulation.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\admin-add-edit-ip-regulation.min.js">
+      <DependentUpon>admin-add-edit-ip-regulation.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\list.html" />
+    <Content Include="App\admin\ip-regulations\admin\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\model\admin-ip-regulation-model.js">
+      <DependentUpon>admin-ip-regulation-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\model\admin-ip-regulation-model.min.js">
+      <DependentUpon>admin-ip-regulation-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\base\ip-regulation-model-base.js">
+      <DependentUpon>ip-regulation-model-base.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\base\ip-regulation-model-base.min.js">
+      <DependentUpon>ip-regulation-model-base.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\brand-add-edit-ip-regulation.html" />
+    <Content Include="App\admin\ip-regulations\brand\brand-add-edit-ip-regulation.js">
+      <DependentUpon>brand-add-edit-ip-regulation.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\brand-add-edit-ip-regulation.min.js">
+      <DependentUpon>brand-add-edit-ip-regulation.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\list.html" />
+    <Content Include="App\admin\ip-regulations\brand\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\model\brand-ip-regulation-model.js">
+      <DependentUpon>brand-ip-regulation-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\model\brand-ip-regulation-model.min.js">
+      <DependentUpon>brand-ip-regulation-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\add-role.html" />
+    <Content Include="App\admin\role-manager\add-role.js">
+      <DependentUpon>add-role.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\add-role.min.js">
+      <DependentUpon>add-role.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\edit-role.html" />
+    <Content Include="App\admin\role-manager\edit-role.js">
+      <DependentUpon>edit-role.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\edit-role.min.js">
+      <DependentUpon>edit-role.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\helpers\grid-helper.js">
+      <DependentUpon>grid-helper.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\helpers\grid-helper.min.js">
+      <DependentUpon>grid-helper.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\list.html" />
+    <Content Include="App\admin\role-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\model\role-model.js">
+      <DependentUpon>role-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\model\role-model.min.js">
+      <DependentUpon>role-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\view-role.html" />
+    <Content Include="App\admin\role-manager\view-role.js">
+      <DependentUpon>view-role.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\view-role.min.js">
+      <DependentUpon>view-role.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-grid-viewmodel.js">
+      <DependentUpon>base-grid-viewmodel.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-grid-viewmodel.min.js">
+      <DependentUpon>base-grid-viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-model.js">
+      <DependentUpon>base-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-model.min.js">
+      <DependentUpon>base-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-view-model.js">
+      <DependentUpon>base-view-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-view-model.min.js">
+      <DependentUpon>base-view-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\binders\visibleAnimated.js">
+      <DependentUpon>visibleAnimated.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\binders\visibleAnimated.min.js">
+      <DependentUpon>visibleAnimated.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\activate-dialog.js">
+      <DependentUpon>activate-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\activate-dialog.min.js">
+      <DependentUpon>activate-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\activate-dialog.html" />
+    <Content Include="App\bonus\bonus-manager\add-edit-bonus.html" />
+    <Content Include="App\bonus\bonus-manager\add-edit-bonus.js">
+      <DependentUpon>add-edit-bonus.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\add-edit-bonus.min.js">
+      <DependentUpon>add-edit-bonus.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\bonusBase.js">
+      <DependentUpon>bonusBase.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\bonusBase.min.js">
+      <DependentUpon>bonusBase.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\view-bonus.html" />
+    <Content Include="App\bonus\bonus-manager\view-bonus.js">
+      <DependentUpon>view-bonus.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\view-bonus.min.js">
+      <DependentUpon>view-bonus.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonusCommon.js">
+      <DependentUpon>bonusCommon.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonusCommon.min.js">
+      <DependentUpon>bonusCommon.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\dateBinders.js">
+      <DependentUpon>dateBinders.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\dateBinders.min.js">
+      <DependentUpon>dateBinders.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\redemption-manager\list.html" />
+    <Content Include="App\bonus\redemption-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\redemption-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\redemption-manager\view-redemption.html" />
+    <Content Include="App\bonus\redemption-manager\view-redemption.js">
+      <DependentUpon>view-redemption.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\redemption-manager\view-redemption.min.js">
+      <DependentUpon>view-redemption.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\games-dialog.html" />
+    <Content Include="App\bonus\template-manager\availability.js">
+      <DependentUpon>availability.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\availability.min.js">
+      <DependentUpon>availability.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\bonusTier.js">
+      <DependentUpon>bonusTier.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\bonusTier.min.js">
+      <DependentUpon>bonusTier.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\changeTracker.js">
+      <DependentUpon>changeTracker.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\changeTracker.min.js">
+      <DependentUpon>changeTracker.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\games-dialog.js">
+      <DependentUpon>games-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\games-dialog.min.js">
+      <DependentUpon>games-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\info.js">
+      <DependentUpon>info.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\info.min.js">
+      <DependentUpon>info.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\notification.js">
+      <DependentUpon>notification.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\notification.min.js">
+      <DependentUpon>notification.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\RewardTier.js">
+      <DependentUpon>rewardTier.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\RewardTier.min.js">
+      <DependentUpon>RewardTier.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\rules.js">
+      <DependentUpon>rules.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\rules.min.js">
+      <DependentUpon>rules.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\summary.js">
+      <DependentUpon>summary.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\summary.min.js">
+      <DependentUpon>summary.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\wagering.js">
+      <DependentUpon>wagering.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\wagering.min.js">
+      <DependentUpon>wagering.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\wizard.html" />
+    <Content Include="App\bonus\template-manager\availability.html" />
+    <Content Include="App\bonus\template-manager\info.html" />
+    <Content Include="App\bonus\template-manager\list.html" />
+    <Content Include="App\bonus\template-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\notification.html" />
+    <Content Include="App\bonus\template-manager\rules.html" />
+    <Content Include="App\bonus\template-manager\summary.html" />
+    <Content Include="App\bonus\template-manager\wagering.html" />
+    <Content Include="App\bonus\template-manager\wizard.js">
+      <DependentUpon>wizard.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\wizard.min.js">
+      <DependentUpon>wizard.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\brand-manager\edit-brand.js" />
+    <Content Include="App\brand\brand-manager\add-brand.html" />
+    <Content Include="App\brand\brand-manager\add-brand.js" />
+    <Content Include="App\brand\brand-manager\edit-brand.html" />
+    <Content Include="App\brand\brand-manager\list.html" />
+    <Content Include="App\brand\brand-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\brand-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\brand-manager\model\brand-model.js">
+      <DependentUpon>brand-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\brand-manager\model\brand-model.min.js">
+      <DependentUpon>brand-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\brand-manager\status-dialog.html" />
+    <Content Include="App\brand\brand-manager\status-dialog.js" />
+    <Content Include="App\brand\brand-manager\_list.js" />
+    <Content Include="App\brand\brand-manager\view-brand.html" />
+    <Content Include="App\brand\brand-manager\view-brand.js" />
+    <Content Include="App\brand\currencyexchange-manager\add-currencyexchange.html" />
+    <Content Include="App\brand\currencyexchange-manager\add-currencyexchange.js">
+      <DependentUpon>add-currencyexchange.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\add-currencyexchange.min.js">
+      <DependentUpon>add-currencyexchange.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\edit-currencyexchange.html" />
+    <Content Include="App\brand\currencyexchange-manager\edit-currencyexchange.js">
+      <DependentUpon>edit-currencyexchange.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\edit-currencyexchange.min.js">
+      <DependentUpon>edit-currencyexchange.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\list.html" />
+    <Content Include="App\brand\currencyexchange-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\model\currencyexchange-model.js">
+      <DependentUpon>currencyexchange-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\model\currencyexchange-model.min.js">
+      <DependentUpon>currencyexchange-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\view-currencyexchange.html" />
+    <Content Include="App\brand\currencyexchange-manager\view-currencyexchange.js">
+      <DependentUpon>view-currencyexchange.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\view-currencyexchange.min.js">
+      <DependentUpon>view-currencyexchange.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\product-manager\assign.html" />
+    <Content Include="App\brand\product-manager\assign.js" />
+    <Content Include="App\brand\translation-manager\add-translation.html" />
+    <Content Include="App\brand\translation-manager\add-translation.js">
+      <DependentUpon>add-translation.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\add-translation.min.js">
+      <DependentUpon>add-translation.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\dialogs\status-dialog.html" />
+    <Content Include="App\brand\translation-manager\dialogs\status-dialog.js">
+      <DependentUpon>status-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\dialogs\status-dialog.min.js">
+      <DependentUpon>status-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\edit-translation.html" />
+    <Content Include="App\brand\translation-manager\edit-translation.js">
+      <DependentUpon>edit-translation.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\edit-translation.min.js">
+      <DependentUpon>edit-translation.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\add-content-translation-model.js">
+      <DependentUpon>add-content-translation-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\add-content-translation-model.min.js">
+      <DependentUpon>add-content-translation-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\content-translation-model.js">
+      <DependentUpon>content-translation-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\content-translation-model.min.js">
+      <DependentUpon>content-translation-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\list.html" />
+    <Content Include="App\brand\translation-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\list.min.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\edit.html" />
+    <Content Include="App\content\message-templates\edit.js">
+      <DependentUpon>edit.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\edit.min.js">
+      <DependentUpon>edit.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\edit-template-model.js">
+      <DependentUpon>edit-template-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\edit-template-model.min.js">
+      <DependentUpon>edit-template-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\view-template-model.js">
+      <DependentUpon>view-template-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\view-template-model.min.js">
+      <DependentUpon>view-template-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\view.html" />
+    <Content Include="App\content\message-templates\add.js">
+      <DependentUpon>add.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\add.min.js">
+      <DependentUpon>add.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\add.html" />
+    <Content Include="App\content\message-templates\list.html" />
+    <Content Include="App\content\message-templates\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\add-template-model.js">
+      <DependentUpon>add-template-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\add-template-model.min.js">
+      <DependentUpon>add-template-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\view.js">
+      <DependentUpon>view.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\view.min.js">
+      <DependentUpon>view.js</DependentUpon>
+    </Content>
+    <Content Include="App\country-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\country-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\config.js">
+      <DependentUpon>config.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\config.min.js">
+      <DependentUpon>config.js</DependentUpon>
+    </Content>
+    <Content Include="App\currency-manager\edit.html" />
+    <Content Include="App\currency-manager\edit.js" />
+    <Content Include="App\currency-manager\list.html" />
+    <Content Include="App\currency-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\currency-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\currency-manager\status-dialog.html" />
+    <Content Include="App\currency-manager\status-dialog.js" />
+    <Content Include="App\currency-manager\view.html" />
+    <Content Include="App\currency-manager\view.js" />
+    <Content Include="App\DataGrouper.js" />
+    <Content Include="App\player-manager\info\bonus-descr-dialog.js">
+      <DependentUpon>bonus-descr-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bonus-descr-dialog.min.js">
+      <DependentUpon>bonus-descr-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bonus.html" />
+    <Content Include="App\player-manager\info\bonus.js">
+      <DependentUpon>bonus.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bonus.min.js">
+      <DependentUpon>bonus.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\documents-upload\upload-identification-doc.html" />
+    <Content Include="App\player-manager\documents-upload\upload-identification-doc.js">
+      <DependentUpon>upload-identification-doc.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\documents-upload\upload-identification-doc.min.js">
+      <DependentUpon>upload-identification-doc.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\confirm-dialog\confirm-dialog.html" />
+    <Content Include="App\player-manager\info\confirm-dialog\confirm-dialog.js">
+      <DependentUpon>confirm-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\confirm-dialog\confirm-dialog.min.js">
+      <DependentUpon>confirm-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\fraud-evaluation-add.html" />
+    <Content Include="App\player-manager\info\fraud-evaluation-add.js" />
+    <Content Include="App\fraud\verification\edit.html" />
+    <Content Include="App\fraud\verification\edit.js">
+      <DependentUpon>edit.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\edit.min.js">
+      <DependentUpon>edit.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\list.html" />
+    <Content Include="App\fraud\verification\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\WinningRule.js">
+      <DependentUpon>WinningRule.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\WinningRule.min.js">
+      <DependentUpon>WinningRule.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\document-container\accordion.html" />
+    <Content Include="App\payments\level-manager\deactivate-dialog.html" />
+    <Content Include="App\payments\level-manager\deactivate-dialog.js" />
+    <Content Include="App\payments\level-manager\deactivate-view-dialog.html" />
+    <Content Include="App\payments\level-manager\deactivate-view-dialog.js" />
+    <Content Include="App\payments\level-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\payments\level-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\payments\level-manager\activate-dialog.html" />
+    <Content Include="App\payments\level-manager\activate-dialog.js" />
+    <Content Include="App\player-manager\info\identity-verification.html" />
+    <Content Include="App\player-manager\info\identity-verification.js">
+      <DependentUpon>identity-verification.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\identity-verification.min.js">
+      <DependentUpon>identity-verification.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\fraud-evaluation.html" />
+    <Content Include="App\player-manager\info\fraud-evaluation.js">
+      <DependentUpon>fraud-evaluation.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\fraud-evaluation.min.js">
+      <DependentUpon>fraud-evaluation.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\fund-transfers.html" />
+    <Content Include="App\player-manager\info\fund-transfers.js">
+      <DependentUpon>fund-transfers.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\fund-transfers.min.js">
+      <DependentUpon>fund-transfers.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bonus-descr-dialog.html" />
+    <Content Include="App\player-manager\info\remark-dialog.js">
+      <DependentUpon>bonus-descr-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\remark-dialog.min.js">
+      <DependentUpon>remark-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\withdrawals.html" />
+    <Content Include="App\player-manager\info\withdrawals.js">
+      <DependentUpon>withdrawals.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\withdrawals.min.js">
+      <DependentUpon>withdrawals.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\deposits.html" />
+    <Content Include="App\player-manager\info\deposits.js">
+      <DependentUpon>deposits.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\deposits.min.js">
+      <DependentUpon>deposits.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bank-accounts.html" />
+    <Content Include="App\player-manager\info\bank-accounts.js">
+      <DependentUpon>bank-accounts.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bank-accounts.min.js">
+      <DependentUpon>bank-accounts.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\payment-methods.html" />
+    <Content Include="App\player-manager\info\payment-methods.js">
+      <DependentUpon>payment-methods.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\payment-methods.min.js">
+      <DependentUpon>payment-methods.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\activity-log.html" />
+    <Content Include="App\player-manager\info\activity-log.js">
+      <DependentUpon>activity-log.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\activity-log.min.js">
+      <DependentUpon>activity-log.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\restrictions.html" />
+    <Content Include="App\player-manager\info\restrictions.js">
+      <DependentUpon>restrictions.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\restrictions.min.js">
+      <DependentUpon>restrictions.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\balance.html" />
+    <Content Include="App\player-manager\info\balance.js">
+      <DependentUpon>balance.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\balance.min.js">
+      <DependentUpon>balance.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\account.html" />
+    <Content Include="App\player-manager\info\account.js">
+      <DependentUpon>account.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\account.min.js">
+      <DependentUpon>account.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info.html" />
+    <Content Include="App\player-manager\info.js">
+      <DependentUpon>info.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info.min.js">
+      <DependentUpon>info.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\approveRequests.js">
+      <DependentUpon>approveRequests.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\approveRequests.min.js">
+      <DependentUpon>approveRequests.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\requests.html" />
+    <Content Include="App\player-manager\offline-deposit\requests.js">
+      <DependentUpon>requests.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\requests.min.js">
+      <DependentUpon>requests.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\verifyRequests.html" />
+    <Content Include="App\player-manager\offline-deposit\verifyRequests.js">
+      <DependentUpon>verifyRequests.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\verifyRequests.min.js">
+      <DependentUpon>verifyRequests.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\products-manager\edit-gameProvider.js">
+      <DependentUpon>edit-gameProvider.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\product\products-manager\edit-gameProvider.min.js">
+      <DependentUpon>edit-gameProvider.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\report-menu.js">
+      <DependentUpon>report-menu.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\report-menu.min.js">
+      <DependentUpon>report-menu.js</DependentUpon>
+    </Content>
+    <Content Include="App\SimpleFormUtil.js" />
+    <Content Include="App\fraud\manager\add-edit.html" />
+    <Content Include="App\fraud\manager\add-edit.js" />
+    <Content Include="App\brand\translation-manager\model\edit-content-translation-model.js">
+      <DependentUpon>edit-content-translation-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\edit-content-translation-model.min.js">
+      <DependentUpon>edit-content-translation-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\manager\list.html" />
+    <Content Include="App\fraud\manager\list.js" />
+    <Content Include="App\controls\status-dialog.html" />
+    <Content Include="App\controls\status-dialog.js" />
+    <Content Include="App\fraud\wager\add.html" />
+    <Content Include="App\fraud\wager\add.js" />
+    <Content Include="App\fraud\wager\dialog.html" />
+    <Content Include="App\fraud\wager\dialog.js" />
+    <Content Include="App\fraud\wager\list.html" />
+    <Content Include="App\fraud\wager\list.js" />
+    <Content Include="App\licensee-manager\deactivation-warning-dialog.html" />
+    <Content Include="App\licensee-manager\deactivation-warning-dialog.js" />
+    <Content Include="App\licensee-manager\status-dialog.html" />
+    <Content Include="App\licensee-manager\status-dialog.js" />
+    <Content Include="App\licensee-manager\renew-contract.html" />
+    <Content Include="App\licensee-manager\renew-contract.js" />
+    <Content Include="App\payments\player-bank-accounts\pending-list.html" />
+    <Content Include="App\payments\player-bank-accounts\pending-list.js" />
+    <Content Include="App\payments\player-bank-accounts\result-dialog.html" />
+    <Content Include="App\payments\player-bank-accounts\result-dialog.js" />
+    <Content Include="App\payments\player-bank-accounts\status-dialog.html" />
+    <Content Include="App\payments\player-bank-accounts\status-dialog.js" />
+    <Content Include="App\payments\transfer-settings\details.html" />
+    <Content Include="App\payments\transfer-settings\details.js" />
+    <Content Include="App\payments\transfer-settings\list.html" />
+    <Content Include="App\payments\transfer-settings\list.js" />
+    <Content Include="App\payments\transfer-settings\status-dialog.html" />
+    <Content Include="App\payments\transfer-settings\status-dialog.js" />
+    <Content Include="App\payments\withdrawal\cancel.html" />
+    <Content Include="App\payments\withdrawal\cancel.js">
+      <DependentUpon>cancel.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\payments\withdrawal\cancel.min.js">
+      <DependentUpon>cancel.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\transactions.html" />
+    <Content Include="App\player-manager\info\transactions.js">
+      <DependentUpon>transactions.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\transactions.min.js">
+      <DependentUpon>transactions.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\bet-levels\BetLimit.js" />
+    <Content Include="App\product\bet-levels\edit.html" />
+    <Content Include="App\product\bet-levels\edit.js" />
+    <Content Include="App\brand\product-manager\list.html" />
+    <Content Include="App\brand\product-manager\list.js" />
+    <Content Include="App\brand\culture-manager\assign.html" />
+    <Content Include="App\brand\culture-manager\assign.js" />
+    <Content Include="App\brand\culture-manager\list.html" />
+    <Content Include="App\brand\culture-manager\list.js" />
+    <Content Include="App\product\bet-levels\list.html" />
+    <Content Include="App\product\bet-levels\list.js" />
+    <Content Include="App\licensee-manager\view-licensee.js" />
+    <Content Include="App\payments\withdrawal\helper.js" />
+    <Content Include="App\payments\withdrawal\listHelper.js" />
+    <Content Include="App\player-manager\info\activity-log-remark-dialog.html" />
+    <Content Include="App\player-manager\info\activity-log-remark-dialog.js">
+      <DependentUpon>activity-log-remark-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\activity-log-remark-dialog.min.js">
+      <DependentUpon>activity-log-remark-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\payments\player-bank-accounts\edit.html" />
+    <Content Include="App\payments\player-bank-accounts\edit.js" />
+    <Content Include="App\product\games-manager\edit.html" />
+    <Content Include="App\product\games-manager\edit.js" />
+    <Content Include="App\CommonNaming.js" />
+    <Content Include="App\controls\assign.js">
+      <DependentUpon>assign.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\controls\assign.min.js">
+      <DependentUpon>assign.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\column-selection-dialog.html" />
+    <Content Include="App\controls\column-selection-dialog.js">
+      <DependentUpon>column-selection-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\controls\column-selection-dialog.min.js">
+      <DependentUpon>column-selection-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\filters.html" />
+    <Content Include="App\controls\filters.js">
+      <DependentUpon>filters.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\controls\filters.min.js">
+      <DependentUpon>filters.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\grid.js">
+      <DependentUpon>grid.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\controls\grid.min.js">
+      <DependentUpon>grid.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\test\filterstest.html" />
+    <Content Include="App\controls\test\filterstest.js">
+      <DependentUpon>filterstest.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\controls\test\filterstest.min.js">
+      <DependentUpon>filterstest.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\test\gridtest.html" />
+    <Content Include="App\brand\country-manager\assign.html" />
+    <Content Include="App\brand\country-manager\assign.js" />
+    <Content Include="App\brand\country-manager\list.html" />
+    <Content Include="App\brand\country-manager\list.js" />
+    <Content Include="App\controls\test\gridtest.js">
+      <DependentUpon>gridtest.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\controls\test\gridtest.min.js">
+      <DependentUpon>gridtest.js</DependentUpon>
+    </Content>
+    <Content Include="App\culture-manager\edit.html" />
+    <Content Include="App\culture-manager\edit.js" />
+    <Content Include="App\culture-manager\list.html" />
+    <Content Include="App\culture-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\country-manager\edit.html" />
+    <Content Include="App\country-manager\edit.js" />
+    <Content Include="App\country-manager\list.html" />
+    <Content Include="App\culture-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\culture-manager\status-dialog.html" />
+    <Content Include="App\culture-manager\status-dialog.js" />
+    <Content Include="App\culture-manager\view.html" />
+    <Content Include="App\culture-manager\view.js" />
+    <Content Include="App\brand\currency-manager\assign.html" />
+    <Content Include="App\brand\currency-manager\assign.js" />
+    <Content Include="App\brand\currency-manager\list.html" />
+    <Content Include="App\brand\currency-manager\list.js" />
+    <Content Include="App\EntityFormUtil.js" />
+    <Content Include="App\bonus\bonus-manager\list.html" />
+    <Content Include="App\product\products-manager\edit-gameProvider.html" />
+    <Content Include="App\product\games-manager\list.html" />
+    <Content Include="App\product\games-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\product\games-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\home\dashboard.html" />
+    <Content Include="App\home\dashboard.js" />
+    <Content Include="App\layout\document-container\document-container.js">
+      <DependentUpon>document-container.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\layout\document-container\document-container.min.js">
+      <DependentUpon>document-container.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\document-container\documents.html" />
+    <Content Include="App\layout\document-container\tabs-documents.html" />
+    <Content Include="App\layout\document-container\tabs.html" />
+    <Content Include="App\layout\shell\header.html" />
+    <Content Include="App\layout\shell\main-menu.js">
+      <DependentUpon>main-menu.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\main-menu.min.js">
+      <DependentUpon>main-menu.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\nav.js">
+      <DependentUpon>nav.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\nav.min.js">
+      <DependentUpon>nav.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\shell.html" />
+    <Content Include="App\layout\shell\shell.js">
+      <DependentUpon>shell.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\shell.min.js">
+      <DependentUpon>shell.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\sidebar.html" />
+    <Content Include="App\layout\shell\sidebar.js">
+      <DependentUpon>sidebar.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\sidebar.min.js">
+      <DependentUpon>sidebar.js</DependentUpon>
+    </Content>
+    <Content Include="App\licensee-manager\edit.html" />
+    <Content Include="App\licensee-manager\edit.js" />
+    <Content Include="App\licensee-manager\list.html" />
+    <Content Include="App\licensee-manager\list.js" />
+    <Content Include="App\licensee-manager\view-licensee.html" />
+    <Content Include="App\locales\en-CA\app.json" />
+    <Content Include="App\logger.js" />
+    <Content Include="App\controls\column-selection-dialog.coffee" />
+    <Content Include="App\controls\column-selection-dialog.js.map">
+      <DependentUpon>column-selection-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\column-selection-dialog.min.js.map">
+      <DependentUpon>column-selection-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\add-edit-bonus.coffee" />
+    <Content Include="App\bonus\bonus-manager\add-edit-bonus.min.js.map">
+      <DependentUpon>add-edit-bonus.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\brand-manager\list.coffee" />
+    <Content Include="App\brand\brand-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\brand-manager\list.min.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\brand-manager\model\brand-model.coffee" />
+    <Content Include="App\brand\brand-manager\model\brand-model.js.map">
+      <DependentUpon>brand-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\brand-manager\model\brand-model.min.js.map">
+      <DependentUpon>brand-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\wizard.min.js.map">
+      <DependentUpon>wizard.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\changeTracker.coffee" />
+    <Content Include="App\bonus\template-manager\changeTracker.min.js.map">
+      <DependentUpon>changeTracker.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\culture-manager\list.coffee" />
+    <Content Include="App\culture-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\culture-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\info.coffee" />
+    <Content Include="App\bonus\template-manager\info.min.js.map">
+      <DependentUpon>info.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\games-manager\list.coffee" />
+    <Content Include="App\product\games-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\availability.coffee" />
+    <Content Include="App\bonus\template-manager\availability.min.js.map">
+      <DependentUpon>availability.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\rules.coffee" />
+    <Content Include="App\bonus\template-manager\rules.min.js.map">
+      <DependentUpon>rules.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\games-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\products-manager\edit-gameProvider.coffee" />
+    <Content Include="App\admin\role-manager\add-role.js.map">
+      <DependentUpon>add-role.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\add-role.min.js.map">
+      <DependentUpon>add-role.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\edit-role.js.map">
+      <DependentUpon>edit-role.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\edit-role.min.js.map">
+      <DependentUpon>edit-role.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\wagering.coffee" />
+    <Content Include="App\bonus\template-manager\wagering.min.js.map">
+      <DependentUpon>wagering.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\notification.coffee" />
+    <Content Include="App\bonus\template-manager\notification.min.js.map">
+      <DependentUpon>notification.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\summary.coffee" />
+    <Content Include="App\bonus\template-manager\summary.min.js.map">
+      <DependentUpon>summary.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\view-role.js.map">
+      <DependentUpon>view-role.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\view-role.min.js.map">
+      <DependentUpon>view-role.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\model\role-model.js.map">
+      <DependentUpon>role-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\model\role-model.min.js.map">
+      <DependentUpon>role-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\rewardTier.coffee" />
+    <Content Include="App\bonus\template-manager\RewardTier.min.js.map">
+      <DependentUpon>RewardTier.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\redemption-manager\list.coffee" />
+    <Content Include="App\bonus\redemption-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\redemption-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\redemption-manager\view-redemption.coffee" />
+    <Content Include="App\bonus\redemption-manager\view-redemption.min.js.map">
+      <DependentUpon>view-redemption.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\base\ip-regulation-model-base.js.map">
+      <DependentUpon>ip-regulation-model-base.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\base\ip-regulation-model-base.min.js.map">
+      <DependentUpon>ip-regulation-model-base.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\model\brand-ip-regulation-model.coffee" />
+    <Content Include="App\admin\ip-regulations\brand\model\brand-ip-regulation-model.js.map">
+      <DependentUpon>brand-ip-regulation-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\model\brand-ip-regulation-model.min.js.map">
+      <DependentUpon>brand-ip-regulation-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\brand-add-edit-ip-regulation.js.map">
+      <DependentUpon>brand-add-edit-ip-regulation.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\brand-add-edit-ip-regulation.min.js.map">
+      <DependentUpon>brand-add-edit-ip-regulation.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\list.coffee" />
+    <Content Include="App\admin\ip-regulations\admin\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\admin-add-edit-ip-regulation.coffee" />
+    <Content Include="App\admin\ip-regulations\admin\admin-add-edit-ip-regulation.js.map">
+      <DependentUpon>admin-add-edit-ip-regulation.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\admin-add-edit-ip-regulation.min.js.map">
+      <DependentUpon>admin-add-edit-ip-regulation.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\model\admin-ip-regulation-model.coffee" />
+    <Content Include="App\admin\ip-regulations\admin\model\admin-ip-regulation-model.js.map">
+      <DependentUpon>admin-ip-regulation-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\admin\model\admin-ip-regulation-model.min.js.map">
+      <DependentUpon>admin-ip-regulation-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-activity-log\list.coffee" />
+    <Content Include="App\admin\admin-activity-log\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-activity-log\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-activity-log\remark-dialog.coffee" />
+    <Content Include="App\admin\admin-activity-log\remark-dialog.js.map">
+      <DependentUpon>remark-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-activity-log\remark-dialog.min.js.map">
+      <DependentUpon>remark-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\locales\en-US\app.json" />
+    <Content Include="App\locales\en-GB\app.json" />
+    <Content Include="App\brand\translation-manager\list.coffee" />
+    <Content Include="App\brand\translation-manager\add-translation.coffee" />
+    <Content Include="App\brand\translation-manager\model\content-translation-model.coffee" />
+    <Content Include="App\brand\translation-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\add-translation.js.map">
+      <DependentUpon>add-translation.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\add-translation.min.js.map">
+      <DependentUpon>add-translation.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\dialogs\status-dialog.coffee" />
+    <Content Include="App\brand\translation-manager\dialogs\status-dialog.js.map">
+      <DependentUpon>status-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\dialogs\status-dialog.min.js.map">
+      <DependentUpon>status-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\edit-translation.coffee" />
+    <Content Include="App\brand\translation-manager\edit-translation.js.map">
+      <DependentUpon>edit-translation.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\edit-translation.min.js.map">
+      <DependentUpon>edit-translation.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\add-content-translation-model.coffee" />
+    <Content Include="App\brand\translation-manager\model\edit-content-translation-model.coffee" />
+    <Content Include="App\brand\translation-manager\model\content-translation-model.js.map">
+      <DependentUpon>content-translation-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\content-translation-model.min.js.map">
+      <DependentUpon>content-translation-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\edit-content-translation-model.js.map">
+      <DependentUpon>edit-content-translation-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\edit-content-translation-model.min.js.map">
+      <DependentUpon>edit-content-translation-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\add-content-translation-model.js.map">
+      <DependentUpon>add-content-translation-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\translation-manager\model\add-content-translation-model.min.js.map">
+      <DependentUpon>add-content-translation-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-authentication-log\list.coffee" />
+    <Content Include="App\admin\admin-authentication-log\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-authentication-log\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\member-authentication-log\list.coffee" />
+    <Content Include="App\admin\member-authentication-log\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\member-authentication-log\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-authentication-log\request-headers.coffee" />
+    <Content Include="App\admin\admin-authentication-log\request-headers.js.map">
+      <DependentUpon>request-headers.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-authentication-log\request-headers.min.js.map">
+      <DependentUpon>request-headers.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\dialogs\reset-password-dialog.coffee" />
+    <Content Include="App\admin\admin-manager\dialogs\reset-password-dialog.js.map">
+      <DependentUpon>reset-password-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\dialogs\reset-password-dialog.min.js.map">
+      <DependentUpon>reset-password-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\list.coffee" />
+    <Content Include="App\fraud\verification\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\edit.coffee" />
+    <Content Include="App\fraud\verification\edit.js.map">
+      <DependentUpon>edit.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\edit.min.js.map">
+      <DependentUpon>edit.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\WinningRule.coffee" />
+    <Content Include="App\bonus\template-manager\rewardTier.js.map">
+      <DependentUpon>RewardTier.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\rules.js.map">
+      <DependentUpon>rules.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\bonusTier.coffee" />
+    <Content Include="App\bonus\template-manager\bonusTier.js.map">
+      <DependentUpon>bonusTier.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\bonusTier.min.js.map">
+      <DependentUpon>bonusTier.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\summary.js.map">
+      <DependentUpon>summary.js</DependentUpon>
+    </Content>
+    <Content Include="App\currency-manager\list.coffee" />
+    <Content Include="App\currency-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\currency-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\availability.js.map">
+      <DependentUpon>availability.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\wizard.js.map">
+      <DependentUpon>wizard.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-grid-viewmodel.coffee" />
+    <Content Include="App\config.coffee" />
+    <Content Include="App\config.js.map">
+      <DependentUpon>config.js</DependentUpon>
+    </Content>
+    <Content Include="App\config.min.js.map">
+      <DependentUpon>config.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-grid-viewmodel.js.map">
+      <DependentUpon>base-grid-viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-grid-viewmodel.min.js.map">
+      <DependentUpon>base-grid-viewmodel.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\games-dialog.coffee" />
+    <Content Include="App\bonus\template-manager\games-dialog.min.js.map">
+      <DependentUpon>games-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\binders\visibleAnimated.coffee" />
+    <Content Include="App\binders\visibleAnimated.js.map">
+      <DependentUpon>visibleAnimated.js</DependentUpon>
+    </Content>
+    <Content Include="App\binders\visibleAnimated.min.js.map">
+      <DependentUpon>visibleAnimated.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\wallet\manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\wallet\manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\extensions.coffee" />
+    <Content Include="App\country-manager\list.coffee" />
+    <Content Include="App\country-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\country-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\add.coffee" />
+    <Content Include="App\admin\identification-document-settings\edit.coffee" />
+    <Content Include="App\admin\identification-document-settings\list.coffee" />
+    <Content Include="App\admin\identification-document-settings\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\add.js.map">
+      <DependentUpon>add.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\add.min.js.map">
+      <DependentUpon>add.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\model\model.coffee" />
+    <Content Include="App\admin\identification-document-settings\model\model.js.map">
+      <DependentUpon>model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\model\model.min.js.map">
+      <DependentUpon>model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\edit.js.map">
+      <DependentUpon>edit.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\identification-document-settings\edit.min.js.map">
+      <DependentUpon>edit.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\model\currencyexchange-model.coffee" />
+    <Content Include="App\brand\currencyexchange-manager\model\currencyexchange-model.js.map">
+      <DependentUpon>currencyexchange-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\model\currencyexchange-model.min.js.map">
+      <DependentUpon>currencyexchange-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\add-currencyexchange.coffee" />
+    <Content Include="App\brand\currencyexchange-manager\edit-currencyexchange.coffee" />
+    <Content Include="App\brand\currencyexchange-manager\list.coffee" />
+    <Content Include="App\brand\currencyexchange-manager\view-currencyexchange.coffee" />
+    <Content Include="App\brand\currencyexchange-manager\add-currencyexchange.js.map">
+      <DependentUpon>add-currencyexchange.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\add-currencyexchange.min.js.map">
+      <DependentUpon>add-currencyexchange.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\edit-currencyexchange.js.map">
+      <DependentUpon>edit-currencyexchange.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\edit-currencyexchange.min.js.map">
+      <DependentUpon>edit-currencyexchange.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\view-currencyexchange.js.map">
+      <DependentUpon>view-currencyexchange.js</DependentUpon>
+    </Content>
+    <Content Include="App\brand\currencyexchange-manager\view-currencyexchange.min.js.map">
+      <DependentUpon>view-currencyexchange.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\list.coffee" />
+    <Content Include="App\content\message-templates\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\list.min.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\WinningRule.js.map">
+      <DependentUpon>WinningRule.js</DependentUpon>
+    </Content>
+    <Content Include="App\fraud\verification\WinningRule.min.js.map">
+      <DependentUpon>WinningRule.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\add.coffee" />
+    <Content Include="App\content\message-templates\add.js.map">
+      <DependentUpon>add.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\add.min.js.map">
+      <DependentUpon>add.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\add-template-model.coffee" />
+    <Content Include="App\content\message-templates\models\add-template-model.js.map">
+      <DependentUpon>add-template-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\add-template-model.min.js.map">
+      <DependentUpon>add-template-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\view.coffee" />
+    <Content Include="App\content\message-templates\view.js.map">
+      <DependentUpon>view.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\view.min.js.map">
+      <DependentUpon>view.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\view-template-model.coffee" />
+    <Content Include="App\content\message-templates\models\view-template-model.js.map">
+      <DependentUpon>view-template-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\view-template-model.min.js.map">
+      <DependentUpon>view-template-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\edit.coffee" />
+    <Content Include="App\content\message-templates\edit.js.map">
+      <DependentUpon>edit.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\edit.min.js.map">
+      <DependentUpon>edit.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\edit-template-model.coffee" />
+    <Content Include="App\content\message-templates\models\edit-template-model.js.map">
+      <DependentUpon>edit-template-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\content\message-templates\models\edit-template-model.min.js.map">
+      <DependentUpon>edit-template-model.min.js</DependentUpon>
+    </Content>
+    <None Include="App\message-templates\messageTemplatesCommon.coffee" />
+    <Content Include="App\message-templates\messageTemplatesCommon.js">
+      <DependentUpon>messageTemplatesCommon.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\messageTemplatesCommon.min.js">
+      <DependentUpon>messageTemplatesCommon.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\add-template.html" />
+    <Content Include="App\message-templates\templates\add-template.js">
+      <DependentUpon>add-template.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\add-template.min.js">
+      <DependentUpon>add-template.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\edit-template.html" />
+    <Content Include="App\message-templates\templates\edit-template.js">
+      <DependentUpon>edit-template.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\edit-template.min.js">
+      <DependentUpon>edit-template.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\products-manager\list.html" />
+    <Content Include="App\product\products-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\product\products-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\messageTemplatesCommon.js.map">
+      <DependentUpon>messageTemplatesCommon.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\messageTemplatesCommon.min.js.map">
+      <DependentUpon>messageTemplatesCommon.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\list.coffee" />
+    <Content Include="App\message-templates\templates\list.html" />
+    <Content Include="App\message-templates\templates\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <None Include="App\message-templates\templates\messageTemplateBase.coffee" />
+    <Content Include="App\message-templates\templates\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\messageTemplateBase.js">
+      <DependentUpon>messageTemplateBase.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\messageTemplateBase.min.js">
+      <DependentUpon>messageTemplateBase.js</DependentUpon>
+    </Content>
+    <Content Include="App\payments\bank-accounts\add.html" />
+    <Content Include="App\payments\bank-accounts\add.js" />
+    <Content Include="App\payments\bank-accounts\status-dialog.html" />
+    <Content Include="App\payments\bank-accounts\status-dialog.js" />
+    <Content Include="App\payments\bank-accounts\list.html" />
+    <Content Include="App\payments\bank-accounts\list.js" />
+    <Content Include="App\payments\settings\details.html" />
+    <Content Include="App\payments\settings\details.js" />
+    <Content Include="App\payments\settings\list.html" />
+    <Content Include="App\payments\settings\list.js" />
+    <Content Include="App\payments\banks\add.html" />
+    <Content Include="App\payments\banks\add.js" />
+    <Content Include="App\payments\banks\list.html" />
+    <Content Include="App\payments\banks\list.js" />
+    <Content Include="App\payments\level-manager\edit.html" />
+    <Content Include="App\payments\level-manager\edit.js" />
+    <Content Include="App\payments\level-manager\list.html" />
+    <Content Include="App\payments\level-manager\_list.js" />
+    <Content Include="App\payments\settings\status-dialog.html" />
+    <Content Include="App\payments\settings\status-dialog.js" />
+    <Content Include="App\payments\withdrawal\acceptance.html" />
+    <Content Include="App\payments\withdrawal\acceptance.js" />
+    <Content Include="App\payments\withdrawal\investigate.html" />
+    <Content Include="App\payments\withdrawal\investigate.js" />
+    <Content Include="App\payments\withdrawal\onHoldRequests.html" />
+    <Content Include="App\payments\withdrawal\onHoldRequests.js" />
+    <Content Include="App\payments\withdrawal\approval.html" />
+    <Content Include="App\payments\withdrawal\approval.js" />
+    <Content Include="App\payments\withdrawal\failedAutoWagerRequests.html" />
+    <Content Include="App\payments\withdrawal\failedAutoWagerRequests.js" />
+    <Content Include="App\payments\withdrawal\acceptedRequests.html" />
+    <Content Include="App\payments\withdrawal\acceptedRequests.js" />
+    <Content Include="App\payments\withdrawal\checkWager.html" />
+    <Content Include="App\payments\withdrawal\checkWager.js" />
+    <Content Include="App\payments\withdrawal\verifiedRequests.html" />
+    <Content Include="App\payments\withdrawal\verifiedRequests.js" />
+    <Content Include="App\payments\withdrawal\verify.html" />
+    <Content Include="App\payments\withdrawal\verify.js" />
+    <Content Include="App\payments\withdrawal\request.html" />
+    <Content Include="App\payments\withdrawal\request.js" />
+    <Content Include="App\payments\withdrawal\requests.html" />
+    <Content Include="App\payments\withdrawal\requests.js" />
+    <Content Include="App\player-manager\change-vip-level-dialog.html" />
+    <Content Include="App\player-manager\change-vip-level-dialog.js" />
+    <Content Include="App\player-manager\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\model\player-model.js">
+      <DependentUpon>player-model.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\model\player-model.min.js">
+      <DependentUpon>player-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\approve.html" />
+    <Content Include="App\player-manager\offline-deposit\approve.js" />
+    <Content Include="App\player-manager\offline-deposit\bonus.js">
+      <DependentUpon>bonus.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\bonus.min.js">
+      <DependentUpon>bonus.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\verify.html" />
+    <Content Include="App\player-manager\offline-deposit\verify.js" />
+    <Content Include="App\player-manager\offline-deposit\approveRequests.html" />
+    <Content Include="App\JqGridUtil.js" />
+    <Content Include="App\player-manager\add.html" />
+    <Content Include="App\player-manager\add.js" />
+    <Content Include="App\player-manager\send-new-password-dialog.html" />
+    <Content Include="App\player-manager\send-new-password-dialog.js" />
+    <Content Include="App\reports\brand\language.html" />
+    <Content Include="App\reports\brand\language.js">
+      <DependentUpon>language.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\language.min.js">
+      <DependentUpon>language.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\vipLevel.html" />
+    <Content Include="App\reports\brand\licensee.html" />
+    <Content Include="App\reports\brand\brand.js">
+      <DependentUpon>brand.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\brand.min.js">
+      <DependentUpon>brand.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\licensee.js">
+      <DependentUpon>licensee.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\licensee.min.js">
+      <DependentUpon>licensee.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\vipLevel.js">
+      <DependentUpon>vipLevel.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\vipLevel.min.js">
+      <DependentUpon>vipLevel.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\list.html" />
+    <Content Include="App\reports\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\list.min.js">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\brand.html" />
+    <Content Include="App\reports\payment\deposit.html" />
+    <Content Include="App\reports\payment\deposit.js">
+      <DependentUpon>deposit.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\payment\deposit.min.js">
+      <DependentUpon>deposit.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\player\player-bet-history.html" />
+    <Content Include="App\reports\player\player-bet-history.js">
+      <DependentUpon>player-bet-history.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\player\player-bet-history.min.js">
+      <DependentUpon>player-bet-history.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\player\player.html" />
+    <Content Include="App\reports\player\player.js">
+      <DependentUpon>player.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\player\player.min.js">
+      <DependentUpon>player.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\report-base.js">
+      <DependentUpon>report-base.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\reports\report-base.min.js">
+      <DependentUpon>report-base.js</DependentUpon>
+    </Content>
+    <Content Include="App\ResizeManager.js" />
+    <Content Include="App\main.js" />
+    <Content Include="App\player-manager\offline-deposit\confirm.html" />
+    <Content Include="App\player-manager\offline-deposit\confirm.js" />
+    <Content Include="App\player-manager\offline-deposit\request.html" />
+    <Content Include="App\player-manager\offline-deposit\request.js" />
+    <Content Include="App\player-manager\list.html" />
+    <Content Include="App\player-manager\list.js">
+      <DependentUpon>list.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\utils.js">
+      <DependentUpon>utils.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\utils.min.js">
+      <DependentUpon>utils.js</DependentUpon>
+    </Content>
+    <Content Include="App\vip-manager\confirm-dialog.js">
+      <DependentUpon>confirm-dialog.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\vip-manager\confirm-dialog.min.js">
+      <DependentUpon>confirm-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\vip-manager\confirm-dialog.html" />
+    <Content Include="App\vip-manager\view.html" />
+    <Content Include="App\vip-manager\view.js" />
+    <Content Include="App\vip-manager\add.html" />
+    <Content Include="App\vip-manager\add.js" />
+    <Content Include="App\vip-manager\dialog.html" />
+    <Content Include="App\vip-manager\dialog.js" />
+    <Content Include="App\vip-manager\edit.html" />
+    <Content Include="App\vip-manager\edit.js" />
+    <Content Include="App\vip-manager\GameLimit.js" />
+    <Content Include="App\vip-manager\list.html" />
+    <Content Include="App\vip-manager\list.js" />
+    <Content Include="App\security\security.js">
+      <DependentUpon>security.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\security\security.min.js">
+      <DependentUpon>security.js</DependentUpon>
+    </Content>
+    <Content Include="App\wallet\manager\edit.html" />
+    <Content Include="App\wallet\manager\edit.js" />
+    <Content Include="App\wallet\manager\list.html" />
+    <Content Include="App\wallet\manager\wallet.js" />
+    <Content Include="App\widgets\actionButtons\view.html" />
+    <Content Include="App\widgets\actionButtons\viewmodel.js">
+      <DependentUpon>viewmodel.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\actionButtons\viewmodel.min.js">
+      <DependentUpon>viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\gridHeader\view.html" />
+    <Content Include="App\widgets\gridHeader\viewmodel.js">
+      <DependentUpon>viewmodel.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\gridHeader\viewmodel.min.js">
+      <DependentUpon>viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\multiSelect\view.html" />
+    <Content Include="App\widgets\multiSelect\viewmodel.js">
+      <DependentUpon>viewmodel.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\multiSelect\viewmodel.min.js">
+      <DependentUpon>viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\timezones\data\timezones.js">
+      <DependentUpon>timezones.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\timezones\data\timezones.min.js">
+      <DependentUpon>timezones.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\timezones\view.html" />
+    <Content Include="App\widgets\timezones\viewmodel.js">
+      <DependentUpon>viewmodel.coffee</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\timezones\viewmodel.min.js">
+      <DependentUpon>viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Content\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
+    <Content Include="Content\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
+    <Content Include="Content\bootstrap-colorpicker\img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Content\bootstrap-colorpicker\img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Content\bootstrap-colorpicker\img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Content\bootstrap-colorpicker\img\bootstrap-colorpicker\hue.png" />
+    <Content Include="Content\bootstrap-colorpicker\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\ace-ie.min.css" />
+    <Content Include="Content\css\ace-part2.min.css" />
+    <Content Include="Content\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\daterangepicker-bs3.css" />
+    <Content Include="Content\css\durandal.css" />
+    <Content Include="Content\css\fixes.css">
+      <DependentUpon>fixes.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\css\fixes.min.css">
+      <DependentUpon>fixes.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\images\border.png" />
+    <Content Include="Content\css\images\border1.png" />
+    <Content Include="Content\css\images\border2.png" />
+    <Content Include="Content\css\images\controls.png" />
+    <Content Include="Content\css\images\ie6\borderBottomCenter.png" />
+    <Content Include="Content\css\images\ie6\borderBottomLeft.png" />
+    <Content Include="Content\css\images\ie6\borderBottomRight.png" />
+    <Content Include="Content\css\images\ie6\borderMiddleLeft.png" />
+    <Content Include="Content\css\images\ie6\borderMiddleRight.png" />
+    <Content Include="Content\css\images\ie6\borderTopCenter.png" />
+    <Content Include="Content\css\images\ie6\borderTopLeft.png" />
+    <Content Include="Content\css\images\ie6\borderTopRight.png" />
+    <Content Include="Content\css\images\loading.gif" />
+    <Content Include="Content\css\images\loading_background.png" />
+    <Content Include="Content\css\images\overlay.png" />
+    <Content Include="Content\css\img\alpha.png" />
+    <Content Include="Content\css\img\hue.png" />
+    <Content Include="Content\css\img\saturation.png" />
+    <Content Include="Content\css\jquery-ui-1.10.3.full.min.css" />
+    <Content Include="Content\css\jquery.multiselect2side.css" />
+    <Content Include="Content\css\regocms.css" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\REGOv2.png" />
+    <Content Include="Content\jquery.jqGrid\ui.multiselect.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="Scripts\ace-elements.js" />
+    <Content Include="Scripts\ace-extra.js" />
+    <Content Include="Scripts\ace-ie.min.css" />
+    <Content Include="Scripts\ace.js" />
+    <Content Include="Scripts\almond-custom.js" />
+    <Content Include="Scripts\bootstrap-colorpicker.js" />
+    <Content Include="Scripts\bootstrap-colorpicker.min.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="App\coffee-script.js" />
+    <Content Include="Scripts\daterangepicker.js" />
+    <Content Include="Scripts\DT_bootstrap.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\jquery.jqGrid\ellipsis-xbl.xml" />
+    <Content Include="AdminWebsite.wpp.targets" />
+    <Content Include="App\admin\admin-manager\add-user.coffee" />
+    <Content Include="App\admin\admin-manager\edit-user.coffee" />
+    <Content Include="App\admin\admin-manager\list.coffee" />
+    <Content Include="App\admin\admin-manager\view-user.coffee" />
+    <Content Include="App\admin\admin-manager\reset-password.coffee" />
+    <Content Include="App\admin\admin-manager\reset-password.js.map">
+      <DependentUpon>reset-password.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\reset-password.min.js.map">
+      <DependentUpon>reset-password.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\document-container\document-container.js.map">
+      <DependentUpon>document-container.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\document-container\document-container.min.js.map">
+      <DependentUpon>document-container.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\document-container\document-container.coffee" />
+    <Content Include="App\layout\shell\main-menu.coffee" />
+    <Content Include="App\layout\shell\nav.coffee" />
+    <Content Include="App\layout\shell\shell.coffee" />
+    <Content Include="App\layout\shell\sidebar.coffee" />
+    <Content Include="App\layout\shell\main-menu.js.map">
+      <DependentUpon>main-menu.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\main-menu.min.js.map">
+      <DependentUpon>main-menu.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\nav.js.map">
+      <DependentUpon>nav.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\nav.min.js.map">
+      <DependentUpon>nav.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\shell.js.map">
+      <DependentUpon>shell.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\shell.min.js.map">
+      <DependentUpon>shell.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\sidebar.js.map">
+      <DependentUpon>sidebar.js</DependentUpon>
+    </Content>
+    <Content Include="App\layout\shell\sidebar.min.js.map">
+      <DependentUpon>sidebar.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\add-user.js.map">
+      <DependentUpon>add-user.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\add-user.min.js.map">
+      <DependentUpon>add-user.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\edit-user.js.map">
+      <DependentUpon>edit-user.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\edit-user.min.js.map">
+      <DependentUpon>edit-user.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\view-user.js.map">
+      <DependentUpon>view-user.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\view-user.min.js.map">
+      <DependentUpon>view-user.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\grid.coffee" />
+    <Content Include="App\controls\test\gridtest.coffee" />
+    <Content Include="App\base\base-model.coffee" />
+    <Content Include="App\admin\role-manager\add-role.coffee" />
+    <Content Include="App\admin\role-manager\edit-role.coffee" />
+    <Content Include="App\admin\role-manager\list.coffee" />
+    <Content Include="App\admin\role-manager\view-role.coffee" />
+    <Content Include="App\security\security.coffee" />
+    <Content Include="App\security\security.js.map">
+      <DependentUpon>security.js</DependentUpon>
+    </Content>
+    <Content Include="App\security\security.min.js.map">
+      <DependentUpon>security.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\grid.js.map">
+      <DependentUpon>grid.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\grid.min.js.map">
+      <DependentUpon>grid.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\test\gridtest.js.map">
+      <DependentUpon>gridtest.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\test\gridtest.min.js.map">
+      <DependentUpon>gridtest.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="App\bonus\bonusCommon.coffee" />
+    <Content Include="App\bonus\bonusCommon.min.js.map">
+      <DependentUpon>bonusCommon.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="App\admin\admin-manager\model\user-model.coffee" />
+    <Content Include="App\admin\admin-manager\model\user-model.js.map">
+      <DependentUpon>user-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\model\user-model.min.js.map">
+      <DependentUpon>user-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-model.js.map">
+      <DependentUpon>base-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-model.min.js.map">
+      <DependentUpon>base-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-view-model.coffee" />
+    <Content Include="App\base\base-view-model.js.map">
+      <DependentUpon>base-view-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\base\base-view-model.min.js.map">
+      <DependentUpon>base-view-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\model\role-model.coffee" />
+    <Content Include="App\controls\assign.coffee" />
+    <Content Include="App\controls\assign.js.map">
+      <DependentUpon>assign.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\assign.min.js.map">
+      <DependentUpon>assign.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\bonus.coffee" />
+    <Content Include="App\player-manager\offline-deposit\bonus.min.js.map">
+      <DependentUpon>bonus.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\helpers\grid-helper.coffee" />
+    <Content Include="App\admin\role-manager\helpers\grid-helper.js.map">
+      <DependentUpon>grid-helper.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\role-manager\helpers\grid-helper.min.js.map">
+      <DependentUpon>grid-helper.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\base\ip-regulation-model-base.coffee" />
+    <Content Include="App\admin\ip-regulations\brand\list.coffee" />
+    <Content Include="App\admin\ip-regulations\brand\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\ip-regulations\brand\brand-add-edit-ip-regulation.coffee" />
+    <Content Include="App\bonus\bonus-manager\view-bonus.coffee" />
+    <Content Include="App\bonus\template-manager\wizard.coffee" />
+    <Content Include="App\bonus\bonus-manager\view-bonus.min.js.map">
+      <DependentUpon>view-bonus.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\activate-dialog.coffee" />
+    <Content Include="App\bonus\bonus-manager\bonusBase.coffee" />
+    <Content Include="App\bonus\bonus-manager\bonusBase.min.js.map">
+      <DependentUpon>bonusBase.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\dateBinders.coffee" />
+    <Content Include="App\bonus\dateBinders.min.js.map">
+      <DependentUpon>dateBinders.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\list.coffee" />
+    <Content Include="App\bonus\bonus-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\list.coffee" />
+    <Content Include="App\bonus\template-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\template-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\list.coffee" />
+    <Content Include="App\reports\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\list.coffee" />
+    <Content Include="App\player-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\dialogs\user-status-dialog.coffee" />
+    <Content Include="App\player-manager\model\player-model.coffee" />
+    <Content Include="App\player-manager\model\player-model.js.map">
+      <DependentUpon>player-model.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\model\player-model.min.js.map">
+      <DependentUpon>player-model.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\bonus\bonus-manager\activate-dialog.min.js.map">
+      <DependentUpon>activate-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\utils.coffee" />
+    <Content Include="App\utils.js.map">
+      <DependentUpon>utils.js</DependentUpon>
+    </Content>
+    <Content Include="App\utils.min.js.map">
+      <DependentUpon>utils.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\dialogs\user-status-dialog.js.map">
+      <DependentUpon>user-status-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\admin\admin-manager\dialogs\user-status-dialog.min.js.map">
+      <DependentUpon>user-status-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\filters.coffee" />
+    <Content Include="App\controls\filters.js.map">
+      <DependentUpon>filters.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\filters.min.js.map">
+      <DependentUpon>filters.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\test\filterstest.coffee" />
+    <Content Include="App\controls\test\filterstest.js.map">
+      <DependentUpon>filterstest.js</DependentUpon>
+    </Content>
+    <Content Include="App\controls\test\filterstest.min.js.map">
+      <DependentUpon>filterstest.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\report-base.coffee" />
+    <Content Include="App\reports\report-base.js.map">
+      <DependentUpon>report-base.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\report-base.min.js.map">
+      <DependentUpon>report-base.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\products-manager\list.coffee" />
+    <Content Include="App\product\products-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\products-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\add-template.coffee" />
+    <Content Include="App\message-templates\templates\add-template.js.map">
+      <DependentUpon>add-template.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\add-template.min.js.map">
+      <DependentUpon>add-template.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\edit-template.coffee" />
+    <Content Include="App\message-templates\templates\edit-template.js.map">
+      <DependentUpon>edit-template.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\edit-template.min.js.map">
+      <DependentUpon>edit-template.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\messageTemplateBase.js.map">
+      <DependentUpon>messageTemplateBase.js</DependentUpon>
+    </Content>
+    <Content Include="App\message-templates\templates\messageTemplateBase.min.js.map">
+      <DependentUpon>messageTemplateBase.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\multiSelect\viewmodel.coffee" />
+    <Content Include="App\reports\payment\deposit.coffee" />
+    <Content Include="App\reports\player\player-bet-history.coffee" />
+    <Content Include="App\reports\player\player.coffee" />
+    <Content Include="App\reports\payment\deposit.js.map">
+      <DependentUpon>deposit.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\payment\deposit.min.js.map">
+      <DependentUpon>deposit.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\player\player-bet-history.js.map">
+      <DependentUpon>player-bet-history.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\player\player-bet-history.min.js.map">
+      <DependentUpon>player-bet-history.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\player\player.js.map">
+      <DependentUpon>player.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\player\player.min.js.map">
+      <DependentUpon>player.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\multiSelect\viewmodel.min.js.map">
+      <DependentUpon>viewmodel.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\timezones\viewmodel.coffee" />
+    <Content Include="App\widgets\timezones\viewmodel.js.map">
+      <DependentUpon>viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\timezones\viewmodel.min.js.map">
+      <DependentUpon>viewmodel.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\timezones\data\timezones.coffee" />
+    <Content Include="App\widgets\timezones\data\timezones.js.map">
+      <DependentUpon>timezones.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\timezones\data\timezones.min.js.map">
+      <DependentUpon>timezones.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\multiSelect\viewmodel.js.map">
+      <DependentUpon>viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\brand.coffee" />
+    <Content Include="App\reports\brand\brand.js.map">
+      <DependentUpon>brand.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\brand.min.js.map">
+      <DependentUpon>brand.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\licensee.coffee" />
+    <Content Include="App\reports\brand\licensee.js.map">
+      <DependentUpon>licensee.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\licensee.min.js.map">
+      <DependentUpon>licensee.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\vipLevel.coffee" />
+    <Content Include="App\reports\brand\vipLevel.js.map">
+      <DependentUpon>vipLevel.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\vipLevel.min.js.map">
+      <DependentUpon>vipLevel.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\language.coffee" />
+    <Content Include="App\reports\brand\language.js.map">
+      <DependentUpon>language.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\brand\language.min.js.map">
+      <DependentUpon>language.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\activity-log-remark-dialog.coffee" />
+    <Content Include="App\player-manager\info\activity-log-remark-dialog.js.map">
+      <DependentUpon>activity-log-remark-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\activity-log-remark-dialog.min.js.map">
+      <DependentUpon>activity-log-remark-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\transactions.coffee" />
+    <Content Include="App\player-manager\info\transactions.min.js.map">
+      <DependentUpon>transactions.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\payments\withdrawal\cancel.coffee" />
+    <Content Include="App\payments\withdrawal\cancel.js.map">
+      <DependentUpon>cancel.js</DependentUpon>
+    </Content>
+    <Content Include="App\payments\withdrawal\cancel.min.js.map">
+      <DependentUpon>cancel.min.js</DependentUpon>
+    </Content>
+    <Content Include="Content\css\fixes.scss" />
+    <Content Include="Content\css\fixes.css.map">
+      <DependentUpon>fixes.css</DependentUpon>
+    </Content>
+    <Content Include="App\vip-manager\confirm-dialog.coffee" />
+    <Content Include="App\vip-manager\confirm-dialog.js.map">
+      <DependentUpon>confirm-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\vip-manager\confirm-dialog.min.js.map">
+      <DependentUpon>confirm-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\payments\level-manager\list.coffee" />
+    <Content Include="App\payments\level-manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\payments\level-manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\actionButtons\viewmodel.coffee" />
+    <Content Include="App\widgets\gridHeader\viewmodel.coffee" />
+    <Content Include="App\widgets\actionButtons\viewmodel.js.map">
+      <DependentUpon>viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\actionButtons\viewmodel.min.js.map">
+      <DependentUpon>viewmodel.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\gridHeader\viewmodel.js.map">
+      <DependentUpon>viewmodel.js</DependentUpon>
+    </Content>
+    <Content Include="App\widgets\gridHeader\viewmodel.min.js.map">
+      <DependentUpon>viewmodel.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\requests.coffee" />
+    <Content Include="App\player-manager\offline-deposit\requests.js.map">
+      <DependentUpon>requests.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\requests.min.js.map">
+      <DependentUpon>requests.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\verifyRequests.coffee" />
+    <Content Include="App\player-manager\offline-deposit\verifyRequests.js.map">
+      <DependentUpon>verifyRequests.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\verifyRequests.min.js.map">
+      <DependentUpon>verifyRequests.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\approveRequests.coffee" />
+    <Content Include="App\player-manager\offline-deposit\approveRequests.js.map">
+      <DependentUpon>approveRequests.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\offline-deposit\approveRequests.min.js.map">
+      <DependentUpon>approveRequests.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info.coffee" />
+    <Content Include="App\player-manager\info.js.map">
+      <DependentUpon>info.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info.min.js.map">
+      <DependentUpon>info.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\account.coffee" />
+    <Content Include="App\player-manager\info\account.js.map">
+      <DependentUpon>account.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\account.min.js.map">
+      <DependentUpon>account.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\balance.coffee" />
+    <Content Include="App\player-manager\info\balance.js.map">
+      <DependentUpon>balance.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\balance.min.js.map">
+      <DependentUpon>balance.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\restrictions.coffee" />
+    <Content Include="App\player-manager\info\restrictions.js.map">
+      <DependentUpon>restrictions.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\restrictions.min.js.map">
+      <DependentUpon>restrictions.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\activity-log.coffee" />
+    <Content Include="App\player-manager\info\activity-log.js.map">
+      <DependentUpon>activity-log.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\activity-log.min.js.map">
+      <DependentUpon>activity-log.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\payment-methods.coffee" />
+    <Content Include="App\player-manager\info\payment-methods.js.map">
+      <DependentUpon>payment-methods.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\payment-methods.min.js.map">
+      <DependentUpon>payment-methods.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bank-accounts.coffee" />
+    <Content Include="App\player-manager\info\bank-accounts.js.map">
+      <DependentUpon>bank-accounts.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bank-accounts.min.js.map">
+      <DependentUpon>bank-accounts.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\deposits.coffee" />
+    <Content Include="App\player-manager\info\deposits.js.map">
+      <DependentUpon>deposits.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\deposits.min.js.map">
+      <DependentUpon>deposits.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\withdrawals.coffee" />
+    <Content Include="App\player-manager\info\withdrawals.js.map">
+      <DependentUpon>withdrawals.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\withdrawals.min.js.map">
+      <DependentUpon>withdrawals.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\fund-transfers.coffee" />
+    <Content Include="App\player-manager\info\fund-transfers.js.map">
+      <DependentUpon>fund-transfers.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\fund-transfers.min.js.map">
+      <DependentUpon>fund-transfers.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\fraud-evaluation.coffee" />
+    <Content Include="App\player-manager\info\fraud-evaluation.js.map">
+      <DependentUpon>fraud-evaluation.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\fraud-evaluation.min.js.map">
+      <DependentUpon>fraud-evaluation.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\identity-verification.coffee" />
+    <Content Include="App\player-manager\info\identity-verification.js.map">
+      <DependentUpon>identity-verification.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\identity-verification.min.js.map">
+      <DependentUpon>identity-verification.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\transactions.js.map">
+      <DependentUpon>transactions.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\products-manager\edit-gameProvider.js.map">
+      <DependentUpon>edit-gameProvider.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bonus.coffee" />
+    <Content Include="App\player-manager\info\bonus.min.js.map">
+      <DependentUpon>bonus.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\product\products-manager\edit-gameProvider.min.js.map">
+      <DependentUpon>edit-gameProvider.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\wallet\manager\list.coffee" />
+    <Content Include="App\wallet\manager\list.js.map">
+      <DependentUpon>list.js</DependentUpon>
+    </Content>
+    <Content Include="App\wallet\manager\list.min.js.map">
+      <DependentUpon>list.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\report-menu.coffee" />
+    <Content Include="App\reports\report-menu.js.map">
+      <DependentUpon>report-menu.js</DependentUpon>
+    </Content>
+    <Content Include="App\reports\report-menu.min.js.map">
+      <DependentUpon>report-menu.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bonus-descr-dialog.coffee" />
+    <Content Include="App\player-manager\info\remark-dialog.js.map">
+      <DependentUpon>remark-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\remark-dialog.min.js.map">
+      <DependentUpon>remark-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\bonus-descr-dialog.min.js.map">
+      <DependentUpon>bonus-descr-dialog.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\documents-upload\upload-identification-doc.coffee" />
+    <Content Include="App\player-manager\documents-upload\upload-identification-doc.js.map">
+      <DependentUpon>upload-identification-doc.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\documents-upload\upload-identification-doc.min.js.map">
+      <DependentUpon>upload-identification-doc.min.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\confirm-dialog\confirm-dialog.coffee" />
+    <Content Include="App\player-manager\info\confirm-dialog\confirm-dialog.js.map">
+      <DependentUpon>confirm-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="App\player-manager\info\confirm-dialog\confirm-dialog.min.js.map">
+      <DependentUpon>confirm-dialog.min.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\durandal\activator.js" />
+    <Content Include="Scripts\durandal\app.js" />
+    <Content Include="Scripts\durandal\binder.js" />
+    <Content Include="Scripts\durandal\composition.js" />
+    <Content Include="Scripts\durandal\events.js" />
+    <Content Include="Scripts\durandal\plugins\dialog.js" />
+    <Content Include="Scripts\durandal\plugins\history.js" />
+    <Content Include="Scripts\durandal\plugins\http.js" />
+    <Content Include="Scripts\durandal\plugins\observable.js" />
+    <Content Include="Scripts\durandal\plugins\router.js" />
+    <Content Include="Scripts\durandal\plugins\serializer.js" />
+    <Content Include="Scripts\durandal\plugins\widget.js" />
+    <Content Include="Scripts\durandal\system.js" />
+    <Content Include="Scripts\durandal\transitions\entrance.js" />
+    <Content Include="Scripts\durandal\viewEngine.js" />
+    <Content Include="Scripts\durandal\viewLocator.js" />
+    <Content Include="Scripts\extensions.js">
+      <DependentUpon>extensions.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\extensions.min.js">
+      <DependentUpon>extensions.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\holder.js" />
+    <Content Include="Scripts\i18next.amd.withJQuery-1.7.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery.autosize.min.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Content\jquery.jqGrid\ui.jqgrid.css" />
+    <Content Include="Content\media-picker.css" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\ace-elements.min.js" />
+    <Content Include="Scripts\ace-extra.min.js" />
+    <Content Include="Scripts\ace.min.js" />
+    <Content Include="Scripts\bootstrap-validation.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\i18n\grid.locale-ar.js" />
+    <Content Include="Scripts\i18n\grid.locale-bg.js" />
+    <Content Include="Scripts\i18n\grid.locale-bg1251.js" />
+    <Content Include="Scripts\i18n\grid.locale-cat.js" />
+    <Content Include="Scripts\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\i18n\grid.locale-cs.js" />
+    <Content Include="Scripts\i18n\grid.locale-da.js" />
+    <Content Include="Scripts\i18n\grid.locale-de.js" />
+    <Content Include="Scripts\i18n\grid.locale-dk.js" />
+    <Content Include="Scripts\i18n\grid.locale-el.js" />
+    <Content Include="Scripts\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\i18n\grid.locale-es.js" />
+    <Content Include="Scripts\i18n\grid.locale-fa.js" />
+    <Content Include="Scripts\i18n\grid.locale-fi.js" />
+    <Content Include="Scripts\i18n\grid.locale-fr.js" />
+    <Content Include="Scripts\i18n\grid.locale-gl.js" />
+    <Content Include="Scripts\i18n\grid.locale-he.js" />
+    <Content Include="Scripts\i18n\grid.locale-hr.js" />
+    <Content Include="Scripts\i18n\grid.locale-hr1250.js" />
+    <Content Include="Scripts\i18n\grid.locale-hu.js" />
+    <Content Include="Scripts\i18n\grid.locale-id.js" />
+    <Content Include="Scripts\i18n\grid.locale-is.js" />
+    <Content Include="Scripts\i18n\grid.locale-it.js" />
+    <Content Include="Scripts\i18n\grid.locale-ja.js" />
+    <Content Include="Scripts\i18n\grid.locale-kr.js" />
+    <Content Include="Scripts\i18n\grid.locale-lt.js" />
+    <Content Include="Scripts\i18n\grid.locale-mne.js" />
+    <Content Include="Scripts\i18n\grid.locale-nl.js" />
+    <Content Include="Scripts\i18n\grid.locale-no.js" />
+    <Content Include="Scripts\i18n\grid.locale-pl.js" />
+    <Content Include="Scripts\i18n\grid.locale-pt-br.js" />
+    <Content Include="Scripts\i18n\grid.locale-pt.js" />
+    <Content Include="Scripts\i18n\grid.locale-ro.js" />
+    <Content Include="Scripts\i18n\grid.locale-ru.js" />
+    <Content Include="Scripts\i18n\grid.locale-sk.js" />
+    <Content Include="Scripts\i18n\grid.locale-sr-latin.js" />
+    <Content Include="Scripts\i18n\grid.locale-sr.js" />
+    <Content Include="Scripts\i18n\grid.locale-sv.js" />
+    <Content Include="Scripts\i18n\grid.locale-th.js" />
+    <Content Include="Scripts\i18n\grid.locale-tr.js" />
+    <Content Include="Scripts\i18n\grid.locale-tw.js" />
+    <Content Include="Scripts\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\i18n\grid.locale-vi.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.10.0.js" />
+    <Content Include="Scripts\jquery-ui-1.10.0.min.js" />
+    <Content Include="Scripts\jquery.jqGrid.js" />
+    <Content Include="Scripts\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.mobile.custom.min.js" />
+    <Content Include="Scripts\jquery.multiselect2side.js" />
+    <Content Include="Scripts\jquery.oauth.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\json2.min.js" />
+    <Content Include="Scripts\jstorage.js" />
+    <Content Include="Scripts\jstorage.min.js" />
+    <Content Include="Scripts\knockout-2.3.0.debug.js" />
+    <Content Include="Scripts\knockout-2.3.0.js" />
+    <Content Include="Scripts\knockout-3.1.0.debug.js" />
+    <Content Include="Scripts\knockout-3.1.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\knockout.validation.js" />
+    <Content Include="Scripts\lodash.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-langs.js" />
+    <Content Include="Scripts\moment-with-langs.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\spin.min.js" />
+    <Content Include="Scripts\store.min.js" />
+    <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-0.10.0.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-0.10.0.min.js" />
+    <Content Include="Scripts\ui.dropdownchecklist-1.4-min.js" />
+    <Content Include="Scripts\ui.dropdownchecklist.standalone.css" />
+    <Content Include="Scripts\ui.multiselect.js" />
+    <Content Include="Scripts\ui\1.10.3\jquery-ui.min.js" />
+    <Content Include="Scripts\ui\1.10.3\themes\smoothness\jquery-ui.min.css" />
+    <Content Include="Scripts\utils.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\marker.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Scripts\toastr.min.js.map" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <None Include="Web.QA.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Web.Simple.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.Content\Core.Content.csproj">
+      <Project>{FB049381-7815-4533-BCAE-3077D86722B0}</Project>
+      <Name>Core.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Bonus\Core.Bonus.csproj">
+      <Project>{E7A571BC-3924-4BE5-8B56-BB8574B30CE9}</Project>
+      <Name>Core.Bonus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Brand\Core.Brand.csproj">
+      <Project>{D519BE95-FEE1-42D1-A60E-A3C008E1F8AA}</Project>
+      <Name>Core.Brand</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Fraud\Core.Fraud.csproj">
+      <Project>{A9C80924-5E70-4A3D-A9C3-DDF70681E76D}</Project>
+      <Name>Core.Fraud</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Games\Core.Game.csproj">
+      <Project>{BFEBC671-1C27-40E8-BB98-C5B23919FCC7}</Project>
+      <Name>Core.Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Payment\Core.Payment.csproj">
+      <Project>{dbb83446-3c9e-4f1d-ac1c-2c88053bfddd}</Project>
+      <Name>Core.Payment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Player\Core.Player.csproj">
+      <Project>{18B71681-F11B-4F62-A4E9-A388FCC9A4B7}</Project>
+      <Name>Core.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Report\Core.Report.csproj">
+      <Project>{72caa794-0117-495a-9f88-d2efdd81fa95}</Project>
+      <Name>Core.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Security\Core.Security.csproj">
+      <Project>{C26F378C-8F63-49B5-BBED-3031071C300A}</Project>
+      <Name>Core.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Core.Common\Core.Common.csproj">
+      <Project>{E60E73C7-09B9-45B2-950F-547350CFBE93}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
+      <Project>{39AE091F-FC43-49BA-A605-6B79ED269DA6}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\WebServices\AdminApi.Interface\AdminApi.Interface.csproj">
+      <Project>{B6761F22-B7EE-4818-AF44-181DB6E3A703}</Project>
+      <Name>AdminApi.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Shared.csproj">
+      <Project>{3d268eba-3ef8-429b-90c7-ae35ce762fc8}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BOResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BOResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ValidationErrors.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationErrors.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\AdminIpRegulations\" />
+    <Folder Include="Views\BetLevels\" />
+    <Folder Include="Views\BrandIpRegulations\" />
+    <Folder Include="Views\ContentTranslation\" />
+    <Folder Include="Views\FraudRiskLevel\" />
+    <Folder Include="Views\GameServer\" />
+    <Folder Include="Views\Games\" />
+    <Folder Include="Views\MessageTemplate\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Develop|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QAuto|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Integration|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Simple|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2823</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2823/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties App_2locales_2en-CA_2app_1json__JSONSchema="http://json.schemastore.org/sourcemap-v3.json" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets')" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

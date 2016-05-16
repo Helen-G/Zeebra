@@ -1,0 +1,15 @@
+﻿<div class="tabbable">
+	<div class="tab-pane active">
+		<div class="page-content">
+			<div class="page-header">
+				<h5 data-bind="text: signature.title"></h5>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 nav-tabs-documents">
+					<div data-bind="compose: { view: 'layout/document-container/tabs', model: subContainer }"></div>
+					<div data-bind="compose: { view: 'layout/document-container/documents', model: subContainer }"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

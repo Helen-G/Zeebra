@@ -1,0 +1,36 @@
+﻿<div data-bind="grid: {
+            source: 'PlayerInfo/DepositTransactions',
+            fields: ['Created', 'TransactionNumber', 'BankAccountNumber', 'DepositMethod', 'Amount', 'Status'],
+            defaultSort: { field: 'Created', direction: 'desc' },
+            paging: true,
+                useResizeManager: { height: 400 },
+            sendAlso: ko.computed(function() { return [ { playerId: playerId }]; })
+        }">
+    <header>
+        <form action="#" class="pull-left">
+            <table class="table">
+                <tr>
+                    <td>
+                        <div class="custom-filters" data-bind="compose: { model: 'controls/filters', activationData: [[
+                            ['Created', 'app:playerManager.depositHistory.transactionDate', 'date'],
+                            ['TransactionNumber', 'app:playerManager.depositHistory.transactionID', 'unique'],
+                            ['BankAccountNumber', 'app:playerManager.depositHistory.accountNumber', 'unique'],
+                            ['DepositMethod', 'app:playerManager.depositHistory.paymentMethod', 'list', { '0': 'Internet Banking', '1': 'ATM', '2': 'Counter Deposit' }],
+                            ['Amount', 'app:common.amount', 'numeric'],
+                            ['Status', 'app:common.status', 'list', ['New', 'Processing', 'Verified', 'Unverified', 'Rejected', 'Approved']]
+                        ]] }"></div>
+                        <button type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </header>
+    <column title="app:playerManager.depositHistory.transactionDate" sort-field="Created" width="180" data-value="$root.moment(@Created).format 'YYYY-MM-DD hh:mm:ssA'" />
+    <column title="app:playerManager.depositHistory.transactionID" sort-field="TransactionNumber" width="180" data-value="@TransactionNumber" />
+    <column title="app:playerManager.depositHistory.accountNumber" sort-field="BankAccountNumber" width="230" data-value="@BankAccountNumber" />
+    <column title="app:playerManager.depositHistory.paymentMethod" sort-field="DepositMethod" width="150" data-value="@DepositMethod" />
+    <column title="app:common.amount" sort-field="Amount" width="150">
+        <div class="pull-right" data-value="'$' + Number(@Amount).toFixed 2"></div>
+    </column>
+    <column title="app:common.status" sort-field="Status" width="120" data-value="@Status" />
+</div>

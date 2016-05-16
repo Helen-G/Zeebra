@@ -1,0 +1,50 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.licensee"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: licensee"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.brand"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: brand"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: username"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:fraud.manager.columns.riskLevel"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" data-bind="attr: { id: riskLevelFieldId() }, enable: !submitted(), options: riskLevels, optionsText: 'name', optionsValue: 'id', value: fields.riskLevel"></select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:common.description"></span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <textarea class="form-control" data-bind="attr: { id: descriptionFieldId() }, value: fields.description, visible: !submitted()"></textarea>
+            <p class="form-control-static" data-bind="text: fields.description, visible: submitted()"></p>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

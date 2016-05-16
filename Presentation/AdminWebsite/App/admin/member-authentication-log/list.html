@@ -1,0 +1,25 @@
+﻿<div data-bind="grid: {
+    source: 'AuthenticationLog/MemberAuthData',
+    fields: ['Brand', 'DatePerformed', 'PerformedBy', 'IPAddress', 'Success', 'FailReason', 'Headers'],
+    filter: ko.computed(function() { return { }}),
+    defaultSort: { field: 'DatePerformed', direction: 'desc' },
+    paging: true,
+    useResizeManager: true,
+    useBrandFilter: true
+}">
+    <header>
+        <form action="#" class="pull-left">
+            <div class="custom-filters" data-bind="compose: { model: 'controls/filters', activationData: [filterColumns] }"></div>
+            <button id="search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+    </header>
+    <column title="app:admin.authenticationLog.brand" sort-field="Brand" width="120" data-value="@Brand" />
+    <column title="app:admin.authenticationLog.datePerformed" sort-field="DatePerformed" width="170" data-value="$root.moment(@DatePerformed).format 'YYYY-MM-DD h:mm:ssA'" />
+    <column title="app:admin.authenticationLog.performedBy" sort-field="PerformedBy" width="120" data-value="@PerformedBy" />
+    <column title="app:admin.authenticationLog.ipAddress" sort-field="IPAddress" width="120" data-value="@IPAddress" />
+    <column title="app:admin.authenticationLog.status" sort-field="Success" width="70" data-value="if @Success then 'Success' else 'Fail'" />
+    <column title="app:admin.authenticationLog.failReason" sort-field="FailReason" width="280" data-value="@FailReason" />
+    <column title="app:admin.authenticationLog.headers" sort-field="Headers" width="130">
+        <span class="admin-activity-log-remark ace-icon fa fa-file-text-o" data-title="@Headers"></span>
+    </column>
+</div>

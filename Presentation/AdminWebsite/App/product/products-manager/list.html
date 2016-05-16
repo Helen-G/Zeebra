@@ -1,0 +1,21 @@
+﻿<div id="game-providers-grid" data-bind="grid: {
+        source: '/GameProviders/Data',
+        fields: ['Name', 'Category', 'IsActive', 'CreatedBy', 'CreatedDate', 'UpdatedBy', 'UpdatedDate'],
+        defaultSort: { field: 'Name' },
+        paging: true,
+        useResizeManager: true
+    }">
+    <header>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: openAddGameProvider, visible: isAddBtnVisible"><i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openEditGameProvider, visible: isEditBtnVisible, enable: canBeEditedDeleted"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span></button>
+        </div>
+    </header>
+    <column title="app:gameIntegration.gameProviders.name" sort-field="Name" width="120" data-value="@Name" />
+    <column title="app:gameIntegration.gameProviders.category" sort-field="Category" width="120" data-value="@Category" />
+    <column title="app:gameIntegration.gameProviders.isActive" sort-field="IsActive" width="120" data-value="@IsActive" />
+    <column title="app:common.createdBy" sort-field="CreatedBy" width="120" data-value="@CreatedBy" />
+    <column title="app:common.dateCreated" sort-field="CreatedDate" width="120" data-value="@CreatedDate" />
+    <column title="app:common.updatedBy" sort-field="UpdatedBy" width="120" data-value="@UpdatedBy" />
+    <column title="app:common.dateUpdated" sort-field="UpdatedDate" width="120" data-value="@UpdatedDate" />
+</div>

@@ -1,0 +1,183 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using AFT.RegoV2.Tests.Common.Extensions;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+
+namespace AFT.RegoV2.Tests.Common.Pages.BackEnd
+{
+    public class NewVipLevelForm : PageBase
+    {
+        public By LoadingCompleteBy { get { return By.XPath("//label[contains(@for, 'vip-level-licensee')]"); } }
+        public By LicenseeSelectBy { get { return By.XPath("//select[contains(@id, 'vip-level-licensee')]"); } }
+        public By BrandSelectBy { get { return By.XPath("//select[contains(@id, 'vip-level-brand')]"); } }
+        public By DefaultForNewPlayersCheckboxBy { get { return By.XPath("//input[contains(@id, 'vip-level-is-default')]"); } }
+        public By CodeFieldBy { get { return By.XPath("//input[contains(@id, 'vip-level-code')]"); } }
+        public By NameFieldBy { get { return By.XPath("//input[contains(@id, 'vip-level-name')]"); } }
+        public By DescriptionFieldBy { get { return By.XPath("//textarea[contains(@id, 'vip-level-description')]"); } }
+        public By ColorFieldBy { get { return By.XPath("//input[contains(@id, 'vip-level-color')]"); } }
+        public By RankFieldBy { get { return By.XPath("//input[contains(@id, 'vip-level-rank')]"); } }
+        public By NewGameButtonBy { get { return By.XPath("//button[text()='New Game']"); } }
+        public By GameLimitsBy { get { return By.XPath("//span[text()='Game']"); } }
+        public By GameSelectBy { get { return By.XPath("//select[contains(@data-bind, 'options: games')]"); } }
+        public By NewCurrencyButtonBy { get { return By.XPath("//button[text()='New Currency']"); } }
+        public By CurrencySelectBy { get { return By.XPath("//select[contains(@data-bind, 'options: currencies')]"); } }
+        public By MinBetFieldBy { get { return By.XPath("//input[contains(@data-bind, 'value: min')]"); } }
+        public By MaxBetFieldBy { get { return By.XPath("//input[contains(@data-bind, 'value: max')]"); } }
+        
+
+
+        public NewVipLevelForm(IWebDriver driver) : base(driver) { }
+
+        public SubmittedNewVipLevelForm Submit(VipLevelData data)
+        {
+            SelectLicenseeBrand(LoadingCompleteBy, LicenseeSelectBy, data.Licensee, BrandSelectBy, data.Brand);
+
+            if (!data.DefaultForNewPlayers)
+            {
+                var defaultForNewPlayerCheckbox = _driver.FindElementWait(DefaultForNewPlayersCheckboxBy);
+                defaultForNewPlayerCheckbox.Click();
+            }
+
+            var codeField = _driver.FindElementWait(CodeFieldBy);
+            codeField.SendKeys(data.Code);
+
+            var nameField = _driver.FindElementWait(NameFieldBy);
+            nameField.SendKeys(data.Name);
+
+            var rankField = _driver.FindElementWait(RankFieldBy);
+            rankField.SendKeys(data.Rank.ToString());
+
+            var descriptionField = _driver.FindElementWait(DescriptionFieldBy);
+            descriptionField.SendKeys(data.Description);
+
+            var colorField = _driver.FindElementWait(ColorFieldBy);
+            colorField.SendKeys(data.DisplayColor);
+
+            SelectLimits(data.GameLimits);
+
+            return Submit();
+        }
+
+        public void EnterVipLevelDetails(VipLevelData data)
+        {
+            SelectLicenseeBrand(LoadingCompleteBy, LicenseeSelectBy, data.Licensee, BrandSelectBy, data.Brand);
+
+            if (!data.DefaultForNewPlayers)
+            {
+                var defaultForNewPlayerCheckbox = _driver.FindElementWait(DefaultForNewPlayersCheckboxBy);
+                defaultForNewPlayerCheckbox.Click();
+            }
+
+            var codeField = _driver.FindElementWait(CodeFieldBy);
+            codeField.SendKeys(data.Code);
+
+            var nameField = _driver.FindElementWait(NameFieldBy);
+            nameField.SendKeys(data.Name);
+
+            var rankField = _driver.FindElementWait(RankFieldBy);
+            rankField.SendKeys(data.Rank.ToString());
+
+            var descriptionField = _driver.FindElementWait(DescriptionFieldBy);
+            descriptionField.SendKeys(data.Description);
+
+            var displayColorField = _driver.FindElementWait(ColorFieldBy);
+            displayColorField.SendKeys(data.DisplayColor);
+        }
+
+        public void AddProductLimit(string product, string betLevel, string currency)
+        {
+            var addGameLimitButton =
+                _driver.FindElementWait(By.XPath("//button[contains(@data-bind, 'click: addGameLimit')]"));
+            addGameLimitButton.Click();
+
+            var productsList = _driver.FindElementWait(By.XPath("//select[contains(@data-bind, 'options: gameServers')]"));
+            var productField = new SelectElement(productsList);
+            productField.SelectByText(product);
+
+            var betLevelsList = _driver.FindElementWait(By.XPath("//select[contains(@data-bind, 'options: betLimits')]"));
+            var betLevelField = new SelectElement(betLevelsList);
+            betLevelField.SelectByText(betLevel);
+
+            var currenciesList = _driver.FindElementWait(By.XPath("//select[contains(@data-bind, 'options: currencies')]"));
+            var currencyField = new SelectElement(currenciesList);
+            currencyField.SelectByText(currency);
+        }
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> origin/develop
+        private void SelectLimits(List<VipLevelGameLimitData> limits)
+        {
+            if (limits == null || limits.Count == 0) return;
+
+            var gameGroups = limits.GroupBy(x => x.Game).ToArray();
+            var newGameButton = _driver.FindElementWait(NewGameButtonBy);
+
+            for (var i = 0; i < gameGroups.Length; i++)
+            {
+                newGameButton.Click();
+                var gameGroup = gameGroups[i].ToArray();
+
+                var gameLimitsNeeded = i + 1;
+                WaitTillElementCount(GameLimitsBy, gameLimitsNeeded);
+
+                var gameSelectList = _driver.FindLastElementWait(GameSelectBy);
+                var gameName = gameGroup.First().Game;
+                Select(gameSelectList, gameName);
+
+                for (var j = 0; j < gameGroup.Length; j++)
+                {
+                    var currencyLimit = gameGroup[j];
+
+                    var mustClickNewCurrency = j > 0;
+                    if (mustClickNewCurrency)
+                    {
+                        var newCurrencyButton = _driver.FindLastElementWait(NewCurrencyButtonBy);
+                        newCurrencyButton.Click();
+                    }
+
+                    var mustSelectCurrency = j == 0 || j < gameGroup.Length - 1;
+                    if (mustSelectCurrency)
+                    {
+                        var currencySelectList = _driver.FindLastElementWait(CurrencySelectBy);
+                        var currencyName = currencyLimit.Currency;
+                        Select(currencySelectList, currencyName);
+                    }
+
+                    var min = _driver.FindLastElementWait(MinBetFieldBy);
+                    min.Clear();
+                    min.SendKeys(Convert.ToString(currencyLimit.MinimumBet));
+
+                    var max = _driver.FindLastElementWait(MaxBetFieldBy);
+                    max.Clear();
+                    max.SendKeys(Convert.ToString(currencyLimit.MaximumBet));
+                }
+            }
+        }
+
+        public SubmittedNewVipLevelForm Submit()
+        {
+            _driver.FindElementWait(By.XPath("//button[text()='Save']")).Click();
+            return new SubmittedNewVipLevelForm(_driver);
+        }
+
+        private void Select(IWebElement selectList, string selection)
+        {
+            if (!selectList.Displayed || !selectList.Enabled) return;
+            var selectElement = new SelectElement(selectList);
+            selectElement.SelectByText(selection);
+
+            Thread.Sleep(300);
+        }
+
+        private void WaitTillElementCount(By by, int elements, int seconds = 30)
+        {
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(seconds));
+            wait.Until(x => _driver.FindElements(@by).Count >= elements);
+        }
+    }
+}

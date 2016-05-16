@@ -1,0 +1,55 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> <span data-i18n="app:common.product"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<select class="form-control" id="product-select" data-bind="visible: submitted(), enable: submitted() && !isReadOnly(), options: products, optionsValue: 'id', optionsText: 'name', value: productId"></select><span class="red" data-bind="validationMessage: productId"></span>
+			<p class="form-control-static" data-bind="text: productName, visible: !submitted()"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> <span data-i18n="app:common.name"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<input type="text" class="form-control" data-bind="visible: submitted(), value: name, attr: { id: 'name-input' }" /><span class="red" data-bind="validationMessage: name"></span>
+			<p class="form-control-static" data-bind="text: name, visible: !submitted()"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> <span data-i18n="app:gameIntegration.games.type"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<select class="form-control" id="product-select" data-bind="visible: submitted(), enable: submitted() && !isReadOnly(), options: types, value: type"></select><span class="red" data-bind="validationMessage: type"></span>
+			<p class="form-control-static" data-bind="text: type, visible: !submitted()"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> <span data-i18n="app:gameIntegration.games.status"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<select class="form-control" id="product-select" data-bind="visible: submitted(), enable: submitted() && !isReadOnly(), options: statuses, value: status"></select><span class="red" data-bind="validationMessage: status"></span>
+			<p class="form-control-static" data-bind="text: status, visible: !submitted()"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> <span data-i18n="app:gameIntegration.games.url"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<input type="text" class="form-control" data-bind="visible: submitted(), value: url, attr: { id: 'name-input' }" /><span class="red" data-bind="validationMessage: url"></span>
+			<p class="form-control-static" data-bind="text: url, visible: !submitted()"></p>
+		</div>
+	</div>
+
+	<div class="clearfix form-actions">
+		<div class="center">
+			<button type="button" class="btn btn-default btn-round" data-bind="text: closeButtonLabel, click: close"></button>
+			&nbsp; &nbsp; &nbsp;
+			<button type="button" class="btn btn-default btn-round" data-bind="visible: $root.submitted(), text: 'Clear', click: clear"></button>
+			&nbsp; &nbsp; &nbsp;
+			<button type="submit" class="btn btn-primary btn-round" data-bind="visible: $root.submitted(), click: submit, enable: isValid" data-i18n="app:common.save"></button>
+		</div>
+	</div>
+
+</form>

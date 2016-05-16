@@ -1,0 +1,40 @@
+﻿@model AFT.RegoV2.MemberWebsite.Models.Menu
+
+@using AFT.RegoV2.MemberWebsite.Common
+
+<nav class="site-menu-wrapper">
+    <ul class="site-menu">
+        @foreach (var menuItem in @Model.Items)
+        {
+            var isLast = menuItem == @Model.Items.Last();
+            <li>
+                <a href="@Url.ActionLocalized(menuItem.Action, menuItem.Controller)"
+                    class="@(menuItem == @Model.ActiveMenuItem ? "active" : "") @(isLast ? "last" : "")">
+                    <span>@menuItem.Text</span>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
+
+@if (@Model.ActiveMenuItem != null && @Model.ActiveMenuItem.SubMenuItems != null && @Model.ActiveMenuItem.SubMenuItems.Any())
+{
+    <div class="site-body">
+        <div class="ky-icon-tabs-wrapper">
+            <div class="container">
+                <nav role="tabpanel">
+                    <ul role="tablist" class="nav ky-icon-tabs">
+                        @foreach (var menuItem in @Model.ActiveMenuItem.SubMenuItems)
+                        {
+                            <li role="presentation" class="@(menuItem == @Model.ActiveSubMenuItem ? "active" : null)">
+                                <a href="@Url.ActionLocalized(menuItem.Action, menuItem.Controller)">
+                                    <span>@menuItem.Text</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+}

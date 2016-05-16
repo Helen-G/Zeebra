@@ -1,0 +1,47 @@
+﻿<div>
+    <div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+    <form role="form" class="form-horizontal">
+        <div class="form-group margin-bottom-30">
+            <label for="exemptFieldId" class="col-sm-3 control-label" data-i18n="app:exemption.verify"></label>
+            <div class="col-sm-8 field-box">
+                <input id="exemptFieldId" type="checkbox" data-bind="checked: exempt" />
+                <span class="red" data-bind="validationMessage: exempt"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" data-i18n="app:exemption.from"></label>
+            <div class="field-box col-sm-8">
+                <div class="input-group date" data-bind="datetimepicker: exemptFrom, datepickerOptions: { language: 'en', picktime: false, format: 'yyyy/MM/dd', autoclose: true }">
+                    <input class="form-control add-on" data-format="yyyy/mm/dd" data-bind="value: exemptFrom" type="text">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" data-i18n="app:exemption.to"></label>
+            <div class="field-box col-sm-8">
+                <div class="input-group date" data-bind="datetimepicker: exemptTo, datepickerOptions: { language: 'en', picktime: false, format: 'yyyy/MM/dd', autoclose: true }">
+                    <input class="form-control add-on" data-format="yyyy/mm/dd" data-bind="value: exemptTo" type="text">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exemptLimitFieldId" class="col-sm-3 control-label" data-i18n="app:exemption.limit"></label>
+            <div class="col-sm-8 field-box">
+                <input id="exemptLimitFieldId" class="form-control" data-bind="value: exemptLimit" />
+                <span class="red" data-bind="validationMessage: exemptLimit"></span>
+            </div>
+        </div>
+        <div class="clearfix form-actions">
+            <div class="center">
+                <button class="btn btn-primary btn-round" data-bind="click: $root.submitExemption" data-i18n="app:common.save"></button>
+            </div>
+        </div>
+    </form>
+</div>

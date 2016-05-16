@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label class="col-sm-3 control-label">
+        <span data-i18n="bonus.templateFields.emailNotification"></span>
+    </label>
+    <div class="col-sm-8">
+        <select class="form-control" data-bind="options: emailTemplates, value: EmailTemplateId, optionsText: 'Name', optionsValue: 'Id', optionsCaption: emptyCaption"></select> <span class="red" data-bind="validationMessage: EmailTemplateId"></span>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">
+        <span data-i18n="bonus.templateFields.smsNotification"></span>
+    </label>
+    <div class="col-sm-8">
+        <select class="form-control" data-bind="options: smsTemplates, value: SmsTemplateId, optionsText: 'Name', optionsValue: 'Id', optionsCaption: emptyCaption"></select> <span class="red" data-bind="validationMessage: SmsTemplateId"></span>
+    </div>
+</div>

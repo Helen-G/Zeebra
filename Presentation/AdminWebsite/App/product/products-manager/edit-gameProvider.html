@@ -1,0 +1,81 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }, with: form.fields">
+
+    <div class="form-group" data-bind="with: name">
+        <label class="col-sm-3 control-label"><span data-i18n="app:gameIntegration.gameProviders.name"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="value: value, visible: !$root.submitted()" /> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="with: category">
+        <label class="col-sm-3 control-label"><span data-i18n="app:gameIntegration.gameProviders.category"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" data-bind="options: options, optionsText: optionsText, value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: display, visible: isReadOnly"></p>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="with: authentication">
+        <label class="col-sm-3 control-label"><span data-i18n="app:gameIntegration.gameProviders.authentication"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" data-bind="options: options, optionsText: optionsText, value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: display, visible: isReadOnly"></p>
+        </div>
+    </div>
+    
+    <div class="form-group" data-bind="with: securityKey">
+        <label class="col-sm-3 control-label"><span data-i18n="app:gameIntegration.gameProviders.securityKey"></span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="value: value, visible: !$root.submitted()" />
+            <span data-bind="visible: !$root.submitted()">
+                <button class="btn btn-primary" data-bind="click: $root.getSecurityKey"><span class="glyphicon glyphicon-refresh"></span> <span data-i18n="app:common.generate"></span></button>
+            </span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+    
+    <div class="form-group" data-bind="with: securityKeyExpiryDate">
+        <label class="col-sm-3 control-label"><span data-i18n="app:gameIntegration.gameProviders.securityKeyExpiryDate"></span></label>
+        <div class="col-sm-8 field-box">
+            <div class="input-append" data-bind="attr: { id: pickerId }, visible: !$root.submitted()">
+                <input data-bind="value: value" class="form-control add-on" data-format="MM/dd/yyyy" type="text"> <span class="red" data-bind="validationMessage: value"></span>
+            </div>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: $root.isOauth, with: authorizationClientId">
+        <label class="col-sm-3 control-label"><span data-i18n="app:gameIntegration.gameProviders.authorizationClientId"></span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="value: value, visible: !$root.submitted()" />
+            <span data-bind="visible: !$root.submitted()">
+                <button class="btn btn-primary" data-bind="click:$root.getAuthClientId"><span class="glyphicon glyphicon-refresh"></span> <span data-i18n="app:common.generate"></span></button>
+            </span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: $root.isOauth, with: authorizationSecret">
+        <label class="col-sm-3 control-label"><span data-i18n="app:gameIntegration.gameProviders.authorizationSecret"></span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="value: value, visible: !$root.submitted()" />
+            <span data-bind="visible: !$root.submitted()">
+                <button class="btn btn-primary" data-bind="click:$root.getAuthSecret"><span class="glyphicon glyphicon-refresh"></span> <span data-i18n="app:common.generate"></span></button>
+            </span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions" data-bind="with: $root">
+        <div class="center">
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

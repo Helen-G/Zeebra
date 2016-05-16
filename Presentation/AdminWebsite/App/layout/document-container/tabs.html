@@ -1,0 +1,8 @@
+﻿<ul class="nav nav-tabs" data-bind="foreach: items">
+	<li data-bind="css: { active: $root.activeItem() == $data }">
+		<a data-bind="click: $root.selectItem.bind($root, $data)">
+			<span data-bind="text: signature.title"></span>
+			<i data-bind="visible: $index, click: $root.closeItem.bind($root, $data)" class="grey fa fa-times"></i>
+		</a>
+	</li>
+</ul>

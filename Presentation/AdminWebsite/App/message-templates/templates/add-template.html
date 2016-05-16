@@ -1,0 +1,46 @@
+﻿<form role="form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+	<div class="form-group">
+		<label class="col-sm-3 control-label">
+			<span data-i18n="messageTemplates.common.name"></span> <span class="red">*</span>
+		</label>
+		<div class="col-sm-8">
+			<input class="form-control" data-bind="value: Name" maxlength="50" /> <span class="red" data-bind="validationMessage: Name"></span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label">
+			<span data-i18n="messageTemplates.common.type"></span> <span class="red">*</span>
+		</label>
+		<div class="col-sm-8">
+			<select class="form-control" data-bind="options: types, value: TypeId, optionsText: 'Name', optionsValue: 'Id'"></select>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-sm-3 control-label">
+			<span data-i18n="messageTemplates.common.template"></span> <span class="red">*</span>
+		</label>
+		<div class="col-sm-8">
+			<textarea class="form-control" data-bind="value: Content" maxlength="200" /> <span class="red" data-bind="validationMessage: Content"></span>
+		</div>
+	</div>
+
+	<div class="form-group" data-bind="visible: serverErrors">
+		<label class=" col-sm-3 control-label" data-i18n="bonus.bonusManager.validity"></label>
+		<div class="col-sm-8">
+			<!-- ko foreach: serverErrors-->
+			<p class="form-control-static text-danger">
+				<strong data-bind="text: $data"></strong>
+			</p>
+			<!-- /ko -->
+		</div>
+	</div>
+
+	<div class="clearfix form-actions">
+		<div class="center">
+            <button type="button" class="btn btn-white btn-round" data-bind="click: cancel" data-i18n="common.cancel"></button>
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: submit" data-i18n="common.submit"></button>
+		</div>
+	</div>
+</form>

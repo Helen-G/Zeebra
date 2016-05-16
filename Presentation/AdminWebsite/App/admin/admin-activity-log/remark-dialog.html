@@ -1,0 +1,19 @@
+﻿<div class="modal-content">
+    <div class="modal-header">
+        <h3 data-bind="text: title" />
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <pre data-bind="text: remarks" readonly="readonly" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="center">
+            <button class="btn btn-default btn-round" data-bind="click: close" data-i18n="common.close"></button>
+        </div>
+    </div>
+</div>

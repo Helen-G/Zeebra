@@ -1,0 +1,35 @@
+﻿<div id="bank-accounts-home" class="tab-pane in active">
+    <div class="jqgrid-title-bar" id="bank-accounts-list-jqgrid-title-bar">
+        <form id="bank-accounts-search" action="#" class="pull-left">
+            <input id="bank-accounts-name-search" type="text" data-i18n="[placeholder]app:banks.bankAccountName" />
+            <div class="filter-row row" data-bind="visible: isFilterVisible">
+                <div class="col-md-4">
+                    <span data-i18n="app:common.currency"></span>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-control width-100-px" data-bind="options: availableCurrencies, value: selectedCurrency, optionsCaption: 'All', enable: canSelectCurrency"></select>
+                </div>
+            </div>
+            <button id="bank-accounts-search-button" type="submit" class="btn btn-sm btn-white btn-round margin-10" data-i18n="app:common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: showHideFilter">
+                <i class="ace-icon fa fa-filter"></i> <span data-bind="text: filterText"></span>
+            </button>
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: openAddTab, visible: isAddAllowed">
+                <i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span>
+            </button>
+            <button id="bank-accounts-edit-btn" class="btn btn-sm btn-primary btn-round" data-bind="click: openEditTab, visible: isEditAllowed, css: { disabled: !selectedRowId() }">
+                <i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: showActivateDialog, enable: canActivate, visible: isActivateAllowed">
+                <i class="ace-icon fa fa-check"></i> <span data-i18n="app:common.activate"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: showActivateDialog, enable: canDeactivate, visible: isDeactivateAllowed">
+                <i class="ace-icon fa fa-ban"></i> <span data-i18n="app:common.deactivate"></span>
+            </button>
+        </div>
+    </div>
+    <table id="bank-accounts-list"></table>
+    <div id="bank-accounts-pager"></div>
+</div>

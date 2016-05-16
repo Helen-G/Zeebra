@@ -1,0 +1,108 @@
+﻿<div class="alert alert-success" data-bind="visible: message, text: message"></div>
+
+<form class="form-horizontal">
+
+	<div class="form-group">
+	    <label class="col-sm-3 control-label">
+	        <span data-i18n="app:common.licensee"></span><span class="red">*</span>
+	    </label>
+		<div class="col-sm-8 field-box">
+			<p class="form-control-static" data-bind="text: licensee"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:common.brand"></span><span class="red">*</span>
+        </label>
+		<div class="col-sm-8 field-box">			
+			<p class="form-control-static" data-bind="text: brand"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+	    <label class="col-sm-3 control-label">
+            <span data-i18n="app:vipLevel.defaultForNewPlayers"></span>
+	    </label>
+		<div class="col-sm-8 field-box">
+			<input type="checkbox" disabled="disabled" data-bind="checked: defaultForNewPlayers"/>
+		</div>
+	</div>
+
+	<div class="form-group">
+	    <label class="col-sm-3 control-label">
+	        <span data-i18n="app:vipLevel.code"></span><span class="red">*</span>
+	    </label>
+		<div class="col-sm-8 field-box">			
+			<p class="form-control-static" data-bind="text: code"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+	    <label class="col-sm-3 control-label">
+	        <span data-i18n="app:vipLevel.name"></span><span class="red">*</span>
+	    </label>
+		<div class="col-sm-8 field-box">
+			<p class="form-control-static" data-bind="text: name"></p>
+		</div>
+	</div>
+	<div class="form-group">
+	    <label class="col-sm-3 control-label">
+	        <span data-i18n="app:common.rank"></span><span class="red">*</span>
+	    </label>
+		<div class="col-sm-8 field-box">			
+			<p class="form-control-static" data-bind="text: rank"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+	    <label class="col-sm-3 control-label">
+	        <span data-i18n="app:vipLevel.description"></span>
+	    </label>
+		<div class="col-sm-8 field-box">			
+			<p class="form-control-static" data-bind="text: description"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+	    <label class="col-sm-3 control-label">
+            <span data-i18n="app:vipLevel.color"></span>
+	    </label>
+		<div class="col-sm-8 field-box">
+            <span class="btn-colorpicker" data-bind="style: { 'background-color': color}"></span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label">
+			<strong data-i18n="app:vipLevel.productLevels"></strong>
+		</label>		        
+	</div>
+
+	<div data-bind="foreach: gameLimits">
+		<div class="form-group">
+			<div class="col-sm-8 col-sm-offset-3 field-box">
+				<label class="inline"><span data-i18n="app:vipLevel.gameProvider"></span><span class="red">*</span></label>
+				<div class="width-200-px inline">					
+                    <span class="form-control-static" data-bind="text: gameProvider"></span>
+				</div>
+				&nbsp;
+				<label class="inline"><span data-i18n="app:vipLevel.betLevel"></span><span class="red">*</span></label>
+			    <div class="width-200-px inline">
+			        <span class="form-control-static" data-bind="text: betLimit"></span>
+			    </div>
+                &nbsp;
+                <label class="inline"><span data-i18n="app:vipLevel.currency"></span><span class="red">*</span></label>
+                <div class="width-100-px inline">
+                    <span class="form-control-static" data-bind="text: currency"></span>
+                </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearfix form-actions">
+		<div class="center">
+			<button type="button" class="btn btn-default btn-round" data-bind="click: close" data-i18n="app:common.close"></button>
+		</div>
+	</div>
+</form>

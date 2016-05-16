@@ -1,0 +1,184 @@
+﻿<div data-bind="visible: message, text: message, css: messageCss"></div>
+
+<form role="form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.userName"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" data-bind="value: Model.username, visible: !isReadOnly()" />
+            <span class="red" data-bind="validationMessage: Model.username"></span>
+            <p class="form-control-static" data-bind="text: Model.username, visible: isReadOnly"></p>
+        </div>
+    </div>
+    
+    <div class="form-group" data-bind="visible: !isReadOnly()">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.password"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" type="password" data-bind="value: Model.password" />
+            <span class="red" data-bind="validationMessage: Model.password"></span>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: !isReadOnly()">
+        <label class="col-sm-3 control-label" data-i18n="admin.userFields.retypePassword">
+            <span data-i18n="admin.userFields.retypePassword"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" type="password" data-bind="value: Model.passwordConfirmation" />
+            <span class="red" data-bind="validationMessage: Model.passwordConfirmation"></span>
+        </div>
+    </div>
+   
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.userFirstName"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" data-bind="value: Model.firstName, visible: !isReadOnly()" />
+            <span class="red" data-bind="validationMessage: Model.firstName"></span>
+            <p class="form-control-static" data-bind="text: Model.firstName, visible: isReadOnly"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.userLastName"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" data-bind="value: Model.lastName, visible: !isReadOnly()" />
+            <span class="red" data-bind="validationMessage: Model.lastName"></span>
+            <p class="form-control-static" data-bind="text: Model.lastName, visible: isReadOnly"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.userLanguage"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <select class="form-control" data-bind="options: Model.languages, value: Model.language, optionsText: 'name', optionsValue: 'name', visible: !isReadOnly()"></select>
+            <p class="form-control-static" data-bind="text: Model.language, visible: isReadOnly"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.userStatus"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8" data-bind="visible: !isReadOnly()">
+            <div class="radio inline-radio">
+                <label>
+                    <input type="radio" class="ace" value="true" data-bind="checked: Model.isActive.ForEditing" />
+                    <span class="lbl" data-i18n="admin.userFields.statusActive"></span>
+                </label>
+            </div>
+            <div class="radio inline-radio">
+                <label>
+                    <input type="radio" class="ace" value="false" data-bind="checked: Model.isActive.ForEditing" />
+                    <span class="lbl" data-i18n="admin.userFields.statusInactive"></span>
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-8" data-bind="visible: isReadOnly">
+            <p class="form-control-static" data-bind="text: Model.isActive.ToStatus()"></p>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.roleFields.roleLicensee"></span><span class="red">*</span>
+        </label> 
+        <div data-bind="multiSelect: {
+        allItems: Model.licensees,
+        optionsText: 'name',
+        optionsValue: 'id',
+        selected: {
+            labelText: 'admin.roleFields.assignedLicensees',
+            items: Model.assignedLicensees},
+        availableLabelText: 'admin.roleFields.availableLicensees'}, visible: !isReadOnly() && !Model.isLicenseeLocked()"></div>
+        <span class="red" data-bind="validationMessage: Model.assignedLicensees"></span>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.displayLicensees, visible: isReadOnly() || Model.isLicenseeLocked()"></p>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.userRole"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <select class="form-control" data-bind="options: Model.roles, value: Model.roleId, optionsText: 'name', optionsValue: 'id', visible: !isReadOnly()"></select>
+            <p class="form-control-static" data-bind="text: Model.displayRole, visible: isReadOnly"></p>
+        </div>
+    </div>
+    
+    <div class="form-group" data-bind="visible: !Model.isSingleBrand()">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:admin.userFields.userBrands"></span> <span class="red">*</span>
+        </label>
+        <div id="brand-multi-select" data-bind="multiSelect: {
+    allItems: Model.availableBrands,
+    optionsText: 'name',
+    optionsValue: 'id',
+    selected: {
+        labelText: 'admin.userFields.assignedBrands',
+        items: Model.allowedBrands},
+    availableLabelText: 'admin.userFields.availableBrands'}, visible: !isReadOnly()"></div>
+        <span class="red" data-bind="validationMessage: Model.allowedBrands"></span>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.displayBrands, visible: isReadOnly"></p>
+        </div>
+    </div>
+    
+    <div class="form-group" data-bind="visible: Model.isSingleBrand()">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.userBrands"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <select class="form-control" data-bind="options: Model.availableBrands, value: Model.singleBrand, optionsText: 'name', optionsValue: 'id', visible: !isReadOnly()"></select>
+            <span class="red" data-bind="validationMessage: Model.allowedBrands"></span>
+            <p class="form-control-static" data-bind="text: Model.displayBrands, visible: isReadOnly"></p>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: !Model.isLicenseeLocked()">
+        <div class="col-sm-3 control-label">
+            <span data-i18n="app:admin.userFields.userCurrencies"></span> <span class="red">*</span>
+        </div>
+        <div id="currency-multi-select" data-bind="multiSelect: {
+    allItems: Model.availableCurrencies,
+    optionsText: 'code',
+    optionsValue: 'code',
+    selected: {
+        labelText: 'licensee.assignedCurrencies',
+        items: Model.currencies},
+    availableLabelText: 'licensee.availableCurrencies'}, visible: !isReadOnly()"></div>
+        <span class="red" data-bind="validationMessage: Model.currencies"></span>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.displayCurrencies, visible: isReadOnly"></p>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.userDescription"></span>
+        </label>
+        <div class="col-sm-8">
+            <textarea class="form-control" data-bind="value: Model.description, visible: !isReadOnly()" />
+            <p class="form-control-static" data-bind="text: Model.description, visible: isReadOnly"></p>
+        </div>
+    </div>
+    
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-white btn-round" data-bind="click: cancel, text: cancelText" ></button>
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="common.save"></button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,54 @@
+﻿<div class="modal-content" style="width: 600px">
+    <div class="modal-header">
+        <h3 data-i18n="app:payment.paymentLevel.deactivate"></h3>
+    </div>
+    <div class="modal-body">
+
+        <div class="alert alert-success" data-bind="visible: resultIsSuccess" data-i18n="app:payment.paymentLevel.deactivated"></div>
+
+        <p data-bind="visible: !resultIsSuccess(), text: message"></p>
+
+        <div class="alert alert-danger" data-bind="visible: errorsArray().length > 0">
+            <strong data-i18n="app:payment.paymentLevel.deactivationFailed"></strong>
+            <ul data-bind="foreach: errorsArray">
+                <li data-bind="text: $data"></li>
+            </ul>
+        </div>
+
+        <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }, visible: showReplacementChoice">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" data-i18n="app:payment.paymentLevel.current"></label>
+                <div class="col-sm-6">
+                    <p class="form-control-static" data-bind="text: name"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" data-i18n="app:payment.paymentLevel.new"></label>
+                <div class="col-sm-6">
+                    <select class="form-control" data-bind="options: paymentLevels, optionsText: 'name', value: selectedPaymentLevel"></select>
+                </div>
+                <div class="col-sm-2 control-label">
+                    <a href="#" class="form-control-static pull-left" data-bind="click: viewNewPaymentLevel">View</a>
+                </div>
+            </div>
+        </form>
+        <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+            <div class="form-group" data-bind="visible: !submitted()">
+                <label class="col-sm-4 control-label">
+                    <span data-i18n="common.remarks"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8">
+                    <textarea data-bind="value: remarks" class="autofocus"></textarea>
+                    <div>
+                        <span class="red" data-bind="validationMessage: remarks"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer align-center">
+        <button class="btn btn-default" data-bind="click: cancelClose, text: cancelCloseText"></button>
+        <button class="btn btn-primary" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+        <button class="btn btn-primary" data-bind="click: deactivatePaymentLevel, enable: canDeactivatePaymentLevel, visible: !submitted()" data-i18n="app:common.deactivate"></button>
+    </div>
+</div>

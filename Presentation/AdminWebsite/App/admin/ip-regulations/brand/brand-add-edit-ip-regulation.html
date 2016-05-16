@@ -1,0 +1,130 @@
+﻿<div data-bind="visible: message, text: message, css: messageCss"></div>
+
+<form role="form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.ipRegulationFields.licensee"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <select class="form-control" data-bind="options: Model.licensees, value: Model.licenseeId, optionsText: 'name', optionsValue: 'id', visible: !isReadOnly() && !Model.isLicenseeLocked()"></select>
+            <p class="form-control-static" data-bind="text: Model.licensee, visible: isReadOnly() || Model.isLicenseeLocked()"></p>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: Model.isEdit()">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.ipRegulationFields.brand"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <select class="form-control" data-bind="options: Model.brands, value: Model.brandId, optionsText: 'name', optionsValue: 'id', visible: !isReadOnly() && !Model.isSingleBrand()"></select>
+            <p class="form-control-static" data-bind="text: Model.brand, visible: isReadOnly() || Model.isSingleBrand()"></p>
+        </div>
+    </div>
+    
+    <div class="form-group" data-bind="visible: !Model.isEdit()">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:admin.userFields.userBrands"></span> <span class="red">*</span>
+        </label>
+        <div id="brand-multi-select" data-bind="multiSelect: {
+    allItems: Model.brands,
+    optionsText: 'name',
+    optionsValue: 'id',
+    selected: {
+        labelText: 'admin.userFields.assignedBrands',
+        items: Model.assignedBrands},
+    availableLabelText: 'admin.userFields.availableBrands'}, visible: !isReadOnly()"></div>
+        <span class="red" data-bind="validationMessage: Model.assignedBrands"></span>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.displayBrands, visible: isReadOnly"></p>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: !advancedSettings()">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.ipRegulationFields.ipAddress"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" data-bind="value: Model.ipAddress, visible: !isReadOnly()" />
+            <span class="red" data-bind="validationMessage: Model.ipAddress"></span>
+            <p class="form-control-static" data-bind="text: Model.ipAddress, visible: isReadOnly"></p>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: !Model.isEdit()">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-8" data-bind="visible: !isReadOnly()">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" data-bind="checked: advancedSettings" />
+                    <span class="lbl" data-i18n="admin.ipRegulationManager.advancedSettings"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: !isReadOnly() && advancedSettings()">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.ipRegulationFields.selectFile"></span>
+        </label>
+        <div class="col-sm-8">
+            <input type="file" class="form-control" data-bind="value: ipFile, css: { disabled: !advancedSettings() }" />
+            <span class="red" data-bind="validationMessage: ipFile"></span>
+            <button class="btn btn-sm btn-success btn-round" data-bind='click: uploadAddresses, click: uploadAddresses, css: { disabled: !advancedSettings() }'>
+                <i class="ace-icon fa fa-upload"></i>
+                <span data-i18n="common.upload"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: advancedSettings">
+        <div class="col-sm-3 control-label">
+            <span data-i18n="admin.ipRegulationFields.ipAddressBatch"></span>
+        </div>
+        <div class="col-sm-8">
+            <textarea class="form-control" data-bind="value: Model.ipAddressBatch, visible: !isReadOnly()" />
+            <span class="red" data-bind="validationMessage: Model.ipAddressBatch"></span>
+            <p class="form-control-static" data-bind="text: Model.ipAddressBatch, visible: isReadOnly"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.userFields.userDescription"></span>
+        </label>
+        <div class="col-sm-8">
+            <textarea class="form-control" data-bind="value: Model.description, visible: !isReadOnly()" />
+            <p class="form-control-static" data-bind="text: Model.description, visible: isReadOnly"></p>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.ipRegulationFields.blockingType"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <select class="form-control" data-bind="options: Model.blockingTypes, value: Model.blockingType, optionsText: 'name', optionsValue: 'name', visible: !isReadOnly()"></select>
+            <p class="form-control-static" data-bind="text: Model.blockingType, visible: isReadOnly"></p>
+        </div>
+    </div>
+    
+    <div class="form-group" data-bind="visible: Model.blockingType() == 'Redirection'">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.ipRegulationFields.redirectionUrl"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" data-bind="value: Model.redirectionUrl, visible: !isReadOnly()" />
+            <span class="red" data-bind="validationMessage: Model.redirectionUrl"></span>
+            <p class="form-control-static" data-bind="text: Model.redirectionUrl, visible: isReadOnly"></p>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-white btn-round" data-bind="click: cancel, text: cancelText"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="common.save"></button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,72 @@
+﻿@using AFT.RegoV2.MemberApi.Interface.GameProvider
+@{
+    ViewBag.Title = "Games";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var m = Model;
+}
+
+<div class="container ky-icon-tabs-content">
+    <div id="game-list-wrapper" class="page-wrapper">
+        <nav role="tabpanel">
+            <ul role="tablist" class="nav ky-sub-tabs">
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'tabContent1' }"><a href="#tabContent1" data-bind="click: toggleTab" data-i18n="playGames.lobbyGames"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'tabContent2' }"><a href="#tabContent2" data-bind="click: toggleTab" data-i18n="playGames.individualGames"></a></li>
+            </ul>
+        </nav>
+        <div data-bind="visible: shownTab() == 'tabContent1'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    @foreach (var gameServer in m.GameProviders)
+                    {
+                        <ul class="ky-gamelist">
+                            @{
+                        foreach (GameData gameData in gameServer.Games)
+                        {
+                            <li class="col-xs-4">
+                                <h5>@gameData.Name</h5>
+                                <a href="@Url.Action("RedirectToGame", new { gameId = gameData.Id, gameProviderId = gameServer.Id })">
+                                    <div class="overlay">
+                                        <p><i class="fa fa-3x fa-play-circle"></i><span data-i18n="playGames.playNow">Play Now</span></p>
+                                    </div>
+                                    <img src="/Content/images/game1.png">
+                                </a>
+                            </li>
+                        }
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+        <div data-bind="visible: shownTab() == 'tabContent2'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    @foreach (var gameServer in m.GameProviders)
+                    {
+                        <ul class="ky-gamelist">
+                            @{
+                        foreach (GameData gameData in gameServer.Games)
+                        {
+                            <li class="col-xs-4">
+                                <h5>@gameData.Name</h5>
+                                <a href="@Url.Action("RedirectToGame", new { gameId = gameData.Id, gameProviderId = gameServer.Id })">
+                                    <div class="overlay">
+                                        <p><i class="fa fa-3x fa-play-circle"></i><span data-i18n="playGames.playNow"></span></p>
+                                    </div>
+                                    <img src="/Content/images/game3.png">
+                                </a>
+                            </li>
+                        }
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+    <script src="/Scripts/custom/gamelist.js"></script>
+}

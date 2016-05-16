@@ -1,0 +1,440 @@
+﻿<link rel="stylesheet" href="/Content/css/daterangepicker-bs3.css" />
+<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label data-bind="attr: { for: licenseeFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.licensee"></span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.licensee">
+            <select class="form-control" data-bind="attr: { id: $root.licenseeFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: brandFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.brand"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.brand">
+            <select class="form-control" data-bind="attr: { id: $root.brandFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: currencyFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.currency"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.currency">
+            <select class="form-control" data-bind="attr: { id: $root.currencyFieldId() }, options: options, value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+        </div>
+    </div>
+<div class="form-group">
+    <label data-bind="attr: { for: vipLevelFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.vipLevel"></span> <span class="red">*</span></label>
+    <div class="col-sm-8 field-box" data-bind="with: form.fields.vipLevel">
+        <select class="form-control" data-bind="attr: { id: $root.vipLevelFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <span class="red" data-bind="validationMessage: value"></span>
+        <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+    </div>
+</div>
+
+    <!--Payment levels criteria-->
+    <div class="form-group">
+        <label data-bind="attr: { for: hasPaymentLevelFieldId() }" class="col-sm-3 control-label"><span>Has Payment Level</span> </label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.hasPaymentLevel">
+            <input type="checkbox" data-bind="attr: { id: $root.hasPaymentLevelFieldId() }, checked: value, enable: !$root.submitted()"/> <span class="red" data-bind="validationMessage: value"></span>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: form.fields.hasPaymentLevel.value">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-9 control-label">
+            <label class="control-label pull-left">All Payment Levels</label>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: paymentLevelsAssignControl, visible: form.fields.hasPaymentLevel.value">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-2" data-bind="visible: !$root.submitted()">
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: 'name', selectedOptions: selectedAvailableItems, enable: $root.form.fields.hasPaymentLevel.value"></select>
+        </div>
+        <div class="col-xs-1 center" style="margin-top: 65px" data-bind="visible: !$root.submitted()">
+            <button class="btn" data-bind="click: assign, enable: $root.form.fields.hasPaymentLevel.value">&gt;</button><br />
+            <button class="btn" data-bind="click: unassign, enable: $root.form.fields.hasPaymentLevel.value">&lt;</button>
+        </div>
+        <div class="col-sm-2" data-bind="visible: !$root.disabled()">
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: 'name', selectedOptions: selectedAssignedItems, enable: $root.form.fields.hasPaymentLevel.value() & !$root.submitted()"></select>
+        </div>
+        <span class="red" data-bind="validationMessage: assignedItems"></span>
+    </div>
+
+
+
+    <!--Risk levels criteria-->
+    <div class="form-group">
+        <label data-bind="attr: { for: hasFraudRiskLevelFieldId() }" class="col-sm-3 control-label"><span>Has Fraud Risk Level</span> </label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.hasFraudRiskLevel">
+            <input type="checkbox" data-bind="attr: { id: $root.hasFraudRiskLevelFieldId() }, checked: value, enable: !$root.submitted()" /> <span class="red" data-bind="validationMessage: value"></span>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: form.fields.hasFraudRiskLevel.value">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-9 control-label">
+            <label class="control-label pull-left">All Fraud Risk Levels <strong>EXCEPT</strong></label>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: fraudRiskLevelsAssignControl, visible: form.fields.hasFraudRiskLevel.value">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-2" data-bind="visible: !$root.submitted()">
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: 'name', selectedOptions: selectedAvailableItems, enable: $root.form.fields.hasFraudRiskLevel.value"></select>
+        </div>
+        <div class="col-xs-1 center" style="margin-top: 65px" data-bind="visible: !$root.submitted()">
+            <button class="btn" data-bind="click: assign, enable: $root.form.fields.hasFraudRiskLevel.value">&gt;</button><br />
+            <button class="btn" data-bind="click: unassign, enable: $root.form.fields.hasFraudRiskLevel.value">&lt;</button>
+        </div>
+        <div class="col-sm-2" data-bind="visible: !$root.disabled()">
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: 'name', selectedOptions: selectedAssignedItems, enable: $root.form.fields.hasFraudRiskLevel.value() & !$root.submitted()"></select>
+        </div>
+        <span class="red" data-bind="validationMessage: assignedItems"></span>
+    </div>
+
+    <div class="form-group">
+        <label data-bind="attr: { for: hasCompleteDocumentsFieldId() }" class="col-sm-3 control-label"><span>Has Complete Documents</span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.hasCompleteDocuments">
+            <input type="checkbox" data-bind="attr: { id: $root.hasCompleteDocumentsFieldId() }, checked: value, enable: !$root.submitted()" /> <span class="red" data-bind="validationMessage: value"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label data-bind="attr: { for: hasWinningsFieldId() }" class="col-sm-3 control-label"><span>Has Winnings</span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.hasWinnings">
+            <input type="checkbox" data-bind="attr: { id: $root.hasWinningsFieldId() }, checked: value, enable: !$root.submitted()" /> <span class="red" data-bind="validationMessage: value"></span>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: $root.form.fields.hasWinnings.value">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-7 field-box" data-bind="foreach: $root.winningRules">
+            <div>
+                <!--<h5><strong data-bind="text: header"></strong></h5>-->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Comparison</th>
+                            <th>Amount</th>
+                            <th data-bind="visible: !$root.submitted() && $root.winningRules().length > 1">
+                                <button type="button" class="btn btn-danger btn-round btn-xs" data-bind="click: $root.removeWinningRule.bind($root)">
+                                    -
+                                </button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select data-bind="enable: !$root.submitted(), options: products,
+                                   optionsText: function(item) {
+                                       return item.Name
+                                   },
+                                   value: selectedProduct,
+                                   optionsValue: 'Id',
+                                   optionsCaption: 'Select Product...'"></select>
+                            </td>
+                            <td>
+                                <select data-bind="value: comparisonOperator, enable: !$root.submitted()">
+                                    <option value="0">&gt</option>
+                                    <option value="1">&lt</option>
+                                    <option value="2">&gt=</option>
+                                    <option value="3">&lt=</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input maxlength="15" data-bind="value: amount, numeric: amount, enable: !$root.submitted()" />
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <span class="red" data-bind="validationMessage: amount"></span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Period</label>
+                <div class="col-sm-8">
+                    <select class="col-sm-3 form-control" data-bind="value: selectedPeriod, enable: !$root.submitted()">
+                        <option value="0">Last 7 days</option>
+                        <option value="1">Last 30 days</option>
+                        <option value="2">Current year</option>
+                        <option value="3">From sign-up</option>
+                        <option value="4">Custom date</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" data-bind="visible: selectedPeriod() == 4">
+                <label class="col-sm-3 control-label">
+                    <span>Range</span> <span class="red">*</span>
+                </label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        <input class="form-control" data-bind="dateRange: true, format: 'YYYY/MM/DD', startDate: startDate, endDate: endDate, enable: !$root.submitted()" readonly style="cursor: default" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-danger" data-bind="visible: errorMessage, text: errorMessage"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-3 control-label"></div>
+            <div class="col-sm-8 field-box">
+                <button type="button" class="btn btn-success btn-round btn-xs" data-bind="click: $root.addWinningRule.bind($root), text: 'Add another rule', visible: !$root.submitted()"></button>
+            </div>
+        </div>
+    </div>
+
+    <!--    <div class="form-group">-->
+    <!--        <label data-bind="attr: { for: allowWithdrawalExemptionFieldId() }" class="col-sm-3 control-label"><span>Allow withdrawal exemption</span> </label>-->
+    <!--        <div class="col-sm-8 field-box" data-bind="with: form.fields.allowWithdrawalExemption">-->
+    <!--            <input type="checkbox" data-bind="attr: { id: $root.allowWithdrawalExemptionFieldId() }, checked: value, enable: !$root.submitted()" /> <span class="red" data-bind="validationMessage: value"></span>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--    <div class="form-group">-->
+    <!--        <label data-bind="attr: { for: hasNoRecentBonusFieldId() }" class="col-sm-3 control-label"><span>No recent bonus</span></label>-->
+    <!--        <div class="col-sm-8 field-box" data-bind="with: form.fields.hasNoRecentBonus">-->
+    <!--            <input type="checkbox" data-bind="attr: { id: $root.hasNoRecentBonusFieldId() }, checked: value, enable: !$root.submitted()" /> <span class="red" data-bind="validationMessage: value"></span>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label"><span>WinLoss</span></label>
+        <div class="col-sm-1 field-box">
+            <input type="checkbox" data-bind="attr: { id: $root.hasWinLossFieldId() }, checked:form.fields.hasWinLoss.value, enable: !$root.submitted()" />
+        </div>
+        <div class="col-sm-5">
+
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: form.fields.hasWinLoss.value">
+        <!--<h5><strong data-bind="text: header"></strong></h5>-->
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th>Comparison</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="col-sm-5">
+                                <select data-bind="options: operators, optionsText: 'text', optionsValue: 'value', value: form.fields.winLossOperator.value, visible: !$root.submitted() & form.fields.hasWinLoss.value()"></select>
+                            </div>
+                            <label class="col-sm-2" data-bind="text: winLossOperatorTitle(), visible: $root.submitted()"></label>
+                        </td>
+                        <td>
+                            <input class="col-sm-5" maxlength="15" name="winLossAmount" data-bind="value: form.fields.winLossAmount.value, numeric: form.fields.winLossAmount.value, visible: !$root.submitted() & form.fields.hasWinLoss.value()" />
+                            <p class="form-control-static" data-bind="visible: $root.submitted(), text: form.fields.winLossAmount.value"></p>
+
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <span class="red" data-bind="validationMessage: form.fields.winLossAmount.value"></span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label"><span>Account age check</span></label>
+        <div class="col-sm-1 field-box">
+            <input type="checkbox" data-bind="attr: { id: $root.hasAccountAgeFieldId() }, checked:form.fields.hasAccountAge.value, enable: !$root.submitted()" />
+        </div>
+        <div class="col-sm-5">
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: form.fields.hasAccountAge.value">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th>Comparison</th>
+                        <th>Days</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="col-sm-5">
+                                <select class="" data-bind="options: operators, optionsText: 'text', optionsValue: 'value', value: form.fields.accountAgeOperator.value, visible: !$root.submitted() & form.fields.hasAccountAge.value()"></select>
+                            </div>
+                            <label class="col-sm-5" data-bind="text: accountAgeOperatorTitle(), visible: $root.submitted()"></label>
+                        </td>
+                        <td>
+                            <input class="col-sm-5" maxlength="15" name="accountAge" data-bind="value: form.fields.accountAge.value, numericInt:form.fields.accountAge.value, visible: !$root.submitted() & form.fields.hasAccountAge.value()" />
+                            <p class="form-control-static col-sm-5" data-bind="visible: $root.submitted(), text: form.fields.accountAge.value"></p>
+                            <span class="red" data-bind="validationMessage: form.fields.hasAccountAge.value"></span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <span class="red" data-bind="validationMessage: form.fields.accountAge.value"></span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label"><span>Total Deposit Amount</span></label>
+        <div class="col-sm-1 field-box">
+            <input type="checkbox" data-bind="attr: { id: $root.hasTotalDepositAmountFieldId() }, checked:form.fields.hasTotalDepositAmount.value, enable: !$root.submitted()" />
+        </div>
+        <div class="col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: form.fields.hasTotalDepositAmount.value">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th>Comparison</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="col-sm-5">
+                                <select class="" data-bind="options: operators, optionsText: 'text', optionsValue: 'value', value: form.fields.totalDepositAmountOperator.value, visible: !$root.submitted() & form.fields.hasTotalDepositAmount.value()"></select>
+                            </div>
+                            <label class="col-sm-5" data-bind="text: totalDepositAmountOperatorTitle(), visible: $root.submitted()"></label>
+                        </td>
+                        <td>
+                            <input class="col-sm-5" maxlength="15" name="totalDepositAmount" data-bind="value: form.fields.totalDepositAmount.value, numeric: form.fields.totalDepositAmount.value, visible: !$root.submitted() & form.fields.hasTotalDepositAmount.value()" />
+                            <p class="form-control-static col-sm-5" data-bind="visible: $root.submitted(), text: form.fields.totalDepositAmount.value"></p>
+
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <span class="red" data-bind="validationMessage: form.fields.totalDepositAmount.value"></span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label"><span>Deposit count</span></label>
+        <div class="col-sm-1 field-box">
+            <input type="checkbox" data-bind="attr: { id: $root.hasDepositCountFieldId() }, checked:form.fields.hasDepositCount.value, enable: !$root.submitted()" />
+        </div>
+        <div class="col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: form.fields.hasDepositCount.value">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th>Comparison</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="col-sm-5">
+                                <select class="" data-bind="options: operators, optionsText: 'text', optionsValue: 'value', value: form.fields.totalDepositCountOperator.value, visible: !$root.submitted() & form.fields.hasDepositCount.value()"></select>
+                            </div>
+                            <label class="col-sm-5" data-bind="text: totalDepositCountOperatorTitle(), visible: $root.submitted()"></label>
+                        </td>
+                        <td>
+                            <input class="col-sm-5" maxlength="15" name="totalDepositCountAmount" data-bind="value: form.fields.totalDepositCountAmount.value, numericInt:form.fields.totalDepositCountAmount.value, visible: !$root.submitted() & form.fields.hasDepositCount.value()" />
+                            <p class="form-control-static col-sm-5" data-bind="visible: $root.submitted(), text: form.fields.totalDepositCountAmount.value"></p>
+
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <span class="red" data-bind="validationMessage: form.fields.totalDepositCountAmount.value"></span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label"><span>Withdrawal count</span></label>
+        <div class="col-sm-1 field-box">
+            <input type="checkbox" data-bind="attr: { id: $root.hasWithdrawalCountFieldId() }, checked:form.fields.hasWithdrawalCount.value, enable: !$root.submitted()" />
+        </div>
+        <div class="col-sm-5">
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: form.fields.hasWithdrawalCount.value">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th>Comparison</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="col-sm-5">
+                                <select class="" data-bind="options: operators, optionsText: 'text', optionsValue: 'value', value: form.fields.totalWithdrawalCountOperator.value, visible: !$root.submitted() & form.fields.hasWithdrawalCount.value()"></select>
+                            </div>
+                            <label class="col-sm-5" data-bind="text: totalWithdrawalCountOperatorTitle(), visible: $root.submitted()"></label>
+                        </td>
+                        <td>
+                            <input class="col-sm-5" maxlength="15" name="totalWithdrawalCountAmount" data-bind="value: form.fields.totalWithdrawalCountAmount.value, numericInt:form.fields.totalWithdrawalCountAmount.value, visible: !$root.submitted() & form.fields.hasWithdrawalCount.value()" />
+                            <p class="form-control-static col-sm-5" data-bind="visible: $root.submitted(), text: form.fields.totalWithdrawalCountAmount.value"></p>
+
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <span class="red" data-bind="validationMessage: form.fields.totalWithdrawalCountAmount.value"></span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close" data-i18n="app:common.close"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

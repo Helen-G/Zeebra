@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{267BC2EB-43FF-4614-9F5B-98CECF23E010}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameApi.Interfaces</RootNamespace>
+    <AssemblyName>GameApi.Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\GameApiErrorCode.cs" />
+    <Compile Include="Classes\GameApiRequestBase.cs" />
+    <Compile Include="Classes\GameApiResponseBase.cs" />
+    <Compile Include="Interfaces\IErrorDetails.cs" />
+    <Compile Include="Interfaces\IGameApiRequest.cs" />
+    <Compile Include="Interfaces\IGameApiResponse.cs" />
+    <Compile Include="Interfaces\IGameApiSettleBetCommand.cs" />
+    <Compile Include="Interfaces\IGameApiSettleBetResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContracts\AdjustTransaction.cs" />
+    <Compile Include="ServiceContracts\AdjustTransactions.cs" />
+    <Compile Include="ServiceContracts\BetsHistory.cs" />
+    <Compile Include="ServiceContracts\CancelTransaction.cs" />
+    <Compile Include="ServiceContracts\CancelTransactions.cs" />
+    <Compile Include="ServiceContracts\FreeBet.cs" />
+    <Compile Include="ServiceContracts\GetBalance.cs" />
+    <Compile Include="ServiceContracts\LoseBet.cs" />
+    <Compile Include="ServiceContracts\OAuth\OAuth2Token.cs" />
+    <Compile Include="ServiceContracts\OAuth\OAuth2TokenResponse.cs" />
+    <Compile Include="ServiceContracts\PlaceBet.cs" />
+    <Compile Include="ServiceContracts\SettleBetResponseTransaction.cs" />
+    <Compile Include="ServiceContracts\SettleBets.cs" />
+    <Compile Include="ServiceContracts\SettleBetTransaction.cs" />
+    <Compile Include="ServiceContracts\SlotServer\ValidateToken.cs" />
+    <Compile Include="ServiceContracts\SlotServer\ValidateTokenResponse.cs" />
+    <Compile Include="ServiceContracts\SlotServer\WalletOperation.cs" />
+    <Compile Include="ServiceContracts\SlotServer\WalletOperationResponse.cs" />
+    <Compile Include="ServiceContracts\ValidateToken.cs" />
+    <Compile Include="ServiceContracts\WinBet.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,46 @@
+﻿<div id="fraud-grid" data-bind="grid: {
+    fields: ['Level', 'Name', 'Status', 'Licensee', 'Brand', 'CreatedBy', 'DateCreated', 'Remark'],
+    source: 'Fraud/Search',
+    filter: ko.computed(function () {
+        return {
+            'Name': nameSearchPattern()
+        };
+    }),
+    defaultSort: { field: 'Level', direction: 'asc' },
+    paging: true,
+    useResizeManager: true,
+    useBrandFilter: true
+}">
+
+    <div class="jqgrid-title-bar" data-bind="attr: { id: naming.titleBarId }">
+        <form data-bind="attr: { id: naming.searchFormId }" action="#" class="pull-left">
+            <input data-bind="attr: { id: naming.searchNameFieldId }" type="text" data-i18n="[placeholder]app:fraud.manager.columns.riskLevelName" />
+            <button data-bind="attr: { id: naming.searchButtonId }" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: openAddTab, visible: isAddAllowed()">
+                <i class="ace-icon fa fa-plus"></i><span data-i18n="app:common.new"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openEditTab, visible: isEditAllowed(), enable: selectedRowId()">
+                <i class="ace-icon fa fa-pencil"></i><span data-i18n="app:common.edit"></span>
+            </button>
+            <button id="fraud-risk-level-activate-button" class="btn btn-sm btn-primary btn-round" data-bind="click: showStatusDialog, visible: isActivateAllowed(), enable: selectedRowId() && !isActive()">
+                <i class="ace-icon fa fa-check"></i><span data-i18n="app:common.activate"></span>
+            </button>
+            <button id="fraud-risk-level-deactivate-button" class="btn btn-sm btn-primary btn-round" data-bind="click: showStatusDialog, visible: isDeactivateAllowed(), enable: selectedRowId() && isActive()">
+                <i class="ace-icon fa fa-ban"></i><span data-i18n="app:common.deactivate"></span>
+            </button>
+        </div>
+    </div>
+    <column title="app:fraud.manager.columns.riskLevel" sort-field="Level" width="150" data-value="@Level" />
+    <column title="app:fraud.manager.columns.riskLevelName" sort-field="Name" width="200" data-value="@Name" />
+    <column data-value="@Status" name="RawStatus" hidden="true" />
+    <column title="app:common.status" sort-field="Status" width="120" data-value="$root.statusFormatter.call @" />
+    <column title="app:common.licensee" sort-field="Licensee" width="120" data-value="@Licensee" />
+    <column title="app:common.brand" sort-field="Brand" width="120" data-value="@Brand" />
+    <column title="app:common.createdBy" sort-field="CreatedBy" width="120" data-value="@CreatedBy" />
+    <column title="app:common.dateCreated" sort-field="DateCreated" width="120" data-value="@DateCreated" />
+    <column title="app:common.remarks" sort-field="Remark" width="120">
+        <span class="remark ace-icon fa fa-file-text-o" data-title="@Remark"></span>
+    </column>
+</div>

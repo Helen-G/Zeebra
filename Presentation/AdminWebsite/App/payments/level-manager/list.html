@@ -1,0 +1,66 @@
+﻿<div id="payment-levels-list" data-bind="grid: {
+    source: '/PaymentLevel/List',
+    fields: ['Name', 'Code', 'CurrencyCode', 'Status', 'CreatedBy', 'DateCreated', 'UpdatedBy', 'DateUpdated', 'ActivatedBy', 'DateActivated', 'DeactivatedBy', 'DateDeactivated'],
+    filter: ko.computed(function() { return {
+        Name: levelSearchPattern()
+    }}),
+    defaultSort: { field: 'Name', direction: 'desc' },
+    paging: true,
+    useResizeManager: true
+}">
+    <header>
+        <form id="payment-levels-search" action="#" class="pull-left">
+            <input id="payment-levels-name-search" type="text" placeholder="Name" />
+            <div class="custom-filters" data-bind="visible: filterVisible, compose: { model: 'controls/filters', activationData: [[
+                ['Name' , 'Name', 'text'],
+                ['Code' , 'Code', 'text'],
+                ['CurrencyCode' , 'Currency Code', 'enum', ['CAD', 'CNY']],
+                ['Status' , 'Status', 'enum', ['Active', 'Inactive']],
+                ['CreatedBy', 'Created By', 'text'],
+                ['DateCreated', 'DateCreated', 'date'],
+                ['UpdatedBy' , 'Updated By', 'text'],
+                ['UpdatedDate' , 'Updated Date', 'date'],
+                ['ActivatedBy', 'Activated By', 'text'],
+                ['DateActivated', 'Activated Date', 'date'],
+                ['DeactivatedBy', 'Deactivated By', 'text'],
+                ['DateDeactivated', 'Deactivated Date', 'date']
+            ]] }"></div>
+            <button id="search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: function() { filterVisible(true); }, visible: !filterVisible()">
+                <i class="ace-icon fa fa-filter"></i> <span data-i18n="app:report.common.showFilter"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: function() { filterVisible(false); }, visible: filterVisible()">
+                <i class="ace-icon fa fa-filter"></i> <span data-i18n="app:report.common.hideFilter"></span>
+            </button>
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: openAddTab, visible: isAddAllowed">
+                <i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openEditTab, visible: isEditAllowed, enable: rowId()">
+                <i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openViewTab, enable: rowId()">
+                <i class="ace-icon fa fa-file-text-o"></i> <span data-i18n="app:common.view"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openActivateDialog, visible: isActivateAllowed, enable: canActivate">
+                <i class="ace-icon fa fa-check"></i> <span data-i18n="app:common.activate"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openDeactivateDialog, visible: isDeactivateAllowed, enable: canDeactivate">
+                <i class="ace-icon fa fa-ban"></i> <span data-i18n="app:common.deactivate"></span>
+            </button>
+        </div>
+    </header>
+    <column title="app:payment.levelName" sort-field="Name" width="170" data-value="@Name" />
+    <column title="app:payment.levelCode" sort-field="Code" width="170" data-value="@Code" />
+    <column title="app:common.currency" sort-field="CurrencyCode" width="120" data-value="@CurrencyCode" />
+    <column title="app:common.status" sort-field="Status" width="120" data-value="@Status" />
+    <column title="app:common.createdBy" sort-field="CreatedBy" width="120" data-value="@CreatedBy" />
+    <column title="app:common.dateCreated" sort-field="DateCreated" width="120" data-value="@DateCreated" />
+    <column title="app:common.updatedBy" sort-field="UpdatedBy" width="120" data-value="@UpdatedBy" />
+    <column title="app:common.dateUpdated" sort-field="DateUpdated" width="120" data-value="@DateUpdated" />
+    <column title="app:common.activatedBy" sort-field="ActivatedBy" width="120" data-value="@ActivatedBy" />
+    <column title="app:common.dateActivated" sort-field="DateActivated" width="120" data-value="@DateActivated" />
+    <column title="app:common.deactivatedBy" sort-field="DeactivatedBy" width="120" data-value="@DeactivatedBy" />
+    <column title="app:common.dateDeactivated" sort-field="DateDeactivated" width="120" data-value="@DateDeactivated" />
+</div>

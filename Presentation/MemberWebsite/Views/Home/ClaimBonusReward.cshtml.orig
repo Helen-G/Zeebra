@@ -1,0 +1,121 @@
+<<<<<<< HEAD
+﻿@{
+    ViewBag.Title = "Claim bonus reward";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container ky-icon-tabs-content">
+    <div id="claim-bonus-wrapper" class="page-wrapper">
+        <nav role="tabpanel">
+            <ul role="tablist" class="nav ky-sub-tabs">
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'tabContent1' }"><a href="#tabContent1" data-bind="click: toggleTab" data-i18n="claimBonus.claimBonus"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'tabContent2' }"><a href="#tabContent2" data-bind="click: toggleTab" data-i18n="claimBonus.termsAndConditions"></a></li>
+            </ul>
+        </nav>
+        <div data-bind="visible: shownTab() == 'tabContent1'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- ko if: fetchingRedemptions-->
+                    <h2 data-i18n="claimBonus.loadingRedemptions"></h2>
+                    <!-- /ko -->
+                    <!-- ko foreach: redemptions -->
+                    <div class="ky-panel ky-margin-row ky-ticket-box">
+                        <h4 class="title"><i class="fa fa-fw fa-trophy"></i><span data-i18n="claimBonus.bonusName"></span><span data-bind="text: bonusName"></span></h4>
+                        <div class="row">
+                            <div class="col-xs-4 col-xs-offset-3 text-left" data-i18n="claimBonus.rewardAmount"><span class="amount" data-bind="text: rewardAmount"></span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 text-left">
+                                <!-- ko if: state == 2 -->
+                                <label class="bg-success" data-i18n="claimBonus.willBeClaimableOn"><span data-bind="text: claimableFrom"></span></label>
+                                <!-- /ko -->
+                                <!-- ko if: state == 1 -->
+                                <label class="bg-warning" data-i18n="claimBonus.expiredOn"><span data-bind="text: claimableTo"></span></label>
+                                <!-- /ko -->
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <!-- ko if: state == 0 -->
+                                <button type="button" data-bind="click: $root.claimRedemption, disable: $root.requestInProgress" class="btn btn-sm btn-primary" data-i18n="claimBonus.claim"></button>
+                                <!-- /ko -->
+                                <button type="button" class="btn btn-sm btn-danger" data-i18n="claimBonus.remove"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+
+                    <div data-bind="visible: messages().length > 0, foreach: messages">
+                        <label data-bind="text: $data"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-bind="visible: shownTab() == 'tabContent2'" class="row">
+            <div class="col-xs-12">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Scripts/custom/claimBonusReward.js"></script>
+=======
+@{
+    ViewBag.Title = "Claim bonus reward";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container ky-icon-tabs-content">
+    <div id="claim-bonus-wrapper" class="page-wrapper">
+        <nav role="tabpanel">
+            <ul role="tablist" class="nav ky-sub-tabs">
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'tabContent1' }"><a href="#tabContent1" data-bind="click: toggleTab">Claim a Bonus</a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'tabContent2' }"><a href="#tabContent2" data-bind="click: toggleTab">Terms and Conditions</a></li>
+            </ul>
+        </nav>
+        <div data-bind="visible: shownTab() == 'tabContent1'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- ko if: fetchingRedemptions-->
+                    <h2>Loading redemptions...</h2>
+                    <!-- /ko -->
+                    <!-- ko foreach: redemptions -->
+                    <div class="ky-panel ky-margin-row ky-ticket-box">
+                        <h4 class="title"><i class="fa fa-fw fa-trophy"></i>Bonus Name: <span data-bind="text: bonusName"></span></h4>
+                        <div class="row">
+                            <div class="col-xs-4 col-xs-offset-3 text-left">Reward Amount:<span class="amount" data-bind="text: rewardAmount"></span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 text-left">
+                                <!-- ko if: state == 1 -->
+                                <label class="bg-warning">Expired on <span data-bind="text: claimableTo"></span></label>
+                                <!-- /ko -->
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <!-- ko if: state == 0 -->
+                                <button type="button" data-bind="click: $root.claimRedemption, disable: $root.requestInProgress" class="btn btn-sm btn-primary"><i class="fa fa-gift"></i> Claim</button>
+                                <!-- /ko -->
+                                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-close"></i> Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+
+                    <div data-bind="visible: messages().length > 0, foreach: messages">
+                        <label data-bind="text: $data"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-bind="visible: shownTab() == 'tabContent2'" class="row">
+            <div class="col-xs-12">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Scripts/custom/claimBonusReward.js"></script>
+>>>>>>> develop
+}

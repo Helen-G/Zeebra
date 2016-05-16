@@ -1,0 +1,11 @@
+﻿<div data-bind="attr: {id: naming.homeId}">
+    <div class="jqgrid-title-bar" data-bind="attr: {id: naming.titleBarId}">
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-success btn-round" id="btn-assign-country" data-bind="click: assign, visible: isManageAllowed()">
+                <span data-i18n="app:common.manage"></span>
+            </button>
+        </div>
+    </div>
+    <table data-bind="attr: {id: naming.gridBodyId}"></table>
+    <div data-bind="attr: {id: naming.pagerId}"></div>
+</div>

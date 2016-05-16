@@ -1,0 +1,29 @@
+﻿@using AFT.RegoV2.MemberWebsite.Models
+@{
+    var currentCultureCode = @System.Threading.Thread.CurrentThread.CurrentUICulture.Name;
+    var availableLanguages = LanguageModel.AvailableLanguages;
+    var currentLanguage = availableLanguages.Single(l => l.Culture == currentCultureCode);
+    var currentFlag = currentLanguage.Culture.Substring("XX-".Length).ToLower();
+}
+
+<div class="dropdown inline-block drop-select-language">
+    <button id="selectLanguage" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span>@currentLanguage.NativeName</span>
+        <i class="flag flag-@currentFlag"></i><span class="caret"></span>
+    </button>
+    <ul role="menu" aria-labelledby="selectLanguage" class="dropdown-menu">
+        @foreach (var language in availableLanguages)
+        {
+            var cultureCode = language.Culture;
+            var flag = cultureCode.Substring("XX-".Length).ToLower();
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="@Url.Action(null, new { culture = cultureCode })">
+                    <i class="flag flag-@flag"></i>
+                    @language.NativeName
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+
+

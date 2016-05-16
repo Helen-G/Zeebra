@@ -1,0 +1,133 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label data-bind="attr: { for: licenseeFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.licensee"></span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.licensee">
+            <select class="form-control" data-bind="attr: { id: $root.licenseeFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: brandFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.brand"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.brand">
+            <select class="form-control" data-bind="attr: { id: $root.brandFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly(), disable: $root.disabled"></select><span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: transferTypeFieldId() }" class="col-sm-3 control-label">
+            <span data-i18n="app:payment.transfer.transferType"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.transferType">
+            <select class="form-control" data-bind="attr: { id: $root.transferTypeFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: display, visible: isReadOnly"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: currencyFieldId() }" class="col-sm-3 control-label">
+            <span data-i18n="app:common.currency"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.currency">
+            <select class="form-control" data-bind="attr: { id: $root.currencyFieldId() }, options: options, value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: display, visible: isReadOnly"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: vipLevelFieldId() }" class="col-sm-3 control-label">
+            <span data-i18n="app:payment.settings.vipLevel"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.vipLevel">
+            <select class="form-control" data-bind="attr: { id: $root.vipLevelFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: walletFieldId() }" class="col-sm-3 control-label">
+            <span data-i18n="app:payment.transfer.wallet"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.wallet">
+            <select class="form-control" data-bind="attr: { id: $root.walletFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: display, visible: isReadOnly"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:payment.settings.minAmountPerTransaction"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" maxlength="15" data-bind="value: fields.minAmountPerTransaction, numeric:fields.minAmountPerTransaction, visible: !submitted()" />
+            <span class="red" data-bind="validationMessage: fields.minAmountPerTransaction"></span>
+            <p class="form-control-static" data-bind="text: fields.minAmountPerTransaction, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:payment.settings.maxAmountPerTransaction"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" maxlength="15" data-bind="value: fields.maxAmountPerTransaction, numeric:fields.maxAmountPerTransaction, visible: !submitted()" />
+            <span class="red" data-bind="validationMessage: fields.maxAmountPerTransaction"></span>
+            <p class="form-control-static" data-bind="text: fields.maxAmountPerTransaction, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:payment.settings.maxAmountPerDay"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" maxlength="15" data-bind="value: fields.maxAmountPerDay, numeric:fields.maxAmountPerDay, visible: !submitted()" />
+            <span class="red" data-bind="validationMessage: fields.maxAmountPerDay"></span>
+            <p class="form-control-static" data-bind="text: fields.maxAmountPerDay, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:payment.settings.maxTransactionPerDay"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" maxlength="10" data-bind="value: fields.maxTransactionPerDay, numericInt:fields.maxTransactionPerDay, visible: !submitted()" />
+            <span class="red" data-bind="validationMessage: fields.maxTransactionPerDay"></span>
+            <p class="form-control-static" data-bind="text: fields.maxTransactionPerDay, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:payment.settings.maxTransactionPerWeek"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" maxlength="10" data-bind="value: fields.maxTransactionPerWeek, numericInt:fields.maxTransactionPerWeek, visible: !submitted()" />
+            <span class="red" data-bind="validationMessage: fields.maxTransactionPerWeek"></span>
+            <p class="form-control-static" data-bind="text: fields.maxTransactionPerWeek, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:payment.settings.maxTransactionPerMonth"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" maxlength="10" data-bind="value: fields.maxTransactionPerMonth, numericInt:fields.maxTransactionPerMonth, visible: !submitted()" />
+            <span class="red" data-bind="validationMessage: fields.maxTransactionPerMonth"></span>
+            <p class="form-control-static" data-bind="text: fields.maxTransactionPerMonth, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

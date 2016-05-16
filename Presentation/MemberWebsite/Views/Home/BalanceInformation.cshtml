@@ -1,0 +1,521 @@
+@model AFT.RegoV2.MemberWebsite.Models.BalanceInformationModel
+@{
+    ViewBag.Title = "Balance Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container ky-icon-tabs-content">
+    <div id="balance-information-wrapper" class="page-wrapper">
+        <nav role="tabpanel">
+            <ul role="tablist" class="nav ky-sub-tabs">
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'balance' }"><a href="#balance" data-i18n="balanceInformation.balanceDetails"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'offlineDeposit' }"><a href="#offlineDeposit" data-i18n="balanceInformation.offlineDeposit"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'withdrawalDetails' }"><a href="#withdrawalDetails" data-i18n="balanceInformation.withdrawalRequest"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'fundIn' }"><a href="#fundIn" data-i18n="balanceInformation.transferFund"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'pendingDeposits' }"><a href="#pendingDeposits" data-i18n="balanceInformation.pendingDeposits"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'transactionHistoryMockup' }" class="mockup"><a href="#transactionHistoryMockup" data-i18n="balanceInformation.transactionHistory"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'pendingDepositsMockup' }" class="mockup"><a href="#pendingDepositsMockup" data-i18n="balanceInformation.pendingDeposits"></a></li>
+            </ul>
+        </nav>
+        <div data-bind="visible: shownTab() == 'balance'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="ky-panel ky-margin-row ky-ticket-box">
+                        <h4 class="title"><i class="fa fa-fw fa-money"></i><span data-i18n="balanceInformation.balanceDetails"></span></h4>
+                        <table class="table table-no-bordered ky-table">
+                            <tr>
+                                <td data-i18n="balanceInformation.currency"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="text: currency"></span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="balanceInformation.mainBalance"></td>
+                                <td>
+                                    <div>
+                                        <div><span>@Model.Balances.Main</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="balanceInformation.bonusBalance"></td>
+                                <td>
+                                    <div>
+                                        <div><span>@Model.Balances.Bonus</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="balanceInformation.payableBalance"></td>
+                                <td>
+                                    <div>
+                                        <div><span>@Model.Balances.Playable</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="balanceInformation.freeBalance"></td>
+                                <td>
+                                    <div>
+                                        <div><span>@Model.Balances.Free</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="balanceInformation.mainBalance"></td>
+                                <td>
+                                    <div>
+                                        <div><span>@Model.Balances.Main</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="balanceInformation.bonusBalance"></td>
+                                <td>
+                                    <div>
+                                        <div><span>@Model.Balances.Bonus</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="balanceInformation.payableBalance"></td>
+                                <td>
+                                    <div>
+                                        <div><span>@Model.Balances.Playable</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-bind="visible: shownTab() == 'offlineDeposit'" class="ky-sub-tabs-content">
+            @{ Html.RenderPartial("_PartialOfflineDeposit", Model.OfflineDeposit); }
+        </div>
+
+        <div data-bind="visible: shownTab() == 'withdrawalDetails'" class="ky-sub-tabs-content">
+            <form role="form" data-bind="submit: submitWithdrawalRequest">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="ky-panel ky-margin-row ky-ticket-box">
+                            <h4 class="title"><i class="fa fa-fw fa-money"></i> <span data-i18n="balanceInformation.withdrawalDetails"></span></h4>
+                            <table class="table table-no-bordered ky-table">
+                                <tr>
+                                    <td data-i18n="balanceInformation.availableBalance"></td>
+                                    <td>
+                                        <div>
+                                            <div>
+                                                <span>@Model.Balances.Free</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.withdrawalAmount"></td>
+                                    <td>
+                                        <div>
+                                            <div>
+                                                <input type="number" min="0" maxlength="15" data-bind="value: withdrawalAmount, numeric: withdrawalAmount" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.notificationMethod"></td>
+                                    <td>
+                                        <div>
+                                            <div data-bind="foreach: withdrawalNotificationMethods">
+                                                <div class="radio-inline">
+                                                    <label>
+                                                        <input type="radio" data-bind="value: $data, checked: $root.withdrawalNotificationMethod" name="optionsRadios" />
+                                                        <span data-bind="text: $data"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr><td></td><td><button type="submit" class="btn btn-primary" data-bind="enable: !withdrawalRequestInProgress()" data-i18n="common.submit"></button></td></tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <label class="ky-notification notification-success" data-bind="visible: withdrawalRequestSuccess" data-i18n="balanceInformation.withdrawalRequestedSuccessfully"></label>
+                                        <label class="ky-notification notification-danger" data-bind="visible:withdrawalRequestErrors().length > 0, text: withdrawalRequestErrors"></label>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <h4 class="title"><i class="fa fa-fw fa-money"></i> <span data-i18n="balanceInformation.bankAccount"></span></h4>
+                            <table class="table table-no-bordered ky-table">
+                                <tr>
+                                    <td data-i18n="balanceInformation.bankName"></td>
+                                    <td>
+                                        <div>
+                                            <span>@Model.Withdrawal.BankAccount.BankName</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.province"></td>
+                                    <td>
+                                        <div>
+                                            <span>@Model.Withdrawal.BankAccount.Province</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="common.city"></td>
+                                    <td>
+                                        <div>
+                                            <span>@Model.Withdrawal.BankAccount.City</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.branch"></td>
+                                    <td>
+                                        <div>
+                                            <span>@Model.Withdrawal.BankAccount.Branch</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.swiftCode"></td>
+                                    <td>
+                                        <div>
+                                            <span>@Model.Withdrawal.BankAccount.SwiftCode</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.bankAccountName"></td>
+                                    <td>
+                                        <div>
+                                            <span>@Model.Withdrawal.BankAccount.BankAccountName</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.bankAccountNumber"></td>
+                                    <td>
+                                        <div>
+                                            <span>@Model.Withdrawal.BankAccount.BankAccountNumber</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <p id="playerBankAccountId" data-bind="visible: false">@Model.Withdrawal.BankAccount.PlayerBankAccountId</p>
+                                <p id="playerBankAccountTime" data-bind="visible: false">@Model.Withdrawal.BankAccount.BankAccountTime</p>
+                                <p id="playerBankTime" data-bind="visible: false">@Model.Withdrawal.BankAccount.BankTime</p>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div data-bind="visible: shownTab() == 'fundIn'" class="ky-sub-tabs-content">
+            <form role="form" data-bind="submit: submitFundIn">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="ky-panel ky-margin-row ky-ticket-box">
+                            <h4 class="title"><i class="fa fa-fw fa-money"></i> <span data-i18n="balanceInformation.transferFundRequest"></span></h4>
+                            <table class="table table-no-bordered ky-table">
+                                <tr>
+                                    <td data-i18n="balanceInformation.player"></td>
+                                    <td>
+                                        <div>
+                                            <div><span data-bind="text: playerName"></span></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.balance"></td>
+                                    <td>
+                                        <div>
+                                            <div><span data-bind="text: currency()"></span> @Model.Balances.Main</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.transferType"></td>
+                                    <td>
+                                        <div>
+                                            <div>
+                                                <select data-bind="value: transferFundType" class="form-control">
+                                                    <option value="FundIn" data-i18n="balanceInformation.fundIn"></option>
+                                                    <option value="FundOut" data-i18n="balanceInformation.fundOut"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.wallet"></td>
+                                    <td>
+                                        <div>
+                                            <div>
+                                                <select data-bind="value: fundInWallet" class="form-control">
+                                                    @foreach (var wallet in Model.FundTransfer.Wallets)
+                                                    {
+                                                        <option value="@wallet.Key">@wallet.Value</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.availableBalance"></td>
+                                    <td>
+                                        <div>
+                                            <div><span data-bind="text: currency()"></span>&nbsp;<span data-bind="text: walletBalance"></span></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.amount"></td>
+                                    <td>
+                                        <div>
+                                            <div>
+                                                <input type="number" min="0" maxlength="15" data-bind="value: fundInAmount" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="balanceInformation.bonusCode"></td>
+                                    <td>
+                                        <div>
+                                            <div>
+                                                <input type="text" data-bind="value: fundInBonusCode" class="form-control" />
+                                                <button type="button" class="btn btn-info" data-bind="enable: fundInQualificationEnabled, click: checkFundInQualification" data-i18n="balanceInformation.checkBonusQualification"></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr><td></td><td><button type="submit" class="btn btn-primary" data-bind="enable: !fundInRequestInProgress()" data-i18n="common.submit"></button></td></tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <label class="ky-notification notification-success" data-bind="visible: fundInQualificationSuccess" data-i18n="balanceInformation.qualificationCheckPassed"></label>
+                                        <label class="ky-notification notification-success" data-bind="visible: fundInSuccess">Transfer fund request sent successfully.<br />Transfer ID: <em data-bind="text: fundInTransferId"></em></label>
+                                        <label class="ky-notification notification-danger" data-bind="visible: fundInErrors().length > 0, text: fundInErrors" style="white-space: pre"></label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div data-bind="visible: shownTab() == 'pendingDeposits'" class="ky-sub-tabs-content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th data-i18n="balanceInformation.referenceCode"></th>
+                        <th data-i18n="balanceInformation.dateCreated"></th>
+                        <th data-i18n="balanceInformation.amount"></th>
+                        <th data-i18n="balanceInformation.status"></th>
+                        <th data-i18n="balanceInformation.action"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PendingDeposits.PendingDeposits)
+                    {
+                        <tr>
+                            <td>@item.ReferenceCode</td>
+                            <td>@item.DateCreated</td>
+                            <td>@item.Amount</td>
+                            <td>@item.Status</td>
+                            <td>
+                                <input type="button" value="Confirm" data-bind="visible: @(@item.Status == "New" ? "true" : "false")" onclick="location.href = '@Url.Action("OfflineDepositConfirm", new {id = item.Id})'" />
+                                <input type="button" value="Resubmit" data-bind="visible: @(@item.Status == "Unverified" ? "true" : "false")" onclick="location.href = '@Url.Action("OfflineDepositConfirm", new { id = item.Id })'" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div data-bind="visible: shownTab() == 'transactionHistoryMockup'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form role="form">
+                        <div class="ky-panel ky-margin-row">
+                            <h4 class="title"><i class="fa fa-fw fa-money"></i><span data-i18n="balanceInformation.transactionHistory"></span></h4>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <select class="form-control">
+                                        <option>Transaction Type</option>
+                                    </select>
+                                    <div class="input-group date">
+                                        <input id="start" type="text" class="form-control"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <select class="form-control">
+                                        <option>Transaction Limit</option>
+                                    </select>
+                                    <div class="input-group date">
+                                        <input id="end" type="text" class="form-control"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 col-xs-offset-4 text-right">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i><span data-i81n="common.submit"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table ky-table-bonus table-striped" data-toggle="table" data-sort-name="date" data-sort-order="desc">
+                        <thead>
+                            <tr>
+                                <th data-field="date" data-sortable="true" data-i18n="balanceInformation.date"></th>
+                                <th data-field="wallet" data-sortable="true" data-i18n="balanceInformation.wallet"></th>
+                                <th data-field="amount" data-sortable="true" data-i18n="balanceInformation.amount"></th>
+                                <th data-field="transaction" data-sortable="true" data-i18n="balanceInformation.transactionType"></th>
+                                <th data-field="description" data-sortable="true" data-i18n="balanceInformation.description"></th>
+                                <th data-field="balance" data-sortable="true" data-i18n="balanceInformation.balance"></th>
+                                <th data-field="id" data-sortable="true" data-i18n="balanceInformation.transactionId"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20 May 2015</td>
+                                <td>100</td>
+                                <td>$10,000</td>
+                                <td>Deposit</td>
+                                <td>Done</td>
+                                <td>$29,000</td>
+                                <td>AD4GS56ggg67</td>
+                            </tr>
+                            <tr>
+                                <td>21 May 2015</td>
+                                <td>200</td>
+                                <td>$11,000</td>
+                                <td>Withdraw</td>
+                                <td>New</td>
+                                <td>$219,000</td>
+                                <td>BD4GS56ggg67</td>
+                            </tr>
+                            <tr>
+                                <td>22 May 2015</td>
+                                <td>300</td>
+                                <td>$12,000</td>
+                                <td>Deposit</td>
+                                <td>Done</td>
+                                <td>$23,000</td>
+                                <td>CD4GS56ggg67</td>
+                            </tr>
+                            <tr>
+                                <td>23 May 2015</td>
+                                <td>400</td>
+                                <td>$13,000</td>
+                                <td>Withdraw</td>
+                                <td>New</td>
+                                <td>$29,000</td>
+                                <td>DD4GS56ggg67</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div data-bind="visible: shownTab() == 'pendingDepositsMockup'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form role="form">
+                        <div class="ky-panel ky-margin-row">
+                            <h4 class="title"><i class="fa fa-fw fa-money"></i><span data-i18n="balanceInformation.pendingDeposits"></span></h4>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <select class="form-control">
+                                        <option data-i18n="balanceInformation.transactionType"></option>
+                                    </select>
+                                    <div class="input-group date">
+                                        <input id="start" type="text" class="form-control"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <select class="form-control">
+                                        <option data-i18n="balanceInformation.transactionLimit"></option>
+                                    </select>
+                                    <div class="input-group date">
+                                        <input id="end" type="text" class="form-control"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 col-xs-offset-4 text-right">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i><span data-i18n="common.submit"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table ky-table-bonus table-striped" data-toggle="table" data-sort-name="date" data-sort-order="desc">
+                        <thead>
+                            <tr>
+                                <th data-i18n="balanceInformation.referenceCode"></th>
+                                <th data-i18n="balanceInformation.dateCreated"></th>
+                                <th data-i18n="balanceInformation.amount"></th>
+                                <th data-i18n="balanceInformation.status"></th>
+                                <th data-i18n="balanceInformation.action"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20 May 2015</td>
+                                <td>100</td>
+                                <td>AD4GS56ggg67</td>
+                                <td>Unverified</td>
+                                <td class="text-center"></td>
+                            </tr>
+                            <tr>
+                                <td>21 May 2015</td>
+                                <td>2100</td>
+                                <td>AD5GS56ggg67</td>
+                                <td>New</td>
+                                <td class="text-center"><button class="btn btn-sm btn-primary" data-i18n="balanceInformation.confirm"></button></td>
+                            </tr>
+                            <tr>
+                                <td>22 May 2015</td>
+                                <td>200</td>
+                                <td>AD3GS56ggg67</td>
+                                <td>New</td>
+                                <td class="text-center"><button class="btn btn-sm btn-primary" data-i18n="balanceInformation.confirm"></button></td>
+                            </tr>
+                            <tr>
+                                <td>23 May 2015</td>
+                                <td>300</td>
+                                <td>AD1GS56ggg67</td>
+                                <td>New</td>
+                                <td class="text-center"><button class="btn btn-sm btn-primary" data-i18n="balanceInformation.confirm"></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Scripts/utils.js"></script>
+    <script src="/Scripts/custom/balance.js"></script>
+}

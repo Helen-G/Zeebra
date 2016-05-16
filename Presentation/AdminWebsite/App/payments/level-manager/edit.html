@@ -1,0 +1,72 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label data-bind="attr: { for: licenseeFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.licensee"></span></label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" data-bind="attr: { id: licenseeFieldId() }, options: licensees, optionsText: 'name', value: licensee, visible: !isLicenseeReadOnly() && !isLicenseeLocked(), disable: disabled"></select> <span class="red" data-bind="validationMessage: licensee"></span>
+            <p class="form-control-static" data-bind="visible: isLicenseeReadOnly() || isLicenseeLocked(), text: licenseeName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: brandFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.brand"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" data-bind="attr: { id: brandFieldId() }, options: brands, optionsText: 'name', value: brand, visible: !isBrandReadOnly() && !isSingleBrand(), disable: disabled"></select> <span class="red" data-bind="validationMessage: brand"></span>
+            <p class="form-control-static" data-bind="visible: isBrandReadOnly() || isSingleBrand(), text: brandName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: currencyFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.currency"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" data-bind="attr: { id: currencyFieldId() }, options: currencies, value: fields.currency, visible: !isCurrencyReadOnly(), disable: disabled"></select> <span class="red" data-bind="validationMessage: fields.currency"></span>
+            <p class="form-control-static" data-bind="visible: isCurrencyReadOnly, text: fields.currency"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: codeFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:payment.levelCode"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: codeFieldId() }, value: fields.code, visible: !isCodeReadOnly(), disable: disabled" /> <span class="red" data-bind="validationMessage: fields.code"></span>
+            <p class="form-control-static" data-bind="visible: isCodeReadOnly, text: fields.code"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: nameFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:payment.levelName"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: nameFieldId() }, value: fields.name, visible: !submitted(), disable: disabled" /> <span class="red" data-bind="validationMessage: fields.name"></span>
+            <p class="form-control-static" data-bind="text: fields.name, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: defaultFieldId() }" class="col-sm-3 control-label" data-i18n="app:payment.defaultLevel"></label>
+        <div class="col-sm-8 field-box">
+            <input type="checkbox" data-bind="attr: { id: defaultFieldId() }, checked: fields.isDefault, disable: submitted() || disabled() || isIsDefaultReadOnly()" /> <span id="is-default-validation-message" class="red" data-bind="validationMessage: fields.isDefault"></span>
+        </div>
+    </div>
+    <div class="form-section">
+        <div class="field-box">
+            <label data-bind="attr: { for: enableOfflineDepositFieldId() }" class="control-label" data-i18n="app:payment.offlineMethod"></label>
+            <input type="checkbox" class="section-checkbox" data-bind="attr: { id: enableOfflineDepositFieldId() }, checked: fields.enableOfflineDeposit, disable: submitted() || disabled()" /> <span class="red" data-bind="validationMessage: fields.enableOfflineDeposit"></span>
+        </div>
+        <h2 data-i18n="app:payment.bankAccounts"></h2>
+        <div data-bind="visible: !submitted()">
+            <input data-bind="attr: {id: accountIdSearchId }" type="text" data-i18n="[placeholder]app:payment.bankAccountId" />
+            <button data-bind="attr: {id: searchButtonId }" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </div>
+        <!-- ko with: bankAccountGrid -->
+        <div data-bind="attr: {id: naming.homeId}">
+            <div class="jqgrid-title-bar" data-bind="attr: {id: naming.titleBarId}"></div>
+            <table data-bind="attr: {id: naming.gridBodyId}"></table>
+            <div data-bind="attr: {id: naming.pagerId}"></div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted(), disable: disabled" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted(), disable: disabled" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

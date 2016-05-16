@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{475D6F6A-1FCD-4BC1-91DB-9CCE2C04F86B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AFT.RegoV2.Tests</RootNamespace>
+    <AssemblyName>AFT.RegoV2.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>5f15daad</NuGetPackageImportStamp>
+    <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Develop|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Develop\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QAuto|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QAuto\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Integration|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Integration\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Simple|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Simple\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Label="SlowCheetah">
+    <SlowCheetahToolsPath>$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\..\packages\SlowCheetah.2.5.14\tools\))</SlowCheetahToolsPath>
+    <SlowCheetah_EnableImportFromNuGet Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='' ">true</SlowCheetah_EnableImportFromNuGet>
+    <SlowCheetah_NuGetImportPath Condition=" '$(SlowCheetah_NuGetImportPath)'=='' ">$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\Properties\SlowCheetah\SlowCheetah.Transforms.targets ))</SlowCheetah_NuGetImportPath>
+    <SlowCheetahTargets Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='true' and Exists('$(SlowCheetah_NuGetImportPath)') ">$(SlowCheetah_NuGetImportPath)</SlowCheetahTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=5.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.5.6.2.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.3.0.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.3.0.1\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.2.1502.911, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.3.9.71\lib\net35\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=3.9.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Common.3.9.71\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=2.44.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Selenium.WebDriver.2.44.0\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Integration\ApplicationSeederTests.cs" />
+    <Compile Include="Integration\GamesServiceTests.cs" />
+    <Compile Include="Integration\SynchronizationTests.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Selenium\Fraud\AutoVerificationConfigurationTests.cs" />
+    <Compile Include="Selenium\Fraud\AutoVerificationConfigurationWithdrawalTests.cs" />
+    <Compile Include="Selenium\IpRegulations\BackendIpRegulationsTests.cs" />
+    <Compile Include="Selenium\Bonus\BonusTemplatePermissionsTests.cs" />
+    <Compile Include="Selenium\Bonus\BonusPermissionsTests.cs" />
+    <Compile Include="Selenium\Brand\BrandManagerPermissionsTests.cs" />
+    <Compile Include="Selenium\EndToEndTests.cs" />
+    <Compile Include="Selenium\BrandWebsite\CashierTests.cs" />
+    <Compile Include="Selenium\Payment\BetLimitTests.cs" />
+    <Compile Include="Selenium\Fraud\FraudManagerTests.cs" />
+    <Compile Include="Selenium\LicenseeManagerTests.cs" />
+    <Compile Include="Selenium\IpRegulations\BrandIpRegulationsTests.cs" />
+    <Compile Include="Selenium\Payment\TransferSettingsFundInFundOutTests.cs" />
+    <Compile Include="Selenium\Payment\TransferSettingsTests.cs" />
+    <Compile Include="Selenium\Permissions\OfflineWithdrawRequestPermissionsTests.cs" />
+    <Compile Include="Selenium\Payment\PaymentSettingsTests.cs" />
+    <Compile Include="Selenium\Permissions\PermissionsTests.cs" />
+    <Compile Include="Integration\TransactionTests.cs" />
+    <Compile Include="Selenium\BalanceTests.cs" />
+    <Compile Include="Selenium\GameMockTests.cs" />
+    <Compile Include="Selenium\Admin\LanguageManagerTests.cs" />
+    <Compile Include="Selenium\Admin\AdminManagerTests.cs" />
+    <Compile Include="Integration\BonusServiceTests.cs" />
+    <Compile Include="Selenium\Payment\PaymentSettingsDepositWithdrawTests.cs" />
+    <Compile Include="Selenium\OfflineDeposit\OfflineDepositRequestPermissionsTests.cs" />
+    <Compile Include="Selenium\Permissions\PlayerManagementPermissionsTests.cs" />
+    <Compile Include="Selenium\Report\ReportManagerTests.cs" />
+    <Compile Include="Selenium\Admin\RoleManagerTests.cs" />
+    <Compile Include="Selenium\Permissions\UserPermissionsTests.cs" />
+    <Compile Include="Selenium\Brand\VipLevelManagerTests.cs" />
+    <Compile Include="Selenium\WalletManagerTests.cs" />
+    <Compile Include="Unit\Bonus\BonusSecurityTests.cs" />
+    <Compile Include="Unit\Bonus\BonusPermissionsTests.cs" />
+    <Compile Include="Unit\Bonus\Features\ManualByCsIssuanceTests.cs" />
+    <Compile Include="Unit\Bonus\Features\ReceivingWalletTests.cs" />
+    <Compile Include="Unit\Bonus\Features\RewardLimitingTests.cs" />
+    <Compile Include="Unit\Bonus\Qualification\IssanceByCsQualificationTests.cs" />
+    <Compile Include="Unit\Bonus\Qualification\ClaimingQualificationTests.cs" />
+    <Compile Include="Unit\Bonus\Qualification\PreRedemptionQualificationTests.cs" />
+    <Compile Include="Unit\Bonus\Qualification\HasClaimedDisqualificationTests.cs" />
+    <Compile Include="Unit\Bonus\Qualification\ActivationQualificationTests.cs" />
+    <Compile Include="Unit\Bonus\Rollover\RolloverAmountCalculationTests.cs" />
+    <Compile Include="Unit\Bonus\Features\WithdrawableTests.cs" />
+    <Compile Include="Unit\Bonus\Features\IssuanceModeTests.cs" />
+    <Compile Include="Unit\Bonus\Rollover\RolloverFulfillmentTests.cs" />
+    <Compile Include="Unit\Bonus\CancellationTests.cs" />
+    <Compile Include="Unit\Bonus\ManagementTests.cs" />
+    <Compile Include="Unit\Bonus\Types\FundInTests.cs" />
+    <Compile Include="Unit\Bonus\Types\MobilePlusEmailVerificationTests.cs" />
+    <Compile Include="Unit\Bonus\Features\NotificationTests.cs" />
+    <Compile Include="Unit\Bonus\Types\ReferFriendTests.cs" />
+    <Compile Include="Unit\Bonus\Types\HighDepositTests.cs" />
+    <Compile Include="Unit\Bonus\Types\ReloadAndFirstDepositTests.cs" />
+    <Compile Include="Unit\Bonus\Rollover\RolloverLockAmountCalculationTests.cs" />
+    <Compile Include="Unit\Bonus\Features\AfterWagerTests.cs" />
+    <Compile Include="Unit\Bonus\Validation\ToggleBonusStatusTests.cs" />
+    <Compile Include="Unit\Bonus\Validation\TemplateDeletionTests.cs" />
+    <Compile Include="Unit\Bonus\Validation\IssueBonusByCsTests.cs" />
+    <Compile Include="Unit\Brand\CountryTests.cs" />
+    <Compile Include="Unit\Brand\ContentTranslationPermissionsTests.cs" />
+    <Compile Include="Unit\Brand\BrandSecurityTests.cs" />
+    <Compile Include="Unit\Brand\LicenseeBrandFilterTests.cs" />
+    <Compile Include="Unit\Brand\LicenseeTests.cs" />
+    <Compile Include="Unit\Brand\BrandTests.cs" />
+    <Compile Include="Unit\Brand\VipLevelTests.cs" />
+    <Compile Include="Unit\Brand\WalletManagerTests.cs" />
+    <Compile Include="Unit\Content\MessageTemplateValidationTests.cs" />
+    <Compile Include="Unit\Content\MessageTemplateTests.cs" />
+    <Compile Include="Unit\Fraud\WageringConfigurationPermissionsTests.cs" />
+    <Compile Include="Unit\Fraud\RiskLevelPermissionsTests.cs" />
+    <Compile Include="Unit\Fraud\AvcConfigurationPermissionsTests.cs" />
+    <Compile Include="Unit\Fraud\FraudTestDataHelper.cs" />
+    <Compile Include="Unit\Game\GamePermissionsTests.cs" />
+    <Compile Include="Unit\Game\GameQueriesTests.cs" />
+    <Compile Include="Unit\IdentifierTest.cs" />
+    <Compile Include="Unit\Event\NotificationEventsTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Selenium\Admin\AdminLoginTests.cs" />
+    <Compile Include="Selenium\Bonus\BonusTemplateManagerTests.cs" />
+    <Compile Include="Selenium\Bonus\BonusTests.cs" />
+    <Compile Include="Selenium\Bank\BankAccountManagerTests.cs" />
+    <Compile Include="Selenium\Bank\BankManagerTests.cs" />
+    <Compile Include="Selenium\Brand\BrandManagerTests.cs" />
+    <Compile Include="Selenium\OfflineDeposit\OfflineDepositConfirmTests.cs" />
+    <Compile Include="Selenium\Payment\PaymentLevelManagerTests.cs" />
+    <Compile Include="Selenium\Player\PlayerDepositApproveTests.cs" />
+    <Compile Include="Selenium\Player\PlayerDepositVerifyTests.cs" />
+    <Compile Include="Selenium\LoginTests.cs" />
+    <Compile Include="Selenium\Player\PlayerManagerTests.cs" />
+    <Compile Include="Selenium\Player\PlayerProfileOnMemberWebsiteTests.cs" />
+    <Compile Include="Selenium\RegistrationTests.cs" />
+    <Compile Include="Unit\Bonus\Qualification\RedemptionQualificationTests.cs" />
+    <Compile Include="Unit\Bonus\Rollover\RolloverLockUnlockTests.cs" />
+    <Compile Include="Unit\Bonus\Validation\BuildTemplateTests.cs" />
+    <Compile Include="Unit\Bonus\Validation\BuildBonusTests.cs" />
+    <Compile Include="Unit\Fraud\AvcConfigurationTests.cs" />
+    <Compile Include="Unit\Fraud\RiskLevelTests.cs" />
+    <Compile Include="Unit\Fraud\WageringConfigurationTests.cs" />
+    <Compile Include="Unit\Game\GameManager.cs" />
+    <Compile Include="Unit\Game\GameCommandsTests.cs" />
+    <Compile Include="Unit\Infrastructure\BusTests.cs" />
+    <Compile Include="Unit\Infrastructure\DomainBusTests.cs" />
+    <Compile Include="Unit\MessageTemplates\MessageTemplatesTest.cs" />
+    <Compile Include="Unit\Payment\BrandCurrencySynchronizationTests.cs" />
+    <Compile Include="Unit\Payment\OfflineWithdrawalAutoVerificationTests.cs" />
+    <Compile Include="Unit\Payment\WithdrawalServicePermissionsTests.cs" />
+    <Compile Include="Unit\Payment\TransferSettingsPermissionsTests.cs" />
+    <Compile Include="Unit\Payment\PlayerBankAccountPermissionsTests.cs" />
+    <Compile Include="Unit\Payment\PaymentSettingsPermissionsTests.cs" />
+    <Compile Include="Unit\Payment\PaymentPermissionsTests.cs" />
+    <Compile Include="Unit\Payment\PaymentLevelPermissionsTests.cs" />
+    <Compile Include="Unit\Payment\BankPermissionsTests.cs" />
+    <Compile Include="Unit\Payment\BankAccountPermissionsTests.cs" />
+    <Compile Include="Unit\Payment\DepositWageringTests.cs" />
+    <Compile Include="Unit\Payment\OfflineDepositTests.cs" />
+    <Compile Include="Unit\Payment\OfflineWithdrawalTests.cs" />
+    <Compile Include="Unit\Payment\OfflineWithdrawalValidationTests.cs" />
+    <Compile Include="Unit\Payment\OfflineWithholdWithdrawalTests.cs" />
+    <Compile Include="Unit\Payment\PaymentLevelTests.cs" />
+    <Compile Include="Unit\Payment\PaymentSettingsTests.cs" />
+    <Compile Include="Unit\Payment\PaymentSettingsValidationTests.cs" />
+    <Compile Include="Unit\Payment\TransferFundValidationTests.cs" />
+    <Compile Include="Unit\Payment\TransferSettingsTests.cs" />
+    <Compile Include="Unit\Payment\TransferSettingsValidationTests.cs" />
+    <Compile Include="Unit\Report\Payment\WithdrawalActivityLogTests.cs" />
+    <Compile Include="Unit\Report\ReportPermissionsTests.cs" />
+    <Compile Include="Unit\Security\AdminIpRegulationsServicePermissionTests.cs" />
+    <Compile Include="Unit\Security\BrandIpRegulationsServicePermissionTests.cs" />
+    <Compile Include="Unit\Brand\BrandPermissionsTests.cs" />
+    <Compile Include="Unit\Security\UserServicePermissionTests.cs" />
+    <Compile Include="Unit\Security\RoleServicePermissionTests.cs" />
+    <Compile Include="Unit\Brand\LicenseePermissionsTests.cs" />
+    <Compile Include="Unit\Player\PlayerPermissionsTests.cs" />
+    <Compile Include="Unit\Player\ChangeVipLevelTests.cs" />
+    <Compile Include="Unit\Player\PlayerActivityLogTest.cs" />
+    <Compile Include="Unit\Player\PlayerBankAccountTests.cs" />
+    <Compile Include="Unit\Player\ChangePasswordTests.cs" />
+    <Compile Include="Unit\Payment\OfflineDepositPermissionsTests.cs" />
+    <Compile Include="Unit\Player\ChangeSecurityQuestionTests.cs" />
+    <Compile Include="Unit\Player\ProfileTests.cs" />
+    <Compile Include="Unit\Player\LoginTests.cs" />
+    <Compile Include="Unit\Player\PlayerServiceTestsBase.cs" />
+    <Compile Include="Unit\Player\ReferFriendsTest.cs" />
+    <Compile Include="Unit\Player\RegistrationDataTests.cs" />
+    <Compile Include="Unit\Player\ActivationMessageTests.cs" />
+    <Compile Include="Unit\Player\RegistrationTests.cs" />
+    <Compile Include="Unit\Player\SendNewPasswordTests.cs" />
+    <Compile Include="Unit\Report\AdminActivityLogTest.cs" />
+    <Compile Include="Unit\Report\Brand\LanguageReportTest.cs" />
+    <Compile Include="Unit\Report\Brand\VipLevelReportTest.cs" />
+    <Compile Include="Unit\Report\Brand\LicenseeReportTest.cs" />
+    <Compile Include="Unit\Report\Brand\BrandReportTest.cs" />
+    <Compile Include="Unit\Report\Payment\DepositReportTest.cs" />
+    <Compile Include="Unit\Report\Player\PlayerBetHistoryReportTest.cs" />
+    <Compile Include="Unit\Report\Player\PlayerReportTest.cs" />
+    <Compile Include="Unit\SearchPackageDataBuilderTests.cs" />
+    <Compile Include="Unit\Security\AdminIpRegulationsServiceTests.cs" />
+    <Compile Include="Unit\Security\BrandIpRegulationsServiceTests.cs" />
+    <Compile Include="Unit\Security\LoggingServiceTests.cs" />
+    <Compile Include="Unit\Security\PermissionServiceTests.cs" />
+    <Compile Include="Unit\Security\RoleServiceTests.cs" />
+    <Compile Include="Unit\Security\UserServiceTests.cs" />
+    <Compile Include="Unit\Wallet\AdjustBalances.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdjustBalances.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\BetWonAdjustment.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BetWonAdjustment.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\CancelBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CancelBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\Deposit.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Deposit.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\IssueBonus.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IssueBonus.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\Lock.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lock.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\LoseBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoseBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\PlaceBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlaceBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\Steps\BetSteps.cs" />
+    <Compile Include="Unit\Wallet\Steps\BonusSteps.cs" />
+    <Compile Include="Unit\Wallet\Steps\DepositWithdrawSteps.cs" />
+    <Compile Include="Unit\Wallet\Steps\LockUnlockSteps.cs" />
+    <Compile Include="Unit\Wallet\Steps\Hooks.cs" />
+    <Compile Include="Unit\Wallet\Steps\WalletStepsBase.cs" />
+    <Compile Include="Unit\Wallet\Unlock.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Unlock.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\WalletCreationTests.cs" />
+    <Compile Include="Unit\Wallet\WalletSelection.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WalletSelection.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\WinBet.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WinBet.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Unit\Wallet\Withdraw.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Withdraw.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.Develop.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="App.QA.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="App.Simple.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\SlowCheetah\SlowCheetah.Transforms.targets" />
+    <None Include="Unit\Wallet\AdjustBalances.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AdjustBalances.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\BetWonAdjustment.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BetWonAdjustment.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\CancelBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CancelBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\Deposit.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Deposit.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\IssueBonus.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>IssueBonus.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\Lock.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Lock.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\LoseBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LoseBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\PlaceBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PlaceBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\Unlock.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Unlock.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\WalletSelection.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WalletSelection.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\WinBet.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WinBet.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Unit\Wallet\Withdraw.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Withdraw.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.Content\Core.Content.csproj">
+      <Project>{FB049381-7815-4533-BCAE-3077D86722B0}</Project>
+      <Name>Core.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Bonus\Core.Bonus.csproj">
+      <Project>{e7a571bc-3924-4be5-8b56-bb8574b30ce9}</Project>
+      <Name>Core.Bonus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Brand\Core.Brand.csproj">
+      <Project>{D519BE95-FEE1-42D1-A60E-A3C008E1F8AA}</Project>
+      <Name>Core.Brand</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Fraud\Core.Fraud.csproj">
+      <Project>{A9C80924-5E70-4A3D-A9C3-DDF70681E76D}</Project>
+      <Name>Core.Fraud</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Games\Core.Game.csproj">
+      <Project>{bfebc671-1c27-40e8-bb98-c5b23919fcc7}</Project>
+      <Name>Core.Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Payment\Core.Payment.csproj">
+      <Project>{dbb83446-3c9e-4f1d-ac1c-2c88053bfddd}</Project>
+      <Name>Core.Payment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Player\Core.Player.csproj">
+      <Project>{18B71681-F11B-4F62-A4E9-A388FCC9A4B7}</Project>
+      <Name>Core.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Report\Core.Report.csproj">
+      <Project>{72caa794-0117-495a-9f88-d2efdd81fa95}</Project>
+      <Name>Core.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Security\Core.Security.csproj">
+      <Project>{C26F378C-8F63-49B5-BBED-3031071C300A}</Project>
+      <Name>Core.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Common\Core.Common.csproj">
+      <Project>{E60E73C7-09B9-45B2-950F-547350CFBE93}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure\Infrastructure.csproj">
+      <Project>{39AE091F-FC43-49BA-A605-6B79ED269DA6}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\WebServices\MemberApi.Interface\MemberApi.Interface.csproj">
+      <Project>{1EAC9A59-224C-41A1-8909-9FBC28DCF895}</Project>
+      <Name>MemberApi.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\WebServices\MemberApi\MemberApi.csproj">
+      <Project>{8431dd40-aca4-4d0a-889d-7744513c5f5a}</Project>
+      <Name>MemberApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation\AdminWebsite\AdminWebsite.csproj">
+      <Project>{af5b416d-7007-447b-b7ce-ed79b3b42086}</Project>
+      <Name>AdminWebsite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{3D268EBA-3EF8-429B-90C7-AE35CE762FC8}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tests.Common\Tests.Common.csproj">
+      <Project>{83102521-802c-4194-91e9-20df507462c0}</Project>
+      <Name>Tests.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinService\WinService.csproj">
+      <Project>{8d39e3a9-29b9-4999-b8ca-2ada47e66ca0}</Project>
+      <Name>WinService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="$(SlowCheetahTargets)" Condition="Exists('$(SlowCheetahTargets)')" />
+  <Import Project="..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets" Condition="Exists('..\packages\StyleCop.MSBuild.4.7.49.0\build\StyleCop.MSBuild.Targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

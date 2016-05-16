@@ -1,0 +1,55 @@
+﻿<div class="modal-content" style="width: 475px">
+    <div class="modal-header">
+        <h3 data-i18n="app:playerManager.changeVipLevel.title"></h3>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-success" data-bind="visible: submitted(), text: message"></div>
+        <div class="alert alert-danger" data-bind="visible: !submitted() && hasError()" data-i18n="app:players.newPasswordSentError"></div>
+
+        <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }, visible: !submitted()">
+            <div class="form-group">
+                <label class="col-sm-5 control-label" data-i18n="app:playerManager.changeVipLevel.brand"></label>
+                <div class="col-sm-5 field-box">
+                    <p class="form-control-static" data-bind="text: brand"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label" data-i18n="app:playerManager.changeVipLevel.username"></label>
+                <div class="col-sm-5 field-box">
+                    <p class="form-control-static" data-bind="text: username"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label" data-i18n="app:playerManager.changeVipLevel.currentVipLevel"></label>
+                <div class="col-sm-5 field-box">
+                    <p class="form-control-static" data-bind="text: currentVipLevel"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">
+                    <span data-i18n="app:playerManager.changeVipLevel.changeVipLevel"></span>
+                </label>
+                <div class="col-sm-5">
+                    <select class="form-control" data-bind="options: vipLevels, value: $root.newVipLevel, optionsText: 'name', optionsValue:'id' "></select>
+                    <span class="red" data-bind="validationMessage: newVipLevel"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">
+                    <span data-i18n="app:playerManager.changeVipLevel.remarks"></span>
+                </label>
+                <div class="col-sm-5">
+                    <textarea data-bind="value:remarks" rows="5" cols="20" />
+                    <span class="red" data-bind="validationMessage: remarks"></span>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    <div class="modal-footer align-center">
+        <button class="btn btn-primary" data-bind="click: ok, visible: !submitted()" data-i18n="app:common.save"></button>
+        <button class="btn" data-bind="click: cancel, text: closeText, css: closeClass"></button>
+    </div>
+ 
+</div>

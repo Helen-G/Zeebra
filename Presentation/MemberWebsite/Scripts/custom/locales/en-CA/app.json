@@ -1,0 +1,54 @@
+{
+    "common": {
+        "yes": "Yes",
+        "no": "No",
+        "email": "Email",
+        "search": "Search",
+        "username": "Username",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "status": "Status"
+    },
+    "payment": {
+        "deposit": {
+            "successfullyConfirmed": "Offline deposit request has been confirmed successfully",
+            "successfullyCreated": "Offline deposit request has been created successfully",
+            "successfullyVerified": "Offline deposit request has been verified successfully",
+            "successfullyUnverified": "Offline deposit request has been unverified successfully",
+            "successfullyApproved": "Offline deposit request has been approved successfully",
+            "bankAccountNotFound": "Bank account not found or not active.",
+            "differentCurrenciesErrorMessage": "Bank account and player accounts have different currencies.",
+            "rejected": "Offline deposit request has been rejected",
+            "depositFailed": "Deposit failed. "
+
+        },
+        "settings": {
+            "minAmountPerTransactionError": "Min Amount Per Transaction invalid value",
+            "maxAmountPerTransactionError": "Max Amount Per Transaction invalid value",
+            "maxAmountPerDayError": "Max Amount Per Day invalid value",
+            "maxTransactionPerDayError": "Max # of Transactions Per Day invalid value",
+            "maxTransactionPerWeekError": "Max # of Transactions Per Week invalid value",
+            "maxTransactionPerMonthError": "Max # of Transactions Per Monthinvalid value",
+            "maxminAmountPerTransactionError": "Max Amount Per Transaction must be greater than Min Amount Per Transaction",
+            "minAmountPerTransactionErrorAmountPerDay": "Max Amount Per Day must be greater or equal than Min Amount Per Transaction",
+            "maxAmountPerTransactionErrorAmountPerDay": "Max Amount Per Day must be greater than Max Amount Per Transaction",
+            "maxTransactionPerWeekErrorPerDay": "Max # of Transactions Per Week must be greater or equal than Max # of Transactions Per Day",
+            "maxTransactionPerMonthErrorPerWeek": "Max # of Transactions Per Month must be greater or equal than Max # of Transactions Per Week",
+            "maxTransactionPerMonthErrorPerDay": "Max # of Transactions Per Month must be greater or equal than Max # of Transactions Per Day",
+
+            "amountExceedsAllowedValueError": "The entered amount exceeds the allowed value. Maximum value is __value__.",
+            "amountBelowAllowedValueError": "The entered amount is below the allowed value. Minimum value is __value__.",
+            "amountExceedsDailyLimitError": "Total entered amounts exceed the daily limit. Maximum value is __value__.",
+            "numberTransactionsExceedsDailyLimitError": "Total number of transactions per day exceed daily limit. Maximum value is __value__.",
+            "numberTransactionsExceedsWeeklyLimitError": "Total number of transactions per day exceed weekly limit. Maximum value is __value__.",
+            "numberTransactionsExceedsMonthLimitError": "Total number of transactions per day exceed monthly limit. Maximum value is __value__."
+        },
+        "withdraw": { 
+            "withdrawalFailed": "Withdrawal failed. "
+        },
+        "amountMustBeGreaterThanZero": "Amount must be greater than 0.",
+        "amountExceedsBalance": "Amount exceeds the current balance.",
+        "paymentLevelDisableOfflineDeposit": "Player payment level does not allow offline deposit."
+
+    }
+}

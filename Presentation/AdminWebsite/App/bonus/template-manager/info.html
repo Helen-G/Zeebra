@@ -1,0 +1,63 @@
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.type"></label>
+    <div class="col-sm-8">
+        <select class="form-control" data-bind="options: availableTypes, value: TemplateType, optionsText: 'name', optionsValue: 'id', enable: allowChangeType"></select>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="common.licensee"></label>
+    <div class="col-sm-8">
+        <select class="form-control" data-bind="options: availableLicensees, value: LicenseeId, optionsText: 'Name', optionsValue: 'Id', enable: allowChangeBrand"></select> <span class="red" data-bind="validationMessage: LicenseeId"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="common.brand"></label>
+    <div class="col-sm-8">
+        <select class="form-control" data-bind="options: availableBrands, value: BrandId, optionsText: 'Name', optionsValue: 'Id', enable: allowChangeBrand"></select> <span class="red" data-bind="validationMessage: BrandId"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label">
+        <span data-i18n="bonus.templateFields.name"></span> <span class="red">*</span>
+    </label>
+    <div class="col-sm-8">
+        <input class="form-control" data-bind="value: Name" maxlength="50" /> <span class="red" data-bind="validationMessage: Name"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.common.description"></label>
+    <div class="col-sm-8">
+        <textarea class="form-control" data-bind="value: Description" maxlength="200"></textarea> <span class="red" data-bind="validationMessage: Description"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.receivingWallet"></label>
+    <div class="col-sm-8">
+        <select class="form-control" data-bind="options: availableWallets, value: WalletTemplateId, optionsText: 'Name', optionsValue: 'Id'"></select> <span class="red" data-bind="validationMessage: WalletTemplateId"></span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label">
+        <span data-i18n="bonus.templateFields.isWithdrawable"></span>
+    </label>
+    <div class="col-sm-8">
+        <div class="radio inline-radio">
+            <label>
+                <input type="radio" class="ace" value="true" data-bind="checked: IsWithdrawable.ForEditing" />
+                <span class="lbl" data-i18n="common.booleanToYesNo.true"></span>
+            </label>
+        </div>
+        <div class="radio inline-radio">
+            <label>
+                <input type="radio" class="ace" value="false" data-bind="checked: IsWithdrawable.ForEditing" />
+                <span class="lbl" data-i18n="common.booleanToYesNo.false"></span>
+            </label>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.mode"></label>
+    <div class="col-sm-8">
+        <select class="form-control" data-bind="options: availableModes, value: Mode, optionsText: 'name', optionsValue: 'id'"></select>
+    </div>
+</div>

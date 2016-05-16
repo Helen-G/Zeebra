@@ -1,0 +1,124 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: username"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: submitted">
+        <label class="col-sm-3 control-label">Reference Code</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: transactionNumber"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: bankFieldId() }" class="col-sm-3 control-label">Bank<span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" data-bind="attr: { id: bankFieldId() }, options: banks, optionsText: 'name', value: selectedBankAccount, visible: !submitted(), disable: disable"></select> <span class="red" data-bind="validationMessage: selectedBankAccount"></span>
+            <p class="form-control-static" data-bind="visible: submitted, text: bankName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: amountFieldId() }" class="col-sm-3 control-label">Amount<span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" maxlength="15" data-bind="attr: { id: amountFieldId() }, value: amount, numeric: amount, visible: !submitted(), disable: disable" /> <span class="red" data-bind="validationMessage: amount"></span>
+            <p class="form-control-static" data-bind="text: amount, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Notification Method<span class="red">*</span></label>
+        <div class="col-sm-9 field-box" data-bind="visible: !submitted()">
+            <div>
+                <label>
+                    <input type="radio" class="ace" name="optionsRadios" value="Email" data-bind="checked: notificationMethod, disable: disable">
+                    <span class="lbl">Email</span>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" class="ace" name="optionsRadios" value="SMS" data-bind="checked: notificationMethod, disable: disable">
+                    <span class="lbl">SMS</span>
+                </label>
+            </div>
+        <span class="red" data-bind="validationMessage: notificationMethod"></span>
+    </div>
+    <div class="col-sm-8" data-bind="visible: submitted">
+        <p class="form-control-static" data-bind="text: notificationMethod"></p>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <!-- ko if: !submitted()  -->
+        <label class="col-sm-3 control-label">Qualified deposit bonuses</label>
+        <div class="col-sm-8">
+            <!-- ko foreach: bonuses-->
+            <div>
+                <label>
+                    <input class="ace" type="radio" name="bonusRadios" data-bind="checkedValue: $data, checked: $root.selectedBonus, enable: enabled" />
+                    <span class="lbl" data-bind="text: fullDescription"></span>
+                </label>
+            </div>
+            <!-- /ko -->
+            <span class="red" data-bind="validationMessage: selectedBonus"></span>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: submitted()  -->
+        <label class="col-sm-3 control-label">Selected deposit bonus</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: selectedBonusName"></p>
+        </div>
+        <!-- /ko -->
+    </div>
+
+    <div class="form-group" data-bind="visible: submitted">
+        <label class="col-sm-3 control-label">Bank Account ID</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: accountDisplayId"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: submitted">
+        <label class="col-sm-3 control-label">Province</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankProvince"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: submitted">
+        <label class="col-sm-3 control-label">Branch</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankBranch"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: submitted">
+        <label class="col-sm-3 control-label">Bank Account Name</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankAccountName"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: submitted">
+        <label class="col-sm-3 control-label">Bank Account Number</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankAccountNumber"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: submitted() && playerRemark()">
+        <label class="col-sm-3 control-label">Player Remark</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: playerRemark"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: status() =='Unverified'">
+        <label class="col-sm-3 control-label">Unverify Reason</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" disabled data-bind="value: unverifyReason, visible: submitted"></textarea>
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close">Close</button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: sendRequest, visible: !submitted(), disable: disable">Submit</button>
+        </div>
+    </div>
+</form>

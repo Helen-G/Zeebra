@@ -1,0 +1,1 @@
+start xcopy %~dp0bin\%2 %~dp1 /S /E /I /Y /R /C

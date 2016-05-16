@@ -1,0 +1,11 @@
+﻿<div data-bind="foreach: items">
+	<div class="tab-content" data-bind="visible: $root.activeItem() == $data">
+	    <!-- ko if: documentModel() != null -->
+        <div class="document-loader"><center><img src="Content/images/loading.gif" /></center></div>
+        <div data-bind="compose: { model: documentModel, activationData: signature.data }" style="visibility: hidden;"></div>
+		<!-- /ko -->
+		<!-- ko if: subContainer() != null -->
+		<div data-bind="compose: { view: 'layout/document-container/tabs-documents', model: $data }"></div>
+		<!-- /ko -->
+	</div>
+</div>

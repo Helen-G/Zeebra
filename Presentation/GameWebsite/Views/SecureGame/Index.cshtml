@@ -1,0 +1,16 @@
+@model AFT.RegoV2.GameWebsite.Models.GameViewModel
+
+<h1>Secure Game Demo</h1>
+
+<fieldset>
+    <legend><h3>Player info</h3></legend>
+    <p>Name: @Model.PlayerName</p>
+    <p>Balance: @Model.Balance.ToString("C")</p>
+    <p>Access token: @Model.AccessToken</p>
+    <p>Access token expires: @Model.AccessTokenExpiration.ToLongDateString() @Model.AccessTokenExpiration.ToShortTimeString()</p>
+</fieldset>
+
+@if (Model.Message != null)
+{
+    <h3>@Html.Raw(Model.Message)</h3>
+}

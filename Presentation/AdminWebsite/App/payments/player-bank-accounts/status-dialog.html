@@ -1,0 +1,30 @@
+﻿<div class="modal-content" style="width: 400px">
+    <div class="modal-header">
+        <h3 data-bind="text: title"></h3>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-success" data-bind="visible: showResult && resultIsSuccess, text: successMessage"></div>
+        <div class="alert alert-danger" data-bind="visible: showResult() && !resultIsSuccess()">
+            <ul data-bind="foreach: errorsArray">
+                <li data-bind="text: $data"></li>
+            </ul>
+        </div>
+        <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }, visible: !changed()">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    <span data-i18n="app:common.remarks"></span>
+                </label>
+                <div class="col-sm-8">
+                    <textarea data-bind="value: remarks, enable: canSubmit" class="autofocus form-control" maxlength="200"></textarea>
+                    <span class="red" data-bind="validationMessage: remarks"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer align-center">
+        <button class="btn btn-primary" data-bind="click: changeStatus, visible: !changed(), enable: canSubmit, text: action"></button>
+        <button class="btn btn-primary" data-bind="click: clear, visible: !changed(), enable: canSubmit" data-i18n="app:common.clear"></button>
+        <button class="btn btn-primary" data-bind="click: close, visible: !changed()" data-i18n="app:common.cancel"></button>
+        <button class="btn btn-default" data-bind="click: close, visible: changed" data-i18n="app:common.close"></button>
+    </div>
+</div>

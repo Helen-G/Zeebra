@@ -1,0 +1,24 @@
+﻿<div class="modal-content" style="width: 400px">
+    <div class="modal-header">
+        <h3 data-bind="visible: !activated()" data-i18n="app:payment.transfer.enabledDialogTitle"></h3>
+        <h3 data-bind="visible: activated()" data-i18n="app:payment.transfer.disabledDialogTitle"></h3>
+    </div>
+    <div class="modal-body">
+        <div data-bind="visible: submitted(), text: message(), attr: { 'class': resultClass() }"></div>
+        <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+            <div class="form-group" data-bind="visible: !submitted()">
+                <label class="col-sm-3 control-label">
+                    <span data-i18n="common.remarks"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8">
+                    <textarea data-bind="value: remarks" class="autofocus" /> <span class="red" data-bind="validationMessage: remarks"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer align-center">
+        <button class="btn btn-default btn-round" data-bind="click: cancel" data-i18n="app:common.close"></button>
+        <button class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+        <button class="btn btn-primary btn-round" data-bind="click: changeStatus, text: action, visible: !submitted()"></button>
+    </div>
+</div>

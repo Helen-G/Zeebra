@@ -1,0 +1,23 @@
+﻿<div id="games-grid" data-bind="grid: {
+        source: '/Games/Data',
+        fields: ['Product', 'Name', 'Type', 'Status', 'CreatedBy', 'CreatedDate', 'UpdatedBy', 'UpdatedDate'],
+        defaultSort: { field: 'Name' },
+        paging: true,
+        useResizeManager: true
+    }">
+	<header>
+		<div class="btn-group pull-right">
+			<button class="btn btn-sm btn-success btn-round" data-bind="click: add, visible: isAddBtnVisible"><i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span></button>
+			<button class="btn btn-sm btn-primary btn-round" data-bind="click: edit, enable: gameId(), visible: isEditBtnVisible"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span></button>
+			<button class="btn btn-sm btn-danger btn-round" data-bind="click: deleteGame, enable: gameId(), visible: isDeleteBtnVisible"><i class="ace-icon fa fa-trash-o"></i> <span data-i18n="app:common.delete"></span></button>
+		</div>
+	</header>
+    <column title="app:gameIntegration.gameProviders.product" sort-field="Product" width="120" data-value="@Product" />
+	<column title="app:gameIntegration.games.name" sort-field="Name" width="120" data-value="@Name" />
+	<column title="app:gameIntegration.games.type" sort-field="Type" width="120" data-value="@Type" />
+    <column title="app:gameIntegration.gameProviders.isActive" sort-field="IsActive" width="120" data-value="@Status" />
+    <column title="app:gameIntegration.gameProviders.createdBy" sort-field="CreatedBy" width="120" data-value="@CreatedBy" />
+    <column title="app:gameIntegration.gameProviders.createdDate" sort-field="CreatedDate" width="120" data-value="@CreatedDate" />
+    <column title="app:gameIntegration.gameProviders.updatedBy" sort-field="UpdatedBy" width="120" data-value="@UpdatedBy" />
+    <column title="app:gameIntegration.gameProviders.updatedDate" sort-field="UpdatedDate" width="120" data-value="@UpdatedDate" />
+</div>

@@ -1,0 +1,7 @@
+.modal.media-picker .modal-dialog.media-picker { width: 60%; }
+
+/* HOTFIX for buttons on elfinder toolbar */
+.elfinder .elfinder-button {
+    width: 24px !important;
+    height: 24px !important;
+}

@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83102521-802C-4194-91E9-20DF507462C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AFT.RegoV2.Tests.Common</RootNamespace>
+    <AssemblyName>AFT.RegoV2.Tests.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>c4ea15cd</NuGetPackageImportStamp>
+    <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Develop|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Develop\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QAuto|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QAuto\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Integration|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Integration\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Simple|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Simple\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Label="SlowCheetah">
+    <SlowCheetahToolsPath>$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\..\packages\SlowCheetah.2.5.14\tools\))</SlowCheetahToolsPath>
+    <SlowCheetah_EnableImportFromNuGet Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='' ">true</SlowCheetah_EnableImportFromNuGet>
+    <SlowCheetah_NuGetImportPath Condition=" '$(SlowCheetah_NuGetImportPath)'=='' ">$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\Properties\SlowCheetah\SlowCheetah.Transforms.targets ))</SlowCheetah_NuGetImportPath>
+    <SlowCheetahTargets Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='true' and Exists('$(SlowCheetah_NuGetImportPath)') ">$(SlowCheetah_NuGetImportPath)</SlowCheetahTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Faker.NET4">
+      <HintPath>..\packages\Faker.Net.1.0.3\lib\net40\Faker.NET4.dll</HintPath>
+    </Reference>
+    <Reference Include="LukeSkywalker.IPNetwork, Version=1.3.1.0, Culture=neutral, PublicKeyToken=764160545cf0d618, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\IPNetwork.1.3.1.0\lib\LukeSkywalker.IPNetwork.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.2.1502.911, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow, Version=1.9.0.77, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver, Version=2.44.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Selenium.WebDriver.2.44.0\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\packages\Selenium.Support.2.44.0\lib\net40\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\ContainerTestsBase.cs" />
+    <Compile Include="Base\ContentTestsBase.cs" />
+    <Compile Include="Base\MemberWebsiteUnitTestsBase.cs" />
+    <Compile Include="Base\BrandTestsBase.cs" />
+    <Compile Include="Base\PermissionsTestsBase.cs" />
+    <Compile Include="Base\SecurityTestsBase.cs" />
+    <Compile Include="Base\SeleniumBase.cs" />
+    <Compile Include="Base\SeleniumBaseForAdminWebsite.cs" />
+    <Compile Include="Base\SeleniumBaseForGameWebsite.cs" />
+    <Compile Include="Base\SeleniumBaseForMemberWebsite.cs" />
+    <Compile Include="Base\SingleProcessTestsBase.cs" />
+    <Compile Include="Base\SpecFlowContainerFactory.cs" />
+    <Compile Include="Base\SpecFlowStepsTestBase.cs" />
+    <Compile Include="Base\UnitTestsBase.cs" />
+    <Compile Include="Base\WebServiceTestsBase.cs" />
+    <Compile Include="Containers\AdminWebsiteUnitTestContainerFactory.cs" />
+    <Compile Include="Containers\SingleProcessTestContainerFactory.cs" />
+    <Compile Include="Extensions\Actions.cs" />
+    <Compile Include="Extensions\IEnumerable.cs" />
+    <Compile Include="Extensions\WebElementExtensions.cs" />
+    <Compile Include="Helpers\AsyncTestHelper.cs" />
+    <Compile Include="Helpers\ContentTestHelper.cs" />
+    <Compile Include="Helpers\IpRegulationRangeHelper.cs" />
+    <Compile Include="Helpers\TransferFundTestHelper.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\AutoVerificationConfigurationFailure.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\AutoVerificationConfigurationPage.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\EditAutoVerificationConfigurationForm.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\NewAutoVerificationConfigurationForm.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\ViewAutoVerificationConfigurationForm.cs" />
+    <Compile Include="Pages\FrontEnd\FrontendMenuBar.cs" />
+    <Compile Include="Pages\FrontEnd\FrontendPageBase.cs" />
+    <Compile Include="Pages\BackEnd\BrandFilterControl.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\FraudManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\NewEditRiskLevelForm.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\RiskLevelTestingDto.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\SubmittedRiskLevelForm.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\UpdateStatusForm.cs" />
+    <Compile Include="Pages\BackEnd\Grid.cs" />
+    <Compile Include="Pages\BackEnd\Payment\EditTransferSettingsForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\NewTransferSettingsForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedTransferSettingsForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\TransferSettingsActivateDeactivateDialog.cs" />
+    <Compile Include="Pages\BackEnd\Payment\TransferSettingsPage.cs" />
+    <Compile Include="Pages\FrontEnd\BalanceInformationPage.cs" />
+    <Compile Include="Pages\FrontEnd\OfflineDepositRequestPage.cs" />
+    <Compile Include="Pages\FrontEnd\TransferFundPage.cs" />
+    <Compile Include="TestDoubles\TestServiceBusSubscriber.cs" />
+    <Compile Include="Helpers\BonusTestHelper.cs" />
+    <Compile Include="Extensions\WebDriverExtensions.cs" />
+    <Compile Include="Helpers\BrandTestHelper.cs" />
+    <Compile Include="Helpers\GamesTestHelper.cs" />
+    <Compile Include="Helpers\PaymentTestHelper.cs" />
+    <Compile Include="Helpers\PlayerTestHelper.cs" />
+    <Compile Include="Helpers\SecurityTestHelper.cs" />
+    <Compile Include="Pages\BackEnd\Payment\ActivateBankAccountDialog.cs" />
+    <Compile Include="Pages\BackEnd\Admin\AdminManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Admin\AdminWebsiteLoginPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\ApproveOfflineDepositForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\AssignCountryForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\AssignCurrencyForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\BackendIpRegulationsPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\BankAccountManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\BankManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\BetLevelsPage.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\AddEditBonusForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\BrandIpRegulationsPage.cs" />
+    <Compile Include="Pages\BackEnd\Admin\EditBackendIpRegulationForm.cs" />
+    <Compile Include="Pages\BackEnd\Licensee\EditLicenseeForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\EditPaymentSettingsForm.cs" />
+    <Compile Include="Pages\BackEnd\Licensee\LicenseeActivateDialog.cs" />
+    <Compile Include="Pages\BackEnd\Brand\AddEditWalletForm.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusActivationDialog.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusTemplateManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusTemplateWizard\AvailabilityPage.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusTemplateWizard\InfoPage.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusTemplateWizard\NotificationPage.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusTemplateWizard\RulesPage.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusTemplateWizard\SummaryPage.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusTemplateWizard\TemplateWizardPageBase.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\BonusTemplateWizard\WageringPage.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\DeleteBonusTemplateDialog.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\MultiSelectWidget.cs" />
+    <Compile Include="Pages\BackEnd\Bonus\SubmittedBonusForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\SubmittedWalletTemplateForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\WalletManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Brand\BrandActivateDialog.cs" />
+    <Compile Include="Pages\BackEnd\Brand\BrandManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Admin\ActivateDeactivateLanguageDialog.cs" />
+    <Compile Include="Pages\BackEnd\Player\ChangeVipLevelDialog.cs" />
+    <Compile Include="Pages\BackEnd\DashboardPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\DepositConfirmPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\EditBankAccountForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\EditBankForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\EditBrandForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\EditIpRegulationForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\EditLanguageForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\EditPaymentLevelForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\EditRoleForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\EditUserForm.cs" />
+    <Compile Include="Pages\BackEnd\Fraud\ExemptionForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\IpRegulationManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Admin\LanguageManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Licensee\LicenseesPage.cs" />
+    <Compile Include="Pages\BackEnd\BackendMenuBar.cs" />
+    <Compile Include="Pages\BackEnd\Admin\NewBackendIpRegulationForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\NewBankAccountForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\NewBankForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\NewBrandForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\NewBrandIpRegulationForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\NewIpRegulationForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\NewLanguageForm.cs" />
+    <Compile Include="Pages\BackEnd\Licensee\NewLicenseeForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\NewPaymentLevelForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\NewPaymentSettingsForm.cs" />
+    <Compile Include="Pages\BackEnd\Player\NewPlayerForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\NewProductForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\NewRoleForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\NewUserForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\NewVipLevelForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\OfflineDepositRequestForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\PlayerBankAccountVerifyPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\OfflineDepositConfirmPage.cs" />
+    <Compile Include="Pages\BackEnd\Player\PlayerBankAccountForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\OfflineWithdrawRequestForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\OfflineWithrawalAcceptancePage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\OfflineWithrawalApprovalPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\OfflineWithrawRequestsPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\PaymentLevelsPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\PaymentSettingsActivateDialog.cs" />
+    <Compile Include="Pages\BackEnd\Payment\PaymentSettingsPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\PlayerDepositApprovePage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\PlayerDepositVerifyForm.cs" />
+    <Compile Include="Pages\BackEnd\Player\PlayerInfoPage.cs" />
+    <Compile Include="Pages\BackEnd\Player\PlayerBankAccountsPage.cs" />
+    <Compile Include="Pages\BackEnd\Player\PlayerManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Player\ProductManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\RejectOfflineDepositForm.cs" />
+    <Compile Include="Pages\BackEnd\Reports\BrandReportsPage.cs" />
+    <Compile Include="Pages\BackEnd\Reports\PaymentReportsPage.cs" />
+    <Compile Include="Pages\BackEnd\Reports\PlayerReportsPage.cs" />
+    <Compile Include="Pages\BackEnd\Reports\ReportsPageBase.cs" />
+    <Compile Include="Pages\BackEnd\Admin\ResetUserPasswordPage.cs" />
+    <Compile Include="Pages\BackEnd\Admin\RoleManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedActivateBankAccountDialog.cs" />
+    <Compile Include="Pages\BackEnd\Brand\SubmittedAssignCountryForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\SubmittedAssignCurrencyForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\SubmittedBackendIpRegulationForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedBankAccountForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedBankForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\SubmittedBrandForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedDepositAproveForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedDepositConfirmForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedDepositVerifyForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\SubmittedLanguageForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\ViewBrandForm.cs" />
+    <Compile Include="Pages\BackEnd\Licensee\ViewLicenseeForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\SubmittedNewIpRegulationForm.cs" />
+    <Compile Include="Pages\BackEnd\Player\SubmittedPlayerForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\SubmittedNewUserForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedOfflineDepositRequestForm.cs" />
+    <Compile Include="Pages\BackEnd\Player\SubmittedPlayerBankAccountForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedOfflineWithdrawRequestForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedPaymentLevelForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedPaymentSettingsForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\SubmittedRejectOfflineDepositForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\SubmittedRoleForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\SubmittedVipLevelForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\SupportedCountriesPage.cs" />
+    <Compile Include="Pages\BackEnd\Brand\SupportedCurrenciesPage.cs" />
+    <Compile Include="Pages\BackEnd\Brand\SupportedLanguagesPage.cs" />
+    <Compile Include="Pages\BackEnd\Brand\SupportedProductsPage.cs" />
+    <Compile Include="Pages\BackEnd\Payment\UnverifyOfflineDepositForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\UnverifyOfflineWithdrawRequestForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\VerifyOfflineDepositForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\VerifyOfflineWithdrawRequestForm.cs" />
+    <Compile Include="Pages\BackEnd\Payment\ViewOfflineDepositConfirmForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\ViewRoleForm.cs" />
+    <Compile Include="Pages\BackEnd\Admin\ViewUserForm.cs" />
+    <Compile Include="Pages\BackEnd\Brand\VipLevelManagerPage.cs" />
+    <Compile Include="Pages\BackEnd\Admin\EditBrandIpRegulationForm.cs" />
+    <Compile Include="Pages\FrontEnd\AccountActivationPage.cs" />
+    <Compile Include="Pages\FrontEnd\ClaimBonusPage.cs" />
+    <Compile Include="Pages\FrontEnd\GameListPage.cs" />
+    <Compile Include="Pages\FrontEnd\MemberWebsiteLoginPage.cs" />
+    <Compile Include="Pages\FrontEnd\PlayerProfilePage.cs" />
+    <Compile Include="Pages\FrontEnd\ReferFriendsPage.cs" />
+    <Compile Include="Pages\FrontEnd\RegisterPage.cs" />
+    <Compile Include="Pages\BackEnd\BackendPageBase.cs" />
+    <Compile Include="Base\ReportTestBase.cs" />
+    <Compile Include="Containers\MemberWebsiteUnitTestContainerFactory.cs" />
+    <Compile Include="Base\AdminWebsiteUnitTestsBase.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="TestDoubles\FakeEmailNotifier.cs" />
+    <Compile Include="TestDoubles\FakeFraudRepository.cs" />
+    <Compile Include="TestDoubles\FakeMessageTemplatesRepository.cs" />
+    <Compile Include="TestDoubles\FakeReportRepository.cs" />
+    <Compile Include="TestDoubles\FakeServiceBus.cs" />
+    <Compile Include="TestDoubles\FakeEventRepository.cs" />
+    <Compile Include="TestDoubles\FakeDbSet.cs" />
+    <Compile Include="TestDoubles\FakePaymentRepository.cs" />
+    <Compile Include="TestDoubles\FakeGameServerIntegrationRepository.cs" />
+    <Compile Include="TestDoubles\FakeBrandRepository.cs" />
+    <Compile Include="TestDoubles\FakePlayerRepository.cs" />
+    <Compile Include="Base\MultiprocessTestsBase.cs" />
+    <Compile Include="TestDataGenerator.cs" />
+    <Compile Include="Base\TestsBase.cs" />
+    <Compile Include="TestDoubles\FakeBonusRepository.cs" />
+    <Compile Include="TestDoubles\FakeSecurityRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesHost.cs" />
+    <Compile Include="Base\BonusTestsBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.Develop.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="App.QA.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="App.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\SlowCheetah\SlowCheetah.Transforms.targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.Content\Core.Content.csproj">
+      <Project>{FB049381-7815-4533-BCAE-3077D86722B0}</Project>
+      <Name>Core.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Bonus\Core.Bonus.csproj">
+      <Project>{e7a571bc-3924-4be5-8b56-bb8574b30ce9}</Project>
+      <Name>Core.Bonus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Brand\Core.Brand.csproj">
+      <Project>{D519BE95-FEE1-42D1-A60E-A3C008E1F8AA}</Project>
+      <Name>Core.Brand</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Fraud\Core.Fraud.csproj">
+      <Project>{A9C80924-5E70-4A3D-A9C3-DDF70681E76D}</Project>
+      <Name>Core.Fraud</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Games\Core.Game.csproj">
+      <Project>{BFEBC671-1C27-40E8-BB98-C5B23919FCC7}</Project>
+      <Name>Core.Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Payment\Core.Payment.csproj">
+      <Project>{dbb83446-3c9e-4f1d-ac1c-2c88053bfddd}</Project>
+      <Name>Core.Payment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Player\Core.Player.csproj">
+      <Project>{18B71681-F11B-4F62-A4E9-A388FCC9A4B7}</Project>
+      <Name>Core.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Report\Core.Report.csproj">
+      <Project>{72caa794-0117-495a-9f88-d2efdd81fa95}</Project>
+      <Name>Core.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Security\Core.Security.csproj">
+      <Project>{C26F378C-8F63-49B5-BBED-3031071C300A}</Project>
+      <Name>Core.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Common\Core.Common.csproj">
+      <Project>{E60E73C7-09B9-45B2-950F-547350CFBE93}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure\Infrastructure.csproj">
+      <Project>{39AE091F-FC43-49BA-A605-6B79ED269DA6}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\WebServices\MemberApi.Interface\MemberApi.Interface.csproj">
+      <Project>{1eac9a59-224c-41a1-8909-9fbc28dcf895}</Project>
+      <Name>MemberApi.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation\AdminWebsite\AdminWebsite.csproj">
+      <Project>{AF5B416D-7007-447B-B7CE-ED79B3B42086}</Project>
+      <Name>AdminWebsite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{3D268EBA-3EF8-429B-90C7-AE35CE762FC8}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinService\WinService.csproj">
+      <Project>{8d39e3a9-29b9-4999-b8ca-2ada47e66ca0}</Project>
+      <Name>WinService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\player-back-id.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\player-front-id.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="$(SlowCheetahTargets)" Condition="Exists('$(SlowCheetahTargets)')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

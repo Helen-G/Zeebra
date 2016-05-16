@@ -1,0 +1,396 @@
+﻿<div>
+    <div class="action-btns-container margin-bottom-10">
+        <div class="action-btns">
+            <div class="btn-group">
+                <button class="btn btn-sm btn-primary" type="button" data-bind="click: edit, disable: detailsEditMode, visible: isEditBtnVisible">Edit</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-primary" type="button" data-bind="click: resendActivationEmail">Resend Activation Email</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-primary" type="button" data-bind="click: showSendMessageDialog">Send New Password</button>
+            </div>
+            <div class="btn-group" data-bind="visible: isSetStatusBtnVisible">
+                <button class="btn btn-sm btn-primary" type="button" data-bind="click: setStatus"><i class="fa fa-bullhorn"></i> <span data-bind="text: activateButtonText"></span></button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-primary" type="button" data-bind="click: showChangeVipLevelDialog, visible: canAssignVipLevel">Change VIP Level</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-primary" type="button"><i class="fa fa-lock"></i> Freeze </button>
+            </div>
+        </div>
+    </div>
+
+    <form role="form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="row">
+                    <h5 class="col-xs-3 control-label"><strong>Account Details</strong></h5>
+                </div>
+
+                <hr />
+
+                <div class="form-group">
+                    <label for="firstNameFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.firstName"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="firstNameFieldId" class="form-control" data-bind="value: firstName, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: firstName"></div>
+                        <p class="form-control-static" data-bind="text: firstName, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastNameFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.lastName"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="lastNameFieldId" class="form-control" data-bind="value: lastName, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: lastName"></div>
+                        <p class="form-control-static" data-bind="text: lastName, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.dateOfBirth"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+
+                        <div class="input-append" data-bind="attr: { id: dateOfBirthPickerFieldId() }, visible: detailsEditMode">
+                            <input data-bind="attr: { id: dateOfBirthFieldId() }" class="form-control add-on" data-format="yyyy/MM/dd" type="text"/>
+                            <span class="red" data-bind="validationMessage: dateOfBirth"></span>
+                        </div>
+                        <p class="form-control-static" data-bind="text: dateOfBirth, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>-->
+
+                <div class="form-group">
+                    <label for="titleFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.title"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <select id="titleFieldId" class="form-control" data-bind="options: titles, value: title, visible: detailsEditMode"></select>
+                        <div class="red" data-bind="validationMessage: title"></div>
+                        <p class="form-control-static" data-bind="text: title, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="genderFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.gender"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <select id="genderFieldId" class="form-control" data-bind="options: genders, value: gender, visible: detailsEditMode"></select>
+                        <div class="red" data-bind="validationMessage: gender"></div>
+                        <p class="form-control-static" data-bind="text: gender, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.email"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="emailFieldId" class="form-control" data-bind="value: email, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: email"></div>
+                        <p class="form-control-static" data-bind="text: email, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumberFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.phoneNumber"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="phoneNumberFieldId" class="form-control" data-bind="value: phoneNumber, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: phoneNumber"></div>
+                        <p class="form-control-static" data-bind="text: phoneNumber, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <!-- Mailing Address-->
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <em data-i18n="app:playerManager.mailingAddress"></em>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="mailingAddressLine1FieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.addressLine1"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="mailingAddressLine1FieldId" class="form-control" data-bind="value: mailingAddressLine1, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: mailingAddressLine1"></div>
+                        <p class="form-control-static" data-bind="text: mailingAddressLine1, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mailingAddressLine2FieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.addressLine2"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="mailingAddressLine2FieldId" class="form-control" data-bind="value: mailingAddressLine2, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: mailingAddressLine2"></div>
+                        <p class="form-control-static" data-bind="text: mailingAddressLine2, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mailingAddressLine3FieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.addressLine3"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="mailingAddressLine3FieldId" class="form-control" data-bind="value: mailingAddressLine3, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: mailingAddressLine3"></div>
+                        <p class="form-control-static" data-bind="text: mailingAddressLine3, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mailingAddressLine4FieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.addressLine4"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="mailingAddressLine4FieldId" class="form-control" data-bind="value: mailingAddressLine4, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: mailingAddressLine4"></div>
+                        <p class="form-control-static" data-bind="text: mailingAddressLine4, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mailingAddressCityFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.city"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="mailingAddressCityFieldId" class="form-control" data-bind="value: mailingAddressCity, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: mailingAddressCity"></div>
+                        <p class="form-control-static" data-bind="text: mailingAddressCity, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mailingAddressPostalCodeFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.postalCode"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="mailingAddressPostalCodeFieldId" class="form-control" data-bind="value: mailingAddressPostalCode, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: mailingAddressPostalCode"></div>
+                        <p class="form-control-static" data-bind="text: mailingAddressPostalCode, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="countryFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.country"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <select id="countryFieldId" class="form-control" data-bind="options: countries, optionsText: 'code', value: country, visible: detailsEditMode"></select> <span class="red" data-bind="validationMessage: country"></span>
+                        <p class="form-control-static" data-bind="text: countryName, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <!-- Physical Address-->
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <em data-i18n="app:playerManager.physicalAddress"></em>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="physicalAddressLine1FieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.addressLine1"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="physicalAddressLine1FieldId" class="form-control" data-bind="value: physicalAddressLine1, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: physicalAddressLine1"></div>
+                        <p class="form-control-static" data-bind="text: physicalAddressLine1, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="physicalAddressLine2FieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.addressLine2"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="physicalAddressLine2FieldId" class="form-control" data-bind="value: physicalAddressLine2, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: physicalAddressLine2"></div>
+                        <p class="form-control-static" data-bind="text: physicalAddressLine2, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="physicalAddressLine3FieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.addressLine3"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="physicalAddressLine3FieldId" class="form-control" data-bind="value: physicalAddressLine3, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: physicalAddressLine3"></div>
+                        <p class="form-control-static" data-bind="text: physicalAddressLine3, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="physicalAddressLine4FieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.addressLine4"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="physicalAddressLine4FieldId" class="form-control" data-bind="value: physicalAddressLine4, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: physicalAddressLine4"></div>
+                        <p class="form-control-static" data-bind="text: physicalAddressLine4, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="physicalAddressCityFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.city"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="physicalAddressCityFieldId" class="form-control" data-bind="value: physicalAddressCity, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: physicalAddressCity"></div>
+                        <p class="form-control-static" data-bind="text: physicalAddressCity, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="physicalAddressPostalCodeFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.postalCode"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <input id="physicalAddressPostalCodeFieldId" class="form-control" data-bind="value: physicalAddressPostalCode, visible: detailsEditMode" />
+                        <div class="red" data-bind="validationMessage: physicalAddressPostalCode"></div>
+                        <p class="form-control-static" data-bind="text: physicalAddressPostalCode, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentLevelFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:payment.level"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <select id="paymentLevelFieldId" class="form-control" data-bind="options: paymentLevels, value: paymentLevel, optionsText: 'name', visible: detailsEditMode"></select> <span class="red" data-bind="validationMessage: paymentLevel"></span>
+                        <p class="form-control-static" data-bind="text: paymentLevelName, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+
+                <div class="row">
+                    <h5 class="col-xs-3 control-label"><strong>Login Information</strong></h5>
+                </div>
+
+                <hr />
+
+                <div class="form-group margin-bottom-30">
+                    <label for="" class="col-sm-3 control-label">Registration Date</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static" data-bind="text: registrationDate"></p>
+                    </div>
+                </div>
+
+                <div class="form-group margin-bottom-30">
+                    <label for="" class="col-sm-3 control-label">Brand</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static" data-bind="text: brand"></p>
+                    </div>
+                </div>
+
+                <div class="form-group margin-bottom-30">
+                    <label for="" class="col-sm-3 control-label">Currency</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static" data-bind="text: currency"></p>
+                    </div>
+                </div>
+
+                <div class="form-group margin-bottom-30">
+                    <label for="" class="col-sm-3 control-label">VIP Level</label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: vipLevelName"></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h5 class="col-sm-3 control-label"><strong>Extra Info</strong></h5>
+                </div>
+
+                <hr />
+
+                <div class="form-group">
+                    <label for="contactPreferenceFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.primaryContact"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <select id="contactPreferenceFieldId" class="form-control" data-bind="options: contactMethods, value: contactPreference, visible: detailsEditMode"></select>
+                        <div class="red" data-bind="validationMessage: contactPreference"></div>
+                        <p class="form-control-static" data-bind="text: contactPreference, visible: !detailsEditMode()"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="accountAlertEmailFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.accountAlerts"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: accountAlertsText, visible: !detailsEditMode()"></p>
+                        <input type="checkbox" id="accountAlertEmailFieldId" data-bind="checked: accountAlertEmail, visible: detailsEditMode" />
+                        <span class="lbl" data-i18n="app:playerManager.add.accountAlertEmail" data-bind="visible: detailsEditMode"></span><br />
+
+                        <input type="checkbox" data-bind="checked: accountAlertSms, visible: detailsEditMode" />
+                        <span class="lbl" data-i18n="app:playerManager.add.accountAlertSms" data-bind="visible: detailsEditMode"></span><br />
+
+                        <div class="red" data-bind="validationMessage: accountAlertsText"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="marketingAlertEmailFieldId" class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.marketingAlerts"></span><span class="red">*</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: marketingAlertsText, visible: !detailsEditMode()"></p>
+                        <input type="checkbox" id="marketingAlertEmailFieldId" data-bind="checked: marketingAlertEmail, visible: detailsEditMode" />
+                        <span class="lbl" data-i18n="app:playerManager.add.marketingAlertEmail" data-bind="visible: detailsEditMode"></span><br />
+
+                        <input type="checkbox" data-bind="checked: marketingAlertSms, visible: detailsEditMode" />
+                        <span class="lbl" data-i18n="app:playerManager.add.marketingAlertSms" data-bind="visible: detailsEditMode"></span><br />
+
+                        <input type="checkbox" data-bind="checked: marketingAlertPhone, visible: detailsEditMode" />
+                        <span class="lbl" data-i18n="app:playerManager.add.marketingAlertPhone" data-bind="visible: detailsEditMode"></span><br />
+
+                        <div class="red" data-bind="validationMessage: marketingAlertsText"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.securityQuestion"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: securityQuestion"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.add.securityAnswer"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: securityAnswer"></p>
+                    </div>
+                </div>
+
+                <div class="clearfix form-actions" data-bind="visible: detailsEditMode">
+                    <div class="center">
+                        <button class="btn btn-white btn-round" type="reset" data-bind="click: cancelEdit" data-i18n="app:common.cancel"></button>
+                        &nbsp; &nbsp; &nbsp;
+                        <button class="btn btn-primary btn-round" data-bind="click: clearEdit" data-i18n="app:common.clear"></button>
+                        &nbsp; &nbsp; &nbsp;
+                        <button class="btn btn-primary btn-round" data-bind="click: saveEdit" data-i18n="app:common.save"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

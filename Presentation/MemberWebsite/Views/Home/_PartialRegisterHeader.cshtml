@@ -1,0 +1,24 @@
+﻿@{ var step = ViewData.Model.Step; }
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="ky-step-list">
+            <ul>
+                <li class="item @(step == 1 ? "focus" : null)">
+                    <i>1</i>
+                    <p data-i18n="registration.register"></p>
+                </li>
+                <li class="item arrow"><i class="fa fa-angle-right"></i></li>
+                <li class="item @(step == 2 ? "focus" : null)">
+                    <i>2</i>
+                    <p data-i18n="registration.deposit"></p>
+                </li>
+                <li class="item arrow"><i class="fa fa-angle-right"></i></li>
+                <li class="item @(step == 3 ? "focus" : null)">
+                    <i>3</i>
+                    <p data-i18n="registration.getBonus"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

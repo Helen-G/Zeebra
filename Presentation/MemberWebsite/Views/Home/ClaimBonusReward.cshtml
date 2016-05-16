@@ -1,0 +1,150 @@
+@{
+    ViewBag.Title = "Claim bonus reward";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container ky-icon-tabs-content">
+    <div id="claim-bonus-wrapper" class="page-wrapper">
+        <nav role="tabpanel">
+            <ul role="tablist" class="nav ky-sub-tabs">
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'claimBonus' }"><a href="#claimBonus" data-bind="click: toggleTab" data-i18n="claimBonus.claimBonus"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'termsAndConditions' }"><a href="#termsAndConditions" data-bind="click: toggleTab" data-i18n="claimBonus.termsAndConditions"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'claimBonusMockup' }" class="mockup"><a href="#claimBonusMockup" data-bind="click: toggleTab" data-i18n="claimBonus.claimBonus"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'activeBonusesMockup' }" class="mockup"><a href="#activeBonusesMockup" data-bind="click: toggleTab" data-i18n="claimBonus.activeBonuses"></a></li>
+            </ul>
+        </nav>
+        <div data-bind="visible: shownTab() == 'claimBonus'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- ko if: fetchingRedemptions-->
+                    <h2 data-i18n="claimBonus.loadingRedemptions"></h2>
+                    <!-- /ko -->
+                    <!-- ko foreach: redemptions -->
+                    <div class="ky-panel ky-margin-row ky-ticket-box">
+                        <h4 class="title"><i class="fa fa-fw fa-trophy"></i><span data-i18n="claimBonus.bonusName"></span><span data-bind="text: bonusName"></span></h4>
+                        <div class="row">
+                            <div class="col-xs-4 col-xs-offset-3 text-left" data-i18n="claimBonus.rewardAmount"><span class="amount" data-bind="text: rewardAmount"></span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 text-left">
+                                <!-- ko if: state == 2 -->
+                                <label class="bg-success" data-i18n="claimBonus.willBeClaimableOn"><span data-bind="text: claimableFrom"></span></label>
+                                <!-- /ko -->
+                                <!-- ko if: state == 1 -->
+                                <label class="bg-warning" data-i18n="claimBonus.expiredOn"><span data-bind="text: claimableTo"></span></label>
+                                <!-- /ko -->
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <!-- ko if: state == 0 -->
+                                <button type="button" data-bind="click: $root.claimRedemption, disable: $root.requestInProgress" class="btn btn-sm btn-primary" data-i18n="claimBonus.claim"></button>
+                                <!-- /ko -->
+                                <button type="button" class="btn btn-sm btn-danger" data-i18n="claimBonus.remove"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+
+                    <div data-bind="visible: messages().length > 0, foreach: messages">
+                        <label data-bind="text: $data"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-bind="visible: shownTab() == 'termsAndConditions'" class="row">
+            <div class="col-xs-12">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+        </div>
+        <div data-bind="visible: shownTab() == 'claimBonusMockup'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="#" class="ky-panel ky-margin-row ky-ticket-box">
+                                <div class="row">
+                                    <div class="col-xs-6 text-left">
+                                        <h4 class="title"><i class="fa fa-fw fa-trophy"></i>Bonus Name: Happy birthday bonus ticket</h4>
+                                    </div>
+                                    <div class="col-xs-3 text-left">Reward Amount:<span class="amount">20</span></div>
+                                    <div class="col-xs-3 text-right">
+                                        <label>Will become claimable on 1981/07/17</label>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="#" class="ky-panel ky-margin-row ky-ticket-box">
+                                <div class="row">
+                                    <div class="col-xs-6 text-left">
+                                        <h4 class="title"><i class="fa fa-fw fa-trophy"></i>Bonus Name: Happy birthday bonus ticket</h4>
+                                    </div>
+                                    <div class="col-xs-3 text-left">Reward Amount:<span class="amount">20</span></div>
+                                    <div class="col-xs-3 text-right">
+                                        <label class="text-left">Expired on 1981/07/17</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8"><strong>- $300 bet in poker and get $100 bonus</strong></div>
+                                    <div class="col-xs-4 text-right">
+                                        <label class="text-left">Terms and Conditions</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8"><strong>- $300 bet in poker and get $100 bonus</strong></div>
+                                    <div class="col-xs-4 text-right">
+                                        <label class="text-left">Terms and Conditions</label>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-bind="visible: shownTab() == 'activeBonusesMockup'" class="row">
+            <div class="col-xs-12">
+                <table class="table ky-table-bonus">
+                    <thead>
+                        <tr>
+                            <th>Bonus Name and Description</th>
+                            <th>Wagering Requirement</th>
+                            <th>Wagering Requirement Remaining</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>Happy Birthday Bonus Ticket</h4><a href="/Home/TermsAndConditions">Show more information on this bonus...</a>
+                            </td>
+                            <td>Play Poker, bet $300 to earn additional $100 bonus</td>
+                            <td>
+                                <div class="ky-wrap">
+                                    <div>Still left to bet $100 to earn your $100 bonus</div>
+                                    <button class="btn btn-success ky-btn-style">Play Game to Activate Your Bonus</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Happy Birthday Bonus Ticket</h4><a href="/Home/TermsAndConditions">Show more information on this bonus...</a>
+                            </td>
+                            <td>Play Poker, bet $300 to earn additional $100 bonus</td>
+                            <td>
+                                <div class="ky-wrap">
+                                    <div>Still left to bet $100 to earn your $100 bonus</div>
+                                    <button class="btn btn-success ky-btn-style">Play Game to Activate Your Bonus</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Scripts/custom/claimBonusReward.js"></script>
+}

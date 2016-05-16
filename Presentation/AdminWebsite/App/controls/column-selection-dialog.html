@@ -1,0 +1,27 @@
+﻿<div class="modal-content">
+    <div class="modal-header">
+        <h3 >Select visible columns</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group" data-bind="with: assignControl" style="height: 250px">
+            <div class="col-xs-5">
+                <label class="control-label"><span data-i18n="app:common.visibleColumns"></span> <span class="red">*</span></label>
+                <select class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: 'name', selectedOptions: selectedAssignedItems, disable: $root.submitted"></select>
+            </div>
+            <div class="col-xs-2 center" style="margin-top: 65px">
+                <button class="btn" data-bind="click: assign">&lt;</button><br />
+                <button class="btn" data-bind="click: unassign">&gt;</button>
+            </div>
+            <div class="col-xs-5">
+                <label class="control-label" data-i18n="app:common.hiddenColumns"></label>
+                <select class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: 'name', selectedOptions: selectedAvailableItems"></select>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="center">
+            <button class="btn btn-primary" data-bind="click: ok" data-i18n="app:common.ok"></button>
+            <button class="btn btn-primary" data-bind="click: cancel" data-i18n="app:common.cancel"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model AFT.RegoV2.MemberApi.Interface.Payment.OfflineDepositFormDataResponse
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="register2-wrapper" class="site-body">
+
+    <div class="container">
+
+        @{ Html.RenderPartial("_PartialRegisterHeader", new { Step = 2 }); }
+
+        <div class="page-wrapper">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="text-center" style="margin-bottom: 3em; color: #49BFE1;">Thank you for registering with @ViewData["BrandName"], please continue with an offline deposit.</h3>
+                </div>
+            </div>
+
+            @{ Html.RenderPartial("_PartialOfflineDeposit", Model); }
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Scripts/custom/login.js"></script>
+    <script src="/Scripts/custom/register2.js"></script>
+}

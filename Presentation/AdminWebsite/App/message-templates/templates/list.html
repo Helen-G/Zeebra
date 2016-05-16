@@ -1,0 +1,18 @@
+﻿<div id="message-template-grid" data-bind="grid: {
+        source: '/MessageTemplate/Templates',
+        fields: ['Name', 'Content', 'Type'],
+        defaultSort: { field: 'Name' },
+        paging: true,
+        useResizeManager: true
+    }">
+	<header>
+		<div class="btn-group pull-right">
+			<button class="btn btn-sm btn-success btn-round" data-bind="click: openAddTemplateTab"><i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span></button>
+			<button class="btn btn-sm btn-primary btn-round" data-bind="click: openEditTemplateTab, enable: canBeEditedDeleted"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span></button>
+			<button class="btn btn-sm btn-danger btn-round" data-bind="click: deleteTemplate, enable: canBeEditedDeleted"><i class="ace-icon fa fa-trash-o"></i> <span data-i18n="app:common.delete"></span></button>
+		</div>
+	</header>
+	<column title="app:messageTemplates.common.name" sort-field="Name" width="250" data-value="@Name" />
+	<column title="app:messageTemplates.common.template" sort-field="Content" width="250" data-value="@Content" />
+	<column title="app:messageTemplates.common.type" sort-field="Type" width="250" data-value="@Type" />
+</div>

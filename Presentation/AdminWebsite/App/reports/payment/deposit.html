@@ -1,0 +1,50 @@
+﻿<div>
+    <div>
+        <div data-bind="grid: {
+            source: '/Report/DepositData',
+            fields: gridFields(),
+            filter: ko.computed(function() { return { SubmittedBy: search() }; }),
+            defaultSort: { field: 'Submitted' },
+            paging: defaultPaging,
+            useResizeManager: true
+        }">
+            <header>
+                <div data-bind="gridHeader: { context: $data,
+                    filters: columns(),
+                    buttons: [
+                        { name: 'export', click: exportReport, visible: exportAllowed, enabled: exportEnabled, text: 'app:report.common.export', icon: 'download' }
+                    ],
+                    selectColumns: true
+                }"></div>
+            </header>
+            <column width="100" sort-field="Licensee" data-value="@Licensee" />
+            <column width="100" sort-field="Brand" data-value="@Brand" />
+            <column width="100" sort-field="Username" data-value="@Username" />
+            <column width="150" sort-field="IsInternalAccount" data-value="if @IsInternalAccount then 'Yes' else 'No'" />
+            <column width="120" sort-field="TransactionId" data-value="@TransactionId" />
+            <column width="280" sort-field="DepositId" data-value="@DepositId" />
+            <column width="130" sort-field="PaymentMethod" data-value="@PaymentMethod" />
+            <column width="100" sort-field="Currency" data-value="@Currency" />
+            <column width="100" sort-field="Amount" data-value="@Amount" />
+            <column width="120" sort-field="ActualAmount" data-value="@ActualAmount" />
+            <column width="100" sort-field="Fee" data-value="@Fee" />
+            <column width="100" sort-field="Status" data-value="@Status" />
+            <column width="150" sort-field="Submitted" data-value="$root.moment(@Submitted).format 'YYYY-MM-DD'" />
+            <column width="150" sort-field="SubmittedBy" data-value="@SubmittedBy" />
+            <column width="150" sort-field="Approved" data-value="if @Approved? then $root.moment(@Approved).format 'YYYY-MM-DD' else ''" />
+            <column width="150" sort-field="ApprovedBy" data-value="@ApprovedBy" />
+            <column width="150" sort-field="Rejected" data-value="if @Rejected? then $root.moment(@Rejected).format 'YYYY-MM-DD' else ''" />
+            <column width="150" sort-field="RejectedBy" data-value="@RejectedBy" />
+            <column width="150" sort-field="Verified" data-value="if @Verified? then $root.moment(@Verified).format 'YYYY-MM-DD' else ''" />
+            <column width="150" sort-field="VerifiedBy" data-value="@VerifiedBy" />
+            <column width="120" sort-field="DepositType" data-value="@DepositType" />
+            <column width="160" sort-field="BankAccountName" data-value="@BankAccountName" />
+            <column width="160" sort-field="BankAccountId" data-value="@BankAccountId" />
+            <column width="160" sort-field="BankName" data-value="@BankName" />
+            <column width="160" sort-field="BankProvince" data-value="@BankProvince" />
+            <column width="120" sort-field="BankBranch" data-value="@BankBranch" />
+            <column width="200" sort-field="BankAccountNumber" data-value="@BankAccountNumber" />
+        </div>
+    </div>
+    <div class="no-records" data-bind="visible: noRecordsFound">No records found</div>
+</div>

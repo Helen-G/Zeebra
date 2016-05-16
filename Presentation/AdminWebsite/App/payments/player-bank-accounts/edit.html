@@ -1,0 +1,88 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }, with: form.fields">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.username"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: $root.username"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: bank">
+        <label data-bind="attr: { for: $root.bankFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:banks.bankName"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" data-bind="attr: { id: $root.bankFieldId() }, options: options, optionsText: optionsText, value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: province">
+        <label data-bind="attr: { for: $root.provinceFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:banks.province"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: $root.provinceFieldId() }, value: value, visible: !$root.submitted(), disable: $root.disabled" />
+            <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: city">
+        <label data-bind="attr: { for: $root.cityFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:banks.city"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: $root.cityFieldId() }, value: value, visible: !$root.submitted(), disable: $root.disabled" />
+            <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: branch">
+        <label data-bind="attr: { for: $root.branchFieldId() }" class="col-sm-3 control-label" data-i18n="app:banks.branch"></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: $root.branchFieldId() }, value: value, visible: !$root.submitted(), disable: $root.disabled" />
+            <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: swiftCode">
+        <label data-bind="attr: { for: $root.swiftCodeFieldId() }" class="col-sm-3 control-label" data-i18n="app:payment.withdraw.swiftCode"></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: $root.swiftCodeFieldId() }, value: value, visible: !$root.submitted(), disable: $root.disabled" />
+            <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: address">
+        <label data-bind="attr: { for: $root.addressFieldId() }" class="col-sm-3 control-label" data-i18n="app:banks.address"></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: $root.addressFieldId() }, value: value, visible: !$root.submitted(), disable: $root.disabled" />
+            <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: accountName">
+        <label data-bind="attr: { for: $root.accountNameFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:banks.playersBankAccountName"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: $root.accountNameFieldId() }, value: value, visible: !$root.submitted(), disable: $root.disabled" />
+            <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: accountNumber">
+        <label data-bind="attr: { for: $root.accountNumberFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:banks.playersBankAccountNumber"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: $root.accountNumberFieldId() }, value: value, visible: !$root.submitted(), disable: $root.disabled" />
+            <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: value, visible: $root.submitted"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: $root.status">
+        <label class="col-sm-3 control-label"><span data-i18n="app:common.status"></span></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: $root.status"></p>
+        </div>
+    </div>
+    <div class="clearfix form-actions" data-bind="with: $root">
+        <div class="center">       
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted() && !$root.disabled()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted() && !$root.disabled()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

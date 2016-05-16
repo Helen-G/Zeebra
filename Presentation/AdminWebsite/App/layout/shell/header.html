@@ -1,0 +1,87 @@
+﻿<div class="navbar navbar-default" id="navbar">
+    <div class="navbar-container" id="navbar-container">
+        <!-- #section:basics/sidebar.mobile.toggle -->
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+            <span class="sr-only">Toggle sidebar</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img src="/content/images/REGOv2.png" />
+                </small>
+            </a>
+            <div class="navbar-licensee-brand-selector-wrap">
+                <div id="navbar-licensee-brand-indicator" data-bind="click: tabViewToggle">
+                    <span data-i18n="app:brand.brands"></span> (<span data-bind="text: selectedBrands().length"></span>) <i class="fa" style="margin-left: 1rem" data-bind="css: { 'fa-angle-up': tabViewIsShown(), 'fa-angle-down': !tabViewIsShown() }"></i>
+                </div>
+                <div id="navbar-licensee-brand-selector" data-bind="css: {'active': tabViewIsShown()}">
+                    <div class="wrapper">
+                        <div>
+                            <h5><span data-i18n="app:common.licensees"></span> <small>(<span data-i18n="app:common.selected"></span> <span data-bind="text: selectedLicensees().length"></span>)</small></h5>
+                            <div class="wrapper-licensee-selector">
+                                <ul id="licenseeSelector" class="licensee-selector">
+                                    <!-- ko foreach: allLicensees -->
+                                    <li data-bind="css: {'active': $parent.tabViewCurrentLicenseeId() == id()}">
+                                        <div>
+                                            <input type="checkbox" data-bind="checked: $parent.selectedLicensees, checkedValue: $data, click: $parent.tabViewToggleLicensee, attr: { 'data-tabview-licensee-id': id }" />
+                                        </div>
+                                        <div data-bind="click: $parent.tabViewChangeCurrentLicensee">
+                                            <label data-bind="text: name"></label>
+                                        </div>
+                                    </li>
+                                    <!-- /ko -->
+                                    <li class="fill"></li>
+                                </ul>
+                            </div>
+                            <nav>
+                                <button type="button" data-bind="click: tabViewNavPrev, disable: tabViewNavCheckPrev()"><i class="fa fa-caret-up"></i></button>
+                                <button type="button" data-bind="click: tabViewNavNext, disable: tabViewNavCheckNext()"><i class="fa fa-caret-down"></i></button>
+                            </nav>
+                        </div>
+                        <div>
+                            <div>
+                                <h5><span data-i18n="app:brand.brands"></span> <small>(<span data-i18n="app:common.selected"></span> <span data-bind="text: tabViewActiveCurrentLicenseeBrandNumbers()"></span>)</small></h5>
+                                <ul data-bind="foreach: allBrands" class="brand-selector">
+                                    <li data-bind="visible: $parent.tabViewCurrentLicenseeId() == licenseeId()">
+                                        <input type="checkbox" data-bind="checked: $parent.selectedBrands, checkedValue: $data, click: $parent.tabViewToggleBrand" />
+                                        <label data-bind="text: name, attr: { 'for': name }"></label>
+                                    </li>
+                                </ul>
+                                <div class="mass-selector">
+                                    <input type="checkbox" id="brand-filter-select-all" data-bind="checked: tabViewIsAllSelected, enable: !tabViewIsAllSelected(), click: tabViewAllSelect" />
+                                    <label for="brand-filter-select-all" data-i18n="app:common.all"></label>
+                                    <button id="brand-filter-clear-all" type="button" class="btn btn-primary btn-sm btn-round" data-bind="click: tabViewAllRemove" data-i18n="app:common.clear"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue">
+                    <a data-bind="visible: security" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <span class="user-info">
+                            <small data-i18n="app:topnav.welcome"></small>
+                            <span data-bind="text: security.userName"></span>
+                        </span>
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="Account/Logout" onclick="auth.logout()">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                <span data-i18n="app:topnav.logout"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

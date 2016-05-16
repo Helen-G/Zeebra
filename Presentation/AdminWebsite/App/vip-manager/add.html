@@ -1,0 +1,151 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+
+	<div class="form-group">
+		<label data-bind="attr: { for: licenseeFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.licensee"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box" data-bind="with: form.fields.licensee">
+			<select class="form-control" data-bind="attr: { id: $root.licenseeFieldId() }, options: options, optionsText: 'name',  value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+			<p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label data-bind="attr: { for: brandFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.brand"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box" data-bind="with: form.fields.brand">
+			<select class="form-control" data-bind="attr: { id: $root.brandFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+			<p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label data-bind="attr: { for: isDefaultFieldId() }" class="col-sm-3 control-label" data-i18n="app:vipLevel.defaultForNewPlayers"></label>
+		<div class="col-sm-8 field-box">
+			<input type="checkbox" data-bind="attr: { id: isDefaultFieldId() }, checked: fields.isDefault, disable: submitted" /> <span class="red" data-bind="validationMessage: fields.isDefault"></span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label data-bind="attr: { for: codeFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:vipLevel.code"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<input class="form-control" data-bind="attr: { id: codeFieldId() }, value: fields.code, visible: !submitted()" /> <span class="red" data-bind="validationMessage: fields.code"></span>
+			<p class="form-control-static" data-bind="text: fields.code, visible: submitted"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label data-bind="attr: { for: nameFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:vipLevel.name"></span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<input class="form-control" data-bind="attr: { id: nameFieldId() }, value: fields.name, visible: !submitted()" />
+			<span class="red" data-bind="validationMessage: fields.name"></span>
+			<p class="form-control-static" data-bind="text: fields.name, visible: submitted"></p>
+		</div>
+	</div>
+	<div class="form-group">
+		<label data-bind="attr: { for: rankFieldId() }" class="col-sm-3 control-label"><span data-i18n="">Rank</span><span class="red">*</span></label>
+		<div class="col-sm-8 field-box">
+			<input type="number" min="1" step="1" max="1000" class="form-control" data-bind="attr: { id: rankFieldId() }, value: fields.rank, visible: !submitted()" />
+			<span class="red" data-bind="validationMessage: fields.rank"></span>
+			<p class="form-control-static" data-bind="text: fields.rank, visible: submitted"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label data-bind="attr: { for: descriptionFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:vipLevel.description"></span></label>
+		<div class="col-sm-8 field-box">
+			<textarea class="form-control" data-bind="attr: { id: descriptionFieldId() }, value: fields.description, visible: !submitted()"></textarea><span class="red" data-bind="validationMessage: fields.description"></span>
+			<p class="form-control-static" data-bind="text: fields.description, visible: submitted"></p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label data-bind="attr: { for: colorFieldId() }" class="col-sm-3 control-label" data-i18n="app:vipLevel.color"></label>
+	    <div class="col-sm-8 field-box overflow-x-visible">
+	        <select class="simple-color-picker">
+                <option value="#ffffff">#ffffff</option>
+	            <option value="#ac725e">#ac725e</option>
+	            <option value="#d06b64">#d06b64</option>
+	            <option value="#f83a22">#f83a22</option>
+	            <option value="#fa573c">#fa573c</option>
+	            <option value="#ff7537">#ff7537</option>
+	            <option value="#ffad46">#ffad46</option>
+	            <option value="#42d692">#42d692</option>
+	            <option value="#16a765">#16a765</option>
+	            <option value="#7bd148">#7bd148</option>
+	            <option value="#b3dc6c">#b3dc6c</option>
+	            <option value="#fbe983">#fbe983</option>
+	            <option value="#fad165">#fad165</option>
+	            <option value="#92e1c0">#92e1c0</option>
+	            <option value="#9fe1e7">#9fe1e7</option>
+	            <option value="#9fc6e7">#9fc6e7</option>
+	            <option value="#4986e7">#4986e7</option>
+	            <option value="#9a9cff">#9a9cff</option>
+	            <option value="#b99aff">#b99aff</option>
+	            <option value="#c2c2c2">#c2c2c2</option>
+	            <option value="#cabdbf">#cabdbf</option>
+	            <option value="#cca6ac">#cca6ac</option>
+	            <option value="#f691b2">#f691b2</option>
+	            <option value="#cd74e6">#cd74e6</option>
+	            <option value="#a47ae2">#a47ae2</option>
+	        </select>
+	        <span class="red" data-bind="validationMessage: fields.color"></span>
+	    </div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label">
+			<strong data-i18n="app:vipLevel.productLevels"></strong>
+		</label>
+		<div class="col-sm-8 field-box">
+			<p class="red" data-bind="validationMessage: fields.limits"></p>
+		</div>
+        <div class="col-sm-8" data-bind="visible: !submitted()">
+            <button type="button" class="btn btn-success btn-round btn-xs" data-bind="click: addGameLimit, visible: canAddProductLimit() &&  gameLimits().length == 0">
+                +
+            </button>
+            <p class="form-control-static" data-bind="visible: !canAddProductLimit()" data-i18n="app:vipLevel.noBetLevel"></p>
+        </div>
+	</div>
+
+	<div data-bind="foreach: gameLimits">
+		<div class="form-group">
+			<div class="col-sm-8 col-sm-offset-3 field-box">
+				<label class="inline"><span data-i18n="app:vipLevel.gameProvider"></span><span class="red">*</span></label>
+				<div class="width-200-px inline">
+					<select class="width-200-px" data-bind="options: gameProviders, optionsText: 'name', value: selectedGameProvider,visible: !$root.submitted(), event: { change: $root.clearLimitsError}"></select>
+					<span data-bind="text: selectedGameProviderName, visible: $root.submitted()"></span>
+				</div>
+				&nbsp;
+				<label class="inline"><span data-i18n="app:vipLevel.betLevel"></span><span class="red">*</span></label>
+			    <div class="width-200-px inline">
+			        <select class="width-200-px" data-bind="options: betLimits, optionsText: 'fullName', value: selectedBetLimit, visible: !$root.submitted(), event: { change: $root.clearLimitsError}"></select>
+			        <span class="form-control-static" data-bind="text: selectedBetLimitId, visible: $root.submitted()"></span>
+			    </div>
+                &nbsp;
+                <label class="inline"><span data-i18n="app:vipLevel.currency"></span><span class="red">*</span></label>
+                <div class="width-100-px inline">
+                    <select class="width-100-px" data-bind="options: currencies, optionsText: 'code', value: selectedCurrency, visible: !$root.submitted(), event: { change: $root.clearLimitsError}"></select>
+                    <span data-bind="text: selectedCurrencyCode, visible: $root.submitted()"></span>
+                </div>
+				&nbsp;
+				<button type="button" class="btn btn-danger btn-round btn-xs" data-bind="click: $parent.removeGameLimit, visible: !$root.submitted()">
+					-
+				</button>
+				&nbsp;
+				<button type="button" class="btn btn-success btn-round btn-xs" data-bind="click: $parent.addGameLimit, visible: !$root.submitted()">
+					+
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="clearfix form-actions">
+		<div class="center">
+			<button type="button" class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+			&nbsp; &nbsp; &nbsp;
+			<button type="button" class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+			&nbsp; &nbsp; &nbsp;
+			<button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="app:common.save"></button>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,27 @@
+﻿<div data-bind="grid: {
+    source: 'AdminActivityLog/Data',
+    fields: ['Category', 'ActivityDone', 'PerformedBy', 'DatePerformed', 'Remark'],
+    filter: ko.computed(function() { return { }}),
+    defaultSort: { field: 'DatePerformed', direction: 'asc' },
+    paging: true,
+    useResizeManager: true
+}">
+    <header>
+        <form action="#" class="pull-left">
+            <div class="custom-filters" data-bind="compose: { model: 'controls/filters', activationData: [[
+                ['Category', 'Category', 'list', {'Brand': 'Brand', 'Licensee': 'Licensee', 'Currency': 'Currency', 'Language': 'Language', 'Country': 'Country', 'VipLevel': 'VIP Level', 'BackendIPRegulation': 'Backend IP Regulation', 'PlayerIPRegulation': 'Player IP Regulation', 'Report': 'Report'}],
+                ['ActivityDone', 'Activity Done', 'text'],
+                ['PerformedBy', 'Performed By', 'text'],
+                ['DatePerformed', 'Date Performed', 'date']
+            ]] }"></div>
+            <button id="search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+    </header>
+    <column title="app:admin.adminActivityLog.category" sort-field="Category" width="150" data-value="@Category" />
+    <column title="app:admin.adminActivityLog.activityDone" sort-field="ActivityDone" width="200" data-value="@ActivityDone" />
+    <column title="app:admin.adminActivityLog.performedBy" sort-field="PerformedBy" width="120" data-value="@PerformedBy" />
+    <column title="app:admin.adminActivityLog.datePerformed" sort-field="DatePerformed" width="150" data-value="$root.moment(@DatePerformed).format 'YYYY/MM/DD'" />
+    <column title="app:admin.adminActivityLog.remarks" sort-field="Remark" width="70">
+        <span class="admin-activity-log-remark ace-icon fa fa-file-text-o" data-title="@Remark"></span>
+    </column>
+</div>

@@ -1,0 +1,29 @@
+<div class="modal-content" style="width: 400px;">
+    <div class="modal-header">
+        <!-- ko if: isActive-->
+        <h3 data-i18n="bonus.bonusManager.activateTitle"></h3>
+        <!-- /ko -->
+        <!-- ko if: !isActive() -->
+        <h3 data-i18n="bonus.bonusManager.deactivateTitle"></h3>
+        <!-- /ko -->
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="alert alert-danger" data-bind="visible: error, text: error"></div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    <span data-i18n="common.remarks"></span>
+                </label>
+                <div class="col-sm-8">
+                    <textarea data-bind="value: description" class="autofocus" style="width: 100%" maxlength="200" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer align-center">
+        <button class="btn btn-primary" data-bind="click: cancel" data-i18n="common.cancel"></button>
+        <button class="btn btn-primary" data-bind="click: clear" data-i18n="common.clear"></button>
+        <button class="btn btn-primary" data-bind="click: ok, visible: isActive" data-i18n="common.activate"></button>
+        <button class="btn btn-primary" data-bind="click: ok, visible: !isActive()" data-i18n="common.deactivate"></button>
+    </div>
+</div>

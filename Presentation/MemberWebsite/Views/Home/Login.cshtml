@@ -1,0 +1,46 @@
+﻿@using AFT.RegoV2.MemberWebsite.Common
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+    ViewBag.Title = "Welcome to rego";
+}
+
+<div class="site-body" style="background: #000 url('/Content/images/slider.jpg') top center no-repeat">
+    <div class="container">
+        <div class="site-slider">
+            <div class="bonus-offer"><img src="~/Content/images/free.png" alt=""><a href="#" class="btn btn-hero btn-primary" data-i18n="login.joinNow"></a></div>
+        </div>
+        <div class="row step-wrapper">
+            <div class="col-xs-4">
+                <a href="@Url.ActionLocalized("Register")">
+                    <div class="step"><span class="step-circle">1</span><span class="step-text-title" data-i18n="registration.register"></span><span class="step-text-sub" data-i18n="login.withRegoToday"></span></div>
+                </a>
+            </div>
+            <div class="col-xs-4">
+                <a href="#" target="_blank">
+                    <div class="step"><span class="step-circle">2</span><span class="step-text-title" data-i18n="login.betMoreThanFivePounds"></span><span class="step-text-sub" data-i18n="login.onYourFavouriteSport"></span></div>
+                </a>
+            </div>
+            <div class="col-xs-4">
+                <a href="#" target="_blank">
+                    <div class="step"><span class="step-circle">3</span><span class="step-text-title" data-i18n="login.get20PoundsFree"></span><span class="step-text-sub" data-i18n="login.whenYourBetIsPlaced"></span></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="section home-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4"><img src="~/Content/images/home-bottom.jpg" class="img-responsive"></div>
+            <div class="col-xs-8">
+                <div style="margin-top: 30px;">
+                    <span class="title" data-i18n="common.betWith"></span><span class="heighline" style="font-size: 25px;">AFTGAMBILING</span><span class="title" data-i18n="common.onlineBookmakers"></span>
+                </div>                
+                <p data-i18n="common.sportsBettingWithAft"></p>
+                <p data-i18n="common.generalsForAftBetting1"></p>
+                <span data-i18n="common.generalsForAftBetting2"></span><span class="heighline" data-i18n="common.generalsForAftBetting3"></span><span data-i18n="common.generalsForAftBetting4"></span>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,15 @@
+﻿<div data-bind="attr: {id: naming.homeId}" class="tab-pane in active">
+    <div class="jqgrid-title-bar" data-bind="attr: {id: naming.titleBarId}">
+        <form data-bind="attr: {id: naming.searchFormId}" action="#" class="pull-left">
+            <input data-bind="attr: {id: naming.searchNameFieldId}" type="text" data-i18n="[placeholder]app:common.username" />
+            <button type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-success btn-round" id="btn-withdrawal-pass-wager" data-bind="visible: $root.isApproveBtnVisible, click: pass, css: { disabled: !selectedRowId() }" data-i18n="app:common.pass"></button>
+            <button class="btn btn-sm btn-danger btn-round" id="btn-withdrawal-fail-wager" data-bind="visible: $root.isRejectBtnVisible, click: fail, css: { disabled: !selectedRowId() }" data-i18n="app:common.fail"></button>
+            <button class="btn btn-sm btn-danger btn-round" id="btn-withdraw-cancel" data-bind="visible: $root.isRejectBtnVisible, click: cancel, css: { disabled: !selectedRowId() }" data-i18n="app:common.cancel"></button>
+        </div>
+    </div>
+    <table data-bind="attr: {id: naming.gridBodyId}"></table>
+    <div data-bind="attr: {id: naming.pagerId}"></div>
+</div>

@@ -1,0 +1,33 @@
+<div data-bind="grid: {
+        source: 'PlayerInfo/ActivityLog',
+        fields: ['Category', 'ActivityDone', 'PerformedBy', 'DatePerformed', 'Remarks', 'UpdatedBy', 'DateUpdated'],
+        filter: ko.computed(function() { return {
+            playerId: playerId
+        }}),
+        defaultSort: { field: 'DatePerformed', direction: 'desc' },
+        paging: true,
+        useResizeManager: { height: 600 }
+    }">
+    <header>
+        <form action="#" class="pull-left">
+            <div class="custom-filters" data-bind="compose: { model: 'controls/filters', activationData: [[
+                ['Category', 'app:playerManager.activityLog.category', 'list', ['Player Registration', 'Deposit', 'Withdraw']],
+                ['ActivityDone', 'app:playerManager.activityLog.activityDone', 'text'],
+                ['PerformedBy', 'app:playerManager.activityLog.performedBy', 'text'],
+                ['DatePerformed', 'app:playerManager.activityLog.datePerformed', 'date'],
+                ['UpdatedBy', 'app:playerManager.activityLog.updatedBy', 'text'],
+                ['DateUpdated', 'app:playerManager.activityLog.dateUpdated', 'date'],
+            ]] }"></div>
+            <button type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+    </header>
+    <column title="app:playerManager.activityLog.category" sort-field="Category" width="180" data-value="@Category" />
+    <column title="app:playerManager.activityLog.activityDone" sort-field="ActivityDone" width="230" data-value="@ActivityDone" />
+    <column title="app:playerManager.activityLog.performedBy" sort-field="PerformedBy" width="180" data-value="@PerformedBy" />
+    <column title="app:playerManager.activityLog.datePerformed" sort-field="DatePerformed" width="150" data-value="$root.moment(@DatePerformed).format 'YYYY-MM-DD'" />
+    <column title="app:playerManager.activityLog.remarks" sort-field="Remarks" width="80">
+        <span class="player-activity-log-remark remark-btn ace-icon fa fa-file-text-o" data-title="@Remarks"></span>
+    </column>
+    <column title="app:playerManager.activityLog.updatedBy" sort-field="UpdatedBy" width="180" data-value="@UpdatedBy" />
+    <column title="app:playerManager.activityLog.dateUpdated" sort-field="DateUpdated" width="150" data-value="if @DateUpdated? then moment(@DateUpdated).format 'YYYY-MM-DD' else ''" />
+</div>

@@ -1,0 +1,4022 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdminManager_UserName_Required" xml:space="preserve">
+    <value>Please enter user name</value>
+    <comment>Required Field</comment>
+  </data>
+  <data name="Control_Button_Accept" xml:space="preserve">
+    <value>Accept</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Activate" xml:space="preserve">
+    <value>Activate</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Approve" xml:space="preserve">
+    <value>Approve</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_AutoUpgrade" xml:space="preserve">
+    <value>Auto Upgrade</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Close" xml:space="preserve">
+    <value>Close</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Degrade" xml:space="preserve">
+    <value>Degrade</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Edit" xml:space="preserve">
+    <value>Edit</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Evidence" xml:space="preserve">
+    <value>Evidence</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Export" xml:space="preserve">
+    <value>Export</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_ExportDetail" xml:space="preserve">
+    <value>Export Detail</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Fixed" xml:space="preserve">
+    <value>Fixed</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Inactivate" xml:space="preserve">
+    <value>Inactivate</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_New" xml:space="preserve">
+    <value>New</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_OK" xml:space="preserve">
+    <value>OK</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Reject" xml:space="preserve">
+    <value>Reject</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_ResetPass" xml:space="preserve">
+    <value>Reset Password</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Submit" xml:space="preserve">
+    <value>Submit</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Unverify" xml:space="preserve">
+    <value>Unverify</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Upgrade" xml:space="preserve">
+    <value>Upgrade</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Verify" xml:space="preserve">
+    <value>Verify</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_View" xml:space="preserve">
+    <value>View</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Main_Logout" xml:space="preserve">
+    <value>Logout</value>
+    <comment>MainPage</comment>
+  </data>
+  <data name="Main_Welcome" xml:space="preserve">
+    <value>Welcome</value>
+    <comment>MainPage</comment>
+  </data>
+  <data name="Offline_Deposit_Required_Amount" xml:space="preserve">
+    <value>Please enter amount</value>
+    <comment>Error Message</comment>
+  </data>
+  <data name="PageTitle_AdminManager" xml:space="preserve">
+    <value>Admin Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AffiliateODApproval" xml:space="preserve">
+    <value>Affiliate OD Approval</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AffiliateAddPlayer" xml:space="preserve">
+    <value>Affiliate Add Player</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AffiliateODLog" xml:space="preserve">
+    <value>Affiliate OD Log</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AffiliateTransactionLog" xml:space="preserve">
+    <value>Affiliate Transaction Log</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AfterWagerBonusApp" xml:space="preserve">
+    <value>After Wager Bonus Approval</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AnnouncementManager" xml:space="preserve">
+    <value>Announcement Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_BannerHitRate" xml:space="preserve">
+    <value>Banner Hit Rate</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_BannerManager" xml:space="preserve">
+    <value>Banner Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_BaseSetting" xml:space="preserve">
+    <value>Base Setting</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_CurrencyManager" xml:space="preserve">
+    <value>Currency Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_ErrorManager" xml:space="preserve">
+    <value>Errors Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_IPControl" xml:space="preserve">
+    <value>IP Control</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_LoginLog" xml:space="preserve">
+    <value>Login Log</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_OnlineDeposit" xml:space="preserve">
+    <value>Deposit Report</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_PaymentSetting" xml:space="preserve">
+    <value>Payment Setting</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_RoleManager" xml:space="preserve">
+    <value>Role Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_SchemeAManager" xml:space="preserve">
+    <value>Scheme A Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_VerifyWithDrawal" xml:space="preserve">
+    <value>Verify Withdrawal</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="PageTitle_VIPLevelManager" xml:space="preserve">
+    <value>VIP Level Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_VIPManager" xml:space="preserve">
+    <value>VIP Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Tab_Title_Browse" xml:space="preserve">
+    <value>Browse</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_Edit" xml:space="preserve">
+    <value>Edit</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_New" xml:space="preserve">
+    <value>New</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_ResetPass" xml:space="preserve">
+    <value>Reset Password</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_View" xml:space="preserve">
+    <value>View</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Control_Button_Refresh" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="PageTitle_WithdrawalReport" xml:space="preserve">
+    <value>Withdrawal Report</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AmountLog" xml:space="preserve">
+    <value>AmountLog</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_PaymentMessageMangement" xml:space="preserve">
+    <value>PaymentMessageManagement</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_ApproveWithDrawal" xml:space="preserve">
+    <value>Approve Withdrawal</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_EuroPaymentMethodSetting" xml:space="preserve">
+    <value>Euro Payment Method Setting</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_EuroPaymentSetting" xml:space="preserve">
+    <value>Euro Payment Setting</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_RiskLevelRateMgmt" xml:space="preserve">
+    <value>Risk Level Rate Management</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_ApproveDeposit" xml:space="preserve">
+    <value>Approve Deposit</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_VerifyDeposit" xml:space="preserve">
+    <value>Verify Deposit</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_EditLogManagement" xml:space="preserve">
+    <value>Edit Log Management</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_TransactionListing" xml:space="preserve">
+    <value>Transaction Listing</value>
+    <comment>PageTitle</comment>
+  </data>
+  <data name="PageTitle_AdjustmentLog" xml:space="preserve">
+    <value>Adjustment Log</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_DupMechanismManagement" xml:space="preserve">
+    <value>Dup Mechanism Management</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_HousePlayerManager" xml:space="preserve">
+    <value>House Player Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AdjustmentApplication" xml:space="preserve">
+    <value>Adjustment Application</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AdjustmentApproval" xml:space="preserve">
+    <value>Adjustment Approval</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_DomainMapping" xml:space="preserve">
+    <value>Domain Mapping</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_NoteManager" xml:space="preserve">
+    <value>Note Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_PlayerManager" xml:space="preserve">
+    <value>Player Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AffiliateManager" xml:space="preserve">
+    <value>Affiliate Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Control_Button_MonthlyReport" xml:space="preserve">
+    <value>Monthly Report</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_AffiliateMonthlyEarningReport" xml:space="preserve">
+    <value>Affiliate Monthly Earning Report</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AffiliatePerformanceReport" xml:space="preserve">
+    <value>Affiliate Performance Report</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_AffiliateReport" xml:space="preserve">
+    <value>Affiliate Report</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_CustomerCountsAndValues" xml:space="preserve">
+    <value>Customer Counts  and Values</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_GameStatsReport" xml:space="preserve">
+    <value>Game Statistics</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_ManagementReport" xml:space="preserve">
+    <value>Management Report</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_PeriodicPlayerBalanceRecon" xml:space="preserve">
+    <value>Periodic Player Balance Recon</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_PlayerBetHistory" xml:space="preserve">
+    <value>Player Bet History</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_PlayersFundsReport" xml:space="preserve">
+    <value>Player Funds Report</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_PlayerStatsReport" xml:space="preserve">
+    <value>Player Statistics</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_SelfExcludedList" xml:space="preserve">
+    <value>Self Excluded List</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_Graphs" xml:space="preserve">
+    <value>Graphs</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Tab_Title_AddPlayer" xml:space="preserve">
+    <value>Add Player</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Control_Button_AddPlayer" xml:space="preserve">
+    <value>Add Player</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Tab_ResponseGambling" xml:space="preserve">
+    <value>Response Gambling</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_FundOutCondition" xml:space="preserve">
+    <value>Fund Out Condition</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_BetHist" xml:space="preserve">
+    <value>Bet History</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_DepositReport" xml:space="preserve">
+    <value>Deposit Report</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_VIPLevel" xml:space="preserve">
+    <value>VIP Level</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_OfflineDepositRequest" xml:space="preserve">
+    <value>Offline Deposit Request</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Tab_Title_OfflineWithdrawRequest" xml:space="preserve">
+    <value>Offline Withdraw Request</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Control_Button_CalcCurrentMonth" xml:space="preserve">
+    <value>Calc Current Month</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_CalcPrevMonth" xml:space="preserve">
+    <value>Calc Previous Month</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Settle" xml:space="preserve">
+    <value>Settle</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_SettleFinish" xml:space="preserve">
+    <value>Settle Finish</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_PlayerFundInListing" xml:space="preserve">
+    <value>Player Fund In Listing</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_PlayerFundOutListing" xml:space="preserve">
+    <value>Player FundOut Listing</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Tab_Title_FundOutListing" xml:space="preserve">
+    <value>Fund Out Listing</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Control_Button_EditRules" xml:space="preserve">
+    <value>Edit Rules</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_ViewRules" xml:space="preserve">
+    <value>View Rules</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_ViewRules" xml:space="preserve">
+    <value>View Rules</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Control_Button_Reset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Search" xml:space="preserve">
+    <value>Search</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_AddRules" xml:space="preserve">
+    <value>Add Rules</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_BonusManager" xml:space="preserve">
+    <value>Bonus Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Control_Button_ChangeParent" xml:space="preserve">
+    <value>Change Parent</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_Carry_Forward" xml:space="preserve">
+    <value>Carry Forward</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_FraudRiskManager" xml:space="preserve">
+    <value>Fraud Risk Level Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_CountryManager" xml:space="preserve">
+    <value>Country Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Label_Brand" xml:space="preserve">
+    <value>Brand</value>
+    <comment>Label Text</comment>
+  </data>
+  <data name="Control_Button_SendEmail" xml:space="preserve">
+    <value>Send Email</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_UkashTitle" xml:space="preserve">
+    <value>Ukash Voucher Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Section_Title_BaseSetting" xml:space="preserve">
+    <value>Base Setting</value>
+    <comment>Section Title</comment>
+  </data>
+  <data name="Section_Title_IPS" xml:space="preserve">
+    <value>IPS</value>
+    <comment>Section Title</comment>
+  </data>
+  <data name="Section_Title_Others" xml:space="preserve">
+    <value>Others</value>
+    <comment>Section Title</comment>
+  </data>
+  <data name="Section_Title_XPay" xml:space="preserve">
+    <value>XPay</value>
+    <comment>Section Title</comment>
+  </data>
+  <data name="Label_RiskLevel_OnlinePay" xml:space="preserve">
+    <value>Online Pay</value>
+    <comment>Risk Level Label</comment>
+  </data>
+  <data name="Label_RiskLevel_PayCash" xml:space="preserve">
+    <value>Pay Cash</value>
+    <comment>Risk Level Label</comment>
+  </data>
+  <data name="Label_RiskLevel_VipOnline" xml:space="preserve">
+    <value>VIP Online</value>
+    <comment>Risk Level Label</comment>
+  </data>
+  <data name="Label_RiskLevel_XPay1" xml:space="preserve">
+    <value>XPay 1</value>
+    <comment>Risk Level Label</comment>
+  </data>
+  <data name="Label_RiskLevel_XPay2" xml:space="preserve">
+    <value>XPay 2</value>
+    <comment>Risk Level Label</comment>
+  </data>
+  <data name="Label_RiskLevel_XPay3" xml:space="preserve">
+    <value>XPay 3</value>
+    <comment>Risk Level Label</comment>
+  </data>
+  <data name="Label_Currency" xml:space="preserve">
+    <value>Currency</value>
+    <comment>Lable</comment>
+  </data>
+  <data name="PageTitle_PlayerCertification" xml:space="preserve">
+    <value>Player Certification</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Control_Button_RejectBank" xml:space="preserve">
+    <value>Reject Bank</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_RejectId" xml:space="preserve">
+    <value>Reject ID</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_VerifyBank" xml:space="preserve">
+    <value>Verify Bank</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_VerifyId" xml:space="preserve">
+    <value>Verify ID</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_DailySummaryConfig_Cagayan" xml:space="preserve">
+    <value>Daily Summary Cagayan Configuration</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_BankAccManager" xml:space="preserve">
+    <value>BankAcc. Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_ODRequest" xml:space="preserve">
+    <value>Player Offline Deposit Request</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Control_Button_WagerFail" xml:space="preserve">
+    <value>Wager:Fail</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_WagerPass" xml:space="preserve">
+    <value>Wager:Pass</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_OWWagerCheck" xml:space="preserve">
+    <value>OW Wager Check</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_OWAcceptance" xml:space="preserve">
+    <value>Player OW Acceptance</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Table_Title_Acceptance" xml:space="preserve">
+    <value>Acceptance</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Table_Title_Revert" xml:space="preserve">
+    <value>Revert</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="PageTitle_DailySummary_Email" xml:space="preserve">
+    <value>Daily Summary Recipient List</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_OWVerify" xml:space="preserve">
+    <value>Player OW Verify</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Tab_Title_BankCardInfo" xml:space="preserve">
+    <value>Bank Card Info</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="PageTitle_OWApproval" xml:space="preserve">
+    <value>Player OW Approval</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Label_WagerLack" xml:space="preserve">
+    <value>Wager Lack</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Control_Button_ResendEmail" xml:space="preserve">
+    <value>Resend Email</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="Control_Button_AddEditProCMS" xml:space="preserve">
+    <value>Add/Edit Promotion Details</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_BrandBannerManager" xml:space="preserve">
+    <value>Brand Banner Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_GameList" xml:space="preserve">
+    <value>Game List</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Label_RiskLevel_NeedID" xml:space="preserve">
+    <value>Need Upload ID</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="PageTitle_BaseBetLimit" xml:space="preserve">
+    <value>Base Bet Limit</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_PlayerBetLimit" xml:space="preserve">
+    <value>Player Bet Limit</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Control_Button_Return" xml:space="preserve">
+    <value>Return</value>
+    <comment>Button Title</comment>
+  </data>
+  <data name="Label_RiskLevel_EasyPay" xml:space="preserve">
+    <value>EasyPay</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Label_RiskLevel_EllenPay" xml:space="preserve">
+    <value>EllenPay</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Label_RiskLevel_YeePay" xml:space="preserve">
+    <value>YeePay</value>
+    <comment>Label </comment>
+  </data>
+  <data name="Section_Title_OnlinePay" xml:space="preserve">
+    <value>Online Payment</value>
+    <comment>Tab Title</comment>
+  </data>
+  <data name="Control_Button_AutoClean" xml:space="preserve">
+    <value>AutoClean Online Deposit</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_PromotionManager" xml:space="preserve">
+    <value>Promotion Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="PageTitle_GradingManager" xml:space="preserve">
+    <value>Grading Manager</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="Label_IPAddress" xml:space="preserve">
+    <value>Sign Up IP</value>
+  </data>
+  <data name="Control_Button_Save" xml:space="preserve">
+    <value>Save</value>
+    <comment>Button Control</comment>
+  </data>
+  <data name="PageTitle_DomainControl" xml:space="preserve">
+    <value>Domain Control</value>
+    <comment>title</comment>
+  </data>
+  <data name="FormLable_Confirmpassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="FormLable_NewPassword" xml:space="preserve">
+    <value>NewPassword</value>
+  </data>
+  <data name="FormLable_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Label_To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="ListTitle_AcceptedBy" xml:space="preserve">
+    <value>Accepted By</value>
+  </data>
+  <data name="ListTitle_AcceptedDate" xml:space="preserve">
+    <value>Accepted Date</value>
+  </data>
+  <data name="ListTitle_AdjustmentID" xml:space="preserve">
+    <value>Adjustment ID</value>
+  </data>
+  <data name="ListTitle_Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="ListTitle_BlockDomain" xml:space="preserve">
+    <value>Block Domain</value>
+  </data>
+  <data name="ListTitle_ChineseName" xml:space="preserve">
+    <value>Chinese Name</value>
+  </data>
+  <data name="ListTitle_CountryCode" xml:space="preserve">
+    <value>Country Code</value>
+  </data>
+  <data name="ListTitle_CountryName" xml:space="preserve">
+    <value>Country Name</value>
+  </data>
+  <data name="ListTitle_CreateDate" xml:space="preserve">
+    <value>CreateDate</value>
+  </data>
+  <data name="ListTitle_CreatedBy" xml:space="preserve">
+    <value>CreatedBy</value>
+  </data>
+  <data name="ListTitle_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ListTitle_DominBlockType" xml:space="preserve">
+    <value>Domin Block Type</value>
+  </data>
+  <data name="ListTitle_EnglishName" xml:space="preserve">
+    <value>English Name</value>
+  </data>
+  <data name="ListTitle_GameId" xml:space="preserve">
+    <value>Game Id</value>
+  </data>
+  <data name="ListTitle_GameName" xml:space="preserve">
+    <value>GameName</value>
+  </data>
+  <data name="ListTitle_IPAddress" xml:space="preserve">
+    <value>IP Address</value>
+  </data>
+  <data name="ListTitle_LoginDate" xml:space="preserve">
+    <value>Login Date</value>
+  </data>
+  <data name="ListTitle_Loginname" xml:space="preserve">
+    <value>Login Name</value>
+  </data>
+  <data name="ListTitle_LoginType" xml:space="preserve">
+    <value>Login Type</value>
+  </data>
+  <data name="ListTitle_RedirectUrl" xml:space="preserve">
+    <value>Redirect Url</value>
+  </data>
+  <data name="ListTitle_RejectedBy" xml:space="preserve">
+    <value>Rejected By</value>
+  </data>
+  <data name="ListTitle_RejectedDate" xml:space="preserve">
+    <value>Rejected Date</value>
+  </data>
+  <data name="ListTitle_RoleName" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="ListTitle_SettingName" xml:space="preserve">
+    <value>Setting Name</value>
+  </data>
+  <data name="ListTitle_SpotCountryID" xml:space="preserve">
+    <value>Spot Country ID</value>
+  </data>
+  <data name="ListTitle_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ListTitle_SubmittedBy" xml:space="preserve">
+    <value>Submitted By</value>
+  </data>
+  <data name="ListTitle_SubmittedDate" xml:space="preserve">
+    <value>Submitted Date</value>
+  </data>
+  <data name="ListTitle_ThailandName" xml:space="preserve">
+    <value>Thailand Name</value>
+  </data>
+  <data name="ListTitle_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ListTitle_UpdatedBy" xml:space="preserve">
+    <value>Updated By</value>
+  </data>
+  <data name="ListTitle_UpdatedDate" xml:space="preserve">
+    <value>Updated Date</value>
+  </data>
+  <data name="ListTitle_Username" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="ListTitle_UserType" xml:space="preserve">
+    <value>User Type</value>
+  </data>
+  <data name="ListTitle_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ListTitle_VietnameseName" xml:space="preserve">
+    <value>Vietnamese Name</value>
+  </data>
+  <data name="TabTitle_CopyFrom" xml:space="preserve">
+    <value>CopyFrom</value>
+  </data>
+  <data name="Label_AllowOneDomainOnly" xml:space="preserve">
+    <value>Allow One Domain Only</value>
+  </data>
+  <data name="Label_Blocked" xml:space="preserve">
+    <value>Blocked</value>
+  </data>
+  <data name="Label_NoBlockByDefault" xml:space="preserve">
+    <value>No Block By Default</value>
+  </data>
+  <data name="Label_Separatebysemicolon" xml:space="preserve">
+    <value>(Separate by semicolon;)</value>
+  </data>
+  <data name="ListTitle_CountryID" xml:space="preserve">
+    <value>Country ID</value>
+  </data>
+  <data name="ListTitle_ErrorCode" xml:space="preserve">
+    <value>Error Code</value>
+  </data>
+  <data name="ListTitle_ErrorMessage" xml:space="preserve">
+    <value>Error Message</value>
+  </data>
+  <data name="ListTitle_FunctionName" xml:space="preserve">
+    <value>Function Name</value>
+  </data>
+  <data name="Label_Accessible" xml:space="preserve">
+    <value>Accessible</value>
+  </data>
+  <data name="ListTitle_ErrorTimes" xml:space="preserve">
+    <value>Error Times</value>
+  </data>
+  <data name="ListTitle_LoginIPAddress" xml:space="preserve">
+    <value>Login IP Address</value>
+  </data>
+  <data name="Label_UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="Label_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Label_Remberme" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="ListTitle_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ListTitle_AdjustmentType" xml:space="preserve">
+    <value>Adjustment Type</value>
+  </data>
+  <data name="ListTitle_ApprovedDate" xml:space="preserve">
+    <value>Approved Date</value>
+  </data>
+  <data name="ListTitle_Birthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="ListTitle_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="ListTitle_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ListTitle_ParentAffiliate" xml:space="preserve">
+    <value>Parent Affiliate</value>
+  </data>
+  <data name="ListTitle_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="ListTitle_PreferredLanguage" xml:space="preserve">
+    <value>Preferred Language</value>
+  </data>
+  <data name="ListTitle_TargetMarket" xml:space="preserve">
+    <value>Target Market</value>
+  </data>
+  <data name="ListTitle_Typeofsite" xml:space="preserve">
+    <value>Type of site</value>
+  </data>
+  <data name="ListTitle_UserStatus" xml:space="preserve">
+    <value>User Status</value>
+  </data>
+  <data name="ListTitle_Website1" xml:space="preserve">
+    <value>Website1</value>
+  </data>
+  <data name="ListTitle_Website2" xml:space="preserve">
+    <value>Website2</value>
+  </data>
+  <data name="ListTitle_Website3" xml:space="preserve">
+    <value>Website3</value>
+  </data>
+  <data name="Label_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Label_AddressLine1" xml:space="preserve">
+    <value>Address Line 1</value>
+  </data>
+  <data name="Label_AddressLine2" xml:space="preserve">
+    <value>Address Line 2</value>
+  </data>
+  <data name="Label_AddressLine3" xml:space="preserve">
+    <value>Address Line 3</value>
+  </data>
+  <data name="Label_AddressLine4" xml:space="preserve">
+    <value>Address Line 4</value>
+  </data>
+  <data name="Label_AffiliateLoginName" xml:space="preserve">
+    <value>Affiliate Login Name</value>
+  </data>
+  <data name="Label_AllowAutoVerify" xml:space="preserve">
+    <value>Allow Auto Verify</value>
+  </data>
+  <data name="Label_BetLimit1" xml:space="preserve">
+    <value>Bet Limit 1</value>
+  </data>
+  <data name="Label_BetLimit2" xml:space="preserve">
+    <value>Bet Limit 2</value>
+  </data>
+  <data name="Label_BetLimit3" xml:space="preserve">
+    <value>Bet Limit 3</value>
+  </data>
+  <data name="Label_BetLimitLevel" xml:space="preserve">
+    <value>Bet Limit Level</value>
+  </data>
+  <data name="Label_Birthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="Label_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Label_ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Label_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Label_DonotallowBonus" xml:space="preserve">
+    <value>Do not allow Bonus</value>
+  </data>
+  <data name="Label_DonotallowCreditCard" xml:space="preserve">
+    <value>Do not allow Credit Card</value>
+  </data>
+  <data name="Label_DonotallowManualBonus" xml:space="preserve">
+    <value>Do not allow Manual Bonus</value>
+  </data>
+  <data name="Label_DonotallowRebate" xml:space="preserve">
+    <value>Do not allow Rebate</value>
+  </data>
+  <data name="Label_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Label_ExemptfromGeoIPCheck" xml:space="preserve">
+    <value>Exempt from GeoIP Check</value>
+  </data>
+  <data name="Label_FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Label_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Label_HousePlayer" xml:space="preserve">
+    <value>House Player</value>
+  </data>
+  <data name="Label_IDCardExpirationDate" xml:space="preserve">
+    <value>ID Card Expiration Date</value>
+  </data>
+  <data name="Label_IDCardNumber" xml:space="preserve">
+    <value>ID Card Number</value>
+  </data>
+  <data name="Label_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Label_LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="Label_Loginname" xml:space="preserve">
+    <value>Login Name</value>
+  </data>
+  <data name="Label_Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="Label_PostalCode" xml:space="preserve">
+    <value>Postal Code</value>
+  </data>
+  <data name="Label_ProfitType" xml:space="preserve">
+    <value>Profit Type</value>
+  </data>
+  <data name="Label_RiskLevel" xml:space="preserve">
+    <value>Risk Level</value>
+  </data>
+  <data name="Label_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Label_VIPLevel" xml:space="preserve">
+    <value>VIP Level</value>
+  </data>
+  <data name="ListTitle_AvailBonus" xml:space="preserve">
+    <value>Avail Bonus</value>
+  </data>
+  <data name="Section_Title_BetLimitInfo" xml:space="preserve">
+    <value>Bet Limit Info</value>
+  </data>
+  <data name="Section_Title_BillingAddressInfo" xml:space="preserve">
+    <value>Billing Address Info</value>
+  </data>
+  <data name="Section_Title_Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="Section_Title_ExtraInfo" xml:space="preserve">
+    <value>Extra Info</value>
+  </data>
+  <data name="Section_Title_PlayerBaseInfo" xml:space="preserve">
+    <value>Player Base Info</value>
+  </data>
+  <data name="Field_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Field_Extranet" xml:space="preserve">
+    <value>Extranet</value>
+  </data>
+  <data name="Field_Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Field_Intranet" xml:space="preserve">
+    <value>Intranet</value>
+  </data>
+  <data name="Field_Fixed" xml:space="preserve">
+    <value>Fixed</value>
+  </data>
+  <data name="Field_Processing" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="Label_BankImage" xml:space="preserve">
+    <value>Bank Image</value>
+  </data>
+  <data name="Label_BankStatus" xml:space="preserve">
+    <value>Bank Status</value>
+  </data>
+  <data name="Label_BBINID" xml:space="preserve">
+    <value>BBIN ID</value>
+  </data>
+  <data name="Label_CasinoID" xml:space="preserve">
+    <value>Casino ID</value>
+  </data>
+  <data name="Section_Title_CertificationInfo" xml:space="preserve">
+    <value>Certification Info</value>
+  </data>
+  <data name="Label_charactersleft" xml:space="preserve">
+    <value>{0} characters left</value>
+  </data>
+  <data name="Label_DateRegistered" xml:space="preserve">
+    <value>Date Registered</value>
+  </data>
+  <data name="Label_IDImage" xml:space="preserve">
+    <value>ID Image</value>
+  </data>
+  <data name="Label_IDStatus" xml:space="preserve">
+    <value>ID Status</value>
+  </data>
+  <data name="Field_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Field_View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="Label_BankInfo" xml:space="preserve">
+    <value>Bank Info</value>
+  </data>
+  <data name="Label_DepositCount" xml:space="preserve">
+    <value>Deposit Count</value>
+  </data>
+  <data name="Label_IDInfo" xml:space="preserve">
+    <value>ID Info</value>
+  </data>
+  <data name="Label_TotalDeposit" xml:space="preserve">
+    <value>Total Deposit</value>
+  </data>
+  <data name="Label_TotalWager" xml:space="preserve">
+    <value>TotalWager</value>
+  </data>
+  <data name="Label_TotalWinLoss" xml:space="preserve">
+    <value>Total Win/Loss</value>
+  </data>
+  <data name="Label_TotalWithdrawal" xml:space="preserve">
+    <value>Total Withdrawal</value>
+  </data>
+  <data name="Label_WithdrawalCount" xml:space="preserve">
+    <value>Withdrawal Count</value>
+  </data>
+  <data name="Section_Title_SummaryInfo" xml:space="preserve">
+    <value>Summary Info</value>
+  </data>
+  <data name="Label_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Label_Remark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="Label_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Control_Button_Others" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="Label_AffiliateCode" xml:space="preserve">
+    <value>Affiliate Code</value>
+  </data>
+  <data name="Label_AffiliateID" xml:space="preserve">
+    <value>Affiliate ID</value>
+  </data>
+  <data name="Label_BankName" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="ListTitle_ActivePlayers" xml:space="preserve">
+    <value>Active Players</value>
+  </data>
+  <data name="ListTitle_Adjustment" xml:space="preserve">
+    <value>Adjustment</value>
+  </data>
+  <data name="ListTitle_AffiliateName" xml:space="preserve">
+    <value>Affiliate Name</value>
+  </data>
+  <data name="ListTitle_AttachedFile" xml:space="preserve">
+    <value>Attached File</value>
+  </data>
+  <data name="ListTitle_BannerLink" xml:space="preserve">
+    <value>Banner Link</value>
+  </data>
+  <data name="ListTitle_BannerName" xml:space="preserve">
+    <value>Banner Name</value>
+  </data>
+  <data name="ListTitle_BannerSite" xml:space="preserve">
+    <value>Banner Site</value>
+  </data>
+  <data name="ListTitle_BonusRatioA" xml:space="preserve">
+    <value>Bonus Ratio A(%)</value>
+  </data>
+  <data name="ListTitle_BonusRatioB" xml:space="preserve">
+    <value>Bonus Ratio B(%)</value>
+  </data>
+  <data name="ListTitle_CallType" xml:space="preserve">
+    <value>Call Type</value>
+  </data>
+  <data name="ListTitle_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ListTitle_ChangeParentTo" xml:space="preserve">
+    <value>Change Parent To</value>
+  </data>
+  <data name="ListTitle_CopyBannerLink" xml:space="preserve">
+    <value>Copy Banner Link</value>
+  </data>
+  <data name="ListTitle_CurrencyCode" xml:space="preserve">
+    <value>Currency Code</value>
+  </data>
+  <data name="ListTitle_CurrentParent" xml:space="preserve">
+    <value>Current Parent</value>
+  </data>
+  <data name="ListTitle_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ListTitle_Height" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="ListTitle_HitCount" xml:space="preserve">
+    <value>Hit Count</value>
+  </data>
+  <data name="ListTitle_HitRecords" xml:space="preserve">
+    <value>Hit Records</value>
+  </data>
+  <data name="ListTitle_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ListTitle_ImageName" xml:space="preserve">
+    <value>Image Name</value>
+  </data>
+  <data name="ListTitle_ImageReview" xml:space="preserve">
+    <value>Image Review</value>
+  </data>
+  <data name="ListTitle_MaxWinLoss" xml:space="preserve">
+    <value>Max Win/Loss</value>
+  </data>
+  <data name="ListTitle_MinWinLoss" xml:space="preserve">
+    <value>Min Win/Loss</value>
+  </data>
+  <data name="ListTitle_NoOfTransactions" xml:space="preserve">
+    <value>No.Of Transactions</value>
+  </data>
+  <data name="ListTitle_PayDay" xml:space="preserve">
+    <value>Pay Day</value>
+  </data>
+  <data name="ListTitle_PayMonth" xml:space="preserve">
+    <value>Pay Month</value>
+  </data>
+  <data name="ListTitle_Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ListTitle_Ratio" xml:space="preserve">
+    <value>Ratio</value>
+  </data>
+  <data name="ListTitle_RoleID" xml:space="preserve">
+    <value>Role ID</value>
+  </data>
+  <data name="ListTitle_SourceImage" xml:space="preserve">
+    <value>Source Image</value>
+  </data>
+  <data name="ListTitle_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="ListTitle_TotalAmount" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="ListTitle_WebSite" xml:space="preserve">
+    <value>WebSite</value>
+  </data>
+  <data name="ListTitle_Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="ListTitle_XMLCode" xml:space="preserve">
+    <value>XML Code</value>
+  </data>
+  <data name="PageTitle_Allow" xml:space="preserve">
+    <value>Allow</value>
+  </data>
+  <data name="PageTitle_BalanceTransfer" xml:space="preserve">
+    <value>Balance Transfer</value>
+  </data>
+  <data name="PageTitle_BindBankCard" xml:space="preserve">
+    <value>Bind Bank Card</value>
+  </data>
+  <data name="PageTitle_MassMessageTool" xml:space="preserve">
+    <value>Mass Message Tool</value>
+  </data>
+  <data name="PageTitle_ModelName" xml:space="preserve">
+    <value>Model Name</value>
+  </data>
+  <data name="PageTitle_ModelPermissions" xml:space="preserve">
+    <value>Model Permissions Setup</value>
+  </data>
+  <data name="PageTitle_PaymentsDetail" xml:space="preserve">
+    <value>Payments Detail</value>
+  </data>
+  <data name="TabTitle_DepositLimits" xml:space="preserve">
+    <value>Deposit Limits</value>
+  </data>
+  <data name="TabTitle_WithdrawLimits" xml:space="preserve">
+    <value>Withdraw Limits</value>
+  </data>
+  <data name="Login_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Login_Promote" xml:space="preserve">
+    <value>Please enter User name, Password and select website.</value>
+  </data>
+  <data name="Login_Title" xml:space="preserve">
+    <value>Customer Service Login</value>
+  </data>
+  <data name="Control_Button_GetBetHistory" xml:space="preserve">
+    <value>Get Bet History</value>
+  </data>
+  <data name="Control_Button_LockAll" xml:space="preserve">
+    <value>Lock All</value>
+  </data>
+  <data name="Control_Button_Payment" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="Control_Button_ResendActivationEmail" xml:space="preserve">
+    <value>Resend Activation Email</value>
+  </data>
+  <data name="Control_Button_SyncAll" xml:space="preserve">
+    <value>Sync All</value>
+  </data>
+  <data name="Control_Button_UnlockAll" xml:space="preserve">
+    <value>Unlock All</value>
+  </data>
+  <data name="ListTitle_AffiliateLoginName" xml:space="preserve">
+    <value>Affiliate Login Name</value>
+  </data>
+  <data name="ListTitle_BBINID" xml:space="preserve">
+    <value>BBIN ID</value>
+  </data>
+  <data name="ListTitle_BetLimitLevel" xml:space="preserve">
+    <value>Bet Limit Level</value>
+  </data>
+  <data name="ListTitle_CasinoID" xml:space="preserve">
+    <value>Casino ID</value>
+  </data>
+  <data name="ListTitle_Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="ListTitle_DateRegFrom" xml:space="preserve">
+    <value>Date Reg From</value>
+  </data>
+  <data name="ListTitle_DateRegTo" xml:space="preserve">
+    <value>Date Reg To</value>
+  </data>
+  <data name="ListTitle_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="ListTitle_HousePlayer" xml:space="preserve">
+    <value>House Player</value>
+  </data>
+  <data name="ListTitle_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="ListTitle_Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="ListTitle_Playername" xml:space="preserve">
+    <value>Player Name</value>
+  </data>
+  <data name="ListTitle_PlayerStatus" xml:space="preserve">
+    <value>Player Status</value>
+  </data>
+  <data name="ListTitle_PostCode" xml:space="preserve">
+    <value>Post Code</value>
+  </data>
+  <data name="ListTitle_RatioType" xml:space="preserve">
+    <value>Ratio Type</value>
+  </data>
+  <data name="ListTitle_RegisterDate" xml:space="preserve">
+    <value>Register Date</value>
+  </data>
+  <data name="ListTitle_RiskLevel" xml:space="preserve">
+    <value>Risk Level</value>
+  </data>
+  <data name="ListTitle_SignUpIP" xml:space="preserve">
+    <value>Sign Up IP</value>
+  </data>
+  <data name="ListTitle_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="ListTitle_VIPLevel" xml:space="preserve">
+    <value>VIP Level</value>
+  </data>
+  <data name="ListTitle_Balance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="ListTitle_BetRequired" xml:space="preserve">
+    <value>Bet Required</value>
+  </data>
+  <data name="ListTitle_LastSyncTime" xml:space="preserve">
+    <value>Last Sync Time</value>
+  </data>
+  <data name="ListTitle_LockUnlock" xml:space="preserve">
+    <value>Lock/Unlock</value>
+  </data>
+  <data name="ListTitle_Sync" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="Tab_Title_Adjustment" xml:space="preserve">
+    <value>Adjustment</value>
+  </data>
+  <data name="Tab_Title_BalLog" xml:space="preserve">
+    <value>Bal.Log</value>
+  </data>
+  <data name="Tab_Title_BindBankCard" xml:space="preserve">
+    <value>Bind Bank Card</value>
+  </data>
+  <data name="Tab_Title_DupMechanism" xml:space="preserve">
+    <value>Dup Mechanism</value>
+  </data>
+  <data name="Tab_Title_FileList" xml:space="preserve">
+    <value>File List</value>
+  </data>
+  <data name="Tab_Title_FraudRiskLevel" xml:space="preserve">
+    <value>Fraud Risk Level</value>
+  </data>
+  <data name="Tab_Title_FundInListing" xml:space="preserve">
+    <value>FundIn Listing</value>
+  </data>
+  <data name="Tab_Title_LoginLog" xml:space="preserve">
+    <value>Login Log</value>
+  </data>
+  <data name="Tab_Title_MassMessageTool" xml:space="preserve">
+    <value>Mass Message Tool</value>
+  </data>
+  <data name="Tab_Title_NoteManager" xml:space="preserve">
+    <value>Note Manager</value>
+  </data>
+  <data name="Tab_Title_PaymentMethod" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
+  <data name="Tab_Title_PaymentsDetail" xml:space="preserve">
+    <value>Payments Detail</value>
+  </data>
+  <data name="Tab_Title_ResponsibleGambling" xml:space="preserve">
+    <value>Responsible Gambling</value>
+  </data>
+  <data name="Tab_Title_SetRiskLevel" xml:space="preserve">
+    <value>Set Risk Level</value>
+  </data>
+  <data name="Tab_Title_SetVIPLevel" xml:space="preserve">
+    <value>Set VIP Level</value>
+  </data>
+  <data name="Tab_Title_WagerRequired" xml:space="preserve">
+    <value>Wager Required</value>
+  </data>
+  <data name="Tab_Title_WDVerifyExemption" xml:space="preserve">
+    <value>WDVerify Exemption</value>
+  </data>
+  <data name="Tab_Title_WithdrawReport" xml:space="preserve">
+    <value>Withdraw Report</value>
+  </data>
+  <data name="Control_Button_EditCategory" xml:space="preserve">
+    <value>Edit Category</value>
+  </data>
+  <data name="Label_CallType" xml:space="preserve">
+    <value>Call Type</value>
+  </data>
+  <data name="Label_ChangeBank" xml:space="preserve">
+    <value>Change Bank</value>
+  </data>
+  <data name="Label_ChangePassWord" xml:space="preserve">
+    <value>Change PassWord</value>
+  </data>
+  <data name="Label_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Label_Liveperson" xml:space="preserve">
+    <value>Liveperson</value>
+  </data>
+  <data name="Label_NewPassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="Label_Others" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="Label_Phonecall" xml:space="preserve">
+    <value>Phone call</value>
+  </data>
+  <data name="Label_QQChat" xml:space="preserve">
+    <value>QQChat</value>
+  </data>
+  <data name="Label_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Field_Accepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="Field_Adjustment" xml:space="preserve">
+    <value>Adjustment (Add/subtract)</value>
+  </data>
+  <data name="Field_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Field_Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Field_Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="ListTitle_CnCategory" xml:space="preserve">
+    <value>Cn Category</value>
+  </data>
+  <data name="ListTitle_CnName" xml:space="preserve">
+    <value>Cn Name</value>
+  </data>
+  <data name="ListTitle_Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="ListTitle_EnCategory" xml:space="preserve">
+    <value>En Category</value>
+  </data>
+  <data name="ListTitle_EnName" xml:space="preserve">
+    <value>En Name</value>
+  </data>
+  <data name="ListTitle_ImageSource" xml:space="preserve">
+    <value>Image Source</value>
+  </data>
+  <data name="ListTitle_Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="ListTitle_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ListTitle_SubGameID" xml:space="preserve">
+    <value>SubGame ID</value>
+  </data>
+  <data name="ListTitle_SubGameType" xml:space="preserve">
+    <value>SubGame Type</value>
+  </data>
+  <data name="ListTitle_SuccessfullyDeleted" xml:space="preserve">
+    <value>Successfully Deleted!</value>
+  </data>
+  <data name="ListTitle_CallCategory" xml:space="preserve">
+    <value>Call Category</value>
+  </data>
+  <data name="ListTitle_CreateBy" xml:space="preserve">
+    <value>Create By</value>
+  </data>
+  <data name="ListTitle_CreateTime" xml:space="preserve">
+    <value>Create Time</value>
+  </data>
+  <data name="ListTitle_LastUpdate" xml:space="preserve">
+    <value>Last Update</value>
+  </data>
+  <data name="ListTitle_Remarks" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="Field_AccountTransfer" xml:space="preserve">
+    <value>Account Transfer</value>
+  </data>
+  <data name="Field_Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="Field_Bonusaddonly" xml:space="preserve">
+    <value>Bonus (add only)</value>
+  </data>
+  <data name="Field_BonusAdjustmentsubtractonly" xml:space="preserve">
+    <value>Bonus Adjustment (subtract only)</value>
+  </data>
+  <data name="Field_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Field_Compensation" xml:space="preserve">
+    <value>Compensation</value>
+  </data>
+  <data name="Field_Escalation" xml:space="preserve">
+    <value>Escalation</value>
+  </data>
+  <data name="Field_FollowUp" xml:space="preserve">
+    <value>Follow Up</value>
+  </data>
+  <data name="Field_FraudAdjustmentaddonly" xml:space="preserve">
+    <value>Fraud Adjustment (add only)</value>
+  </data>
+  <data name="Field_FraudDeductionsubtractonly" xml:space="preserve">
+    <value>Fraud Deduction (subtract only)</value>
+  </data>
+  <data name="Field_PaymentAdjustmentaddonly" xml:space="preserve">
+    <value>Payment Adjustment (add only)</value>
+  </data>
+  <data name="Field_PaymentDeductionsubtractonly" xml:space="preserve">
+    <value>Payment Deduction (subtract only)</value>
+  </data>
+  <data name="Field_RealAdjustmentAddsubtract" xml:space="preserve">
+    <value>Real Adjustment (Add/subtract)</value>
+  </data>
+  <data name="Field_Rebate" xml:space="preserve">
+    <value>Rebate</value>
+  </data>
+  <data name="Field_SpecialBonusaddonly" xml:space="preserve">
+    <value>Special Bonus (add only)</value>
+  </data>
+  <data name="Field_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Field_TelebetFundIn" xml:space="preserve">
+    <value>Telebet Fund In</value>
+  </data>
+  <data name="Field_TelebetFundOut" xml:space="preserve">
+    <value>Telebet Fund Out</value>
+  </data>
+  <data name="Field_VirtualAdjustmentAddsubtract" xml:space="preserve">
+    <value>Virtual Adjustment (Add/subtract)</value>
+  </data>
+  <data name="Label_AcceptedBy" xml:space="preserve">
+    <value>Accepted By</value>
+  </data>
+  <data name="Label_AcceptedDate" xml:space="preserve">
+    <value>Accepted Date</value>
+  </data>
+  <data name="Label_Adjustment" xml:space="preserve">
+    <value>Adjustment</value>
+  </data>
+  <data name="Label_AdjustmentID" xml:space="preserve">
+    <value>Adjustment ID</value>
+  </data>
+  <data name="Label_Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Label_CreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="Label_CreatedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="Label_DateSubmittedFrom" xml:space="preserve">
+    <value>Date Submitted From</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Label_GameBalance" xml:space="preserve">
+    <value>Game Balance</value>
+  </data>
+  <data name="Label_GameName" xml:space="preserve">
+    <value>Game Name</value>
+  </data>
+  <data name="Label_LastUpdatedDate" xml:space="preserve">
+    <value>Last Updated Date</value>
+  </data>
+  <data name="Label_MainBalance" xml:space="preserve">
+    <value>Main Balance</value>
+  </data>
+  <data name="Label_NumberFrom" xml:space="preserve">
+    <value>NumberFrom</value>
+  </data>
+  <data name="Label_Prefix" xml:space="preserve">
+    <value>Prefix</value>
+  </data>
+  <data name="Label_RejectedBy" xml:space="preserve">
+    <value>Rejected By</value>
+  </data>
+  <data name="Label_RejectedDate" xml:space="preserve">
+    <value>Rejected Date</value>
+  </data>
+  <data name="Label_SubmittedBy" xml:space="preserve">
+    <value>Submitted By</value>
+  </data>
+  <data name="Label_SubmittedDate" xml:space="preserve">
+    <value>Submitted Date</value>
+  </data>
+  <data name="Label_TransDate" xml:space="preserve">
+    <value>Trans Date</value>
+  </data>
+  <data name="Label_TransID" xml:space="preserve">
+    <value>TransID</value>
+  </data>
+  <data name="Label_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Label_WageringRequirement" xml:space="preserve">
+    <value>Wagering Requirement</value>
+  </data>
+  <data name="ListTitle_BetAmount" xml:space="preserve">
+    <value>Bet Amount</value>
+  </data>
+  <data name="ListTitle_BonusAmt" xml:space="preserve">
+    <value>Bonus Amt</value>
+  </data>
+  <data name="ListTitle_Condition" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="ListTitle_DateRegistered" xml:space="preserve">
+    <value>Date Registered</value>
+  </data>
+  <data name="ListTitle_FundInAmt" xml:space="preserve">
+    <value>Fund In Amt</value>
+  </data>
+  <data name="ListTitle_Lock" xml:space="preserve">
+    <value>Lock</value>
+  </data>
+  <data name="ListTitle_MainBalance" xml:space="preserve">
+    <value>Main Balance</value>
+  </data>
+  <data name="Label_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Label_DealMessage" xml:space="preserve">
+    <value>Records that need to deal:</value>
+  </data>
+  <data name="Label_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Label_Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Label_Model" xml:space="preserve">
+    <value>Module Name</value>
+  </data>
+  <data name="Label_NoDataFound" xml:space="preserve">
+    <value>No Data Found</value>
+  </data>
+  <data name="Title_Logo" xml:space="preserve">
+    <value>OUREA</value>
+  </data>
+  <data name="Title_MessageCenter" xml:space="preserve">
+    <value>Message Center</value>
+  </data>
+  <data name="Pop_Adjustment" xml:space="preserve">
+    <value>Mannual Adjustment</value>
+  </data>
+  <data name="Pop_AffOfflineWithdrawlApprove" xml:space="preserve">
+    <value>Aff Offline Withdrawl Approve</value>
+  </data>
+  <data name="Pop_AffOfflineWithdrawlVerify" xml:space="preserve">
+    <value>Aff Offline Withdrawl Verify</value>
+  </data>
+  <data name="Pop_AffOnlineWithdrawlApprove" xml:space="preserve">
+    <value>Aff Online Withdrawl Approve</value>
+  </data>
+  <data name="Pop_AffOnlineWithdrawlVerify" xml:space="preserve">
+    <value>Aff Online Withdrawl Verify</value>
+  </data>
+  <data name="Pop_ApproveDeposit" xml:space="preserve">
+    <value>Approve Deposit</value>
+  </data>
+  <data name="Pop_BonusPay" xml:space="preserve">
+    <value>Bonus Pay</value>
+  </data>
+  <data name="Pop_NewRegister" xml:space="preserve">
+    <value>New Register User</value>
+  </data>
+  <data name="Pop_OffDepositApprove" xml:space="preserve">
+    <value>Player offline deposit approve</value>
+  </data>
+  <data name="Pop_OffDepositVerify" xml:space="preserve">
+    <value>Player offline deposit verify</value>
+  </data>
+  <data name="Pop_OfflineWithdrawaApprove" xml:space="preserve">
+    <value>Offline Withdrawal Approve</value>
+  </data>
+  <data name="Pop_OfflineWithdrawalVerify" xml:space="preserve">
+    <value>Offline Withdrawal Verify</value>
+  </data>
+  <data name="Pop_OnlineWithdraalApprove" xml:space="preserve">
+    <value>Online Withdraal Approve</value>
+  </data>
+  <data name="Pop_OnlineWithdrawalVerify" xml:space="preserve">
+    <value>Online Withdrawal Verify</value>
+  </data>
+  <data name="Pop_VerifyDeposit" xml:space="preserve">
+    <value>Verify Deposit</value>
+  </data>
+  <data name="Text_Left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="Text_NO" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="Text_Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="Text_YES" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="Title_AlterSettings" xml:space="preserve">
+    <value>Alter Settings</value>
+  </data>
+  <data name="Title_PageSize" xml:space="preserve">
+    <value>Page Size</value>
+  </data>
+  <data name="Title_PageStyle" xml:space="preserve">
+    <value>Page Style</value>
+  </data>
+  <data name="Title_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Title_SkinSettings" xml:space="preserve">
+    <value>SkinSettings</value>
+  </data>
+  <data name="Title_StyleSettings" xml:space="preserve">
+    <value>Style Settings</value>
+  </data>
+  <data name="Title_WinFloat" xml:space="preserve">
+    <value>Window Float</value>
+  </data>
+  <data name="ListTitle_TransID" xml:space="preserve">
+    <value>Trans ID</value>
+  </data>
+  <data name="Label_AccountHolderName" xml:space="preserve">
+    <value>Account Holder Name</value>
+  </data>
+  <data name="Label_AccountNumber" xml:space="preserve">
+    <value>Account Number</value>
+  </data>
+  <data name="Label_BankBranch" xml:space="preserve">
+    <value>Bank Branch</value>
+  </data>
+  <data name="Label_BankCity" xml:space="preserve">
+    <value>Bank City</value>
+  </data>
+  <data name="Label_BankProvince" xml:space="preserve">
+    <value>Bank Province</value>
+  </data>
+  <data name="Label_BankState" xml:space="preserve">
+    <value>Bank State</value>
+  </data>
+  <data name="Label_IDState" xml:space="preserve">
+    <value>ID State</value>
+  </data>
+  <data name="Label_PlayerCertificationInfo" xml:space="preserve">
+    <value>Player Certification Info</value>
+  </data>
+  <data name="ListTitle_BankAccount" xml:space="preserve">
+    <value>Bank Account</value>
+  </data>
+  <data name="ListTitle_BankBranch" xml:space="preserve">
+    <value>Bank Branch</value>
+  </data>
+  <data name="ListTitle_BankCity" xml:space="preserve">
+    <value>Bank City</value>
+  </data>
+  <data name="ListTitle_BankName" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="ListTitle_BankPKey" xml:space="preserve">
+    <value>Bank PKey</value>
+  </data>
+  <data name="ListTitle_BankProvince" xml:space="preserve">
+    <value>Bank Province</value>
+  </data>
+  <data name="ListTitle_BankStatus" xml:space="preserve">
+    <value>Bank Status</value>
+  </data>
+  <data name="ListTitle_DocStatus" xml:space="preserve">
+    <value>Doc Status</value>
+  </data>
+  <data name="ListTitle_HolderName" xml:space="preserve">
+    <value>Holder Name</value>
+  </data>
+  <data name="ListTitle_IDStatus" xml:space="preserve">
+    <value>ID Status</value>
+  </data>
+  <data name="Label_CarryForwardAll" xml:space="preserve">
+    <value>CARRY FORWARD FOR ALL AFFILIATES</value>
+  </data>
+  <data name="Label_DateFrom" xml:space="preserve">
+    <value>Date From</value>
+  </data>
+  <data name="Label_DateTo" xml:space="preserve">
+    <value>Date To</value>
+  </data>
+  <data name="Label_IsSettled" xml:space="preserve">
+    <value>Is Settled</value>
+  </data>
+  <data name="Label_OriginalSelfProfit" xml:space="preserve">
+    <value>Original Self Profit</value>
+  </data>
+  <data name="Label_SelfProfit" xml:space="preserve">
+    <value>Self Profit</value>
+  </data>
+  <data name="Label_SummaryCurrency" xml:space="preserve">
+    <value>Summary Currency</value>
+  </data>
+  <data name="Legend_QuerySetting" xml:space="preserve">
+    <value>Query Setting</value>
+  </data>
+  <data name="ListTitle_AccWinLoss" xml:space="preserve">
+    <value>Acc Win/Loss</value>
+  </data>
+  <data name="ListTitle_AffiliateEarning" xml:space="preserve">
+    <value>AffiliateEarning</value>
+  </data>
+  <data name="ListTitle_Bonus" xml:space="preserve">
+    <value>Bonus</value>
+  </data>
+  <data name="ListTitle_CoWin" xml:space="preserve">
+    <value>Co.Win</value>
+  </data>
+  <data name="ListTitle_NetWinLoss" xml:space="preserve">
+    <value>Net Win/Loss</value>
+  </data>
+  <data name="ListTitle_NewSignups" xml:space="preserve">
+    <value>New Signups</value>
+  </data>
+  <data name="ListTitle_Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="ListTitle_PreviousEarning" xml:space="preserve">
+    <value>Previous Earning</value>
+  </data>
+  <data name="ListTitle_SelfBetAmt" xml:space="preserve">
+    <value>Self Bet Amt</value>
+  </data>
+  <data name="ListTitle_SubAffEarning" xml:space="preserve">
+    <value>Sub Aff Earning</value>
+  </data>
+  <data name="ListTitle_SubBetAmt" xml:space="preserve">
+    <value>Sub Bet Amt</value>
+  </data>
+  <data name="ListTitle_SubCoWin" xml:space="preserve">
+    <value>Sub Co. Win</value>
+  </data>
+  <data name="ListTitle_TotalEarning" xml:space="preserve">
+    <value>TotalEarning</value>
+  </data>
+  <data name="ListTitle_WinLoss" xml:space="preserve">
+    <value>Win/Loss</value>
+  </data>
+  <data name="ListTitle_AccountHolder" xml:space="preserve">
+    <value>Account Holder</value>
+  </data>
+  <data name="ListTitle_AccountName" xml:space="preserve">
+    <value>Account Name</value>
+  </data>
+  <data name="ListTitle_AccountNumber" xml:space="preserve">
+    <value>Account Number</value>
+  </data>
+  <data name="ListTitle_BankNumber" xml:space="preserve">
+    <value>Bank Number</value>
+  </data>
+  <data name="ListTitle_Branch" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="ListTitle_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="ListTitle_ConfirmAmount" xml:space="preserve">
+    <value>Confirm Amount</value>
+  </data>
+  <data name="ListTitle_ExchangeRate" xml:space="preserve">
+    <value>Exchange Rate</value>
+  </data>
+  <data name="ListTitle_PaymentMethod" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
+  <data name="ListTitle_Province" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="ListTitle_SwiftCode" xml:space="preserve">
+    <value>Swift Code</value>
+  </data>
+  <data name="ListTitle_Transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="ListTitle_TransferAmount" xml:space="preserve">
+    <value>Transfer Amount</value>
+  </data>
+  <data name="ListTitle_TransferDetails" xml:space="preserve">
+    <value>Transfer Details</value>
+  </data>
+  <data name="ListTitle_VerifiedBy" xml:space="preserve">
+    <value>Verified By</value>
+  </data>
+  <data name="ListTitle_VerifiedDate" xml:space="preserve">
+    <value>Verified Date</value>
+  </data>
+  <data name="ListTitle_WithdrawalID" xml:space="preserve">
+    <value>Withdrawal ID</value>
+  </data>
+  <data name="ListTitle_WithdrawType" xml:space="preserve">
+    <value>Withdraw Type</value>
+  </data>
+  <data name="Tab_Title_AdvancedSearch" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="Tab_Title_OnSite" xml:space="preserve">
+    <value>On Site</value>
+  </data>
+  <data name="Tab_Title_OnSiteContext" xml:space="preserve">
+    <value>On Site Context</value>
+  </data>
+  <data name="Tab_Title_OnSiteTitle" xml:space="preserve">
+    <value>On Site Title</value>
+  </data>
+  <data name="Tab_Title_OnSiteType" xml:space="preserve">
+    <value>On Site Type</value>
+  </data>
+  <data name="Tab_Title_SendTo" xml:space="preserve">
+    <value>Send To</value>
+  </data>
+  <data name="Tab_Title_SMSContext" xml:space="preserve">
+    <value>SMS Context</value>
+  </data>
+  <data name="Field_ChangeBillingAddress" xml:space="preserve">
+    <value>Change Billing Address</value>
+  </data>
+  <data name="Field_ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Field_ChangePlayerInformations" xml:space="preserve">
+    <value>Change Player Informations</value>
+  </data>
+  <data name="Label_ActionType" xml:space="preserve">
+    <value>Action Type</value>
+  </data>
+  <data name="Label_ColumnName" xml:space="preserve">
+    <value>Column Name</value>
+  </data>
+  <data name="Label_PaymentDetail" xml:space="preserve">
+    <value>Payment Detail</value>
+  </data>
+  <data name="Label_PaymentMethod" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
+  <data name="ListTitle_AccountDetailAccountNumber" xml:space="preserve">
+    <value>Account Detail/Account Number</value>
+  </data>
+  <data name="ListTitle_CreatedOn" xml:space="preserve">
+    <value>Created On</value>
+  </data>
+  <data name="ListTitle_DateUpdated" xml:space="preserve">
+    <value>Date Updated</value>
+  </data>
+  <data name="ListTitle_FromValue" xml:space="preserve">
+    <value>From Value</value>
+  </data>
+  <data name="ListTitle_ToValue" xml:space="preserve">
+    <value>To Value</value>
+  </data>
+  <data name="ListTitle_BasedOn" xml:space="preserve">
+    <value>BasedOn</value>
+  </data>
+  <data name="ListTitle_BigImageURL" xml:space="preserve">
+    <value>Big Image URL</value>
+  </data>
+  <data name="ListTitle_BonusAffiliate" xml:space="preserve">
+    <value>Bonus Affiliate</value>
+  </data>
+  <data name="ListTitle_BonusAmount" xml:space="preserve">
+    <value>Bonus Amount</value>
+  </data>
+  <data name="ListTitle_BonusCode" xml:space="preserve">
+    <value>Bonus Code</value>
+  </data>
+  <data name="ListTitle_BonusDescription" xml:space="preserve">
+    <value>Bonus Description</value>
+  </data>
+  <data name="ListTitle_BonusMode" xml:space="preserve">
+    <value>Bonus Mode</value>
+  </data>
+  <data name="ListTitle_BonusName" xml:space="preserve">
+    <value>Bonus Name</value>
+  </data>
+  <data name="ListTitle_BonusNameDateRange" xml:space="preserve">
+    <value>Bonus Name Date Range</value>
+  </data>
+  <data name="ListTitle_BonusType" xml:space="preserve">
+    <value>Bonus Type</value>
+  </data>
+  <data name="ListTitle_BonusUsage" xml:space="preserve">
+    <value>Bonus Usage</value>
+  </data>
+  <data name="ListTitle_CashOutCodition" xml:space="preserve">
+    <value>Cash Out Codition</value>
+  </data>
+  <data name="ListTitle_ConditionFormulaType" xml:space="preserve">
+    <value>Condition Formula Type</value>
+  </data>
+  <data name="ListTitle_Conditions" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="ListTitle_ConditionsValue" xml:space="preserve">
+    <value>Conditions Value</value>
+  </data>
+  <data name="ListTitle_Contribution" xml:space="preserve">
+    <value>Contribution %</value>
+  </data>
+  <data name="ListTitle_CreateDateRange" xml:space="preserve">
+    <value>Create Date Range</value>
+  </data>
+  <data name="ListTitle_CurrencyType" xml:space="preserve">
+    <value>Currency Type</value>
+  </data>
+  <data name="ListTitle_CurrentBonusName" xml:space="preserve">
+    <value>Current Bonus Name</value>
+  </data>
+  <data name="ListTitle_DateOfTransaction" xml:space="preserve">
+    <value>Date Of Transaction</value>
+  </data>
+  <data name="ListTitle_DisplayName" xml:space="preserve">
+    <value>Display Name</value>
+  </data>
+  <data name="ListTitle_DisplayOrder" xml:space="preserve">
+    <value>Display Order</value>
+  </data>
+  <data name="ListTitle_EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="ListTitle_EndOfBonusPeriod" xml:space="preserve">
+    <value>End of Bonus Period</value>
+  </data>
+  <data name="ListTitle_EnterEventCode" xml:space="preserve">
+    <value>Needs to enter event code.</value>
+  </data>
+  <data name="ListTitle_ExceedCash" xml:space="preserve">
+    <value>Exceed is Cash</value>
+  </data>
+  <data name="ListTitle_ExcludeBonusNames" xml:space="preserve">
+    <value>Exclude Bonus Names</value>
+  </data>
+  <data name="ListTitle_Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ListTitle_FilterBy" xml:space="preserve">
+    <value>Filter By</value>
+  </data>
+  <data name="ListTitle_Formula" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="ListTitle_FraudTeam" xml:space="preserve">
+    <value>Fraud Team</value>
+  </data>
+  <data name="ListTitle_FundInAmount" xml:space="preserve">
+    <value>Fund In Amount</value>
+  </data>
+  <data name="ListTitle_FundInDate" xml:space="preserve">
+    <value>Fund In Date</value>
+  </data>
+  <data name="ListTitle_FundOutAmt" xml:space="preserve">
+    <value>Fund Out Amt</value>
+  </data>
+  <data name="ListTitle_FundOutDate" xml:space="preserve">
+    <value>Fund Out Date</value>
+  </data>
+  <data name="ListTitle_GameContributions" xml:space="preserve">
+    <value>Game Contributions</value>
+  </data>
+  <data name="ListTitle_HasRule" xml:space="preserve">
+    <value>Has Rule</value>
+  </data>
+  <data name="ListTitle_ImageURL" xml:space="preserve">
+    <value>Image URL</value>
+  </data>
+  <data name="ListTitle_Order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="ListTitle_PaidDate" xml:space="preserve">
+    <value>Paid Date</value>
+  </data>
+  <data name="ListTitle_ParentBonusName" xml:space="preserve">
+    <value>Parent Bonus Name</value>
+  </data>
+  <data name="ListTitle_ParentName" xml:space="preserve">
+    <value>Parent Name</value>
+  </data>
+  <data name="ListTitle_Payoutby" xml:space="preserve">
+    <value>Payout by</value>
+  </data>
+  <data name="ListTitle_PayoutNow" xml:space="preserve">
+    <value>Payout Now</value>
+  </data>
+  <data name="ListTitle_PayoutWhen" xml:space="preserve">
+    <value>Payout when</value>
+  </data>
+  <data name="ListTitle_ProductId" xml:space="preserve">
+    <value>Product Id</value>
+  </data>
+  <data name="ListTitle_PromotionName" xml:space="preserve">
+    <value>Promotion Name</value>
+  </data>
+  <data name="ListTitle_Publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="ListTitle_PublishBonusCode" xml:space="preserve">
+    <value>Publish Bonus Code</value>
+  </data>
+  <data name="ListTitle_PublishCode" xml:space="preserve">
+    <value>Publish Code</value>
+  </data>
+  <data name="ListTitle_StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="ListTitle_Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="ListTitle_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ListTitle_Terms" xml:space="preserve">
+    <value>Terms</value>
+  </data>
+  <data name="ListTitle_TransactionID" xml:space="preserve">
+    <value>Transaction ID</value>
+  </data>
+  <data name="ListTitle_ValidDays" xml:space="preserve">
+    <value>ValidDays</value>
+  </data>
+  <data name="ListTitle_WebType" xml:space="preserve">
+    <value>Web Type</value>
+  </data>
+  <data name="ListTitle_WithinRegistrationDay" xml:space="preserve">
+    <value>Within Registration Day(s)</value>
+  </data>
+  <data name="Note_MaximumNumberOfPlayer" xml:space="preserve">
+    <value>Maximum number of player</value>
+  </data>
+  <data name="Note_MaximumTotalBonusAmount" xml:space="preserve">
+    <value>Maximum total bonus amount</value>
+  </data>
+  <data name="Note_MaximumTotalBonusPerTransaction" xml:space="preserve">
+    <value>Maximum total bonus per transaction</value>
+  </data>
+  <data name="Control_Button_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Field_IDOnly" xml:space="preserve">
+    <value>ID Only</value>
+  </data>
+  <data name="Label_AccountHolder" xml:space="preserve">
+    <value>Account Holder</value>
+  </data>
+  <data name="Label_All138IOMAffiliate" xml:space="preserve">
+    <value>All 138 IOM Affiliate(*)</value>
+  </data>
+  <data name="Label_All138IOMPlayer" xml:space="preserve">
+    <value>All 138 IOM Player(*)</value>
+  </data>
+  <data name="Label_AllSG188Affiliate" xml:space="preserve">
+    <value>All SG188 Affiliate</value>
+  </data>
+  <data name="Label_AllSG188Player" xml:space="preserve">
+    <value>All SG188 Player</value>
+  </data>
+  <data name="Label_AllSG988Affiliate" xml:space="preserve">
+    <value>All SG988 Affiliate</value>
+  </data>
+  <data name="Label_AllSG988Player" xml:space="preserve">
+    <value>Label_All SG988 Player</value>
+  </data>
+  <data name="Label_AllSSS988Affiliate" xml:space="preserve">
+    <value>All SSS988 Affiliate</value>
+  </data>
+  <data name="Label_AllSSS988Player" xml:space="preserve">
+    <value>All SSS988 Player</value>
+  </data>
+  <data name="Label_BankNumber" xml:space="preserve">
+    <value>Bank Number</value>
+  </data>
+  <data name="Label_BankType" xml:space="preserve">
+    <value>Bank Type</value>
+  </data>
+  <data name="Label_BetAmount" xml:space="preserve">
+    <value>Bet Amount</value>
+  </data>
+  <data name="Label_BonusCode" xml:space="preserve">
+    <value>Bonus Code</value>
+  </data>
+  <data name="Label_ConfirmAmount" xml:space="preserve">
+    <value>Confirm Amount</value>
+  </data>
+  <data name="Label_Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Label_DepositLimits" xml:space="preserve">
+    <value>Deposit Limits</value>
+  </data>
+  <data name="Label_EmailContext" xml:space="preserve">
+    <value>Email Context</value>
+  </data>
+  <data name="Label_EmailTitle" xml:space="preserve">
+    <value>Email Title</value>
+  </data>
+  <data name="Label_FraudRiskLevel" xml:space="preserve">
+    <value>Fraud Risk Level</value>
+  </data>
+  <data name="Label_FundOutWagerRequired" xml:space="preserve">
+    <value>Fund Out Wager Required</value>
+  </data>
+  <data name="Label_GameFilter" xml:space="preserve">
+    <value>Game Filter</value>
+  </data>
+  <data name="Label_ID1" xml:space="preserve">
+    <value>ID1</value>
+  </data>
+  <data name="Label_ID1Preview" xml:space="preserve">
+    <value>ID1 Preview</value>
+  </data>
+  <data name="Label_ID2" xml:space="preserve">
+    <value>ID2</value>
+  </data>
+  <data name="Label_ID2Preview" xml:space="preserve">
+    <value>ID2 Preview</value>
+  </data>
+  <data name="Label_LastDepositDate" xml:space="preserve">
+    <value>Last Deposit Date</value>
+  </data>
+  <data name="Label_MassMessageToolOption" xml:space="preserve">
+    <value>Mass Message Tool Option</value>
+  </data>
+  <data name="Label_Months" xml:space="preserve">
+    <value>Months</value>
+  </data>
+  <data name="Label_NoOfTransactions" xml:space="preserve">
+    <value>No.Of Transactions</value>
+  </data>
+  <data name="Label_OfflineWithdrawalWagerRequired" xml:space="preserve">
+    <value>Offline Withdrawal Wager Required</value>
+  </data>
+  <data name="Label_OnSiteContext" xml:space="preserve">
+    <value>On Site Context</value>
+  </data>
+  <data name="Label_OnSiteTitle" xml:space="preserve">
+    <value>On Site Title</value>
+  </data>
+  <data name="Label_OWVerifyExemption" xml:space="preserve">
+    <value>OW Verify Exemption</value>
+  </data>
+  <data name="Label_PayDay" xml:space="preserve">
+    <value>Pay Day</value>
+  </data>
+  <data name="Label_PaymentType" xml:space="preserve">
+    <value>Payment Type</value>
+  </data>
+  <data name="Label_PayMonth" xml:space="preserve">
+    <value>Pay Month</value>
+  </data>
+  <data name="Label_Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="Label_Receipt" xml:space="preserve">
+    <value>Receipt</value>
+  </data>
+  <data name="Label_ReceiptPreview" xml:space="preserve">
+    <value>Receipt Preview</value>
+  </data>
+  <data name="Label_RedeemableLoyaltyPoints" xml:space="preserve">
+    <value>Redeemable Loyalty Points</value>
+  </data>
+  <data name="Label_Remarks" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="Label_RemittanceType" xml:space="preserve">
+    <value>Remittance Type</value>
+  </data>
+  <data name="Label_SelfExclusion" xml:space="preserve">
+    <value>Self-Exclusion</value>
+  </data>
+  <data name="Label_SendTo" xml:space="preserve">
+    <value>Send To</value>
+  </data>
+  <data name="Label_SetList" xml:space="preserve">
+    <value>Set List</value>
+  </data>
+  <data name="Label_SetRiskLevel" xml:space="preserve">
+    <value>Set Risk Level</value>
+  </data>
+  <data name="Label_SetVIPLevel" xml:space="preserve">
+    <value>Set VIP Level</value>
+  </data>
+  <data name="Label_TagFraudRiskLevel" xml:space="preserve">
+    <value>Tag Fraud Risk Level</value>
+  </data>
+  <data name="Label_TotalAmount" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="Label_TotalLoyaltyPoints" xml:space="preserve">
+    <value>Total Loyalty Points</value>
+  </data>
+  <data name="Label_TrackingNumber" xml:space="preserve">
+    <value>Tracking Number</value>
+  </data>
+  <data name="Label_UpdatedBy" xml:space="preserve">
+    <value>Updated By</value>
+  </data>
+  <data name="Label_UpdatedDate" xml:space="preserve">
+    <value>Updated Date</value>
+  </data>
+  <data name="Label_UploadID1" xml:space="preserve">
+    <value>Upload ID1</value>
+  </data>
+  <data name="Label_UploadID2" xml:space="preserve">
+    <value>Upload ID2</value>
+  </data>
+  <data name="Label_UploadReceipt" xml:space="preserve">
+    <value>Upload Receipt</value>
+  </data>
+  <data name="Label_VerifyExemption" xml:space="preserve">
+    <value>Verify Exemption</value>
+  </data>
+  <data name="Label_VerifyExemptionFrom" xml:space="preserve">
+    <value>Verify Exemption From</value>
+  </data>
+  <data name="Label_VerifyExemptionTo" xml:space="preserve">
+    <value>Verify Exemption To</value>
+  </data>
+  <data name="Label_WagerAmountRequired" xml:space="preserve">
+    <value>Wager Amount Required</value>
+  </data>
+  <data name="Label_WagerCondition" xml:space="preserve">
+    <value>Wager Condition</value>
+  </data>
+  <data name="Label_WagerRequired" xml:space="preserve">
+    <value>Wager Required</value>
+  </data>
+  <data name="Label_WithdrawLimits" xml:space="preserve">
+    <value>Withdraw Limits</value>
+  </data>
+  <data name="Label_Within" xml:space="preserve">
+    <value>Within</value>
+  </data>
+  <data name="Label_Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="Label_Years" xml:space="preserve">
+    <value>Years</value>
+  </data>
+  <data name="ListTitle_AmountAfterOperation" xml:space="preserve">
+    <value>Amount After Operation</value>
+  </data>
+  <data name="ListTitle_AmountBeforeOperation" xml:space="preserve">
+    <value>Amount Before Operation</value>
+  </data>
+  <data name="ListTitle_CellPhoneNumber" xml:space="preserve">
+    <value>Cell Phone Number</value>
+  </data>
+  <data name="ListTitle_DateBet" xml:space="preserve">
+    <value>Date Bet</value>
+  </data>
+  <data name="ListTitle_DateOperated" xml:space="preserve">
+    <value>Date Operated</value>
+  </data>
+  <data name="ListTitle_DateTagged" xml:space="preserve">
+    <value>Date Tagged</value>
+  </data>
+  <data name="ListTitle_Desc" xml:space="preserve">
+    <value>Desc</value>
+  </data>
+  <data name="ListTitle_FileList" xml:space="preserve">
+    <value>File List</value>
+  </data>
+  <data name="ListTitle_GameFilter" xml:space="preserve">
+    <value>Game Filter</value>
+  </data>
+  <data name="ListTitle_ID1" xml:space="preserve">
+    <value>ID1</value>
+  </data>
+  <data name="ListTitle_ID2" xml:space="preserve">
+    <value>ID2</value>
+  </data>
+  <data name="ListTitle_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="ListTitle_LevelName" xml:space="preserve">
+    <value>Level Name</value>
+  </data>
+  <data name="ListTitle_Operator" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+  <data name="ListTitle_RECEIPT" xml:space="preserve">
+    <value>RECEIPT</value>
+  </data>
+  <data name="ListTitle_RoundID" xml:space="preserve">
+    <value>Round ID</value>
+  </data>
+  <data name="ListTitle_TaggedBy" xml:space="preserve">
+    <value>Tagged By</value>
+  </data>
+  <data name="ListTitle_UserAccount" xml:space="preserve">
+    <value>User Account</value>
+  </data>
+  <data name="ListTitle_UserIP" xml:space="preserve">
+    <value>User IP</value>
+  </data>
+  <data name="ListTitle_WagerCondition" xml:space="preserve">
+    <value>Wager Condition</value>
+  </data>
+  <data name="ListTitle_WebCode" xml:space="preserve">
+    <value>Web Code</value>
+  </data>
+  <data name="Tab_Title_AddFraudRisk" xml:space="preserve">
+    <value>Add Fraud Risk</value>
+  </data>
+  <data name="Tab_Title_SMS" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="Control_Button_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Control_Button_Check" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="Field_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Field_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="ListTitle_Limit" xml:space="preserve">
+    <value>Limit</value>
+  </data>
+  <data name="Note_AfterWager" xml:space="preserve">
+    <value>After Wager</value>
+  </data>
+  <data name="Note_BeforeWager" xml:space="preserve">
+    <value>Before Wager (Default)</value>
+  </data>
+  <data name="Note_Daily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="Note_Every" xml:space="preserve">
+    <value>Every</value>
+  </data>
+  <data name="Note_From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Note_Once" xml:space="preserve">
+    <value>Once</value>
+  </data>
+  <data name="Note_Unlimited" xml:space="preserve">
+    <value>Unlimited</value>
+  </data>
+  <data name="PageTitle_BonusApprove" xml:space="preserve">
+    <value>Bonus Approve</value>
+  </data>
+  <data name="Tab_Title_UnTag" xml:space="preserve">
+    <value>UnTag</value>
+  </data>
+  <data name="Field_OfflineDeposit" xml:space="preserve">
+    <value>Offline Deposit</value>
+  </data>
+  <data name="Field_OnlineDeposit" xml:space="preserve">
+    <value>Online Deposit</value>
+  </data>
+  <data name="Label_ActualAmt" xml:space="preserve">
+    <value>Actual Amt</value>
+  </data>
+  <data name="Label_AutoCashInBonus" xml:space="preserve">
+    <value>Auto CashIn Bonus</value>
+  </data>
+  <data name="Label_CashInBonusAmount" xml:space="preserve">
+    <value>CashIn Bonus Amount</value>
+  </data>
+  <data name="Label_CashInBonusRate" xml:space="preserve">
+    <value>CashIn Bonus Rate</value>
+  </data>
+  <data name="Label_CashInBonusWagerRequired" xml:space="preserve">
+    <value>CashIn Bonus Wager Required</value>
+  </data>
+  <data name="Label_ConfirmActualAmt" xml:space="preserve">
+    <value>Confirm Actual Amt</value>
+  </data>
+  <data name="Label_DateVerified" xml:space="preserve">
+    <value>Date Verified</value>
+  </data>
+  <data name="Label_DepositID" xml:space="preserve">
+    <value>Deposit ID</value>
+  </data>
+  <data name="Label_ReferenceID" xml:space="preserve">
+    <value>Reference ID</value>
+  </data>
+  <data name="Label_TotalCashInBonusWagerRequired" xml:space="preserve">
+    <value>Total CashIn Bonus Wager Required</value>
+  </data>
+  <data name="Label_UniqueDepositAmount" xml:space="preserve">
+    <value>Unique Deposit Amount</value>
+  </data>
+  <data name="Label_VerifiedBy" xml:space="preserve">
+    <value>Verified By</value>
+  </data>
+  <data name="ListTitle_DateVerified" xml:space="preserve">
+    <value>Date Verified</value>
+  </data>
+  <data name="ListTitle_DepositID" xml:space="preserve">
+    <value>Deposit ID</value>
+  </data>
+  <data name="ListTitle_DepositType" xml:space="preserve">
+    <value>Deposit Type</value>
+  </data>
+  <data name="ListTitle_InternalCode" xml:space="preserve">
+    <value>Internal Code</value>
+  </data>
+  <data name="ListTitle_isHousePlayer" xml:space="preserve">
+    <value>Is HousePlayer</value>
+  </data>
+  <data name="ListTitle_UniqueAmount" xml:space="preserve">
+    <value>Unique Amount</value>
+  </data>
+  <data name="Label_DisplayCurrency" xml:space="preserve">
+    <value>Display Currency</value>
+  </data>
+  <data name="ListTitle_AccCoWin" xml:space="preserve">
+    <value>Acc Co. Win</value>
+  </data>
+  <data name="ListTitle_ActiveMember" xml:space="preserve">
+    <value>Active Member</value>
+  </data>
+  <data name="ListTitle_RankA" xml:space="preserve">
+    <value>Rank(A)</value>
+  </data>
+  <data name="ListTitle_SettlementPeriod" xml:space="preserve">
+    <value>Settlement Period</value>
+  </data>
+  <data name="ListTitle_Turnover" xml:space="preserve">
+    <value>Turnover</value>
+  </data>
+  <data name="Label_BankAccountHolder" xml:space="preserve">
+    <value>Bank Account Holder</value>
+  </data>
+  <data name="Label_BankAccountNumber" xml:space="preserve">
+    <value>Bank Account Number</value>
+  </data>
+  <data name="Label_BaseInfo" xml:space="preserve">
+    <value>Base Info</value>
+  </data>
+  <data name="Label_CashInBonusInfo" xml:space="preserve">
+    <value>CashIn Bonus Info</value>
+  </data>
+  <data name="Label_ConfirmFee" xml:space="preserve">
+    <value>Confirm Fee</value>
+  </data>
+  <data name="Label_DepositType" xml:space="preserve">
+    <value>Deposit Type</value>
+  </data>
+  <data name="Label_Fee" xml:space="preserve">
+    <value>Fee</value>
+  </data>
+  <data name="Label_InternalCode" xml:space="preserve">
+    <value>Internal Code</value>
+  </data>
+  <data name="Label_OfflineDepositID" xml:space="preserve">
+    <value>Offline Deposit ID</value>
+  </data>
+  <data name="Label_OperateInfo" xml:space="preserve">
+    <value>Operate Info</value>
+  </data>
+  <data name="Label_PlayerName" xml:space="preserve">
+    <value>Player Name</value>
+  </data>
+  <data name="Label_PlayerRemark" xml:space="preserve">
+    <value>Player Remark</value>
+  </data>
+  <data name="Label_ProcessInfo" xml:space="preserve">
+    <value>Process Info</value>
+  </data>
+  <data name="Label_Province" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="Label_TransactionID" xml:space="preserve">
+    <value>Transaction ID</value>
+  </data>
+  <data name="ListTitle_1stDeposit" xml:space="preserve">
+    <value>1st Deposit</value>
+  </data>
+  <data name="ListTitle_Clicks" xml:space="preserve">
+    <value>Clicks</value>
+  </data>
+  <data name="ListTitle_CoWinGame" xml:space="preserve">
+    <value>Co. Win({0})</value>
+  </data>
+  <data name="ListTitle_DownLine" xml:space="preserve">
+    <value>Down Line</value>
+  </data>
+  <data name="ListTitle_NoOf1stDeposit" xml:space="preserve">
+    <value>No. of 1st Deposit</value>
+  </data>
+  <data name="ListTitle_NoOfBetGame" xml:space="preserve">
+    <value>No Of Bet({0})</value>
+  </data>
+  <data name="ListTitle_NoOfWithdrawal" xml:space="preserve">
+    <value>No of Withdrawal</value>
+  </data>
+  <data name="ListTitle_TotalDeposit" xml:space="preserve">
+    <value>Total Deposit</value>
+  </data>
+  <data name="ListTitle_TurnoverGame" xml:space="preserve">
+    <value>Turnover({0})</value>
+  </data>
+  <data name="ListTitle_BannerTitle" xml:space="preserve">
+    <value>Banner Title</value>
+  </data>
+  <data name="ListTitle_BannerType" xml:space="preserve">
+    <value>Banner Type</value>
+  </data>
+  <data name="ListTitle_BannerURLBig" xml:space="preserve">
+    <value>BannerURL (Big Image)</value>
+  </data>
+  <data name="ListTitle_BannerURLSmall" xml:space="preserve">
+    <value>BannerURL(Small Image)</value>
+  </data>
+  <data name="ListTitle_BaseCurrency" xml:space="preserve">
+    <value>Base Currency</value>
+  </data>
+  <data name="ListTitle_BetLimit1" xml:space="preserve">
+    <value>Bet Limit 1</value>
+  </data>
+  <data name="ListTitle_BetLimit2" xml:space="preserve">
+    <value>Bet Limit 2</value>
+  </data>
+  <data name="ListTitle_BetLimit3" xml:space="preserve">
+    <value>Bet Limit 3</value>
+  </data>
+  <data name="ListTitle_CompPoints" xml:space="preserve">
+    <value>Comp Points</value>
+  </data>
+  <data name="ListTitle_Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="ListTitle_CurrencyName" xml:space="preserve">
+    <value>Currency Name</value>
+  </data>
+  <data name="ListTitle_DefaultCurrency" xml:space="preserve">
+    <value>Default Currency </value>
+  </data>
+  <data name="ListTitle_DefaultCurrencyIn" xml:space="preserve">
+    <value>Default Currency in</value>
+  </data>
+  <data name="ListTitle_DefaultInBrand" xml:space="preserve">
+    <value>Default In Brand</value>
+  </data>
+  <data name="ListTitle_Discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="ListTitle_EarningsPoints" xml:space="preserve">
+    <value>Earnings Points</value>
+  </data>
+  <data name="ListTitle_Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="ListTitle_Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="ListTitle_LoggedIn" xml:space="preserve">
+    <value>LoggedIn</value>
+  </data>
+  <data name="ListTitle_Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="ListTitle_Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="ListTitle_NewsTitle" xml:space="preserve">
+    <value>News Title</value>
+  </data>
+  <data name="ListTitle_NewsType" xml:space="preserve">
+    <value>News Type</value>
+  </data>
+  <data name="ListTitle_Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="ListTitle_PaymentType" xml:space="preserve">
+    <value>Payment Type</value>
+  </data>
+  <data name="ListTitle_Rolling" xml:space="preserve">
+    <value>Rolling</value>
+  </data>
+  <data name="ListTitle_Target" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="ListTitle_VIPLVLRef" xml:space="preserve">
+    <value>VIP LVL Ref</value>
+  </data>
+  <data name="ListTitle_VIPName" xml:space="preserve">
+    <value>VIP Name</value>
+  </data>
+  <data name="ListTitle_CMSCode" xml:space="preserve">
+    <value>CMS Code</value>
+  </data>
+  <data name="ListTitle_CMSTitle" xml:space="preserve">
+    <value>CMS Title</value>
+  </data>
+  <data name="ListTitle_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="ListTitle_Creator" xml:space="preserve">
+    <value>Creator</value>
+  </data>
+  <data name="ListTitle_FemaleOfficerName" xml:space="preserve">
+    <value>Female Officer Name</value>
+  </data>
+  <data name="ListTitle_MaleOfficerName" xml:space="preserve">
+    <value>Male Officer Name</value>
+  </data>
+  <data name="ListTitle_MaxBet" xml:space="preserve">
+    <value>Max Bet</value>
+  </data>
+  <data name="ListTitle_MaxBetPerBall" xml:space="preserve">
+    <value>Max Bet per Ball</value>
+  </data>
+  <data name="ListTitle_MaxBetPerMatch" xml:space="preserve">
+    <value>Max Bet per Match</value>
+  </data>
+  <data name="ListTitle_MinBet" xml:space="preserve">
+    <value>Min Bet</value>
+  </data>
+  <data name="ListTitle_NewsCode" xml:space="preserve">
+    <value>News Code</value>
+  </data>
+  <data name="ListTitle_NewsContent" xml:space="preserve">
+    <value>News Content</value>
+  </data>
+  <data name="ListTitle_NewsSummary" xml:space="preserve">
+    <value>News Summary</value>
+  </data>
+  <data name="ListTitle_OfficerType" xml:space="preserve">
+    <value>Officer Type</value>
+  </data>
+  <data name="ListTitle_PointsCondition" xml:space="preserve">
+    <value>Points Condition</value>
+  </data>
+  <data name="ListTitle_PublishDate" xml:space="preserve">
+    <value>Publish Date</value>
+  </data>
+  <data name="ListTitle_RankID" xml:space="preserve">
+    <value>Rank ID</value>
+  </data>
+  <data name="ListTitle_SportName" xml:space="preserve">
+    <value>Sport Name</value>
+  </data>
+  <data name="ListTitle_TaskCondition" xml:space="preserve">
+    <value>Task Condition</value>
+  </data>
+  <data name="ListTitle_TaskPeriod" xml:space="preserve">
+    <value>Task Period</value>
+  </data>
+  <data name="ListTitle_TaskPoints" xml:space="preserve">
+    <value>Task Points</value>
+  </data>
+  <data name="ListTitle_TaskType" xml:space="preserve">
+    <value>Task Type</value>
+  </data>
+  <data name="ListTitle_FailAddVipManager" xml:space="preserve">
+    <value>Fail to add Vip Manager!</value>
+  </data>
+  <data name="ListTitle_FailUpdateVipManager" xml:space="preserve">
+    <value>Fail to update Vip Manager!</value>
+  </data>
+  <data name="ListTitle_Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="ListTitle_MessageCode" xml:space="preserve">
+    <value>Message Code</value>
+  </data>
+  <data name="ListTitle_MessageDescription" xml:space="preserve">
+    <value>Message Description</value>
+  </data>
+  <data name="ListTitle_MessageType" xml:space="preserve">
+    <value>Message Type</value>
+  </data>
+  <data name="ListTitle_NeedUploadID" xml:space="preserve">
+    <value>Need Upload ID</value>
+  </data>
+  <data name="ListTitle_OnlinePay" xml:space="preserve">
+    <value>Online Pay</value>
+  </data>
+  <data name="ListTitle_PayCash" xml:space="preserve">
+    <value>Pay Cash</value>
+  </data>
+  <data name="PageTitle_PokerNewsManager" xml:space="preserve">
+    <value>Poker News Manager</value>
+  </data>
+  <data name="PageTitle_SportNewsManager" xml:space="preserve">
+    <value>Sport News Manager</value>
+  </data>
+  <data name="Text_AfterLoggedIn" xml:space="preserve">
+    <value>After LoggedIn</value>
+  </data>
+  <data name="Text_BeforeAfterLogin" xml:space="preserve">
+    <value>Before+After Login</value>
+  </data>
+  <data name="Text_BeforeLoggedIn" xml:space="preserve">
+    <value>Before LoggedIn</value>
+  </data>
+  <data name="Text_Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="Field_OfflineWithdrawal" xml:space="preserve">
+    <value>Offline Withdrawal</value>
+  </data>
+  <data name="Field_OnlineWithdrawal" xml:space="preserve">
+    <value>Online Withdrawal</value>
+  </data>
+  <data name="Label_Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Label_AccountName" xml:space="preserve">
+    <value>Account Name</value>
+  </data>
+  <data name="Label_Affiliate" xml:space="preserve">
+    <value>Affiliate</value>
+  </data>
+  <data name="Label_ApprovedDate" xml:space="preserve">
+    <value>Approved Date</value>
+  </data>
+  <data name="Label_BankCode" xml:space="preserve">
+    <value>Bank Code</value>
+  </data>
+  <data name="Label_Branch" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="Label_EndingBalance" xml:space="preserve">
+    <value>Ending Balance</value>
+  </data>
+  <data name="Label_Gateway" xml:space="preserve">
+    <value>Gateway</value>
+  </data>
+  <data name="Label_HandleBy" xml:space="preserve">
+    <value>Handle By</value>
+  </data>
+  <data name="Label_MemberID" xml:space="preserve">
+    <value>Member ID</value>
+  </data>
+  <data name="Label_Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="Label_OrderDate" xml:space="preserve">
+    <value>Order Date</value>
+  </data>
+  <data name="Label_PaymentGateway" xml:space="preserve">
+    <value>Payment Gateway</value>
+  </data>
+  <data name="Label_Player" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="Label_ReferenceNo" xml:space="preserve">
+    <value>Reference No</value>
+  </data>
+  <data name="Label_SelectMonth" xml:space="preserve">
+    <value>Select Month</value>
+  </data>
+  <data name="Label_SwiftCode" xml:space="preserve">
+    <value>Swift Code</value>
+  </data>
+  <data name="Label_TransactionType" xml:space="preserve">
+    <value>Transaction Type</value>
+  </data>
+  <data name="Label_UserType" xml:space="preserve">
+    <value>User Type</value>
+  </data>
+  <data name="Label_WithdrawalID" xml:space="preserve">
+    <value>Withdrawal ID</value>
+  </data>
+  <data name="Label_WithdrawalType" xml:space="preserve">
+    <value>Withdrawal Type</value>
+  </data>
+  <data name="Label_WithdrawType" xml:space="preserve">
+    <value>Withdraw Type</value>
+  </data>
+  <data name="ListTitle_BankBalanceSetting" xml:space="preserve">
+    <value>Bank Ending Balance Setting</value>
+  </data>
+  <data name="ListTitle_BankType" xml:space="preserve">
+    <value>Bank Type</value>
+  </data>
+  <data name="ListTitle_EndingBalance" xml:space="preserve">
+    <value>Ending Balance</value>
+  </data>
+  <data name="ListTitle_PaymentAccount" xml:space="preserve">
+    <value>Payment Account</value>
+  </data>
+  <data name="ListTitle_PaymentGateway" xml:space="preserve">
+    <value>Payment Gateway</value>
+  </data>
+  <data name="ListTitle_StartingBalance" xml:space="preserve">
+    <value>Starting Balance</value>
+  </data>
+  <data name="Label_QueryDetail" xml:space="preserve">
+    <value>Query Detail</value>
+  </data>
+  <data name="Label_TxIdFrom" xml:space="preserve">
+    <value>TX ID From</value>
+  </data>
+  <data name="Label_TxIdTo" xml:space="preserve">
+    <value>TX ID To</value>
+  </data>
+  <data name="ListTitle_FPPS" xml:space="preserve">
+    <value>FPPS</value>
+  </data>
+  <data name="ListTitle_InternalTxID" xml:space="preserve">
+    <value>Internal TxID</value>
+  </data>
+  <data name="ListTitle_RakedHands" xml:space="preserve">
+    <value>Raked Hands</value>
+  </data>
+  <data name="ListTitle_SiteID" xml:space="preserve">
+    <value>Site ID</value>
+  </data>
+  <data name="ListTitle_TransactionDate" xml:space="preserve">
+    <value>Transaction Date</value>
+  </data>
+  <data name="ListTitle_TransactionType" xml:space="preserve">
+    <value>Transaction Type</value>
+  </data>
+  <data name="ListTitle_TransactionTypeDesc" xml:space="preserve">
+    <value>Transaction Type Description</value>
+  </data>
+  <data name="Label_DateApproval" xml:space="preserve">
+    <value>Date Approval</value>
+  </data>
+  <data name="ListTitle_BankCode" xml:space="preserve">
+    <value>Bank Code</value>
+  </data>
+  <data name="ListTitle_Brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="ListTitle_CompletionTime" xml:space="preserve">
+    <value>Completion Time</value>
+  </data>
+  <data name="ListTitle_CreatedTime" xml:space="preserve">
+    <value>Created Time</value>
+  </data>
+  <data name="ListTitle_Fee" xml:space="preserve">
+    <value>Fee</value>
+  </data>
+  <data name="ListTitle_HandledBy" xml:space="preserve">
+    <value>HandledBy</value>
+  </data>
+  <data name="ListTitle_OrderTime" xml:space="preserve">
+    <value>Order Time</value>
+  </data>
+  <data name="ListTitle_ReferenceID" xml:space="preserve">
+    <value>Reference ID</value>
+  </data>
+  <data name="ListTitle_TransactionsAudit" xml:space="preserve">
+    <value>Transactions Audit</value>
+  </data>
+  <data name="ListTitle_UpdatedTime" xml:space="preserve">
+    <value>Updated Time</value>
+  </data>
+  <data name="Label_CompanyWinLoss" xml:space="preserve">
+    <value>Company Win/Loss</value>
+  </data>
+  <data name="Label_Deposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="Label_Regenerate" xml:space="preserve">
+    <value>Regenerate</value>
+  </data>
+  <data name="Label_ReportDate" xml:space="preserve">
+    <value>ReportDate</value>
+  </data>
+  <data name="Label_TurnOverChips" xml:space="preserve">
+    <value>Turn Over Chips</value>
+  </data>
+  <data name="ListTitle_CurrentMonthARMV" xml:space="preserve">
+    <value>Current Month ARMV</value>
+  </data>
+  <data name="ListTitle_CurrentMonthCusAcc" xml:space="preserve">
+    <value>Current Month Customer Account</value>
+  </data>
+  <data name="ListTitle_CustomerType" xml:space="preserve">
+    <value>Customer Type</value>
+  </data>
+  <data name="ListTitle_PreviousMonthARMV" xml:space="preserve">
+    <value>Previous Month ARMV</value>
+  </data>
+  <data name="ListTitle_PreviousMonthCusAcc" xml:space="preserve">
+    <value>Previous Month Customer Account</value>
+  </data>
+  <data name="ListTitle_Criteria" xml:space="preserve">
+    <value>Criteria</value>
+  </data>
+  <data name="ListTitle_LinkedUserName" xml:space="preserve">
+    <value>Linked User Name</value>
+  </data>
+  <data name="ListTitle_RuleID" xml:space="preserve">
+    <value>RuleID</value>
+  </data>
+  <data name="ListTitle_RuleName" xml:space="preserve">
+    <value>Rule Name</value>
+  </data>
+  <data name="ListTitle_RuleType" xml:space="preserve">
+    <value>Rule Type</value>
+  </data>
+  <data name="PageTitle_AutoOWVerify" xml:space="preserve">
+    <value>Auto OW Verify</value>
+  </data>
+  <data name="PageTitle_AutoOWVerifySetting" xml:space="preserve">
+    <value>Auto OW Verify Setting</value>
+  </data>
+  <data name="Text_SameAddress" xml:space="preserve">
+    <value>Same Address</value>
+  </data>
+  <data name="Text_SameBirthday" xml:space="preserve">
+    <value>Same Birthday</value>
+  </data>
+  <data name="Text_SameContact" xml:space="preserve">
+    <value>Same Contact</value>
+  </data>
+  <data name="Text_SameEmail" xml:space="preserve">
+    <value>Same Email</value>
+  </data>
+  <data name="Text_SameIP" xml:space="preserve">
+    <value>Same IP</value>
+  </data>
+  <data name="Text_SamePayment" xml:space="preserve">
+    <value>Same Payment</value>
+  </data>
+  <data name="Label_MaxAmoutEachDay" xml:space="preserve">
+    <value>Max Amout Each Day</value>
+  </data>
+  <data name="Label_MaxAmoutPerTransfer" xml:space="preserve">
+    <value>Max Amout Per-Transfer</value>
+  </data>
+  <data name="Label_MinAmoutPerTransfer" xml:space="preserve">
+    <value>Min Amout Per-Transfer</value>
+  </data>
+  <data name="Label_NumberoftransferPerDay" xml:space="preserve">
+    <value>Number of transfer Per-Day</value>
+  </data>
+  <data name="ListTitle_MaxAmountPerDay" xml:space="preserve">
+    <value>Max Amount Per Day</value>
+  </data>
+  <data name="ListTitle_MaxAmountTransfer" xml:space="preserve">
+    <value>Max Amount Transfer</value>
+  </data>
+  <data name="ListTitle_MinAmountTransfer" xml:space="preserve">
+    <value>Min Amount Transfer</value>
+  </data>
+  <data name="ListTitle_NumberofTransferPerDay" xml:space="preserve">
+    <value>Number of Transfer Per Day</value>
+  </data>
+  <data name="ListTitle_VIPOnline" xml:space="preserve">
+    <value>VIP Online</value>
+  </data>
+  <data name="PageTitle_OnlinePaymentSetting" xml:space="preserve">
+    <value>Online Payment Setting</value>
+  </data>
+  <data name="ListTitle_ReferenceNo" xml:space="preserve">
+    <value>Reference No.</value>
+  </data>
+  <data name="ListTitle_ReferenceNumber" xml:space="preserve">
+    <value>Reference Number</value>
+  </data>
+  <data name="ListTitle_SumPayCash" xml:space="preserve">
+    <value>Sum Pay Cash</value>
+  </data>
+  <data name="ListTitle_PaymentName" xml:space="preserve">
+    <value>Payment Name</value>
+  </data>
+  <data name="ListTitle_FromBank" xml:space="preserve">
+    <value>From Bank</value>
+  </data>
+  <data name="ListTitle_DateAccepted" xml:space="preserve">
+    <value>Date Accepted</value>
+  </data>
+  <data name="ListTitle_DateApproved" xml:space="preserve">
+    <value>Date Approved</value>
+  </data>
+  <data name="ListTitle_DateProcessed" xml:space="preserve">
+    <value>Date Processed</value>
+  </data>
+  <data name="ListTitle_DateRjected" xml:space="preserve">
+    <value>Date Rjected</value>
+  </data>
+  <data name="ListTitle_DateSubmitted" xml:space="preserve">
+    <value>Date Submitted</value>
+  </data>
+  <data name="ListTitle_EntryPoint" xml:space="preserve">
+    <value>Entry Point</value>
+  </data>
+  <data name="ListTitle_CashOutID" xml:space="preserve">
+    <value>Cash Out ID</value>
+  </data>
+  <data name="ListTitle_Channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="ListTitle_BonusTransactionID" xml:space="preserve">
+    <value>Bonus Transaction ID</value>
+  </data>
+  <data name="Label_DateApproved" xml:space="preserve">
+    <value>Date Approved</value>
+  </data>
+  <data name="Label_DateRejected" xml:space="preserve">
+    <value>Date Rejected</value>
+  </data>
+  <data name="Label_DateSubmitted" xml:space="preserve">
+    <value>Date Submitted</value>
+  </data>
+  <data name="Label_DateUnverified" xml:space="preserve">
+    <value>Date Unverified</value>
+  </data>
+  <data name="Label_EntryPoint" xml:space="preserve">
+    <value>Entry Point</value>
+  </data>
+  <data name="Label_ErrorCode" xml:space="preserve">
+    <value>ErrorCode</value>
+  </data>
+  <data name="Label_EvidentInfo" xml:space="preserve">
+    <value>Evident Info</value>
+  </data>
+  <data name="Label_ExistingRemark" xml:space="preserve">
+    <value>Existing Remark</value>
+  </data>
+  <data name="Label_FromCompanyBank" xml:space="preserve">
+    <value>From Bank (Company's Bank)</value>
+  </data>
+  <data name="Label_HolderName" xml:space="preserve">
+    <value>Holder Name</value>
+  </data>
+  <data name="Label_Hour" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="Label_Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="Label_PaymentName" xml:space="preserve">
+    <value>Payment Name</value>
+  </data>
+  <data name="Label_PlayerAccount" xml:space="preserve">
+    <value>Player Account</value>
+  </data>
+  <data name="Label_RejectInfo" xml:space="preserve">
+    <value>Reject Info</value>
+  </data>
+  <data name="Label_RemarkInfo" xml:space="preserve">
+    <value>Remark Info</value>
+  </data>
+  <data name="Label_Sec" xml:space="preserve">
+    <value>Sec</value>
+  </data>
+  <data name="Label_ToPlayerBank" xml:space="preserve">
+    <value>To Bank (Player's Bank)</value>
+  </data>
+  <data name="Label_UnverifiedBy" xml:space="preserve">
+    <value>Unverified By</value>
+  </data>
+  <data name="ListTitle_AcceptanceStatus" xml:space="preserve">
+    <value>Acceptance Status</value>
+  </data>
+  <data name="ListTitle_ActualAmount" xml:space="preserve">
+    <value>Actual Amount</value>
+  </data>
+  <data name="ListTitle_ApprovedBy" xml:space="preserve">
+    <value>Approved By</value>
+  </data>
+  <data name="ListTitle_AutoBonus" xml:space="preserve">
+    <value>Auto Bonus</value>
+  </data>
+  <data name="ListTitle_AutoWagerPass" xml:space="preserve">
+    <value>Auto Wager Pass</value>
+  </data>
+  <data name="Field_Canceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="Field_Deposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="Field_OnHold" xml:space="preserve">
+    <value>OnHold</value>
+  </data>
+  <data name="Field_Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="Field_Unverified" xml:space="preserve">
+    <value>Unverified</value>
+  </data>
+  <data name="Field_Unverify" xml:space="preserve">
+    <value>Unverify</value>
+  </data>
+  <data name="Field_Verified" xml:space="preserve">
+    <value>Verified</value>
+  </data>
+  <data name="Field_Verify" xml:space="preserve">
+    <value>Verify</value>
+  </data>
+  <data name="Field_WithDraw" xml:space="preserve">
+    <value>WithDraw</value>
+  </data>
+  <data name="Label_ActualAmount" xml:space="preserve">
+    <value>Actual Amount</value>
+  </data>
+  <data name="Label_AddRemark" xml:space="preserve">
+    <value>Add Remark</value>
+  </data>
+  <data name="Label_ApprovedBy" xml:space="preserve">
+    <value>Approved By</value>
+  </data>
+  <data name="Label_AutoWagerPass" xml:space="preserve">
+    <value>Auto Wager Pass</value>
+  </data>
+  <data name="Label_BankID" xml:space="preserve">
+    <value>Bank ID</value>
+  </data>
+  <data name="Label_BonusName" xml:space="preserve">
+    <value>Bonus Name</value>
+  </data>
+  <data name="Label_BonusTransactionID" xml:space="preserve">
+    <value>Bonus Transaction ID</value>
+  </data>
+  <data name="Label_CashOutID" xml:space="preserve">
+    <value>Cash Out ID</value>
+  </data>
+  <data name="Label_Channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="Label_ConfirmedAmount" xml:space="preserve">
+    <value>Confirmed Amount</value>
+  </data>
+  <data name="Label_ConfirmedFee" xml:space="preserve">
+    <value>Confirmed Fee</value>
+  </data>
+  <data name="PageTitle_DailyTransaction" xml:space="preserve">
+    <value>Daily Transaction</value>
+  </data>
+  <data name="Field_Checked" xml:space="preserve">
+    <value>Checked</value>
+  </data>
+  <data name="ListTitle_CheckedBy" xml:space="preserve">
+    <value>Checked By</value>
+  </data>
+  <data name="ListTitle_CheckStatus" xml:space="preserve">
+    <value>Check Status</value>
+  </data>
+  <data name="ListTitle_CreditCardNumber" xml:space="preserve">
+    <value>Credit Card Number</value>
+  </data>
+  <data name="ListTitle_CreditCardType" xml:space="preserve">
+    <value>Credit Card Type</value>
+  </data>
+  <data name="ListTitle_DateTimeUploaded" xml:space="preserve">
+    <value>DateTime Uploaded</value>
+  </data>
+  <data name="ListTitle_PaymentDetails" xml:space="preserve">
+    <value>Payment Details</value>
+  </data>
+  <data name="ListTitle_ReferenceUserName" xml:space="preserve">
+    <value>Reference User Name</value>
+  </data>
+  <data name="ListTitle_CheckedDate" xml:space="preserve">
+    <value>Checked Date</value>
+  </data>
+  <data name="ListTitle_CompletedBy" xml:space="preserve">
+    <value>Completed By</value>
+  </data>
+  <data name="ListTitle_DateCompleted" xml:space="preserve">
+    <value>Date Completed</value>
+  </data>
+  <data name="ListTitle_DateFrom" xml:space="preserve">
+    <value>Date From</value>
+  </data>
+  <data name="ListTitle_DateHandled" xml:space="preserve">
+    <value>Date Handled</value>
+  </data>
+  <data name="ListTitle_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="ListTitle_FraudRiskDescription" xml:space="preserve">
+    <value>Fraud Risk Description</value>
+  </data>
+  <data name="ListTitle_FraudRiskLevel" xml:space="preserve">
+    <value>Fraud Risk Level</value>
+  </data>
+  <data name="ListTitle_FraudRiskName" xml:space="preserve">
+    <value>Fraud Risk Name</value>
+  </data>
+  <data name="ListTitle_FraudType" xml:space="preserve">
+    <value>Fraud Type</value>
+  </data>
+  <data name="ListTitle_HandlingTime" xml:space="preserve">
+    <value>Handling Time</value>
+  </data>
+  <data name="ListTitle_MaxmindResult" xml:space="preserve">
+    <value>Maxmind Result</value>
+  </data>
+  <data name="ListTitle_NetellerResult" xml:space="preserve">
+    <value>Neteller Result</value>
+  </data>
+  <data name="ListTitle_PaymentStatus" xml:space="preserve">
+    <value>Payment Status</value>
+  </data>
+  <data name="ListTitle_RavenResult" xml:space="preserve">
+    <value>Raven Result</value>
+  </data>
+  <data name="ListTitle_RuleDescription" xml:space="preserve">
+    <value>Rule Description</value>
+  </data>
+  <data name="ListTitle_SignUpDate" xml:space="preserve">
+    <value>Sign Up Date</value>
+  </data>
+  <data name="ListTitle_SkirllResult" xml:space="preserve">
+    <value>Skirll Result</value>
+  </data>
+  <data name="Title_FraudDepositCheck" xml:space="preserve">
+    <value>Fraud Deposit Check</value>
+  </data>
+  <data name="Control_Button_CreateNewJob" xml:space="preserve">
+    <value>Create New Job</value>
+  </data>
+  <data name="Control_Button_RefreshStatus" xml:space="preserve">
+    <value>Refresh Status</value>
+  </data>
+  <data name="Control_Button_UpdateJob" xml:space="preserve">
+    <value>Update Job</value>
+  </data>
+  <data name="Control_Button_ViewJob" xml:space="preserve">
+    <value>View Job</value>
+  </data>
+  <data name="Label_CompareResult" xml:space="preserve">
+    <value>Compare Result</value>
+  </data>
+  <data name="Label_CurrencyCode" xml:space="preserve">
+    <value>Currency Code</value>
+  </data>
+  <data name="Label_CurrencyName" xml:space="preserve">
+    <value>Currency Name</value>
+  </data>
+  <data name="Label_DateOfTransaction" xml:space="preserve">
+    <value>Date Of Transaction</value>
+  </data>
+  <data name="Label_DateTransactionFrom" xml:space="preserve">
+    <value>Date Transaction From</value>
+  </data>
+  <data name="Label_DateTransactionJobFrom" xml:space="preserve">
+    <value>Date Transaction Job From</value>
+  </data>
+  <data name="Label_DepoistID" xml:space="preserve">
+    <value>Depoist ID</value>
+  </data>
+  <data name="Label_JobRemark" xml:space="preserve">
+    <value>Job Remark</value>
+  </data>
+  <data name="Label_NoOfUnhandledTransaction" xml:space="preserve">
+    <value>No. Of Unhandled Transaction</value>
+  </data>
+  <data name="Label_OperationType" xml:space="preserve">
+    <value>Operation Type</value>
+  </data>
+  <data name="Label_ReUploadPackage" xml:space="preserve">
+    <value>Re-Upload Package</value>
+  </data>
+  <data name="Label_RiskRate" xml:space="preserve">
+    <value>Risk Rate</value>
+  </data>
+  <data name="Label_StatusOfTransaction" xml:space="preserve">
+    <value>Status Of Transaction</value>
+  </data>
+  <data name="Label_UDAIncrement" xml:space="preserve">
+    <value>UDA Increment</value>
+  </data>
+  <data name="Label_UDARangeEnd" xml:space="preserve">
+    <value>UDA Range End</value>
+  </data>
+  <data name="Label_UDARangeStart" xml:space="preserve">
+    <value>UDA Range Start</value>
+  </data>
+  <data name="Label_UploadPackage" xml:space="preserve">
+    <value>Upload Package</value>
+  </data>
+  <data name="ListTitle_CompareResult" xml:space="preserve">
+    <value>Compare Result</value>
+  </data>
+  <data name="ListTitle_HandleDate" xml:space="preserve">
+    <value>Handle Date</value>
+  </data>
+  <data name="ListTitle_HandleResult" xml:space="preserve">
+    <value>Handle Result</value>
+  </data>
+  <data name="ListTitle_Increment" xml:space="preserve">
+    <value>Increment</value>
+  </data>
+  <data name="ListTitle_JobRemark" xml:space="preserve">
+    <value>Job Remark</value>
+  </data>
+  <data name="ListTitle_JobStatus" xml:space="preserve">
+    <value>Job Status</value>
+  </data>
+  <data name="ListTitle_JobUpdateBy" xml:space="preserve">
+    <value>Job Update By</value>
+  </data>
+  <data name="ListTitle_JobUpdatedDate" xml:space="preserve">
+    <value>Job Updated Date</value>
+  </data>
+  <data name="ListTitle_OperationType" xml:space="preserve">
+    <value>Operation Type</value>
+  </data>
+  <data name="ListTitle_RiskRate" xml:space="preserve">
+    <value>Risk Rate</value>
+  </data>
+  <data name="ListTitle_SystemApprovedDate" xml:space="preserve">
+    <value>System Approved Date</value>
+  </data>
+  <data name="ListTitle_TransactionBy" xml:space="preserve">
+    <value>Transaction By</value>
+  </data>
+  <data name="ListTitle_TransactionJobDate" xml:space="preserve">
+    <value>Transaction Job Date</value>
+  </data>
+  <data name="ListTitle_UDARangeEnd" xml:space="preserve">
+    <value>UDA Range End</value>
+  </data>
+  <data name="ListTitle_UDARangeStart" xml:space="preserve">
+    <value>UDA Range Start</value>
+  </data>
+  <data name="ListTitle_UnhandledTransaction" xml:space="preserve">
+    <value>Unhandled Transaction</value>
+  </data>
+  <data name="PageTitle_TransactionJobManager" xml:space="preserve">
+    <value>Transaction Job Manager</value>
+  </data>
+  <data name="PageTitle_TransactionReport" xml:space="preserve">
+    <value>Transaction Report</value>
+  </data>
+  <data name="PageTitle_UDASetting" xml:space="preserve">
+    <value>UDA Setting</value>
+  </data>
+  <data name="PageTitle_UpdateTransactionJob" xml:space="preserve">
+    <value>Update Transaction Job</value>
+  </data>
+  <data name="Label_DateReportFrom" xml:space="preserve">
+    <value>Date Report From</value>
+  </data>
+  <data name="Label_DateReportTo" xml:space="preserve">
+    <value>Date Report To</value>
+  </data>
+  <data name="Label_Recipient" xml:space="preserve">
+    <value>Recipient</value>
+  </data>
+  <data name="Label_RecipientList" xml:space="preserve">
+    <value>Recipient List Name</value>
+  </data>
+  <data name="Label_RemoveZeroBalancePlayer" xml:space="preserve">
+    <value>Remove Zero Balance Player</value>
+  </data>
+  <data name="ListTitle_BBINBalance" xml:space="preserve">
+    <value>BBIN Balance</value>
+  </data>
+  <data name="ListTitle_CakeBalance" xml:space="preserve">
+    <value>Cake Balance</value>
+  </data>
+  <data name="ListTitle_ChartwelBalance" xml:space="preserve">
+    <value>Chartwel Balance</value>
+  </data>
+  <data name="ListTitle_CrownBalance" xml:space="preserve">
+    <value>Crown Balance</value>
+  </data>
+  <data name="ListTitle_EAGameBalance" xml:space="preserve">
+    <value>EAGame Balance</value>
+  </data>
+  <data name="ListTitle_EndBalanceReport" xml:space="preserve">
+    <value>Ending Balance Report</value>
+  </data>
+  <data name="ListTitle_GDBalance" xml:space="preserve">
+    <value>GD Balance</value>
+  </data>
+  <data name="ListTitle_HOGameBalance" xml:space="preserve">
+    <value>HOGame Balance</value>
+  </data>
+  <data name="ListTitle_OBBalance" xml:space="preserve">
+    <value>OB Balance</value>
+  </data>
+  <data name="ListTitle_OnelabSBBalance" xml:space="preserve">
+    <value>OnelabSB Balance</value>
+  </data>
+  <data name="ListTitle_SSS988SBBalance" xml:space="preserve">
+    <value>SSS988 SB Balance</value>
+  </data>
+  <data name="ListTitle_SunCasinoBalance" xml:space="preserve">
+    <value>SunCasino Balance</value>
+  </data>
+  <data name="PageTitle_NoPermission" xml:space="preserve">
+    <value>No Permission</value>
+  </data>
+  <data name="PageTitle_UnderMaintain" xml:space="preserve">
+    <value>Under maintain</value>
+  </data>
+  <data name="Field_Activated" xml:space="preserve">
+    <value>Activated</value>
+  </data>
+  <data name="Field_Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="Field_CashIn" xml:space="preserve">
+    <value>Cash In</value>
+  </data>
+  <data name="Field_CashOut" xml:space="preserve">
+    <value>Cash Out</value>
+  </data>
+  <data name="Field_FundIn" xml:space="preserve">
+    <value>FundIn</value>
+  </data>
+  <data name="Field_FundOut" xml:space="preserve">
+    <value>FundOut</value>
+  </data>
+  <data name="Field_Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="Field_Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Label_DateActivated" xml:space="preserve">
+    <value>Date Activated</value>
+  </data>
+  <data name="Label_DateExpiry" xml:space="preserve">
+    <value>Date Expiry</value>
+  </data>
+  <data name="Label_ReceivedStatus" xml:space="preserve">
+    <value>Received Status</value>
+  </data>
+  <data name="Label_Submitted" xml:space="preserve">
+    <value>Submitted</value>
+  </data>
+  <data name="Label_TrackingNo" xml:space="preserve">
+    <value>Tracking No</value>
+  </data>
+  <data name="Label_VoucherActiveDate" xml:space="preserve">
+    <value>Voucher Active Date</value>
+  </data>
+  <data name="Label_VoucherCurrency" xml:space="preserve">
+    <value>Voucher Currency</value>
+  </data>
+  <data name="Label_VoucherExpiryDate" xml:space="preserve">
+    <value>Voucher Expiry Date</value>
+  </data>
+  <data name="Label_VoucherNumber" xml:space="preserve">
+    <value>Voucher Number</value>
+  </data>
+  <data name="Label_VoucherValue" xml:space="preserve">
+    <value>Voucher Value</value>
+  </data>
+  <data name="ListTitle_CancelledBy" xml:space="preserve">
+    <value>Cancelled By</value>
+  </data>
+  <data name="ListTitle_DateActivated" xml:space="preserve">
+    <value>Date Activated</value>
+  </data>
+  <data name="ListTitle_DateCancelled" xml:space="preserve">
+    <value>Date Cancelled</value>
+  </data>
+  <data name="ListTitle_DateRejected" xml:space="preserve">
+    <value>Date Rejected</value>
+  </data>
+  <data name="ListTitle_DateWagerChecked" xml:space="preserve">
+    <value>Date Wager Checked</value>
+  </data>
+  <data name="ListTitle_TrackingNumber" xml:space="preserve">
+    <value>Tracking Number</value>
+  </data>
+  <data name="ListTitle_UserId" xml:space="preserve">
+    <value>UserId</value>
+  </data>
+  <data name="ListTitle_VoucherCurrency" xml:space="preserve">
+    <value>Voucher Currency</value>
+  </data>
+  <data name="ListTitle_VoucherExpiryDate" xml:space="preserve">
+    <value>Voucher Expiry Date</value>
+  </data>
+  <data name="ListTitle_VoucherNumber" xml:space="preserve">
+    <value>Voucher Number</value>
+  </data>
+  <data name="ListTitle_VoucherValue" xml:space="preserve">
+    <value>Voucher Value</value>
+  </data>
+  <data name="Label_Grouping" xml:space="preserve">
+    <value>Grouping</value>
+  </data>
+  <data name="Label_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Label_TotalAffDep" xml:space="preserve">
+    <value>Tota lAff Dep</value>
+  </data>
+  <data name="Label_TotalPlayerDep" xml:space="preserve">
+    <value>Total Player Dep</value>
+  </data>
+  <data name="Label_TotaWithdrawal" xml:space="preserve">
+    <value>Tota Withdrawal</value>
+  </data>
+  <data name="ListTitle_CompanyGrossprofit" xml:space="preserve">
+    <value>Company Gross profit</value>
+  </data>
+  <data name="ListTitle_FundIn" xml:space="preserve">
+    <value>FundIn</value>
+  </data>
+  <data name="ListTitle_FundOut" xml:space="preserve">
+    <value>FundOut</value>
+  </data>
+  <data name="ListTitle_HouseAdvAfBonuPayout" xml:space="preserve">
+    <value>House Advantage After Bonus Payout</value>
+  </data>
+  <data name="ListTitle_HouseAdvBfBonuPayout" xml:space="preserve">
+    <value>House Advantage Before Bonus Payout</value>
+  </data>
+  <data name="ListTitle_OfPlayersWhoPlaceBet" xml:space="preserve">
+    <value>Of players who placed bets</value>
+  </data>
+  <data name="ListTitle_TotalAdjustment" xml:space="preserve">
+    <value>Total Adjustment</value>
+  </data>
+  <data name="ListTitle_TotalBonus" xml:space="preserve">
+    <value>Total Bonus</value>
+  </data>
+  <data name="ListTitle_TotalBonusPayout" xml:space="preserve">
+    <value>Total Bonus Pay Out</value>
+  </data>
+  <data name="ListTitle_TotalRebate" xml:space="preserve">
+    <value>Total Rebate</value>
+  </data>
+  <data name="ListTitle_TotalWinLoss" xml:space="preserve">
+    <value>Total Win/Loss</value>
+  </data>
+  <data name="ListTitle_WagerCheckedBy" xml:space="preserve">
+    <value>Wager Checked By</value>
+  </data>
+  <data name="PageTitle_OfflineDeposit" xml:space="preserve">
+    <value>Offline Deposit</value>
+  </data>
+  <data name="Field_WagerFail" xml:space="preserve">
+    <value>WagerFail</value>
+  </data>
+  <data name="Field_WagerPass" xml:space="preserve">
+    <value>WagerPass</value>
+  </data>
+  <data name="Label_PayoutRatio" xml:space="preserve">
+    <value>Payout Ratio</value>
+  </data>
+  <data name="Label_YearMonth" xml:space="preserve">
+    <value>Year-Month</value>
+  </data>
+  <data name="ListTitle_TotalPlayerBalance" xml:space="preserve">
+    <value>Total Player Balance</value>
+  </data>
+  <data name="ListTitle_TotalStakes" xml:space="preserve">
+    <value>Total Stakes</value>
+  </data>
+  <data name="ListTitle_TotalUnsettledBets" xml:space="preserve">
+    <value>Tota l Unsettled Bets</value>
+  </data>
+  <data name="ListTitle_TotalWins" xml:space="preserve">
+    <value>Total Wins</value>
+  </data>
+  <data name="Control_Button_UploadEvidence" xml:space="preserve">
+    <value>Upload Evidence</value>
+  </data>
+  <data name="Label_NewDeposits" xml:space="preserve">
+    <value>New Deposit</value>
+  </data>
+  <data name="ListTitle_GameUnsettledBets" xml:space="preserve">
+    <value>{0} Unsettled Bets</value>
+  </data>
+  <data name="ListTitle_Hold" xml:space="preserve">
+    <value>Hold</value>
+  </data>
+  <data name="ListTitle_HoldPercents" xml:space="preserve">
+    <value>Hold Percents</value>
+  </data>
+  <data name="ListTitle_OpenbetSBUnsettledBets" xml:space="preserve">
+    <value>Openbet SB Unsettled Bets</value>
+  </data>
+  <data name="ListTitle_Payouts" xml:space="preserve">
+    <value>Payouts</value>
+  </data>
+  <data name="ListTitle_PeriodReportFundIn" xml:space="preserve">
+    <value>{0} Fund In</value>
+  </data>
+  <data name="ListTitle_PeriodReportFundOut" xml:space="preserve">
+    <value>{0} Fund Out</value>
+  </data>
+  <data name="ListTitle_PeriodReportTotalEndBalance" xml:space="preserve">
+    <value>{0} Total End Balance</value>
+  </data>
+  <data name="ListTitle_PeriodReportWinLoss" xml:space="preserve">
+    <value>{0} Win/Loss</value>
+  </data>
+  <data name="ListTitle_PlayerLiability" xml:space="preserve">
+    <value>Player Liability</value>
+  </data>
+  <data name="ListTitle_TotalTurnOver" xml:space="preserve">
+    <value>Total TurnOver</value>
+  </data>
+  <data name="Label_ApproveDateFrom" xml:space="preserve">
+    <value>Approve Date From</value>
+  </data>
+  <data name="Label_ApproveDateTo" xml:space="preserve">
+    <value>Approve Date To</value>
+  </data>
+  <data name="Label_BetAmountFrom" xml:space="preserve">
+    <value>Bet Amount From</value>
+  </data>
+  <data name="Label_BetAmountTo" xml:space="preserve">
+    <value>Bet Amount To</value>
+  </data>
+  <data name="Label_DateBetFrom" xml:space="preserve">
+    <value>Date Bet From</value>
+  </data>
+  <data name="Label_DateBetTo" xml:space="preserve">
+    <value>Date Bet To</value>
+  </data>
+  <data name="Label_Game" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="Label_NoBetFrom" xml:space="preserve">
+    <value>No. of Bet From</value>
+  </data>
+  <data name="Label_NoBetTo" xml:space="preserve">
+    <value>No. of Bet To</value>
+  </data>
+  <data name="Label_PlayerWinFrom" xml:space="preserve">
+    <value>Player Win From</value>
+  </data>
+  <data name="Label_PlayerWinTo" xml:space="preserve">
+    <value>Player Win To</value>
+  </data>
+  <data name="Label_RegisteredDateFrom" xml:space="preserve">
+    <value>Registered Date From</value>
+  </data>
+  <data name="Label_RegisteredDateTo" xml:space="preserve">
+    <value>Registered Date To</value>
+  </data>
+  <data name="ListTitle_DayOfBalance" xml:space="preserve">
+    <value>Day Of Balance</value>
+  </data>
+  <data name="ListTitle_DaysRemaining" xml:space="preserve">
+    <value>Days Remaining</value>
+  </data>
+  <data name="ListTitle_ExemptBy" xml:space="preserve">
+    <value>Exempt By</value>
+  </data>
+  <data name="ListTitle_ExemptDate" xml:space="preserve">
+    <value>Exempt Date</value>
+  </data>
+  <data name="ListTitle_ExemptEndDate" xml:space="preserve">
+    <value>Exempt End Date</value>
+  </data>
+  <data name="ListTitle_ExemptStartDate" xml:space="preserve">
+    <value>Exempt Start Date</value>
+  </data>
+  <data name="ListTitle_GameBalance" xml:space="preserve">
+    <value>{0} Balance</value>
+  </data>
+  <data name="ListTitle_NoOfBet" xml:space="preserve">
+    <value>No Of Bet</value>
+  </data>
+  <data name="ListTitle_PlayerBonusAmountPayable" xml:space="preserve">
+    <value>Player Bonus Amount Payable</value>
+  </data>
+  <data name="ListTitle_RemaindingDays" xml:space="preserve">
+    <value>Remainding Days</value>
+  </data>
+  <data name="ListTitle_TransactionSummaryReport" xml:space="preserve">
+    <value>Transaction Summary Report</value>
+  </data>
+  <data name="ListTitle_UnsettledBetBalance" xml:space="preserve">
+    <value>Player Unsettled bets balance</value>
+  </data>
+  <data name="Field_Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Field_Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Field_SelfExcluded" xml:space="preserve">
+    <value>SelfExcluded</value>
+  </data>
+  <data name="Label_WithdrawaExemptionReport" xml:space="preserve">
+    <value>Withdrawa Exemption Report</value>
+  </data>
+  <data name="UpdateGBFailed" xml:space="preserve">
+    <value>Game Balance Update failed!</value>
+  </data>
+  <data name="Text_Column" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="Text_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ListTitle_PublishID" xml:space="preserve">
+    <value>Publish ID</value>
+  </data>
+  <data name="ListTitle_SendTo" xml:space="preserve">
+    <value>Send To</value>
+  </data>
+  <data name="PapeTitle_OnSiteMessage" xml:space="preserve">
+    <value>OnSite Message Manager</value>
+  </data>
+  <data name="Control_Button_HandleTransaction" xml:space="preserve">
+    <value>Handle Transaction</value>
+  </data>
+  <data name="Label_ActionId" xml:space="preserve">
+    <value>Action Id</value>
+  </data>
+  <data name="Label_GameId" xml:space="preserve">
+    <value>Game Id</value>
+  </data>
+  <data name="Label_PlayType" xml:space="preserve">
+    <value>Play Type</value>
+  </data>
+  <data name="Label_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Label_TransactionDateFrom" xml:space="preserve">
+    <value>Transaction Date From</value>
+  </data>
+  <data name="ListTitle_ActionDesc" xml:space="preserve">
+    <value>Action Description</value>
+  </data>
+  <data name="ListTitle_ActionId" xml:space="preserve">
+    <value>Action Id</value>
+  </data>
+  <data name="ListTitle_Platform" xml:space="preserve">
+    <value>Platform</value>
+  </data>
+  <data name="ListTitle_PlayType" xml:space="preserve">
+    <value>Play Type</value>
+  </data>
+  <data name="PageTitle_MicrogamingTransactions" xml:space="preserve">
+    <value>Microgaming Transactions</value>
+    <comment>PageTitle</comment>
+  </data>
+  <data name="ListTitle_CategoryName" xml:space="preserve">
+    <value>Category Name</value>
+  </data>
+  <data name="ListTitle_CardNumber" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="Tab_Title_AddPayment" xml:space="preserve">
+    <value>Add Payment</value>
+  </data>
+  <data name="Tab_Title_PlayerActive" xml:space="preserve">
+    <value>Player Active</value>
+  </data>
+  <data name="Tab_Title_PlayerInactive" xml:space="preserve">
+    <value>Player Inactive</value>
+  </data>
+  <data name="Tab_Title_ResendActiveEmail" xml:space="preserve">
+    <value>Resend Active Email</value>
+  </data>
+  <data name="PageTitle_MicrogamingSettings" xml:space="preserve">
+    <value>Microgaming Settings</value>
+    <comment>Page Title</comment>
+  </data>
+  <data name="ListTitle_URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="Text_ColourCar" xml:space="preserve">
+    <value>Colour of first car</value>
+  </data>
+  <data name="Text_FirstPet" xml:space="preserve">
+    <value>First Pet</value>
+  </data>
+  <data name="Text_FirstStreetName" xml:space="preserve">
+    <value>First Street Name</value>
+  </data>
+  <data name="Text_MotherMaidenName" xml:space="preserve">
+    <value>Mother's Maiden Name</value>
+  </data>
+  <data name="Text_SisterName" xml:space="preserve">
+    <value>Sister in law's Name</value>
+  </data>
+  <data name="Label_SecurityAnswer" xml:space="preserve">
+    <value>Security Answer</value>
+  </data>
+  <data name="Label_SecurityQuestion" xml:space="preserve">
+    <value>Security Question</value>
+  </data>
+  <data name="PageTitle_TournamentsManager" xml:space="preserve">
+    <value>Tournaments Manager</value>
+  </data>
+  <data name="ListTitle_JapaneseName" xml:space="preserve">
+    <value>Japanese Name</value>
+  </data>
+  <data name="Label_GameNameBalance" xml:space="preserve">
+    <value>{0} Balance</value>
+  </data>
+  <data name="Licensee" xml:space="preserve">
+    <value>Licensee</value>
+  </data>
+</root>

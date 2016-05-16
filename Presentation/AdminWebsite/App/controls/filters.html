@@ -1,0 +1,22 @@
+﻿<div>
+    <link rel="stylesheet" href="/Content/css/daterangepicker-bs3.css" />
+    <div data-bind="foreach: criteria">
+        <div class="filter-row">
+            <select name="data" data-bind="options: $parent.fields, optionsText: 'localizedTitle', value: filterField, optionsCaption: 'Filter criteria'"></select>
+            <span data-bind="visible: filterField">
+                <select name="op" data-bind="options: conditions, optionsText: 'title', optionsValue: 'name', value: condition"></select>
+                <input name="value" type="text" data-bind="value: value, visible: isTextOrNumeric" />
+                <input name="value2" type="text" data-bind="value: value2, visible: isNumericRange" />
+                <input type="text" data-bind="date: true, format: 'YYYY/MM/DD', value:  dateFrom, visible: isSingleDate" />
+                <input class="form-control date-range" data-bind="dateRange: true, format: 'YYYY/MM/DD', startDate: dateFrom, endDate: dateTo, visible: isDateRange" readonly style="cursor: default" />
+                <select data-bind="options: listValues, optionsText: 'title', optionsValue: 'value', optionsCaption: 'All', value: selectedValue, visible: isDropDownList"></select>
+                <span data-bind="visible: isMultiChekboxList">
+                    <select name="multiValues" data-bind="options: listValues, optionsText: 'title', optionsValue: 'value', selectedOptions: values, visible: false" multiple="multiple"></select>
+                </span>
+                <button type="button" class="btn btn-xs btn-danger btn-round" data-bind="click: function() { $parent.removeFilterCriterion.call($parent, this) }, visible : $index() != $parent.criteria().length - 1"><i class="fa fa-trash-o"></i></button>
+                <button type="button" class="btn btn-xs btn-success btn-round" data-bind="click: function() { $parent.addFilterCriterion.call($parent) }, visible : $index() == $parent.criteria().length - 1"><i class="fa fa-plus-circle"></i></button>
+            </span>
+        </div>
+    </div>
+    <button class="btn btn-sm btn-white btn-round clear-filter" data-i18n="app:common.clearFilter" data-bind="click: clearFilter, visible: hasCriteria"></button>
+</div>

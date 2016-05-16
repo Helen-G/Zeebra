@@ -1,0 +1,162 @@
+﻿<div style="display:none" class="alert alert-success" data-bind="visible: message, text: message, css: messageClass"></div>  
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title smaller" data-i18n="app:licensee.information"></h4>
+            </div>
+            <div class="widget-body">
+                <div class="space"></div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="app:licensee.name"></label>
+                        <div class="col-sm-9">
+                            <p class="form-control-static" data-bind="text: name"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="app:licensee.companyName"></label>
+                        <div class="col-sm-9">
+                            <p class="form-control-static" data-bind="text: companyName"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="app:licensee.affiliateSystem"></label>
+                        <div class="col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" disabled="disabled" data-bind="checked: affiliateSystem"> 
+                                </label>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="app:licensee.contractStart"></label>
+                        <div class="col-sm-9">
+                            <p class="form-control-static" data-bind="text: contractStartDate"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="app:licensee.contractEnd"></label>
+                        <div class="col-sm-9">
+                            <p class="form-control-static" data-bind="text: contractEndDate"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="app:licensee.openEnded"></label>
+                        <div class="col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" disabled="disabled" data-bind="checked: !contractEndDate()">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="app:common.email"></label>
+                        <div class="col-sm-9">
+                            <p class="form-control-static" data-bind="text: email"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="app:common.timezone"></label>
+                        <div class="col-sm-9">
+                            <p class="form-control-static" data-bind="text: timezone"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" data-i18n="app:common.status"></label>
+                        <div class="col-sm-9">
+                            <p class="form-control-static" data-bind="text: status"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="space"></div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title smaller" data-i18n="app:licensee.contractHistory"></h4>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main">                    
+                    <div class="tab-pane in active">
+                        <div class="jqgrid-title-bar" data-bind="attr: {id: gridTitleBarId}"></div>
+                        <table data-bind="attr: {id: gridBodyId}"></table>
+                        <div data-bind="attr: {id: gridPagerId}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="space"></div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title smaller" data-i18n="app:licensee.limits"></h4>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" data-i18n="app:licensee.allowedBrands"></label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static" data-bind="text: allowedBrands"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" data-i18n="app:licensee.allowedWebsites"></label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static" data-bind="text: allowedWebsites"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" data-i18n="app:licensee.assignedProducts"></label>
+                            <div class="col-sm-2">
+                                <select class="form-control" multiple="multiple" size="10" disabled="disabled" data-bind="foreach: products">
+                                    <option data-bind="text: $data"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" data-i18n="app:licensee.assignedCurrencies"></label>
+                            <div class="col-sm-2">
+                                <select class="form-control" multiple="multiple" size="10" disabled="disabled" data-bind="foreach: currencies">
+                                    <option data-bind="text: $data"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" data-i18n="app:licensee.assignedCountries"></label>
+                            <div class="col-sm-2">
+                                <select class="form-control" multiple="multiple" size="10" disabled="disabled" data-bind="foreach: countries">
+                                    <option data-bind="text: $data"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" data-i18n="app:licensee.assignedLanguages"></label>
+                            <div class="col-sm-2">
+                                <select class="form-control" multiple="multiple" size="10" disabled="disabled" data-bind="foreach: cultures">
+                                    <option data-bind="text: $data"></option>
+                                </select>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix form-actions">
+    <div class="center">
+        <button type="button" class="btn btn-default btn-round" data-bind="click: close" data-i18n="app:common.close"></button>
+    </div>
+</div>

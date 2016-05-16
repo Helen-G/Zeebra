@@ -1,0 +1,107 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<h2 data-bind="visible: brands().length == 0" data-i18n="app:wallet.labels.noBrandsWithMissingWallets"></h2>
+
+<form id="wallet-manager-form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }, visible: brands().length > 0">
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label"> <span data-i18n="app:common.licensee"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" id="licensee-select" data-bind="visible: submitted() && licensees().length !== 1 && !editMode(), enable: !editMode(), options: licensees, optionsValue: 'id', optionsText: 'name', value: licenseeId"></select><span class="red" data-bind="validationMessage: licenseeId"></span>
+            <p class="form-control-static" data-bind="text: licenseeName, visible: !submitted() || licensees().length === 1 || editMode()"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label"> <span data-i18n="app:common.brand"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <select class="form-control" id="brand-select" data-bind="visible: submitted() && brands().length !== 1 && !editMode(), enable: !editMode(), options: brands, optionsValue: 'id', optionsText: 'name', value: brandId"></select><span class="red" data-bind="validationMessage: brandId"></span>
+            <p class="form-control-static" data-bind="text: brandName, visible: !submitted() || brands().length === 1 || editMode()"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <h3><span>Main wallet</span></h3>
+        </label>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label"> <span data-i18n="app:common.name"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input type="text" class="form-control" data-bind="visible: submitted(), value: mainWallet.name, attr: { id: 'name-input' }" /><span class="red" data-bind="validationMessage: mainWallet.name"></span>
+            <p class="form-control-static" data-bind="text: mainWallet.name, visible: !submitted()"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: mainWallet.productsAssignControl">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-2" data-bind="visible: $root.submitted()">
+            <label class="control-label" data-i18n="app:product.availableProducts"></label>
+            <select id="available-products-id" class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: 'name', selectedOptions: selectedAvailableItems"></select>
+        </div>
+        <div class="col-xs-1 center" style="margin-top: 65px">
+            <button class="btn" data-bind="click: assign, visible: $root.submitted()">&gt;</button><br />
+            <button class="btn" data-bind="click: unassign, visible: $root.submitted() && $root.isProductInactive()">&lt;</button>
+        </div>
+        <div class="col-xs-2">
+            <label class="control-label"><span data-i18n="app:licensee.assignedProducts"></span></label>
+            <select id="selected-products-id" class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: 'name', selectedOptions: selectedAssignedItems, enable: $root.submitted()"></select>
+        </div>
+        <span class="red" data-bind="validationMessage: assignedItems"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <h3 data-bind="visible: hasProductsAssignedToBrand()"><span data-i18n="app:wallet.labels.productWallets"></span></h3>
+            <h3 data-bind="visible: !hasProductsAssignedToBrand()"><span style="color: red;" data-i18n="app:wallet.labels.noProductsAssignedToBrand"></span></h3>
+        </label>
+    </div>
+
+    <div data-bind="foreach: productWallets">
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><strong><span data-bind="text: label"></span></strong></label>
+            <div class="col-sm-offset-5 col-sm-2 field-box">
+                <button type="button" class="btn btn-danger btn-round btn-xs" data-bind="visible: $root.submitted() && $root.isProductInactive(), enable: $root.submitted(), click: $parent.removeWallet, attr: { id: 'remove-button-' + $index() }">
+                    -
+                </button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label"> <span data-i18n="app:common.name"></span><span class="red">*</span></label>
+            <div class="col-sm-8 field-box">
+                <input type="text" class="form-control" data-bind="visible: $root.submitted(), value: name, attr: { id: 'name-input' }" /><span class="red" data-bind="validationMessage: name"></span>
+                <p class="form-control-static" data-bind="text: name, visible: !$root.submitted()"></p>
+            </div>
+        </div>
+        <div class="form-group" data-bind="with: productsAssignControl">
+            <div class="col-sm-3 control-label"></div>
+            <div class="col-sm-2" data-bind="visible: $root.submitted()">
+                <label class="control-label" data-i18n="app:product.availableProducts"></label>
+                <select class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: 'name', selectedOptions: selectedAvailableItems"></select>
+            </div>
+            <div class="col-xs-1 center" style="margin-top: 65px">
+                <button class="btn" data-bind="click: assign, visible: $root.submitted()">&gt;</button><br />
+                <button class="btn" data-bind="click: unassign, visible: $root.submitted() && $root.isProductInactive()">&lt;</button>
+            </div>
+            <div class="col-xs-2">
+                <label class="control-label"><span data-i18n="app:licensee.assignedProducts"></span><span class="red">*</span></label>
+                <select class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: 'name', selectedOptions: selectedAssignedItems, enable: $root.submitted()"></select>
+            </div>
+            <span class="red" data-bind="validationMessage: assignedItems"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-8 field-box">
+            <button type="button" class="btn btn-success btn-round btn-xs" data-bind="visible: $root.submitted() && $root.products().length > 0, click: addWallet, text: 'Add product wallet'"></button>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-default btn-round" data-bind="text: closeButtonLabel, click: close"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="visible: $root.submitted(), click: submit, enable: isValid" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

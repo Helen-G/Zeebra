@@ -1,0 +1,38 @@
+﻿<div>
+    <div>
+        <div data-bind="grid: {
+            source: '/Report/LicenseeData',
+            fields: gridFields(),
+            filter: ko.computed(function() { return { Name: search() }; }),
+            defaultSort: { field: 'Created' },
+            paging: defaultPaging,
+            useResizeManager: true
+        }">
+            <header>
+                <div data-bind="gridHeader: { context: $data,
+                    filters: columns(),
+                    buttons: [
+                        { name: 'export', click: exportReport, visible: exportAllowed, enabled: exportEnabled, text: 'app:report.common.export', icon: 'download' }
+                    ],
+                    selectColumns: true
+                }"></div>
+            </header>
+            <column width="100" sort-field="Name" data-value="@Name" />
+            <column width="120" sort-field="CompanyName" data-value="@CompanyName" />
+            <column width="120" sort-field="EmailAddress" data-value="@EmailAddress" />
+            <column width="150" sort-field="AffiliateSystem" data-value="@AffiliateSystem" />
+            <column width="120" sort-field="ContractStart" data-value="$root.moment(@ContractStart).format 'YYYY-MM-DD'" />
+            <column width="120" sort-field="ContractEnd" data-value="if @ContractEnd? then moment(@ContractEnd).format 'YYYY-MM-DD' else ''" />
+            <column width="100" sort-field="Status" data-value="@Status" />
+            <column width="130" sort-field="CreatedBy" data-value="@CreatedBy" />
+            <column width="130" sort-field="Created" data-value="$root.moment(@Created).format 'YYYY-MM-DD'" />
+            <column width="130" sort-field="UpdatedBy" data-value="@UpdatedBy" />
+            <column width="130" sort-field="Updated" data-value="if @Updated? then $root.moment(@Updated).format 'YYYY-MM-DD' else ''" />
+            <column width="130" sort-field="ActivatedBy" data-value="@ActivatedBy" />
+            <column width="130" sort-field="Activated" data-value="if @Activated? then $root.moment(@Activated).format 'YYYY-MM-DD' else ''" />
+            <column width="130" sort-field="DeactivatedBy" data-value="@DeactivatedBy" />
+            <column width="130" sort-field="Deactivated" data-value="if @Deactivated? then $root.moment(@Deactivated).format 'YYYY-MM-DD' else ''" />
+        </div>
+    </div>
+    <div class="no-records" data-bind="visible: noRecordsFound">No records found</div>
+</div>

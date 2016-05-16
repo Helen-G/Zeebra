@@ -1,0 +1,220 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.brand"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: brandName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.username"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: username"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.referenceCode"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: referenceCode"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.paymentMethod"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: paymentMethod"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.status"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: status"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.internalAccount"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: internalAccount"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.currency"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: currency"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.amount"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: amount"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.submittedBy"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: submittedBy"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.dateSubmitted"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: dateSubmitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.bankName"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.bankAccountName"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankAccountName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.bankAccountNumber"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankAccountNumber"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.branch"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankBranch"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.withdraw.swiftCode"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankSwiftCode"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.address"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankAddress"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.withdraw.city"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankCity"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.province"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankProvince"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.verifiedBy"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: verifiedBy"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.dateVerified"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: verifiedTime"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.revertedBy"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: revertedBy"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.dateReverted"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: revertedTime"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.autoVerify"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: autoVerify"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.autoVerifyDate"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: autoVerifyTime"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.exempted"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: exempted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.exemptionCheckDate"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: exemptionCheckTime"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.autoWagerCheckResult"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: autoWagerCheck"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.autoWagerCheckDate"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: autoWagerCheckTime"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.manualWagerCheckResult"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: manualWagerCheck"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.manualWagerCheckDate"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: dateManualWagerCheck"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.manualWagerCheckBy"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: manualWagerCheckBy"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.probeCheckResult"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: probeCheck"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.probeCheckDate"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: dateProbeCheck"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: remarksFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.remarks"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <textarea class="form-control" data-bind="attr: { id: remarksFieldId() }, value: fields.remarks, visible: !submitted()"></textarea>
+            <span class="red" data-bind="validationMessage: fields.remarks"></span>
+            <p class="form-control-static" data-bind="text: fields.remarks, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-white btn-round" data-bind="click: close, visible: !submitted()">Cancel</button>
+
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-info btn-round" data-bind="click: submit, visible: !submitted() && action() == 'verify'">Submit</button>
+            <button class="btn btn-warning btn-round" data-bind="click: submit, visible: !submitted() && action() == 'unverify'">Unverify</button>
+            <button class="btn btn-info btn-round" data-bind="click: close, visible: submitted">Close</button>
+        </div>
+    </div>
+</form>

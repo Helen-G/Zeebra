@@ -1,0 +1,50 @@
+﻿<div>
+    <div class="action-btns-container margin-bottom-10">
+        <div class="action-btns">
+            <div class="btn-group">
+                <button class="btn btn-sm btn-primary" type="button" data-bind="click: openAddBankAccountForm, visible: hasAddBankAccountsPermission">
+                    <i class="fa fa-plus"></i> <span data-i18n="app:common.new"></span>
+                </button>
+                <button class="btn btn-sm btn-primary" type="button" data-bind="click: openEditBankAccountForm, enable: bankAccountsSelectedRowId, visible: hasEditBankAccountsPermission">
+                    <i class="fa fa-pencil"></i> <span data-i18n="app:common.edit"></span>
+                </button>
+                <button class="btn btn-sm btn-primary" type="button" data-bind="click: openViewBankAccountForm, enable: bankAccountsSelectedRowId">
+                    <i class="fa fa-file-text-o"></i> <span data-i18n="app:common.view"></span>
+                </button>
+                <button class="btn btn-sm btn-primary" type="button" data-bind="click: setCurrentBankAccount, enable: canSetCurrentBankAccount, visible: hasEditBankAccountsPermission">
+                    <i class="fa fa-check"></i> <span data-i18n="app:payment.setCurrent"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bankAccountsGridId" data-bind="grid: {
+            source: 'PlayerBankAccount/PlayerList',
+            fields: ['AccountName', 'AccountNumber', 'BankName', 'Province', 'City', 'Branch', 'SwiftCode', 'Address', 'IsCurrent', 'BankAccountStatus', 'CreatedBy', 'CreatedOn', 'UpdatedBy', 'UpdatedOn', 'VerifiedBy', 'VerifiedOn', 'RejectedBy', 'RejectedOn'],
+            filter: ko.computed(function() { return { }}),
+            defaultSort: { field: 'AccountName', direction: 'asc' },
+            paging: true,
+            useResizeManager: { height: 600 },
+            sendAlso: ko.computed(function() { return [ { playerId: playerId }]; })
+        }">
+        <header>
+            <form action="#" class="pull-left"></form>
+        </header>
+        <column title="Bank Account Name" sort-field="AccountName" width="180" data-value="@AccountName" />
+        <column title="Bank Account Number" sort-field="AccountNumber" width="180" data-value="@AccountNumber" />
+        <column title="Bank name" sort-field="BankName" width="180" data-value="@BankName" />
+        <column title="Province" sort-field="Province" width="180" data-value="@Province" />
+        <column title="City" sort-field="City" width="180" data-value="@City" />
+        <column title="Branch" sort-field="Branch" width="180" data-value="@Branch" />
+        <column title="SwiftCode" sort-field="SwiftCode" width="180" data-value="@SwiftCode" />
+        <column title="Address" sort-field="Address" width="180" data-value="@Address" />
+        <column title="IsCurrent" sort-field="IsCurrent" width="180" data-value="@IsCurrent" />
+        <column title="BankAccountStatus" sort-field="BankAccountStatus" width="180" data-value="@BankAccountStatus" />
+        <column title="CreatedBy" sort-field="CreatedBy" width="180" data-value="@CreatedBy" />
+        <column title="CreatedOn" sort-field="CreatedOn" width="180" data-value="@CreatedOn" />
+        <column title="UpdatedBy" sort-field="UpdatedBy" width="180" data-value="@UpdatedBy" />
+        <column title="UpdatedOn" sort-field="UpdatedOn" width="180" data-value="@UpdatedOn" />
+        <column title="VerifiedBy" sort-field="VerifiedBy" width="180" data-value="@VerifiedBy" />
+        <column title="VerifiedOn" sort-field="VerifiedOn" width="180" data-value="@VerifiedOn" />
+    </div>
+</div>

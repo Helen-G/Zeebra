@@ -1,0 +1,126 @@
+﻿@{ var data = (AFT.RegoV2.MemberApi.Interface.Payment.OfflineDepositFormDataResponse)ViewData.Model; }
+
+<div class="alert alert-warning" data-i18n="app:payment.paymentLevelDisableOfflineDeposit" data-bind="submit: submitOfflineDeposit, visible: @((!data.BankAccounts.Any()).ToString().ToLower())"></div>
+<form role="form" data-bind="submit: submitOfflineDeposit, visible: @data.BankAccounts.Any().ToString().ToLower()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="ky-panel ky-margin-row ky-ticket-box">
+                <h4 class="title"><i class="fa fa-fw fa-money"></i><span data-i18n="balanceInformation.offlineDepositRequest"></span></h4>
+                <table class="table table-no-bordered ky-table">
+                    <tr>
+                        <td data-i18n="balanceInformation.bankName"></td>
+                        <td>
+                            <div>
+                                <div>
+                                    <select data-bind="value: bankAccount" class="form-control">
+                                        @foreach (var bankAccount in data.BankAccounts.OrderBy(x => x.Value))
+                                        {
+                                            <option value="@bankAccount.Key">@bankAccount.Value</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="balanceInformation.amount"></td>
+                        <td>
+                            <div>
+                                <div>
+                                    <input type="number" min="0" maxlength="15" data-bind="value: amount, numeric: amount" class="form-control"/>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="balanceInformation.playerRemark"></td>
+                        <td>
+                            <div>
+                                <div>
+                                    <textarea data-bind="value: remarks" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="balanceInformation.notificationMethod"></td>
+                        <td>
+                            <div>
+                                <div data-bind="foreach: notificationMethods">
+                                    <div class="radio-inline">
+                                        <label>
+                                            <input type="radio" data-bind="value: $data, checked: $root.notificationMethod" name="optionsRadios"/>
+                                            <span data-bind="text: $data"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="ky-panel ky-margin-row ky-ticket-box">
+                <div style="padding: 3rem 0" class="row">
+                    <div class="col-xs-1">
+                        <input type="radio" name="bonus" id="bonus-radio-1" class="x2 ky-panel-styled-radio">
+                        <label for="bonus-radio-1"></label>
+                    </div>
+                    <div class="col-xs-5 text-left">
+                        <input type="text" data-bind="value: offlineDepositBonusCode" data-i18n="[placeholder]balanceInformation.bonusCode" class="form-control" />
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-1 text-right">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-bind="enable: !offlineDepositRequestInProgress(), click: checkODQualification">VALIDATE BONUS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="ky-panel ky-margin-row ky-ticket-box">
+                <h4 class="title">HAPPY BONUS CODE: XXXAABBBCCC</h4>
+                <div class="row">
+                    <div class="col-xs-1 pad-top">
+                        <input type="radio" name="bonus" id="bonus-radio-4" class="x2 ky-panel-styled-radio">
+                        <label for="bonus-radio-4"></label>
+                    </div>
+                    <div class="col-xs-4 text-left">
+                        <ul>
+                            <li>Deposit $100, and get $100</li>
+                            <li>Maximum Award: $100</li>
+                            <li>Wagering Requirement: 10x deposit + bonus</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-2 text-right"><span class="bonus">$200 Bonus</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="ky-panel ky-ticket-box none">
+                <div style="padding: 3rem 0" class="row">
+                    <div class="col-xs-1">
+                        <input type="radio" name="bonus" id="bonus-radio-6" class="x2 ky-panel-styled-radio">
+                        <label for="bonus-radio-6"></label>
+                    </div>
+                    <div class="col-xs-6 text-left" data-i18n="balanceInformation.none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-6 text-right"><button type="submit" data-bind="enable: !offlineDepositRequestInProgress()" class="btn btn-lg btn-primary"><i class="fa fa-check"></i><span data-i18n="balanceInformation.depositAndGetBonus"></span></button></div>
+    </div>
+    <div class="row">
+        <label class="ky-notification notification-success" data-bind="visible: ODQualificationSuccess" data-i18n="balanceInformation.qualificationCheckPassed"></label>
+        <label class="ky-notification notification-success" data-bind="visible: offlineDepositSuccess" data-i18n="balanceInformation.offlineDepositSuccess"></label>
+        <label class="ky-notification notification-danger" data-bind="visible: offlineDepositErrors().length > 0, text: offlineDepositErrors"></label>
+    </div>
+</form>

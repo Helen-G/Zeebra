@@ -1,0 +1,144 @@
+﻿@model AFT.RegoV2.MemberWebsite.Models.OfflineDepositConfirmationModel
+@{
+    ViewBag.Title = "Offline Deposit Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container ky-icon-tabs-content" style="margin-top: 0;">
+    <div id="od-confirmation-wrapper" class="page-wrapper">
+        ﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+        <form role="form" data-bind="submit: submitOfflineDeposit">
+            <div class="row">
+                <td class="col-xs-12">
+                    <tr class="ky-panel ky-margin-row ky-ticket-box">
+                        <h4 class="title"><i class="fa fa-fw fa-money"></i>Offline Deposit Confirmation</h4>
+                        <table class="table table-no-bordered ky-table">
+                            <tr>
+                                <td>Account Name:</td>
+                                <td>
+                                    <div class="input-group">
+                                        <input type="text" data-bind="value: accountName" class="form-control" />
+                                        <span class="input-group-btn">
+                                            <button data-bind="click: verify" type="button" class="btn btn-default">Verify</button>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <label class="ky-notification notification-success" data-bind="visible: verifiedSuccessfully">Verified successfully.</label>
+                                    <label class="ky-notification notification-danger" data-bind="visible: verifiedSuccessfully() == false">Verification failed. Please submit your ID picture or a proof of a payment made.</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Transfer Type:</td>
+                                <td>
+                                    <div>
+                                        <div data-bind="foreach: transferTypes">
+                                            <div class="radio-inline">
+                                                <label>
+                                                    <input type="radio" data-bind="value: $data, checked: $root.transferType" name="optionsRadios" />
+                                                    <span data-bind="text: $data"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Offline Deposit Type:</td>
+                                <td>
+                                    <div>
+                                        <select data-bind="value: offlineDeposit" class="form-control">
+                                            <option value="ATM">ATM</option>
+                                            <option value="InternetBanking">InternetBanking</option>
+                                            <option value="CounterDeposit">CounterDeposit</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Reference Code:</td>
+                                <td>
+                                    <div>
+                                        <input type="text" data-bind="value: referenceCode" disabled="disabled" class="form-control" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Bank Reference Number:</td>
+                                <td>
+                                    <div>
+                                        <input type="text" data-bind="value: bankReferenceNumber" class="form-control" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Amount:</td>
+                                <td>
+                                    <div>
+                                        <input type="number" data-bind="value: amount" class="form-control" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Player Remarks:</td>
+                                <td>
+                                    <div>
+                                        <textarea data-bind="value: remarks" class="form-control"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="text" data-bind="value: isImageLoaded, visible: false">
+                                </td>
+                            </tr>
+                            <tr data-bind="visible: verifiedSuccessfully() == false">
+                                <td>ID Front Upload</td>
+                                <td>
+                                    <div class="ace-file-input ace-file-multiple">
+                                        <input id="upload-front-image-id" type="file" data-bind="value: idFrontImage" name="uploadId1">
+                                    </div>
+                                    @*<img style="width: 300px; height: 200px;" data-bind="attr: {src: uploadId1Src}">*@
+                                    @*<span class="red" data-bind="validationMessage: idFrontImage"></span>*@
+                                </td>
+                            </tr>
+                            <tr data-bind="visible: verifiedSuccessfully() == false">
+                                <td>ID Front Back</td>
+                                <td>
+                                    <div class="ace-file-input ace-file-multiple">
+                                        <input id="upload-back-image-id" type="file" data-bind="value: idBackImage" name="uploadId2">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr data-bind="visible: verifiedSuccessfully() == false">
+                                <td>Receipt Upload</td>
+                                <td>
+                                    <div class="ace-file-input ace-file-multiple">
+                                        <input id="upload-receipt-image-id" type="file" data-bind="value: idReceiptImage" name="uploadIdReceipt">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <button type="submit" data-bind="visible: !submitted()" class="btn btn-primary">Submit</button>
+                                </td>
+                            </tr>
+
+                        </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Scripts/utils.js"></script>
+    <script src="/Scripts/custom/offlineDepositConfirmation.js"></script>
+    <script src="/Scripts/ace.js"></script>
+    <script src="/Scripts/ace-elements.js"></script>
+    <link rel="stylesheet" href="/Scripts/ace-file-input.css" />
+}

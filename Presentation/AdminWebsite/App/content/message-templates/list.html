@@ -1,0 +1,67 @@
+﻿<div id="message-template-grid" data-bind="grid: {
+    source: '/MessageTemplate/List',
+    fields: [
+        'BrandName',
+        'LanguageName',
+        'MessageType',
+        'MessageDeliveryMethod',
+        'TemplateName',
+        'Status',
+        'Created',
+        'CreatedBy',
+        'Updated',
+        'UpdatedBy',
+        'Activated',
+        'ActivatedBy',
+        'Deactivated',
+        'DeactivatedBy'],
+    filter: ko.computed(function() { return {
+        'Brand.Name': search(),
+        'Brand.Id': shell.selectedBrandsIds()
+    }}),
+    defaultSort: {
+        field: 'Created',
+        direction: 'desc' },
+    paging: true,
+    useResizeManager: true
+}">
+    <header>
+        <div data-bind="gridHeader: {
+            context: $data,
+            filters: [
+                ['Brand.Name' , 'app:common.brand', 'text'],
+                ['Language.Name' , 'app:common.language', 'text'],
+                ['MessageType' , 'app:messageTemplates.messageType', 'text'],
+                ['MessageDeliveryMethod' , 'app:messageTemplates.deliveryMethod', 'text'],
+                ['TemplateName' , 'app:messageTemplates.templateName', 'text'],
+                ['Status' , 'app:common.status', 'enum', ['Active', 'Inactive']],
+                ['Created' , 'app:common.dateCreated', 'date'],
+                ['CreatedBy' , 'app:common.createdBy', 'text'],
+                ['Updated' , 'app:common.dateUpdated', 'date'],
+                ['UpdatedBy' , 'app:common.updatedBy', 'text'],
+                ['Activated' , 'app:common.dateActivated', 'date'],
+                ['ActivatedBy' , 'app:common.activatedBy', 'text'],
+                ['Deactivated' , 'app:common.dateDeactivated', 'date'],
+                ['DeactivatedBy' , 'app:common.deactivatedBy', 'text']],
+            buttons: [
+                { click: openAddTab, visible: hasAddPermission, text: 'app:common.new', icon: 'plus' },
+                { click: openEditTab, visible: hasEditPermission, enabled: rowId,  text: 'app:common.edit', icon: 'pencil' },
+                { click: openViewTab, visible: hasViewPermission, enabled: rowId,  text: 'app:common.view', icon: 'file-text-o' }
+        ]}">
+        </div>
+    </header>
+    <column title="app:common.brand" sort-field="Brand.Name" width="120" data-value="@BrandName" />
+    <column title="app:common.language" sort-field="Language.Name" width="120" data-value="@LanguageName" />
+    <column title="app:messageTemplates.messageType" sort-field="MessageType" width="160" data-value="$root.messageTypeFormatter.call @" />
+    <column title="app:messageTemplates.deliveryMethod" sort-field="MessageDeliveryMethod" width="160" data-value="$root.messageDeliveryMethodFormatter.call @" />
+    <column title="app:messageTemplates.templateName" sort-field="TemplateName" width="240" data-value="@TemplateName" />
+    <column title="app:common.status" sort-field="Status" width="120" data-value="$root.statusFormatter.call @" />
+    <column title="app:common.dateCreated" sort-field="Created" width="180" data-value="@Created" />
+    <column title="app:common.createdBy" sort-field="CreatedBy" width="120" data-value="@CreatedBy" />
+    <column title="app:common.dateUpdated" sort-field="Updated" width="180" data-value="@Updated" />
+    <column title="app:common.updatedBy" sort-field="UpdatedBy" width="120" data-value="@UpdatedBy" />
+    <column title="app:common.dateActivated" sort-field="Activated" width="180" data-value="@Activated" />
+    <column title="app:common.activatedBy" sort-field="ActivatedBy" width="120" data-value="@ActivatedBy" />
+    <column title="app:common.dateDeactivated" sort-field="Deactivated" width="180" data-value="@Deactivated" />
+    <column title="app:common.deactivatedBy" sort-field="DeactivatedBy" width="120" data-value="@DeactivatedBy" />
+</div>

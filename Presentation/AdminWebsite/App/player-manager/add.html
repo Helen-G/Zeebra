@@ -1,0 +1,408 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label data-bind="attr: { for: licenseeFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:common.licensee"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.licensee">
+                    <select class="form-control" data-bind="attr: { id: $root.licenseeFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <span class="red" data-bind="validationMessage: value"></span>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: brandFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:common.brand"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.brand">
+                    <select class="form-control" data-bind="attr: { id: $root.brandFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <span class="red" data-bind="validationMessage: value"></span>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+                </div>
+            </div>
+
+            <div class="form-group" data-bind="visible: playerPrefix">
+                <label class="col-sm-3 control-label">
+                    <span data-i18n="app:brand.playerPrefix"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <p class="form-control-static" data-bind="text: playerPrefix"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: usernameFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.userName"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: usernameFieldId() }, value: fields.username, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.username"></div>
+                    <p class="form-control-static" data-bind="text: fields.username, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group" data-bind="visible: !submitted()">
+                <label data-bind="attr: { for: passwordFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.password"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input type="password" class="form-control" data-bind="attr: { id: passwordFieldId() }, value: fields.password, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.password"></div>
+                </div>
+            </div>
+
+            <div class="form-group" data-bind="visible: !submitted()">
+                <label data-bind="attr: { for: passwordConfirmFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.confirmPassword"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input type="password" class="form-control" data-bind="attr: { id: passwordConfirmFieldId() }, value: fields.passwordConfirm, visible: !submitted()" /><br />
+                    <span class="red" data-bind="validationMessage: fields.passwordConfirm"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: genderFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.gender"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.gender">
+                    <select class="form-control" data-bind="attr: { id: $root.genderFieldId() }, options: options, value: value, visible: !isReadOnly(), disable: $root.disabled"></select><br /> <span class="red" data-bind="validationMessage: value"></span>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: fields.gender"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: titleFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.title"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.title">
+                    <select class="form-control" data-bind="attr: { id: $root.titleFieldId() }, options: options, value: value, visible: !isReadOnly(), disable: $root.disabled"></select><br /> <span class="red" data-bind="validationMessage: value"></span>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: fields.title"></p>
+                </div>
+            </div>
+
+            <div class="form-group" data-bind="visible: !submitted()">
+                <label data-bind="attr: { for: firstNameFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.firstName"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: firstNameFieldId() }, value: fields.firstName, visible: !submitted()" /><br /> <span class="red" data-bind="validationMessage: fields.firstName"></span>
+                    <p class="form-control-static" data-bind="text: fields.firstName, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group" data-bind="visible: !submitted()">
+                <label data-bind="attr: { for: lastNameFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.lastName"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: lastNameFieldId() }, value: fields.lastName, visible: !submitted()" /><br /> <span class="red" data-bind="validationMessage: fields.lastName"></span>
+                    <p class="form-control-static" data-bind="text: fields.lastName, visible: submitted"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label data-bind="attr: { for: dateOfBirthFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.dateOfBirth"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <div class="input-append" data-bind="attr: { id: dateOfBirthPickerFieldId() }, visible: !submitted()">
+                        <input data-bind="attr: { id: dateOfBirthFieldId() }" class="form-control add-on" data-format="yyyy/MM/dd" type="text" /><br /><span class="red" data-bind="validationMessage: fields.dateOfBirth"></span>
+                    </div>
+                    <p class="form-control-static" data-bind="text: dateOfBirthDisplay, visible: submitted"></p>
+                </div>
+            </div>
+
+
+            <div class="form-group" data-bind="visible: !submitted()">
+                <label data-bind="attr: { for: emailFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.email"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: emailFieldId() }, value: fields.email, visible: !submitted()" /><br /> <span class="red" data-bind="validationMessage: fields.email"></span>
+                    <p class="form-control-static" data-bind="text: fields.email, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: phoneNumberFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.phoneNumber"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" type="tel" data-bind="attr: { id: phoneNumberFieldId() }, value: fields.phoneNumber, visible: !submitted()" /><br /> <span class="red" data-bind="validationMessage: fields.phoneNumber"></span>
+                    <p class="form-control-static" data-bind="text: fields.phoneNumber, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: countryFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.country"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.country">
+                    <select class="form-control" data-bind="attr: { id: $root.countryFieldId() }, options: options, value: value, visible: !isReadOnly(), disable: $root.disabled"></select><br /> <span class="red" data-bind="validationMessage: value"></span>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: fields.country"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: currencyFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:common.currency"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.currency">
+                    <select class="form-control" data-bind="attr: { id: $root.currencyFieldId() }, options: options, value: value, visible: !isReadOnly(), disable: $root.disabled"></select><br /> <span class="red" data-bind="validationMessage: value"></span>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: fields.currency"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: cultureFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:common.language"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.culture">
+                    <select class="form-control" data-bind="attr: { id: $root.cultureFieldId() }, options: options, value: value, visible: !isReadOnly(), disable: $root.disabled"></select><br /> <span class="red" data-bind="validationMessage: value"></span>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: fields.culture"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: affiliateCodeFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.affiliateCode"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: affiliateCodeFieldId() }, value: fields.affiliateCode, visible: !submitted()" /><br /> <span class="red" data-bind="validationMessage: fields.affiliateCode"></span>
+                    <p class="form-control-static" data-bind="text: fields.affiliateCode, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: accountStatusFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.accountStatus"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.accountStatus">
+                    <select class="form-control" data-bind="attr: { id: $root.accountStatusFieldId() }, options: options, value: value, visible: !isReadOnly(), disable: $root.disabled"></select><br /> <span class="red" data-bind="validationMessage: value"></span>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: fields.accountStatus"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-6">
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    <em data-i18n="app:playerManager.mailingAddress"></em>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: mailingAddressLine1FieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.addressLine1"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: mailingAddressLine1FieldId() }, value: fields.mailingAddressLine1, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.mailingAddressLine1"></div>
+                    <p class="form-control-static" data-bind="text: fields.mailingAddressLine1, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: mailingAddressLine2FieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.addressLine2"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: mailingAddressLine2FieldId() }, value: fields.addressLine2, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.mailingAddressLine2"></div>
+                    <p class="form-control-static" data-bind="text: fields.mailingAddressLine2, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: mailingAddressLine3FieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.addressLine3"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: mailingAddressLine3FieldId() }, value: fields.mailingAddressLine3, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.mailingAddressLine3"></div>
+                    <p class="form-control-static" data-bind="text: fields.mailingAddressLine3, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: mailingAddressLine4FieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.addressLine4"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: mailingAddressLine4FieldId() }, value: fields.mailingAddressLine4, visible: !submitted()"/> <div class="red" data-bind="validationMessage: fields.mailingAddressLine4"></div>
+                    <p class="form-control-static" data-bind="text: fields.mailingAddressLine4, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: mailingAddressCityFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.city"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: mailingAddressCityFieldId() }, value: fields.mailingAddressCity, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.mailingAddressCity"></div>
+                    <p class="form-control-static" data-bind="text: fields.mailingAddressCity, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: mailingAddressPostalCodeFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.postalCode"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: mailingAddressPostalCodeFieldId() }, value: fields.mailingAddressPostalCode, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.mailingAddressPostalCode"></div>
+                    <p class="form-control-static" data-bind="text: fields.mailingAddressPostalCode, visible: submitted"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    <em data-i18n="app:playerManager.physicalAddress"></em>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.sameAsMailingAddress"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input type="checkbox" data-bind="checked: isSameAddress, disable: submitted" />
+                </div>
+            </div>
+
+            <!-- ko if: submitted() || !isSameAddress()-->
+
+            <div class="form-group">
+                <label data-bind="attr: { for: physicalAddressLine1FieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.addressLine1"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: physicalAddressLine1FieldId() }, value: fields.physicalAddressLine1, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.physicalAddressLine1"></div>
+                    <p class="form-control-static" data-bind="text: fields.physicalAddressLine1, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: physicalAddressLine2FieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.addressLine2"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: physicalAddressLine2FieldId() }, value: fields.physicalAddressLine2, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.physicalAddressLine2"></div>
+                    <p class="form-control-static" data-bind="text: fields.physicalAddressLine2, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: physicalAddressLine3FieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.addressLine3"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: physicalAddressLine3FieldId() }, value: fields.physicalAddressLine3, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.physicalAddressLine3"></div>
+                    <p class="form-control-static" data-bind="text: fields.physicalAddressLine3, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: physicalAddressLine4FieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.addressLine4"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: physicalAddressLine4FieldId() }, value: fields.physicalAddressLine4, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.physicalAddressLine4"></div>
+                    <p class="form-control-static" data-bind="text: fields.physicalAddressLine4, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: physicalAddressCityFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.city"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: physicalAddressCityFieldId() }, value: fields.physicalAddressCity, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.physicalAddressCity"></div>
+                    <p class="form-control-static" data-bind="text: fields.physicalAddressCity, visible: submitted"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: physicalAddressPostalCodeFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.postalCode"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input class="form-control" data-bind="attr: { id: physicalAddressPostalCodeFieldId() }, value: fields.physicalAddressPostalCode, visible: !submitted()" /> <div class="red" data-bind="validationMessage: fields.physicalAddressPostalCode"></div>
+                    <p class="form-control-static" data-bind="text: fields.physicalAddressPostalCode, visible: submitted"></p>
+                </div>
+            </div>
+
+            <!-- /ko -->
+
+            <div class="form-group">
+                <label data-bind="attr: { for: contactPreferenceFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.primaryContact"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.contactPreference">
+                    <select class="form-control" data-bind="attr: { id: $root.contactPreferenceFieldId() }, options: options, value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <div class="red" data-bind="validationMessage: value"></div>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: fields.contactPreference"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: idStatusFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.idStatus"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box" data-bind="with: form.fields.idStatus">
+                    <select class="form-control" data-bind="attr: { id: $root.idStatusFieldId() }, options: options, value: value, visible: !isReadOnly(), disable: $root.disabled"></select> <div class="red" data-bind="validationMessage: value"></div>
+                    <p class="form-control-static" data-bind="visible: isReadOnly, text: fields.idStatus"></p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: internalAccountFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.internalAccount"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input type="checkbox" data-bind="attr: { id: internalAccountFieldId() }, checked: fields.internalAccount, disable: submitted" /> <div class="red" data-bind="validationMessage: fields.internalAccount"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: accountAlertsFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.accountAlerts"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <input type="checkbox" data-bind="attr: { id: accountAlertEmailFieldId() }, checked: fields.accountAlertEmail, disable: submitted"/>
+                    <span class="lbl" data-i18n="app:playerManager.add.accountAlertEmail"></span><br/>
+
+                    <input type="checkbox" data-bind="attr: { id: accountAlertSmsFieldId() }, checked: fields.accountAlertSms, disable: submitted"/>
+                    <span class="lbl" data-i18n="app:playerManager.add.accountAlertSms"></span><br/>
+
+                    <span class="red" data-bind="validationMessage: fields.accountAlerts"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: { for: commentsFieldId() }" class="col-sm-3 control-label">
+                    <span data-i18n="app:playerManager.add.comments"></span>
+                </label>
+                <div class="col-sm-8 field-box">
+                    <textarea class="form-control" data-bind="attr: { id: commentsFieldId() }, value: fields.comments, visible: !submitted()"></textarea> <div class="red" data-bind="validationMessage: fields.comments"></div>
+                    <p class="form-control-static" data-bind="text: fields.comments, visible: submitted"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

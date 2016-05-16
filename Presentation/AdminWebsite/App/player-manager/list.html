@@ -1,0 +1,63 @@
+<div id="player-grid" data-bind="grid: {
+        source: '/PlayerManager/Data',
+        fields: ['Username', 'FirstName', 'LastName', 'Affiliate', 'Gender', 'Email', 'Mobile', 'DateRegistered', 'IpAddress', 'DateOfBirth', 'Language', 'CurrencyCode','CountryCode', 'Status', 'Brand', 'Licensee', 'VipLevel', 'PaymentLevel', 'FraudRiskLevel', 'Address', 'City', 'PostalCode', 'Province', 'VipColor'],
+        filter: ko.computed(function() { return {            
+            username: search()
+        }}),
+        defaultSort: { field: 'DateRegistered' },
+        paging: true,
+        useResizeManager: true,
+        useBrandFilter: true,
+        rowattr: function (r) {
+            var re = new RegExp('^#[0-9a-fA-F]{6}$');
+            for (var prop in r) {
+                if (re.test(r[prop])){
+                    var backgroungColor = r[prop];
+                    var color = r[prop];
+                    color = color.substring(1);
+                    color = (parseInt(color, 16) > 0xffffff/2) ? '#000000' : '#FFFFFF';
+                    return { 'style' : 'background: ' + backgroungColor + '; color:' + color + ';'}
+                }
+            }
+        }
+    }">
+    <header>
+        <form id="player-username-search-form" action="#" class="pull-left">
+            <input id="player-username-search" type="text" placeholder="username" />
+            <button id="player-search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-success btn-round" id="btn-player-add" data-bind="click: playerAdd, visible:isNewPlayerBtnVisible">
+                <i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" id="btn-deposit-request" data-bind="visible: isRequestBtnVisible, click: depositRequest, css: { disabled: !selectedRowId() }, enable: selectedRowId" data-i18n="app:playerManager.list.depositRequest"></button>
+            <button class="btn btn-sm btn-primary btn-round" id="btn-withdraw-request" data-bind="visible: isWithdrawBtnVisible, click: withdrawRequest, css: { disabled: !selectedRowId() }, enable: selectedRowId" data-i18n="app:playerManager.list.withdrawRequest"></button>
+            <button class="btn btn-sm btn-success btn-round pull-right" id="btn-player-info" data-bind="visible: isPlayerInfoBtnVisible,click: playerInfo, css: { disabled: !selectedRowId() }, enable: selectedRowId" data-i18n="app:playerManager.list.playerInfo"></button>
+        </div>
+    </header>
+
+    <column title="app:common.username" sort-field="Username" width="120" data-value="@Username" />
+    <column title="app:common.firstName" width="120" data-value="@FirstName" />
+    <column title="app:common.lastName" sort-field="LastName" width="120" data-value="@LastName" />
+    <column title="app:playerManager.list.affiliateCode" width="150" data-value="@Affiliate" />
+    <column title="app:playerManager.list.gender" sort-field="Gender" width="60" data-value="@Gender" />
+    <column title="app:playerManager.list.email" sort-field="Email" width="150" data-value="@Email" />
+    <column title="app:playerManager.list.mobileNumber" width="120" data-value="@Mobile" />
+    <column title="app:playerManager.list.registrationDate" width="200" data-value="@DateRegistered" sort-field="DateRegistered" />
+    <column title="app:playerManager.list.registrationIp" sort-field="IpAddress" width="150" data-value="@IpAddress" />
+    <column title="app:playerManager.list.dateOfBirth" sort-field="DateOfBirth" width="150" data-value="@DateOfBirth" />
+    <column title="app:playerManager.list.language" width="120" data-value="@Language" />
+    <column title="app:common.currency" sort-field="CurrencyCode" width="81" data-value="@CurrencyCode" />
+    <column title="app:playerManager.list.country" sort-field="CountryCode" width="120" data-value="@CountryCode" />
+    <column title="app:common.status" sort-field="Status" width="60" data-value="@Status" />
+    <column title="app:common.brand" width="80" data-value="@Brand" />
+    <column title="app:playerManager.list.licensee" width="100" data-value="@Licensee" />
+    <column title="app:playerManager.list.vipLevel" width="100" data-value="@VipLevel" />
+    <column title="app:payment.level" width="90" data-value="@PaymentLevel" />
+    <column title="app:playerManager.list.fraudRiskLevel" width="90" data-value="@FraudRiskLevel" />
+    <column title="app:playerManager.list.address" sort-field="Address" width="200" data-value="@Address" />
+    <column title="app:playerManager.list.city" width="50" data-value="@City" />
+    <column title="app:playerManager.add.postalCode" sort-field="PostalCode" width="100" data-value="@PostalCode" />
+    <column title="app:playerManager.list.provinceRegionState" sort-field="Province" width="230" data-value="@Province" />
+    <column title="Vip Color" width="0" data-value="@VipColor" />
+</div>

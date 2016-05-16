@@ -1,0 +1,264 @@
+﻿<div>
+    <div class="action-btns-container margin-bottom-10">
+        <div class="action-btns">
+            <div class="btn-group"><button class="btn btn-sm btn-primary" type="button"><i class="fa fa-lock"></i> Lock </button></div>
+        </div>
+    </div>
+
+    <form role="form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="row">
+                    <h5 class="col-xs-3 control-label"><strong>Balance Details</strong></h5>
+                </div>
+                <hr />
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" data-i18n="playerManager.info.balanceDetails.currency"></label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().currency"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" data-i18n="playerManager.info.balanceDetails.mainBalance"></label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().mainBalance"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" data-i18n="playerManager.info.balanceDetails.mainBonusBalance"></label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().bonusBalance"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" data-i18n="playerManager.info.balanceDetails.playableBalance"></label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().playableBalance"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" data-i18n="playerManager.info.balanceDetails.freeBalance"></label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().freeBalance"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.totalBonus"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().totalBonus"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.depositCount"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().depositCount"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.totalDeposit"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().totalDeposit"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.withdrawalCount"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().withdrawalCount"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.totalWithdrawal"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().totalWithdrawal"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.totalWinLoss"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static"><span data-bind="text: balance().totalWin"></span> / <span data-bind="text: balance().totalLoss"></span></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.totalAdjustments"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().totalAdjustments"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.totalCredits"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static"><span data-bind="text: balance().totalCreditsRefund"></span> / <span data-bind="text: balance().totalCreditsCancellation"></span></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.totalChargeback"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().totalChargeback"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.totalChargebackReversals"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().totalChargebackReversals"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.totalWager"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().totalWager"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.averageWagering"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().averageWagering"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.averageDeposit"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().averageDeposit"></p>
+                    </div>
+                </div>
+
+                <div class="form-group  margin-bottom-30">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.balanceDetails.maxBalance"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().maxBalance"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="row">
+                    <h5 class="col-sm-3 control-label"><strong>Game Balance Details</strong></h5>
+                </div>
+                <hr />
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.gameBalanceDetails.product"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: gameBalance().product"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.gameBalanceDetails.balance"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: gameBalance().balance"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.gameBalanceDetails.bonusBalance"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: gameBalance().bonusBalance"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.gameBalanceDetails.bettingBalance"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: gameBalance().bettingBalance"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="app:playerManager.info.gameBalanceDetails.totalBonus"></span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: gameBalance().totalBonus"></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h5 class="col-sm-3 control-label"><strong>Deposit wagering</strong></h5>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="">Wagering requirement</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().totalWagering"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="">Wagering completed</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().wageringCompleted"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span data-i18n="">Wagering remaining</span>
+                    </label>
+                    <div class="col-sm-8 field-box">
+                        <p class="form-control-static" data-bind="text: balance().wageringRequired"></p>
+                    </div>
+                </div>
+                <!--<div class="clearfix form-actions">
+                    <div class="center">
+                        <button class="btn btn-primary btn-round" data-bind="click: lockBalance" data-i18n="app:playerManager.info.gameBalanceDetails.lock"></button>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </form>
+</div>

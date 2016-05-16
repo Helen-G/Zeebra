@@ -1,0 +1,86 @@
+<div class="panel-body">
+    <div data-bind="grid: {
+    source: 'PlayerBonus/Data',
+    fields: ['Name', 'Code', 'Type', 'Status', 'Description'],
+    filter: ko.computed(function() { return { }}),
+    defaultSort: { field: 'Name', direction: 'asc' },
+    paging: true,
+    useResizeManager: { height: 400 },
+    sendAlso: ko.computed(function() { return [ { playerId: playerId }]; })
+}, visible: currentStage() == stages.bonusTable">
+        <header>
+            <form action="#" class="pull-left">
+                <div class="custom-filters" data-bind="compose: { model: 'controls/filters', activationData: [[
+                ['Name', 'app:playerManager.bonus.name', 'text'],
+                ['Code', 'app:playerManager.bonus.code', 'text'],
+                ['Type', 'app:playerManager.bonus.type', 'list',{
+                    'FirstDeposit': i18N.t('app:bonus.bonusTypes.FirstDeposit'),
+                    'ReloadDeposit': i18N.t('app:bonus.bonusTypes.ReloadDeposit'),
+                    'FundIn': i18N.t('app:bonus.bonusTypes.FundIn')}
+                    ]
+            ]] }"></div>
+                <button id="search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="common.search"></button>
+            </form>
+            <div class="btn-group pull-right">
+                <button class="btn btn-sm btn-success btn-round" data-bind="click: proceed, enable: bonusToIssue">
+                    <i class="ace-icon fa fa-plus"></i> <span data-i18n="playerManager.bonus.issue"></span>
+                </button>
+            </div>
+        </header>
+        <column title="app:playerManager.bonus.name" sort-field="Name" width="300" data-value="@Name" />
+        <column title="app:playerManager.bonus.code" sort-field="Code" width="200" data-value="@Code" />
+        <column title="app:playerManager.bonus.type" width="150" data-value="$root.typeFormatter.call @" />
+        <column title="app:playerManager.bonus.status" width="150" data-value="$root.statusFormatter.call @" />
+        <column title="app:playerManager.bonus.description" width="100" name="Description">
+            <span class="player-bonus-description ace-icon fa fa-file-text-o"
+                  data-style="if @Description? then 'visibility: visible' else 'visibility: collapse'"
+                  data-title="@Description"></span>
+        </column>
+    </div>
+
+    <div data-bind="visible: currentStage() == stages.loadingSpinner"><center><img src="Content/images/loading.gif" /></center></div>
+
+    <!-- ko if: currentStage() == stages.issuanceUI -->
+    <form role="form" class="form-horizontal">
+
+        <div class="well well-sm">
+            <label data-bind="text: bonusToIssue().name"></label>
+            <!-- ko if: bonusToIssue().description.length > 0 -->
+            <br />
+            <label class="col-sm-offset-1" data-bind="text: bonusToIssue().description"></label>
+            <!-- /ko -->
+        </div>
+
+        <!-- ko if: transactions().length > 0 -->
+        <div class="form-group">
+            <label class="col-sm-2 control-label" data-i18n="playerManager.bonus.transaction"></label>
+            <div class="col-sm-4">
+                <select class="form-control" data-bind="options: transactions, value: currentTransaction, optionsText: 'description'"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" data-i18n="playerManager.bonus.bonusAmount"></label>
+            <div class="col-sm-2">
+                <p class="form-control-static" data-bind="text: currentTransaction().bonusAmount"></p>
+            </div>
+        </div>
+        <!-- /ko -->
+
+        <h3 data-bind="visible: transactions().length == 0" data-i18n="playerManager.bonus.noTransactions"></h3>
+
+        <!-- ko foreach: errors -->
+        <h4 class="alert alert-danger" data-bind="text: $data"></h4>
+        <!-- /ko -->
+
+        <h4 class="alert alert-success" data-bind="visible: bonusIssued" data-i18n="playerManager.bonus.bonusIssued"></h4>
+
+        <div class="clearfix form-actions">
+            <div class="center">
+                <button class="btn btn-white btn-round" data-bind="click: backToList" data-i18n="playerManager.bonus.back"></button>
+                <button class="btn btn-primary btn-round" data-bind="click: issueBonus, visible: transactions().length > 0, disable: bonusIssued" data-i18n="playerManager.bonus.issue"></button>
+            </div>
+        </div>
+    </form>
+    <!-- /ko -->
+</div>

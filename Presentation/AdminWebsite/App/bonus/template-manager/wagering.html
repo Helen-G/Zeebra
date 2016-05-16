@@ -1,0 +1,108 @@
+<div class="form-group">
+    <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.wageringRequirement"></strong></h5>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.hasWagering"></label>
+    <div class="col-sm-8">
+        <div class="radio inline-radio">
+            <label>
+                <input type="radio" class="ace" value="true" data-bind="checked: HasWagering.ForEditing" />
+                <span class="lbl" data-i18n="common.booleanToYesNo.true"></span>
+            </label>
+        </div>
+        <div class="radio inline-radio">
+            <label>
+                <input type="radio" class="ace" value="false" data-bind="checked: HasWagering.ForEditing" />
+                <span class="lbl" data-i18n="common.booleanToYesNo.false"></span>
+            </label>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.wageringMethod"></label>
+    <div class="col-sm-8">
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown" data-bind="text: wageringMethodString, enable: wageringMethodSelectionIsActive"></button>
+                <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown" data-bind="enable: wageringMethodSelectionIsActive"><span class="caret"> </span></button>
+                <ul class="dropdown-menu">
+                    <li><a data-i18n="bonus.wageringMethod.0" data-bind="click: selectWageringMethod.bind($data, 0)"></a></li>
+                    <li><a data-i18n="bonus.wageringMethod.1" data-bind="click: selectWageringMethod.bind($data, 1)"></a></li>
+                    <li><a data-i18n="bonus.wageringMethod.2" data-bind="click: selectWageringMethod.bind($data, 2)"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label">
+        <span data-i18n="bonus.templateFields.wageringMultiplier"></span> <span class="red" data-bind="visible: HasWagering">*</span>
+    </label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control" data-bind="value: vMultiplier, numeric: vMultiplier, enable: HasWagering" maxlength="10" /><span class="red" data-bind="validationMessage: Multiplier"></span>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.wageringThreshold"></label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control" data-bind="value: vThreshold, numeric: vThreshold, enable: HasWagering" maxlength="15" /><span class="red" data-bind="validationMessage: Threshold"></span>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.isPostWager"></label>
+    <div class="col-sm-8">
+        <div class="radio inline-radio">
+            <label>
+                <input type="radio" class="ace" value="true" data-bind="checked: IsAfterWager.ForEditing, enable: HasWagering" />
+                <span class="lbl" data-i18n="common.booleanToYesNo.true"></span>
+            </label>
+        </div>
+        <div class="radio inline-radio">
+            <label>
+                <input type="radio" class="ace" value="false" data-bind="checked: IsAfterWager.ForEditing, enable: HasWagering" />
+                <span class="lbl" data-i18n="common.booleanToYesNo.false"></span>
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-1">
+        <h5 class="col-sm-2"><strong data-i18n="bonus.templateFields.gameAndWagering"></strong></h5>
+        <button class="btn btn-sm btn-success btn-round" data-bind="click: openGamesDialog, enable: HasWagering"><i class="ace-icon fa fa-plus"></i> <span data-i18n="bonus.templateFields.selectGames"></span></button>
+    </div>
+</div>
+
+<div class="form-group" data-bind="visible: GameContributions().length > 0">
+    <div class="col-sm-offset-1 col-sm-8">
+        <table class='table table-striped'>
+            <thead>
+                <tr>
+                    <th class="col-sm-4" data-i18n="common.product"></th>
+                    <th class="col-sm-4" data-i18n="common.game"></th>
+                    <th class="col-sm-3" data-i18n="bonus.templateFields.wageringContributionPercentage"></th>
+                    <th class="col-sm-2"></th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: GameContributions">
+                <tr>
+                    <td data-bind="text: ProductName"></td>
+                    <td data-bind="text: Name"></td>
+                    <td>
+                        <div class="input-group">
+                            <input class="form-control" style="text-align: right" data-bind='value: Contribution, numeric: Contribution, enable: $parent.HasWagering' maxlength="10" />
+                            <span class="input-group-addon">%</span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-danger btn-round" data-bind='click: $root.removeContribution, enable: $parent.HasWagering'><i class="ace-icon fa fa-times"></i> <span data-i18n="app:common.remove"></span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

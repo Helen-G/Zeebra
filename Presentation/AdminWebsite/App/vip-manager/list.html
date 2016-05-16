@@ -1,0 +1,17 @@
+﻿<div data-bind="attr: {id: naming.homeId}" class="tab-pane in active">
+    <div class="jqgrid-title-bar" data-bind="attr: {id: naming.titleBarId}">
+        <form data-bind="attr: {id: naming.searchFormId}" action="#" class="pull-left">
+            <input data-bind="attr: {id: naming.searchNameFieldId}" type="text" data-i18n="[placeholder]app:vipLevel.name" />
+            <button id="vip-level-name-search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: openAddTab"><i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openEditTab, enable: selectedRowId() && !isActive(selectedRowId())"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openViewTab, enable: selectedRowId()"><i class="ace-icon fa fa-file-text-o"></i> <span data-i18n="app:common.view"></span></button>
+            <button id="vip-level-activate-button" class="btn btn-sm btn-primary btn-round" data-bind="click: showActivateDialog, enable: selectedRowId() && !isActive(selectedRowId())"><i class="ace-icon fa fa-check"></i> <span data-i18n="app:common.activate"></span></button>
+            <button id="vip-level-deactivate-button" class="btn btn-sm btn-primary btn-round" data-bind="click: showActivateDialog, enable: selectedRowId() && isActive(selectedRowId())"><i class="ace-icon fa fa-ban"></i> <span data-i18n="app:common.deactivate"></span></button>
+        </div>
+    </div>
+    <table data-bind="attr: {id: naming.gridBodyId}"></table>
+    <div data-bind="attr: {id: naming.pagerId}"></div>
+</div>

@@ -1,0 +1,117 @@
+using AFT.RegoV2.Tests.Common.Extensions;
+using OpenQA.Selenium;
+
+namespace AFT.RegoV2.Tests.Common.Pages.BackEnd
+{
+    public class SubmittedNewVipLevelForm : PageBase
+    {
+        public SubmittedNewVipLevelForm(IWebDriver driver)
+            : base(driver)
+        {
+        }
+
+        public string ConfirmationMessage
+        {
+            get { return _driver.FindElementValue(By.XPath("//div[@class='alert alert-success']")); }
+        }
+
+        public string Licensee
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("//div[@data-view='vip-manager/add']" +
+                                                    "//select[contains(@id, 'vip-level-licensee')]/following-sibling::p"));
+            }
+        }
+
+        public string Brand
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("//div[@data-view='vip-manager/add']" +
+                                                    "//select[contains(@id, 'vip-level-brand')]/following-sibling::p"));
+            }
+        }
+
+        public string Code
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("//div[@data-view='vip-manager/add']" +
+                                                    "//input[contains(@id, 'vip-level-code')]/following-sibling::p"));
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("//div[@data-view='vip-manager/add']" +
+                                                    "//input[contains(@id, 'vip-level-name')]/following-sibling::p"));
+            }
+        }
+<<<<<<< HEAD:Tests/Tests/Selenium/Pages/BackEnd/SubmittedVipLevelForm.cs
+
+        public string Rank
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("//div[@data-view='vip-manager/add']" +
+                                                    "//input[contains(@id, 'vip-level-rank')]/following-sibling::p"));
+            }
+        }
+        //first bet level
+        public string GameProvider1
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("(//span[contains(@data-bind, 'text: selectedGameServerName')])[1]"));
+            } 
+        }       
+
+        public string Currency1
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("(//span[contains(@data-bind, 'text: selectedCurrencyCode')])[1]"));
+            }
+        }
+
+        public object BetLevel1
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("(//span[contains(@data-bind, 'text: selectedBetLimitId')])[1]"));
+            }
+        }
+
+        //second bet level
+        public string GameProvider2
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("(//span[contains(@data-bind, 'text: selectedGameServerName')])[2]"));
+            }
+        }
+
+        public string Currency2
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("(//span[contains(@data-bind, 'text: selectedCurrencyCode')])[2]"));
+            }
+        }
+
+        public string BetLevel2
+        {
+            get
+            {
+                return _driver.FindElementValue(By.XPath("(//span[contains(@data-bind, 'text: selectedBetLimitId')])[2]"));
+            }
+        }
+
+    }
+=======
+    }
+>>>>>>> develop:Tests.Common/Pages/BackEnd/SubmittedVipLevelForm.cs
+}

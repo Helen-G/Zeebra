@@ -1,0 +1,55 @@
+﻿<form role="form" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:common.licensee"></span>
+        </label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.licenseeName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:common.brand"></span>
+        </label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.brandName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:currencies.baseCurrency"></span>
+        </label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.baseCurrency"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:currencies.currencyCode"></span>
+        </label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.currencyCode"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:currencies.exchangeRate"></span>
+        </label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.currentRate"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: Model.isHavePreviousRate">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:currencies.previousRate"></span>
+        </label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.previousRate"></p>
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-white btn-round" id="btn-viewcurrencyexchange-close" data-bind="click: cancel" data-i18n="common.close"></button>
+        </div>
+    </div>
+</form>

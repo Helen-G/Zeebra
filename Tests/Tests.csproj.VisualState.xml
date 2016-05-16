@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]D:\aft-regov2\Tests\Tests.csproj</TopNode>
+  <SelectedNode>[0-1000]D:\aft-regov2\Tests\Tests.csproj</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]D:\aft-regov2\Tests\Tests.csproj" Expanded="true" />
+    <Node UniqueName="[0-1984]D:\aft-regov2\Tests\bin\Debug\AFT.RegoV2.Tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1985]AFT" Expanded="true" />
+    <Node UniqueName="[0-1986]AFT.RegoV2" Expanded="true" />
+    <Node UniqueName="[0-1987]AFT.RegoV2.Tests" Expanded="true" />
+    <Node UniqueName="[0-1988]AFT.RegoV2.Tests.Integration" Expanded="true" />
+    <Node UniqueName="[0-1989]AFT.RegoV2.Tests.Selenium" Expanded="true" />
+    <Node UniqueName="[0-1990]AFT.RegoV2.Tests.Unit" Expanded="true" />
+    <Node UniqueName="[0-1998]AFT.RegoV2.Tests.Unit.AdminActivityLog" Expanded="true" />
+    <Node UniqueName="[0-1991]AFT.RegoV2.Tests.Unit.Bonus" Expanded="true" />
+    <Node UniqueName="[0-1992]AFT.RegoV2.Tests.Unit.Brand" Expanded="true" />
+    <Node UniqueName="[0-1993]AFT.RegoV2.Tests.Unit.Event" Expanded="true" />
+    <Node UniqueName="[0-1994]AFT.RegoV2.Tests.Unit.Game" Expanded="true" />
+    <Node UniqueName="[0-1995]AFT.RegoV2.Tests.Unit.MessageTemplates" Expanded="true" />
+    <Node UniqueName="[0-1996]AFT.RegoV2.Tests.Unit.Payment" Expanded="true" />
+    <Node UniqueName="[0-1997]AFT.RegoV2.Tests.Unit.Player" Expanded="true" />
+    <Node UniqueName="[0-1999]AFT.RegoV2.Tests.Unit.Report" Expanded="true" />
+    <Node UniqueName="[0-2000]AFT.RegoV2.Tests.Unit.Report.Brand" Expanded="true" />
+    <Node UniqueName="[0-2001]AFT.RegoV2.Tests.Unit.Report.Payment" Expanded="true" />
+    <Node UniqueName="[0-2002]AFT.RegoV2.Tests.Unit.Report.Player" Expanded="true" />
+    <Node UniqueName="[0-2003]AFT.RegoV2.Tests.Unit.Security" Expanded="true" />
+    <Node UniqueName="[0-2004]AFT.RegoV2.Tests.Unit.Wallet" Expanded="true" />
+  </Nodes>
+</VisualState>

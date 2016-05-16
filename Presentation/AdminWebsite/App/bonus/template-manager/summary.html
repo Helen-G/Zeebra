@@ -1,0 +1,328 @@
+<div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.type"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: TemplateType"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="common.licensee"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: LicenseeName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="common.brand"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: BrandName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.name"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Info.Name"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.common.description"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static-multilines" data-bind="text: Description"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.receivingWallet"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: WalletName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.isWithdrawable"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Withdrawable"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.mode"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Mode"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.qualification"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.templateFields.qualificationDescr"></h6>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.hasClaimed"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: ParentBonusName"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.playerRegisteredFrom"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: PlayerRegistrationRange"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.playerAccountWithin"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static"><span data-bind="text: Availability.WithinRegistrationDays"></span> <span data-i18n="bonus.templateFields.playerAccountWithinAppendix"></span></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.vipLevel"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: VipLevels"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.disqualification"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.templateFields.disqualificationDescr"></h6>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.hasClaimed"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: ExcludeBonusNames"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.excludedFraudRiskLevels"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: ExcludeRiskLevelNames"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.issuancePerPlayer"></label>
+        <div class="col-sm-8 form-control-static">
+            <span data-bind="text: PlayerRedemptionsLimit"></span>
+            <span data-bind="text: PlayerRedemptionsLimitType"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.issuanceLimit"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: RedemptionsLimit"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.computation"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.templateFields.computationDescr"></h6>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.rewardType"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: RewardType"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="common.currency"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: currencies"></p>
+        </div>
+    </div>
+
+    <!-- ko if: Rules.isFundIn -->
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.fundInWallets"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: FundInWallets"></p>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: Rules.isReferFriends -->
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.minDepositAmount"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Rules.ReferFriendMinDepositAmount"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.wageringMultiplier"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Rules.ReferFriendWageringCondition"></p>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: Rules.isHighDeposit -->
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.autoGenerateHighDeposit"></label>
+        <div class="col-sm-8">
+            <span class="form-control-static" data-bind="text: IsAutoGenerateHighDeposit"></span>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: Rules.RewardTiers().length > 0 -->
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.bonusTiers"></label>
+        <div class="col-sm-8">
+            <!-- ko foreach: Rules.RewardTiers -->
+            <div>
+                <h5><strong data-bind="text: CurrencyCode"></strong></h5>
+                <!-- ko ifnot: $root.Rules.isPercentageRewardType() || $root.Rules.isAmountRewardType() -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <!-- ko if: $root.Rules.isVerification() == false -->
+                            <th data-bind="text: $root.Rules.fromLabelText"></th>
+                            <!-- ko if: $root.Rules.isHighDeposit() == false -->
+                            <th data-bind="text: $root.Rules.toLabelText"></th>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <th data-bind="text: $root.Rules.rewardLabelText"></th>
+                            <!-- ko if: $root.Rules.showMaxAmount -->
+                            <th data-i18n="bonus.bonusFields.maxAmount"></th>
+                            <!-- /ko -->
+                            <!-- ko if: $root.Rules.isHighDeposit -->
+                            <th data-i18n="bonus.templateFields.notificationPercentThreshold"></th>
+                            <!-- /ko -->
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: BonusTiers">
+                        <tr>
+                            <!-- ko if: $root.Rules.isVerification() == false -->
+                            <td><span data-bind="text: vFrom"></span></td>
+                            <!-- ko if: $root.Rules.isHighDeposit() == false -->
+                            <td><span data-bind="text: $root.tierToFormatter(To)"></span></td>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                            <td><span data-bind="text: vReward"></span></td>
+                            <!-- ko if: $root.Rules.showMaxAmount -->
+                            <td><span data-bind="text: vMaxAmount"></span></td>
+                            <!-- /ko -->
+                            <!-- ko if: $root.Rules.isHighDeposit -->
+                            <td><span data-bind="text: vNotificationPercentThreshold"></span></td>
+                            <!-- /ko -->
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- /ko -->
+                <!-- ko if: $root.Rules.isPercentageRewardType() || $root.Rules.isAmountRewardType() -->
+                <!-- ko with: BonusTiers()[0] -->
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" data-bind="text: $root.Rules.fromLabelText"></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static" data-bind="text: vFrom"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" data-bind="text: $root.Rules.rewardLabelText"></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static"><span data-bind="text: vReward"></span><!-- ko if: $root.Rules.isPercentageRewardType() -->%<!-- /ko --></p>
+                    </div>
+                </div>
+
+                <!-- ko if: $root.Rules.isPercentageRewardType -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.maxBonusAmountPerTransaction"></label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static" data-bind="text: vMaxAmount"></p>
+                    </div>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- /ko -->
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.rewardAmountLimit"></label>
+                <div class="col-sm-8">
+                    <p class="form-control-static" data-bind="text: $root.rewardAmountLimitFormatter(RewardAmountLimit)"></p>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+    <!-- /ko -->
+
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.disposal"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.templateFields.disposalDescr"></h6>
+    </div>
+
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.wageringRequirement"></strong></h5>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.hasWagering"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: HasWagering"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.wageringMethod"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: WageringMethod"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.wageringMultiplier"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: WageringMultiplier"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.wageringThreshold"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Wagering.Threshold"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.isPostWager"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: IsAfterWager"></p>
+        </div>
+    </div>
+
+    <!-- ko if: Wagering.GameContributions().length > 0 -->
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.gameAndWagering"></strong></h5>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-8">
+            <table class='table table-striped'>
+                <thead>
+                    <tr>
+                        <th class="col-sm-4" data-i18n="common.product"></th>
+                        <th class="col-sm-4" data-i18n="common.game"></th>
+                        <th class="col-sm-3" data-i18n="bonus.templateFields.wageringContributionPercentage"></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: Wagering.GameContributions">
+                    <tr>
+                        <td data-bind="text: ProductName"></td>
+                        <td data-bind="text: Name"></td>
+                        <td><span data-bind="text: Contribution"></span>%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /ko -->
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.emailNotification"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: EmailTemplateName"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.templateFields.smsNotification"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: SmsTemplateName"></p>
+        </div>
+    </div>
+</div>

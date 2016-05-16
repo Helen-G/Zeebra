@@ -1,0 +1,27 @@
+<div class="modal-content" style="width: 500px;">
+    <div class="modal-header">
+        <h3 data-i18n="bonus.templateFields.selectGames"></h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-8">
+                    <select class="form-control" data-bind="options: products, value: productId, optionsText: 'ProductName', optionsValue: 'ProductId'"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div style="width: 1200px" data-bind="multiSelect: {
+                                    allItems: availableGames,
+                                    optionsText: 'Name',
+                                    selected: {
+                                        labelText: 'bonus.templateFields.selectedGames',
+                                        items: filteredGames},
+                                    availableLabelText: 'bonus.templateFields.games'}"></div>
+                </div>
+        </form>
+    </div>
+    <div class="modal-footer align-center">
+        <button class="btn btn-primary" data-bind="click: cancel" data-i18n="common.cancel"></button>
+        <button class="btn btn-primary" data-bind="click: ok" data-i18n="common.apply"></button>
+    </div>
+</div>

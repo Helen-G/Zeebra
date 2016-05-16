@@ -1,0 +1,36 @@
+﻿<div data-bind="grid: {
+            source: 'PlayerInfo/WithdrawTransactions',
+            fields: ['Created', 'TransactionNumber', 'BankAccountNumber', 'PaymentMethod', 'Amount', 'Status'],
+            defaultSort: { field: 'Created', direction: 'desc' },
+            paging: true,
+                useResizeManager: { height: 400 },
+            sendAlso: ko.computed(function() { return [ { playerId: playerId }]; })
+        }">
+    <header>
+        <form action="#" class="pull-left">
+            <table class="table">
+                <tr>
+                    <td>
+                        <div class="custom-filters" data-bind="compose: { model: 'controls/filters', activationData: [[
+                            ['Created', 'app:playerManager.withdrawHistory.transactionDate', 'date'],
+                            ['TransactionNumber', 'app:playerManager.withdrawHistory.transactionID', 'unique'],
+                            ['BankAccountNumber', 'app:playerManager.withdrawHistory.accountNumber', 'unique'],
+                            ['DepositMethod', 'app:playerManager.withdrawHistory.paymentMethod', 'list', { 'OfflineBank': 'Offline Bank', 'Online': 'Online' }],
+                            ['Amount', 'app:common.amount', 'numeric'],
+                            ['Status', 'app:common.status', 'list', ['Unverified', 'Rejected', 'Approved', 'Canceled']]
+                        ]] }"></div>
+                        <button type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </header>
+    <column title="app:playerManager.withdrawHistory.transactionDate" sort-field="Created" width="180" data-value="$root.moment(@Created).format 'YYYY-MM-DD hh:mm:ssA'" />
+    <column title="app:playerManager.withdrawHistory.transactionID" sort-field="TransactionNumber" width="180" data-value="@TransactionNumber" />
+    <column title="app:playerManager.withdrawHistory.accountNumber" sort-field="BankAccountNumber" width="230" data-value="@BankAccountNumber" />
+    <column title="app:playerManager.withdrawHistory.paymentMethod" sort-field="PaymentMethod" width="150" data-value="@PaymentMethod" />
+    <column title="app:common.amount" sort-field="Amount" width="150">
+        <div class="pull-right" data-value="'$' + Number(@Amount).toFixed 2"></div>
+    </column>
+    <column title="app:common.status" sort-field="Status" width="120" data-value="@Status" />
+</div>

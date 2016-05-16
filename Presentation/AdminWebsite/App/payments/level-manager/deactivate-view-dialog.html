@@ -1,0 +1,55 @@
+﻿<div class="modal-content" style="width: 1000px">
+    <div class="modal-header">
+        <h3 data-i18n="app:payment.newLevel"></h3>
+    </div>
+    <div class="modal-body">        
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" data-i18n="app:payment.levelCode"></label>
+                <div class="col-sm-6">
+                    <p class="form-control-static" data-bind="text: code"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" data-i18n="app:payment.levelName"></label>
+                <div class="col-sm-6">
+                    <p class="form-control-static" data-bind="text: name"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" data-i18n="app:payment.defaultLevel"></label>
+                <div class="col-sm-6">
+                    <input type="checkbox" data-bind="checked: isDefault" disabled="disabled"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" data-i18n="app:common.licensee"></label>
+                <div class="col-sm-6">
+                    <p class="form-control-static" data-bind="text: licensee"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" data-i18n="app:common.brand"></label>
+                <div class="col-sm-6">
+                    <p class="form-control-static" data-bind="text: brandName"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" data-i18n="app:common.currency"></label>
+                <div class="col-sm-6">
+                    <p class="form-control-static" data-bind="text: currency"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" data-i18n="app:payment.paymentLevel.availableBankAccounts"></label>                
+            </div>
+        </form>       
+        
+        <table data-bind="attr: {id: naming.gridBodyId}"></table>
+        <div data-bind="attr: {id: naming.pagerId}"></div>
+
+    </div>
+    <div class="modal-footer align-right">        
+        <button class="btn btn-default" data-bind="click: close" data-i18n="app:common.close"></button>
+    </div>
+</div>

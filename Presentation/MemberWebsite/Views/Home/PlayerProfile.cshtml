@@ -1,0 +1,433 @@
+﻿@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container ky-icon-tabs-content">
+    <div class="loader"><center><img src="@Url.Content("~/Content/images/loading.gif")" /></center></div>
+    <div id="profile-wrapper" class="page-wrapper">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="ky-panel">
+                    <div class="button-wrap">
+                        <button type="button" data-bind="click: personal.edit, visible: !personal.editing()" class="btn btn-primary ky-button"><i class="fa fa-pencil"></i></button>
+                    </div>
+                    <h4 class="title"><i class="fa fa-fw fa-user"></i><span data-i18n="registration.personalInformation"></span></h4>
+                    <div class="table-body transfer-summary-form">
+                        <table class="table table-no-bordered ky-table">
+                            <tr>
+                                <td data-i18n="common.title"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !personal.editing(), text: personal.title"></span></div>
+                                        <div data-bind="visible: personal.editing" class="row">
+                                            <div class="col-md-12">
+                                                <select data-bind="value: personal.title" class="form-control">
+                                                    <option value="" data-i18n="common.pleaseSelectOptionAsHint"></option>
+                                                    <option value="Mr">Mr</option>
+                                                    <option value="Ms">Ms</option>
+                                                    <option value="Mrs">Mrs</option>
+                                                    <option value="Miss">Miss</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.firstName"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !personal.editing(), text: personal.firstName"></span></div>
+                                        <input type="text" placeholder="John" data-bind="visible: personal.editing, value: personal.firstName" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.lastName"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !personal.editing(), text: personal.lastName"></span></div>
+                                        <input type="text" placeholder="Doe" data-bind="visible: personal.editing, value: personal.lastName" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.email"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !personal.editing(), text: personal.email"></span></div>
+                                        <input type="email" placeholder="john.doe@example.com" data-bind="visible: personal.editing, value: personal.email" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.dateOfBirth"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !personal.editing(), text: personal.dateOfBirth"></span></div>
+                                        <div data-bind="visible: personal.editing" class="row inline-input">
+                                            <div class="col-md-4">
+                                                <select data-bind="value: personal.birthYear" class="form-control">
+                                                    <option value="0" data-i18n="common.year"></option>
+                                                    @for (var i = DateTime.Now.Year - 18; i >= 1914; i--)
+                                                    {
+                                                        <option value="@i">@i</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select data-bind="value: personal.birthMonth" class="form-control">
+                                                    <option value="0" data-i18n="common.month"></option>
+                                                    @for (var i = 1; i <= 12; i++)
+                                                    {
+                                                        <option value="@i.ToString("00")">@i.ToString("00")</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select data-bind="value: personal.birthDay" class="form-control">
+                                                    <option value="0" data-i18n="common.day"></option>
+                                                    @for (var i = 1; i <= 31; i++)
+                                                    {
+                                                        <option value="@i.ToString("00")">@i.ToString("00")</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.gender"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !personal.editing(), text: personal.gender"></span></div>
+                                        <div data-bind="visible: personal.editing" class="row">
+                                            <div class="col-md-12">
+                                                <select data-bind="value: personal.gender" class="form-control">
+                                                    <option value="" data-i18n="common.pleaseSelectOptionAsHint"></option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="registration.currency"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !personal.editing(), text: personal.currencyCode"></span></div>
+                                        <div data-bind="visible: personal.editing" class="row">
+                                            <div class="col-md-12">
+                                                <select id="currency" data-bind="value: personal.currencyCode" class="form-control">
+                                                    <option value="" data-i18n="common.pleaseSelectOptionAsHint"></option>
+                                                    <option value="CAD">CAD</option>
+                                                    <option value="CNY">CNY</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.idStatus"></td>
+                                <td><div><div><span data-bind="text: personal.idStatus"></span></div></div></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.accountStatus"></td>
+                                <td><div><div><span data-bind="text: personal.accountStatus"></span></div></div></td>
+                            </tr>
+                            <tr data-bind="visible: personal.success() || personal.fail()">
+                                <td colspan="2">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-sm-3"></div>
+                                            <div class="col-sm-6">
+                                                <label class="ky-notification notification-success" data-bind="visible: personal.success" data-i18n="common.personalInfoUpdatedSuccessfully"></label>
+                                                <label class="ky-notification notification-danger" data-bind="visible: personal.fail, text: personal.errorMessage"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table style="margin: 2em 0" class="table table-no-bordered ky-table">
+                            <tr>
+                                <td data-i18n="common.securityQuestion"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !personal.editing(), text: security.question"></span></div>
+                                        <div data-bind="visible: personal.editing" class="row">
+                                            <div class="col-md-12">
+                                                <select id="newSecurityQuestion" class="form-control" data-bind="options:security.questions, optionsText:'question', optionsValue:'id', value: security.questionId"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.securityAnswer"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !personal.editing(), text: security.answer"></span></div>
+                                        <div data-bind="visible: personal.editing" class="row has-btn-block">
+                                            <div class="col-md-6">
+                                                <input type="text" data-bind="value: security.answer" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <button type="button" data-bind="visible: personal.editing, click: security.save" class="btn btn-info btn-xs btn-block" data-i18n="common.changeSecurityQuestion"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" data-bind="visible: personal.editing">
+                                            <div class="form-group">
+                                                <div class="col-sm-4">
+                                                    <label class="ky-notification notification-success" data-bind="visible: security.success" data-i18n="common.passwordHasBeenChangedSuccessfully"></label>
+                                                    <label class="ky-notification notification-danger" data-bind="visible: security.fail, text: security.errorMessage"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="text-right">
+                            <button type="button" data-bind="click: personal.save, visible: personal.editing, enable: !personal.submitting()" class="btn btn-primary"><i class="fa fa-check"></i><span data-i18n="common.save"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="ky-panel">
+                    <div class="button-wrap">
+                        <button type="button" data-bind="click: contacts.edit, visible: !contacts.editing()" class="btn btn-primary ky-button edit"><i class="fa fa-pencil"></i></button>
+                    </div>
+                    <h4 class="title"><i class="fa fa-fw fa-phone"></i><span data-i18n="registration.contactInformation"></span></h4>
+                    <div class="table-body transfer-summary-form">
+                        <table class="table table-no-bordered ky-table">
+                            <tr>
+                                <td data-i18n="common.address"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !contacts.editing(), text: contacts.addressLine1"></span></div>
+                                        <input type="text" placeholder="Address" data-bind="visible: contacts.editing, value: contacts.addressLine1" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.addressLine2"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !contacts.editing(), text: contacts.addressLine2"></span></div>
+                                        <input type="text" placeholder="Address Line 2" data-bind="visible: contacts.editing, value: contacts.addressLine2" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.addressLine3"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !contacts.editing(), text: contacts.addressLine3"></span></div>
+                                        <input type="text" placeholder="Address Line 3" data-bind="visible: contacts.editing, value: contacts.addressLine3" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.addressLine4"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !contacts.editing(), text: contacts.addressLine4"></span></div>
+                                        <input type="text" placeholder="Address Line 4" data-bind="visible: contacts.editing, value: contacts.addressLine4" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.city"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !contacts.editing(), text: contacts.city"></span></div>
+                                        <input type="text" placeholder="City" data-bind="visible: contacts.editing, value: contacts.city" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.country"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !contacts.editing(), text: contacts.countryCode"></span></div>
+                                        <div data-bind="visible: contacts.editing" class="row">
+                                            <div class="col-md-12">
+                                                <select id="country" data-bind="value: contacts.countryCode" class="form-control">
+                                                    <option value="" data-i18n="common.pleaseSelectOptionAsHint"></option>
+                                                    <option value="CA">CA</option>
+                                                    <option value="CN">CN</option>
+                                                    <option value="GB">GB</option>
+                                                    <option value="US">US</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.mobileNumber"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !contacts.editing(), text: contacts.phoneNumber"></span></div>
+                                        <input type="text" placeholder="Mobile Phone" data-bind="visible: contacts.editing, value: contacts.phoneNumber" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.postalCode"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !contacts.editing(), text: contacts.postalCode"></span></div>
+                                        <input type="text" placeholder="Postal Code" data-bind="visible: contacts.editing, value: contacts.postalCode" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="common.contactPreference"></td>
+                                <td>
+                                    <div>
+                                        <div><span data-bind="visible: !contacts.editing(), text: contacts.contactPreference"></span></div>
+                                        <div data-bind="visible: contacts.editing" class="row">
+                                            <div class="col-md-12">
+                                                <select id="contactPreference" data-bind="value: contacts.contactPreference" class="form-control">
+                                                    <option value="" data-i18n="common.pleaseSelectOptionAsHint"></option>
+                                                    <option value="Email">Email</option>
+                                                    <option value="Chat">Chat</option>
+                                                    <option value="Phone">Phone</option>
+                                                    <option value="Sms">Sms</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr data-bind="visible: contacts.success() || contacts.fail()">
+                                <td colspan="2">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-sm-3"></div>
+                                            <div class="col-sm-6">
+                                                <label class="ky-notification notification-success" data-bind="visible: contacts.success" data-i18n="common.contactInformationUpdatedSuccessfully"></label>
+                                                <label class="ky-notification notification-danger" data-bind="visible: contacts.fail, text: contacts.errorMessage"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table style="margin: 2em 0" class="table table-no-bordered ky-table">
+                            <tr>
+                                <td data-i18n="common.phoneNumberVerification"></td>
+                                <td>
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div><span data-bind="visible: !contacts.editing(), text: verification.code"></span></div>
+                                                <input type="text" placeholder="Verification Code" value="" data-bind="visible: contacts.editing, value: verification.code" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row has-btn-block">
+                                                    <div class="col-md-12">
+                                                        <div>
+                                                            <button type="button" data-bind="visible: contacts.editing, click: verification.verifyPhoneNumber" class="btn btn-info btn-xs btn-block" data-i18n="common.verifyPhoneNumber"></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div>
+                                                            <button type="button" data-bind="visible: contacts.editing, click: verification.requestCode" class="btn btn-info btn-xs btn-block" data-i18n="common.requestPhoneNumberVerificationCode"></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" data-bind="visible: contacts.editing">
+                                            <div class="col-md-6">
+                                                <label class="ky-notification notification-success" data-bind="visible: verification.success, text: verification.successMessage"></label>
+                                                <label class="ky-notification notification-danger" data-bind="visible: verification.fail, text: verification.errorMessage"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-6">
+                                    <div class="text-right">
+                                        <button type="button" data-bind="click: contacts.save, visible: contacts.editing, enable: !contacts.submitting()" class="btn btn-primary"><i class="fa fa-check"></i><span data-i18n="common.save"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="ky-panel">
+                    <h4 class="title"><i class="fa fa-fw fa-gear"></i><span data-i18n="registration.accountInformation"></span></h4>
+                    <div class="table-body transfer-summary-form">
+                        <form data-bind="submit: account.changePassword" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="" class="col-sm-4" data-i18n="common.username"></label>
+                                <div class="col-sm-6">
+                                    <span data-bind="text: account.username"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-4" data-i18n="common.oldPassword"></label>
+                                <div class="col-sm-6">
+                                    <input type="password" id="oldPassword" data-bind="value: account.oldPassword" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="col-sm-4" data-i18n="common.newPassword"></label>
+                                <div class="col-sm-6">
+                                    <input type="password" id="newPassword" data-bind="value: account.newPassword" class="form-control">
+                                </div>
+                            </div>
+                            <div data-bind="css: { 'has-error has-feedback': !account.passwordConfirmed() } " class="form-group">
+                                <label for="" class="col-sm-4" data-i18n="common.confirmPassword"></label>
+                                <div class="col-sm-6">
+                                    <input type="password" id="confirmPassword" data-bind="value: account.confirmPassword" class="form-control"><span data-bind="visible: !account.passwordConfirmed()" aria-hidden="true" class="fa fa-fw fa-warning form-control-feedback"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6">
+                                    <label class="ky-notification notification-success" data-bind="visible: account.success" data-i18n="common.passwordHasBeenChangedSuccessfully"></label>
+                                    <label class="ky-notification notification-danger" data-bind="visible: account.fail, text: account.errorMessage"></label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button id="changePasswordBtn" type="submit" class="btn btn-primary pull-right" data-bind="enable: !account.submitting()" data-i18n="common.changePassword"></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="/Scripts/moment.js"></script>
+    <script src="/Scripts/custom/formbase.js"></script>
+    <script src="/Scripts/custom/profile/personal.js"></script>
+    <script src="/Scripts/custom/profile/security.js"></script>
+    <script src="/Scripts/custom/profile/contacts.js"></script>
+    <script src="/Scripts/custom/profile/verification.js"></script>
+    <script src="/Scripts/custom/profile/account.js"></script>
+    <script src="/Scripts/custom/profile/profile.js"></script>
+}

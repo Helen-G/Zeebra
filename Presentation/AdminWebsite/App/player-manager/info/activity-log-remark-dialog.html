@@ -1,0 +1,27 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 data-bind="text: title"></h3>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-danger" data-bind="visible: error, text: error"></div>
+        <div class="alert alert-success" data-bind="visible: submitted(), text: message"></div>
+        <form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+            <div class="form-group" data-bind="visible: !submitted()">
+                <label class="col-sm-3 control-label">
+                    <span data-i18n="common.remarks"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-8">
+                    <textarea data-bind="value: remarks" class="autofocus" /> <span class="red" data-bind="validationMessage: remarks"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="center">
+            <button class="btn btn-primary" data-bind="click: ok, visible: !submitted()" data-i18n="common.edit"></button>
+            <button class="btn btn-primary" data-bind="click: clear, visible: !submitted()" data-i18n="common.clear"></button>
+            <button class="btn btn-primary" data-bind="click: cancel, visible: !submitted()" data-i18n="common.cancel"></button>
+            <button class="btn btn-default btn-round" data-bind="click: cancel, visible: submitted()" data-i18n="common.close"></button>
+        </div>
+    </div>
+</div>

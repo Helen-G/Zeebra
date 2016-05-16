@@ -1,0 +1,176 @@
+@model AFT.RegoV2.GameWebsite.Models.GameViewModel
+@{
+    ViewBag.Title = "Game";
+}
+
+<h1>@Model.GameName</h1>
+
+@if (Model.Token != null)
+{
+    <fieldset>
+        <legend><h3>Player data</h3></legend>
+        <p>Name: @Model.PlayerName</p>
+        <p>Currency: @Model.CurrencyCode</p>
+        <p>Language: @Model.Language</p>
+        <p>Tag: @Model.BrandCode</p>
+        <p>Balance: @Model.Balance.ToString("C")</p>
+        <p>Bet Limit Code: <span id="bet-limit-code">@Model.BetLimitCode</span></p>
+    </fieldset>
+}
+@if (Model.Message != null)
+{
+    <h3>@Html.Raw(Model.Message)</h3>
+}
+
+@if (Model.Enabled)
+{
+    <fieldset>
+        <legend><h3>Current and past rounds</h3></legend>
+        @if (Model.Message == null)
+        {
+            if (Model.Rounds.Any())
+            {
+                foreach (var round in Model.Rounds)
+                {
+                    var txs = round.GameActions.ToList();
+                    txs.Sort((tx1, tx2) => DateTimeOffset.Compare(tx1.CreatedOn, tx2.CreatedOn));
+
+                    <p>
+                        <table border="0" cellpadding="0" width="100%" >
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Round Amount<br/>(Won + Adjusted + Canceled - Placed)</th>
+                                    <th>Status</th>
+                                    <th>Created on</th>
+                                    <th>Game Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bet-row">
+                                    <td class="bet-id">@round.Id</td>
+                                    <td class="bet-amount">@(round.AdjustedAmount + round.WonAmount - round.Amount)</td>
+                                    <td class="bet-status">@round.Status</td>
+                                    <td>@round.CreatedOn</td>
+                                    <td>
+                                        <table width="100%" border="1" cellpadding="2" cellspacing="0">
+                                            <tr>
+                                                <th>Game Action ID</th>
+                                                <th>Amount</th>
+                                                <th>Description</th>
+                                                <th>Type</th>
+                                                <th>Command</th>
+                                            </tr>
+                                            @{
+                                                var counter = 0;
+                                                
+                                                foreach (var tx in txs)
+                                                {
+                                                    using (Html.BeginForm("BetAction", "Game"))
+                                                    {
+                                                        @Html.HiddenFor(model => model.RoundId, new {Value = round.Id})
+                                                        @Html.HiddenFor(model => model.Token)
+                                                        @Html.HiddenFor(model => model.TransactionId, new {Value = tx.Id})
+                                                        @Html.HiddenFor(model => model.BetLimitCode)
+                                                        <tr>
+                                                            <td id="tx-id-@counter">@tx.Id</td>
+                                                            <td id="tx-amount-@counter">@tx.Amount</td>
+                                                            <td id="tx-description-@counter">@tx.Description</td>
+                                                            <td id="tx-type-@counter">@tx.TransactionType</td>
+                                                            <td id="tx-cmd-@counter">
+                                                                @Html.TextBoxFor(model => model.OperationAmount, new {size = 3, @class="change-tx-amount"})
+                                                                <input id="tx-cmd-adjust-@counter" type="submit" value="Adjust" name="action:Adjust" />
+                                                                <input id="tx-cmd-cancel-@counter" type="submit" value="Cancel" name="action:Cancel" />
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                    counter += 1;
+                                                }
+                                            }
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"></td>
+                                    <td >
+                                        <fieldset>
+                                            <legend>Add transaction</legend>
+                                            @using (Html.BeginForm("BetAction", "Game"))
+                                            {
+                                                @Html.HiddenFor(model => model.RoundId, new { Value = round.Id })
+                                                @Html.HiddenFor(model => model.Token)
+                                                @Html.HiddenFor(model => model.BetLimitCode)
+
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            @Html.LabelFor(model => model.OperationAmount)
+                                                        </td>
+                                                        <td>
+                                                            @Html.LabelFor(model => model.Description)
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @Html.TextBoxFor(model => model.OperationAmount, new { @class="add-tx-amount"})
+                                                        </td>
+                                                        <td>
+                                                            @Html.TextBoxFor(model => model.Description)
+                                                        </td>
+                                                        <td>
+                                                            <input type="submit" value="Place" name="action:Place" />
+                                                            <input type="submit" value="Win" name="action:Win" />
+                                                            @if (round.Status == "Open" || true)
+                                                            {
+                                                                <input type="submit" value="Lose" name="action:Close" />
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            }
+                                        </fieldset>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+
+                }
+            }
+            else
+            {
+                <h3>Player hasn't played yet.</h3>
+            }
+        }
+    </fieldset>
+
+    <fieldset>
+        <legend><h3>Place a new bet</h3></legend>
+        @using (Html.BeginForm("PlaceInitialBet", "Game"))
+        {
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Amount, "Bet amount")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Amount)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Description, "Description")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Description)
+            </div>
+
+
+            @Html.HiddenFor(model => model.Token)
+            @Html.HiddenFor(model => model.BetLimitCode)
+            <br/>
+            <input type="submit" value="Place bet" id="place-bet"/>
+        }
+    </fieldset>
+
+
+}

@@ -1,0 +1,30 @@
+﻿<div data-bind="grid: {
+    fields: ['Level', 'Name', 'TaggedBy', 'DateTagged', 'Remark'],
+    source: 'Fraud/Evaluation',
+    paging: true,
+    defaultSort: { field: 'risklevel.level', direction: 'asc' },
+    filter: ko.computed(function() { return { 'playerId': playerId }; }),
+    useResizeManager: { height: 150 }
+}">
+    <div class="action-btns-container margin-bottom-10">
+        <div class="action-btns">
+            <div class="btn-group">
+                <button class="btn btn-sm btn-success btn-round" data-bind="click: openAddTab">
+                    <i class="ace-icon fa fa-plus"></i><span data-i18n="app:fraud.evaluation.button.add"></span>
+                </button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-primary btn-round" data-bind="click: unTag, enable: id()">
+                    <i class="ace-icon fa fa-pencil"></i><span data-i18n="app:fraud.evaluation.button.untag"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <column title="app:fraud.manager.columns.riskLevel" sort-field="Level" width="150" data-value="@Level" />
+    <column title="app:fraud.manager.columns.riskLevelName" sort-field="Name" width="200" data-value="@Name" />
+    <column title="app:fraud.evaluation.columns.dateTagged" sort-field="DateTagged" width="120" data-value="@DateTagged" />
+    <column title="app:fraud.evaluation.columns.taggedBy" sort-field="TaggedBy" width="120" data-value="@TaggedBy" />
+    <column title="app:common.remarks" sort-field="Remark" width="120">
+        <span class="remark ace-icon fa fa-file-text-o" data-title="@Remark"></span>
+    </column>
+</div>

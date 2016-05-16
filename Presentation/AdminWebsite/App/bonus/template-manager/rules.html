@@ -1,0 +1,214 @@
+<div>
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.computation"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.templateFields.computationDescr"></h6>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.templateFields.rewardType"></span>
+        </label>
+        <div class="col-sm-8">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown" data-bind="text: rewardTypeString, enable: rewardTypeSelectionIsActive"></button>
+                    <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown" data-bind="enable: rewardTypeSelectionIsActive"><span class="caret"> </span></button>
+                    <ul class="dropdown-menu" data-bind="foreach: availableRewardTypes">
+                        <li><a data-bind="click: $parent.selectRewardType.bind($data, id), text: name"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <span class="red" data-bind="validationMessage: RewardType"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="common.currency"></span> <span class="red">*</span>
+        </label>
+        <div data-bind="multiSelect: {
+                                    allItems: availableCurrencies,
+                                    optionsText: 'Code',
+                                    optionsValue: 'Code',
+                                    selected: {
+                                        labelText: 'bonus.templateFields.selectedCurrencies',
+                                        items: currencies},
+                                    availableLabelText: 'bonus.templateFields.currencies'}"></div>
+        <span class="red" data-bind="validationMessage: currencies"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.templateFields.basedOn"></span>
+        </label>
+
+        <div class="col-sm-8">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown" disabled="disabled"><span data-bind="text: $root.basedOnAmountText"></span></button>
+                    <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown" disabled="disabled"><span class="caret"> </span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ko if: isHighDeposit -->
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.autoGenerateHighDeposit"></label>
+        <div class="col-sm-8">
+            <input type="checkbox" data-bind="checked: IsAutoGenerateHighDeposit" />
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: isReferFriends -->
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.bonusFields.minDepositAmount"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" data-bind="value: ReferFriendMinDepositAmount, numeric: ReferFriendMinDepositAmount" maxlength="15" /> <span class="red" data-bind="validationMessage: ReferFriendMinDepositAmount"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.bonusFields.wageringMultiplier"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" data-bind="value: ReferFriendWageringCondition, numeric: ReferFriendWageringCondition" maxlength="15" /> <span class="red" data-bind="validationMessage: ReferFriendWageringCondition"></span>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: isFundIn -->
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.bonusFields.fundInWallets"></span> <span class="red">*</span>
+        </label>
+        <div data-bind="multiSelect: {
+                                    allItems: availableWallets,
+                                    optionsText: 'Name',
+                                    optionsValue: 'Id',
+                                    selected: {
+                                        labelText: 'bonus.bonusFields.selectedWallets',
+                                        items: FundInWallets},
+                                    availableLabelText: 'bonus.bonusFields.availableWallets'}"></div>
+        <span class="red" data-bind="validationMessage: FundInWallets"></span>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: RewardTiers().length > 0 -->
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.templateFields.bonusTiers"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-9">
+            <!-- ko foreach: RewardTiers -->
+            <div>
+                <h5><strong data-bind="text: CurrencyCode"></strong></h5>
+            </div>
+
+            <!-- ko if: $root.isTieredReward() -->
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th data-i18n="bonus.bonusFields.tier"></th>
+                    
+                    <!-- ko if: $root.isVerification() == false -->
+                    <th><span data-bind="text: $root.fromLabelText"></span> <span data-bind="visible: $root.isTieredReward" class="red">*</span></th>
+                    <!-- /ko -->
+                    <th>
+                        <span data-bind="text: $root.rewardLabelText"></span>
+                        <!-- ko if: $root.isHighDeposit() == false && $root.isReferFriends() == false -->
+                        <span class="red">*</span>
+                        <!-- /ko -->
+                    </th>
+                    <!-- ko if: $root.showMaxAmount -->
+                    <th data-i18n="bonus.bonusFields.maxAmount"></th>
+                    <!-- /ko -->
+                    <!-- ko if: $root.isHighDeposit -->
+                    <th data-i18n="bonus.templateFields.notificationPercentThreshold"></th>
+                    <!-- /ko -->
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach: BonusTiers">
+                    <tr>
+                        <th><span data-bind="text: ($index() + 1)"></span></th>
+
+                        <!-- ko if: $root.isVerification() == false -->
+                        <td><input data-bind="value: vFrom, numeric: vFrom" maxlength="15" /></td>
+                        <!-- /ko -->
+                        <td><input data-bind="value: vReward, numeric: vReward" maxlength="15" /></td>
+                        <!-- ko if: $root.showMaxAmount -->
+                        <td><input data-bind="value: vMaxAmount, numeric: vMaxAmount" maxlength="15" /></td>
+                        <!-- /ko -->
+                        <!-- ko if: $root.isHighDeposit -->
+                        <td><input data-bind="value: vNotificationPercentThreshold, numericInt: vNotificationPercentThreshold" maxlength="2" /></td>
+                        <!-- /ko -->
+                        <td>
+                            <!-- ko if: $root.showTierButtons -->
+                            <button class="btn btn-sm btn-danger btn-round" data-bind="click: $parent.removeBonusTier, enable: $parent.removeBtnIsEnabled"><i class="ace-icon fa fa-times"></i> <span data-i18n="app:common.remove"></span></button>
+                            <!-- /ko -->
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <!-- ko if: $root.showTierButtons -->
+                    <tr>
+                        <td colspan="6">
+                            <button class="btn btn-sm btn-success btn-round" data-bind="click: addBonusTier"><i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.add"></span></button>
+                        </td>
+                    </tr>
+                    <!-- /ko -->
+                </tfoot>
+            </table>
+            <!-- /ko -->
+            <!-- ko if: $root.isAmountRewardType() || $root.isPercentageRewardType() -->
+            <!-- ko with: BonusTiers()[0] -->
+            <div class="form-group">
+                <label class="col-sm-4" data-bind="text: $root.fromLabelText"></label>
+                
+                <div class="col-sm-3 input-group">
+                    <input type="text" class="form-control" data-bind="value: vFrom, numeric: vFrom" maxlength="15" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4">
+                    <span data-bind="text: $root.rewardLabelText"></span><span class="red">*</span>
+                </label>
+                <div class="col-sm-3 input-group">
+                    <input type="text" class="form-control" data-bind="value: vReward, numeric: vReward" maxlength="3"/>
+                    <!-- ko if: $root.isPercentageRewardType() -->
+                    <span class="input-group-addon red">%</span>
+                    <!-- /ko -->
+                </div>
+            </div>
+
+            <!-- ko if: $root.isPercentageRewardType() -->
+            <div class="form-group">
+                <label class="col-sm-4" data-i18n="bonus.bonusFields.maxBonusAmountPerTransaction"></label>
+                
+                <div class="col-sm-3 input-group">
+                    <input type="text" class="form-control" data-bind="value: vMaxAmount, numeric: vMaxAmount" maxlength="15" />
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- /ko -->
+            <!-- /ko -->
+
+            <div class="form-group">
+                <label class="col-sm-4" data-i18n="bonus.templateFields.rewardAmountLimit"></label>
+                <div class="col-sm-3 input-group">
+                    <input type="text" class="form-control" data-bind="value: vRewardAmountLimit, numeric: vRewardAmountLimit" maxlength="15" /><span class="red" data-bind="validationMessage: RewardAmountLimit"></span>
+                </div>
+            </div>
+
+            <!-- /ko -->
+            <div><span class="red" data-bind="validationMessage: RewardTiers"></span></div>
+        </div>
+    </div>
+    <!-- /ko -->
+
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.templateFields.disposal"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.templateFields.disposalDescr"></h6>
+    </div>
+</div>

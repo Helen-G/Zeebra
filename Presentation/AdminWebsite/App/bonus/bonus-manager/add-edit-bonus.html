@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="/Content/css/daterangepicker-bs3.css" />
+<form role="form" class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="common.licensee"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <select class="form-control" data-bind="options: [], optionsCaption: vLicenseeName, enable: false"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="common.brand"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <select class="form-control" data-bind="options: [], optionsCaption: vBrandName, enable: false"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.bonusFields.template"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <select class="form-control" data-bind="options: vTemplates, optionsCaption: emptyCaption, optionsText: 'Name', optionsValue: 'Id', value: TemplateId"></select>
+            <!-- ko if: isAddBtnVisible() || isViewBtnVisible() -->
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: openViewTemplateTab, visible: isViewBtnVisible, enable: TemplateId() != undefined"><i class="ace-icon fa fa-file-text-o"></i> <span data-i18n="common.details"></span></button>
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: openAddTemplateTab, visible: isAddBtnVisible"><i class="ace-icon fa fa-plus"></i> <span data-i18n="bonus.bonusFields.newTemplate"></span></button>
+            <!-- /ko -->
+            <span class="red" data-bind="validationMessage: TemplateId"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.bonusFields.name"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" data-bind="value: Name" maxlength="50" /> <span class="red" data-bind="validationMessage: Name"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.bonusFields.code"></span> <span class="red" data-bind="visible: vRequireBonusCode">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control" data-bind="value: Code" maxlength="20" /> <span class="red" data-bind="validationMessage: Code"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.bonusFields.activityRange"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                <input class="form-control" data-bind="dateRange: true, format: 'YYYY/MM/DD', startDate: ActiveFrom, endDate: ActiveTo" readonly style="cursor: default"/>
+            </div>
+            <span class="red" data-bind="validationMessage: ActiveTo"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.common.description"></label>
+        <div class="col-sm-8">
+            <textarea class="form-control" data-bind="value: Description" maxlength="200"></textarea> <span class="red" data-bind="validationMessage: Description"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.bonusFields.application"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.bonusFields.applicationDescr"></h6>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="bonus.bonusFields.duration"></label>
+        <div class="col-sm-8">
+            <!-- ko foreach: availableDurations -->
+            <div class="radio inline-radio">
+                <label>
+                    <input type="radio" class="ace" data-bind="checkedValue: $data.id, checked: $root.DurationType" />
+                    <span class="lbl" data-bind="text: name"></span>
+                </label>
+            </div>
+            <br />
+            <!-- /ko -->
+            <!-- ko if: DurationType() != availableDurations[0].id -->
+            <br />
+            <!-- /ko -->
+            <!-- ko if: DurationType() == availableDurations[1].id -->
+            <select class="form-control input-medium" data-bind="options: availableDays, value: vDurationDays, optionsCaption: daysCaption"></select>
+            <select class="form-control input-medium" data-bind="options: availableHours, value: vDurationHours, optionsCaption: hoursCaption"></select>
+            <select class="form-control input-medium" data-bind="options: availableMinutes, value: vDurationMinutes, optionsCaption: minutesCaption"></select>
+            <!-- /ko -->
+            <!-- ko if: DurationType() == availableDurations[2].id -->
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                <input class="form-control" data-bind="dateRange: true, includeTime: true, format: 'YYYY/MM/DD HH:mm', startDate: DurationStart, endDate: DurationEnd" readonly style="cursor: default" />
+            </div>
+            <!-- /ko -->
+            <span class="red" data-bind="validationMessage: DurationType"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <h5 class="col-sm-offset-1"><strong data-i18n="bonus.bonusFields.issuance"></strong></h5>
+        <h6 class="col-sm-offset-1" data-i18n="bonus.bonusFields.issuanceDescr"></h6>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="bonus.bonusFields.allowClaim"></span> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input class="form-control input-small" data-bind="value: DaysToClaim, numericInt: DaysToClaim" maxlength="5" /> <label data-i18n="bonus.bonusFields.allowClaimAppendix"></label>
+            <span class="red" data-bind="validationMessage: DaysToClaim"></span>
+        </div>
+    </div>
+
+    <div class="form-group" data-bind="visible: serverErrors">
+        <label class=" col-sm-3 control-label" data-i18n="bonus.bonusManager.validity"></label>
+        <div class="col-sm-8">
+            <!-- ko foreach: serverErrors-->
+            <p class="form-control-static text-danger">
+                <strong data-bind="text: $data"></strong>
+            </p>
+            <!-- /ko -->
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-white btn-round" data-bind="click: cancel" data-i18n="common.cancel"></button>
+            <button class="btn btn-primary btn-round" data-bind="click: submit" data-i18n="common.save"></button>
+        </div>
+    </div>
+</form>

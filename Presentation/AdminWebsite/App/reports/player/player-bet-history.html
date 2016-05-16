@@ -1,0 +1,33 @@
+﻿<div>
+    <div class="player-bet-history-report">
+        <div data-bind="grid: {
+            source: '/Report/PlayerBetHistoryData',
+            fields: gridFields(),
+            filter: ko.computed(function() { return { LLoginName: search() }; }),
+            defaultSort: { field: 'DateBet' },
+            paging: defaultPaging,
+            useResizeManager: true
+        }">
+            <header>
+                <div data-bind="gridHeader: { context: $data,
+                    filters: columns(),
+                    buttons: [
+                        { name: 'export', click: exportReport, visible: exportAllowed, enabled: exportEnabled, text: 'app:report.common.export', icon: 'download' }
+                    ],
+                    selectColumns: true
+                }"></div>
+            </header>
+            <column width="100" sort-field="Licensee" data-value="@Licensee" />
+            <column width="100" sort-field="Brand" data-value="@Brand" />
+            <column width="290" sort-field="BetId" data-value="@BetId" />
+            <column width="110" sort-field="LoginName" data-value="@LoginName" />
+            <column width="100" sort-field="UserIP" data-value="@UserIP" />
+            <column width="110" sort-field="GameName" data-value="@GameName" />
+            <column width="100" sort-field="DateBet" data-value="$root.moment(@DateBet).format 'YYYY-MM-DD'" />
+            <column width="100" sort-field="BetAmount" data-value="@BetAmount" />
+            <column width="100" sort-field="TotalWinLoss" data-value="@TotalWinLoss" />
+            <column width="80" sort-field="Currency" data-value="@Currency" />
+        </div>
+    </div>
+    <div class="no-records" data-bind="visible: noRecordsFound">No records found</div>
+</div>

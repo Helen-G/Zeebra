@@ -1,0 +1,50 @@
+﻿<div>
+    <div>
+        <div data-bind="grid: {
+            source: '/Report/PlayerData',
+            fields: gridFields(),
+            filter: ko.computed(function() { return { Username: search() }; }),
+            defaultSort: { field: 'RegistrationDate' },
+            paging: defaultPaging,
+            useResizeManager: true
+        }">
+            <header>
+                <div data-bind="gridHeader: { context: $data,
+                    filters: columns(),
+                    buttons: [
+                        { name: 'export', click: exportReport, visible: exportAllowed, enabled: exportEnabled, text: 'app:report.common.export', icon: 'download' }
+                    ],
+                    selectColumns: true
+                }"></div>
+            </header>
+            <column width="100" sort-field="Licensee" data-value="@Licensee" />
+            <column width="100" sort-field="Brand" data-value="@Brand" />
+            <column width="100" sort-field="Username" data-value="@Username" />
+            <column width="100" sort-field="Mobile" data-value="@Mobile" />
+            <column width="150" sort-field="Email" data-value="@Email" />
+            <column width="100" sort-field="Birthday" data-value="$root.moment(@Birthday).format 'YYYY-MM-DD'" />
+            <column width="130" sort-field="IsInternalAccount" data-value="if @IsInternalAccount then 'Yes' else 'No'" />
+            <column width="150" sort-field="RegistrationDate" data-value="$root.moment(@RegistrationDate).format 'YYYY-MM-DD'" />
+            <column width="120" sort-field="PlayerStatus" data-value="@PlayerStatus" />
+            <column width="100" sort-field="Language" data-value="@Language" />
+            <column width="100" sort-field="Currency" data-value="@Currency" />
+            <column width="100" sort-field="SignUpIP" data-value="@SignUpIP" />
+            <column width="100" sort-field="VipLevel" data-value="@VipLevel" />
+            <column width="100" sort-field="Country" data-value="@Country" />
+            <column width="120" sort-field="PlayerName" data-value="@PlayerName" />
+            <column width="100" sort-field="Title" data-value="@Title" />
+            <column width="100" sort-field="Gender" data-value="@Gender" />
+            <column width="150" sort-field="StreetAddress" data-value="@StreetAddress" />
+            <column width="100" sort-field="PostCode" data-value="@PostCode" />
+            <column width="130" sort-field="Created" data-value="if @Created? then $root.moment(@Created).format 'YYYY-MM-DD' else ''" />
+            <column width="130" sort-field="CreatedBy" data-value="@CreatedBy" />
+            <column width="130" sort-field="Updated" data-value="if @Updated? then $root.moment(@Updated).format 'YYYY-MM-DD' else ''" />
+            <column width="130" sort-field="UpdatedBy" data-value="@UpdatedBy" />
+            <column width="130" sort-field="Activated" data-value="if @Activated? then $root.moment(@Activated).format 'YYYY-MM-DD' else ''" />
+            <column width="130" sort-field="ActivatedBy" data-value="@ActivatedBy" />
+            <column width="150" sort-field="Deactivated" data-value="if @Deactivated? then $root.moment(@Deactivated).format 'YYYY-MM-DD' else ''" />
+            <column width="130" sort-field="DeactivatedBy" data-value="@DeactivatedBy" />
+        </div>
+    </div>
+    <div class="no-records" data-bind="visible: noRecordsFound">No records found</div>
+</div>

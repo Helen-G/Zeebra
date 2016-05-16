@@ -1,0 +1,23 @@
+﻿<div class="sidebar responsive" id="sidebar">
+	<ul class="nav nav-list" data-bind="foreach: menu">
+		<li data-bind="visible: submenu.length, css: { active: $root.activeItem() == $data }">
+			<a class="dropdown-toggle">
+				<i data-bind="attr: { 'class': 'menu-icon fa ' + menuItem.icon }"></i>
+				<span class="menu-text" data-bind="text: menuItem.title"></span>
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+			<ul class="submenu" data-bind="foreach: submenu">
+				<li data-bind="css: { active: $root.activeSubItem() == $data }">
+					<a class="dropdown-toggle" data-bind="click: $root.activeSubItem">
+						<i class="menu-icon fa fa-angle-double-right"></i>
+						<span data-bind="text: menuItem.title"></span>
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+		<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+	</div>
+</div>

@@ -1,0 +1,118 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" enctype="multipart/form-data" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.brand"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: brand"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.userFirstName"></label>
+        <div class="col-sm-2">
+            <p class="form-control-static" data-bind="text: firstName"></p>
+        </div>
+        <label class="col-sm-2" data-i18n="app:common.userLastName"></label>
+        <div class="col-sm-2">
+            <p class="form-control-static" data-bind="text: lastName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Reference Code</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: transactionNumber"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: playerAccountNameFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:banks.playersBankAccountName"></span> <span class="red">*</span></label>
+        <div class="col-sm-8">
+            <input name="playerAccountName" class="form-control" data-bind="attr: { id: playerAccountNameFieldId() }, value: playerAccountName, visible: !submitted()" /> <span class="red" data-bind="validationMessage: playerAccountName"></span>
+            <p class="form-control-static" data-bind="text: playerAccountName, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: playerAccountNumberFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:banks.playersBankAccountNumber"></span></label>
+        <div class="col-sm-8">
+            <input name="playerAccountNumber" class="form-control" data-bind="attr: { id: playerAccountNumberFieldId() }, value: playerAccountNumber, visible: !submitted()" /> <span class="red" data-bind="validationMessage: playerAccountNumber"></span>
+            <p class="form-control-static" data-bind="text: playerAccountNumber, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: referenceNumberFieldId() }" class="col-sm-3 control-label">Bank Reference Number</label>
+        <div class="col-sm-8">
+            <input name="referenceNumber" class="form-control" data-bind="attr: { id: referenceNumberFieldId() }, value: referenceNumber, visible: !submitted()" /> <span class="red" data-bind="validationMessage: referenceNumber"></span>
+            <p class="form-control-static" data-bind="text: referenceNumber, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: amountFieldId() }" class="col-sm-3 control-label">Amount <span class="red">*</span></label>
+        <div class="col-sm-8">
+            <input name="amount" class="form-control" data-bind="attr: { id: amountFieldId() }, value: amount, visible: !submitted()" /> <span class="red" data-bind="validationMessage: amount"></span>
+            <p class="form-control-static" data-bind="text: amount, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Bank Account ID</label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: bankAccountId"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: transferTypeFieldId() }" class="col-sm-3 control-label">Transfer Type <span class="red">*</span></label>
+        <div class="col-sm-8">
+            <select name="transferType" class="form-control" data-bind="attr: { id: transferTypeFieldId() }, options: transferTypes, optionsText: 'Name', value: transferType, visible: !submitted()"></select> <span class="red" data-bind="validationMessage: transferType"></span>
+            <p class="form-control-static" data-bind="visible: submitted, text: transferType().Name"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: offlineDepositTypeFieldId() }" class="col-sm-3 control-label">Offline Deposit Type <span class="red">*</span></label>
+        <div class="col-sm-8">
+            <select name="offlineDepositType" class="form-control" data-bind="attr: { id:offlineDepositTypeFieldId() }, options: offlineDepositTypes, optionsText: 'Name', value: offlineDepositType, visible: !submitted()"></select> <span class="red" data-bind="validationMessage: offlineDepositType"></span>
+            <p class="form-control-static" data-bind="visible: submitted, text: offlineDepositType().Name"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: uploadId1FieldId() }" class="col-sm-3 control-label">ID Front Upload</label>
+        <div class="col-sm-8">
+            <div class="ace-file-input ace-file-multiple" data-bind="visible: !submitted()">
+                <input type="file" data-bind="attr: { id: uploadId1FieldId() }, value: idFrontImage" name="uploadId1">
+            </div>
+            <img style="width: 300px; height: 200px;" data-bind="visible: submitted, attr: {src: uploadId1Src}">
+            <span class="red" data-bind="validationMessage: idFrontImage"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: uploadId2FieldId() }" class="col-sm-3 control-label">ID Back Upload</label>
+        <div class="col-sm-8">
+            <div class="ace-file-input ace-file-multiple" data-bind="visible: !submitted()">
+                <input type="file" data-bind="attr: { id: uploadId2FieldId() }, value: idBackImage" name="uploadId2">
+            </div>
+            <img style="width: 300px; height: 200px;" data-bind="visible: submitted, attr: {src: uploadId2Src}">
+            <span class="red" data-bind="validationMessage: idBackImage"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: uploadReceiptFieldId() }" class="col-sm-3 control-label">Receipt Upload</label>
+        <div class="col-sm-8">
+            <div class="ace-file-input ace-file-multiple" data-bind="visible: !submitted()">
+                <input type="file" data-bind="attr: { id: uploadReceiptFieldId() }" name="receiptUpLoad" />
+            </div>
+            <img style="width: 300px; height: 200px;" data-bind="visible: submitted, attr: {src: receiptUpLoadSrc}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: remarkFieldId() }" class="col-sm-3 control-label">Remark</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" data-bind="attr: { id: remarkFieldId() }, value: remark, visible: !submitted()"></textarea> <span class="red" data-bind="validationMessage: remark"></span>
+            <p class="form-control-static" data-bind="visible: submitted, text: remark"></p>
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-white btn-round" data-bind="click: close, visible: !submitted()">Cancel</button>
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close, visible: submitted">Close</button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-info btn-round" data-bind="click: submit, visible: !submitted()">Submit</button>
+        </div>
+    </div>
+</form>

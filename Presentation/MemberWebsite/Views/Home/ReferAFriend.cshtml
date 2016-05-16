@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Refer a friend";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container ky-icon-tabs-content">
+    <div id="refer-a-friend-wrapper" class="page-wrapper">
+        <nav role="tabpanel">
+            <ul role="tablist" class="nav ky-sub-tabs">
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'tabContent1' }"><a href="#tabContent1" data-bind="click: toggleTab" data-i18n="referFriend.referalForm"></a></li>
+                <li role="presentation" data-bind="css: { 'active': shownTab() == 'tabContent2' }"><a href="#tabContent2" data-bind="click: toggleTab" data-i18n="referFriend.termsAndConditions"></a></li>
+            </ul>
+        </nav>
+        <div data-bind="visible: shownTab() == 'tabContent1'" class="ky-sub-tabs-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-header">
+                        <h2 class="page-title" data-i18n="referFriend.referFriend"></h2>
+                    </div>
+                    <h4 class="title"><i class="fa fa-fw fa-caret-right"></i><span data-i18n="referFriend.howItWokrs"></span></h4>
+                    <ul class="ky-list-flow">
+                        <li>
+                            <p data-i18n="referFriend.howItWorksFirstStep"></p>
+                        </li>
+                        <li>
+                            <p data-i18n="referFriend.howItWorksSecondStep"></p>
+                        </li>
+                        <li>
+                            <p data-i18n="referFriend.howItWorksThirdStep"></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 4rem" class="row">
+                <div class="col-xs-12">
+                    <form role="form" data-bind="submit: submitPhoneNumbers">
+                        <div class="ky-panel ky-margin-row">
+                            <h4 class="title"><i class="fa fa-fw fa-user-plus"></i><span data-i18n="referFriend.addFriend"></span></h4>
+                            <div class="row">
+                                <div class="col-xs-10 col-xs-offset-2"><strong data-i18n="referFriend.phoneNumbers"></strong></div>
+                            </div><!-- ko foreach: phoneNumbers -->
+                            <div class="row">
+                                <div style="padding-top: 3px" class="col-xs-1 col-xs-offset-2 text-right"><strong data-bind="text: $index() + 1"></strong></div>
+                                <div class="col-xs-4">
+                                    <input type="text" placeholder="Phone Number" data-bind="value: number" class="form-control">
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="button" data-bind="click: $root.removePhoneNumber" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i> <span data-i18n="referFriend.remove"></span></button>
+                                </div>
+                            </div><!-- /ko -->
+                            <div class="row" data-bind="visible: messages().length > 0, foreach: messages">
+                                <div class="col-xs-6">
+                                    <label data-bind="text: $data"></label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1 col-xs-offset-2"></div>
+                                <div class="col-xs-4">
+                                    <button type="button" data-bind="click: addPhoneNumber" class="btn btn-primary btn-sm btn-block"><i class="fa fa-plus"></i> <span data-i18n="referFriend.addPhoneNumber"></span></button>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="submit" class="btn btn-primary btn-sm btn-block"><i class="fa fa-check"></i> <span data-i18n="referFriend.submitPhoneNumbers"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div data-bind="visible: shownTab() == 'tabContent2'" class="row">
+            <div class="col-xs-12">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="/Scripts/custom/referAFriend.js"></script>
+}

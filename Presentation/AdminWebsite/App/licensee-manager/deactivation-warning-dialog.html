@@ -1,0 +1,22 @@
+﻿<div class="modal-content" style="width: 400px">
+    <div class="modal-header">
+        <h3 data-i18n="app:licensee.deactivate"></h3>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-danger">
+            <p>
+                <i class="fa fa-exclamation-circle"></i> <span data-i18n="app:licensee.deactivateWarning"></span>
+                <ul>
+                    <li data-i18n="app:licensee.viewRecords"></li>
+                    <li data-i18n="app:licensee.accessReports"></li>
+                    <li data-i18n="app:licensee.generateReports"></li>
+                </ul>
+            </p>            
+            <p data-i18n="app:common.doYouWantToContinue"></p>
+        </div>
+    </div>
+    <div class="modal-footer align-center">
+        <button class="btn btn-primary" data-bind="click: showDeactivateDialog" data-i18n="app:common.yes"></button>
+        <button class="btn btn-default" data-bind="click: close" data-i18n="app:common.no"></button>
+    </div>
+</div>

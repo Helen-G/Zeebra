@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddressIsNotWithinItsAllowedRangeErrorMessageFormat" xml:space="preserve">
+    <value>Must be {0}-{1} characters. Your address may contain letters, numbers, and special characters.</value>
+  </data>
+  <data name="DateOfBirthIsIncorrectErrorMessage" xml:space="preserve">
+    <value>Your date of birth is incorrectly formatted. Must be in the format YYYY/MM/DD</value>
+  </data>
+  <data name="DateOfBirthIsLessThan18ErrorMessage" xml:space="preserve">
+    <value>You must be 18 years old or above</value>
+  </data>
+  <data name="EmaiHasInvalidFormatErrorMessageFormat" xml:space="preserve">
+    <value>Your email address must be in the format username@domain.com. It must be less than {0} characters long.</value>
+  </data>
+  <data name="EmailAlreadyExistsErrorMessage" xml:space="preserve">
+    <value>This email is already associated with another account. Please enter another email.</value>
+  </data>
+  <data name="NameIsNotWithinItsAllowedRangeErrorMessageFormat" xml:space="preserve">
+    <value>Must be {0}-{1} characters including alphanumeric characters, dashes(-), underscores(_), apostrophes('), periods(.).</value>
+  </data>
+  <data name="PasswordIsNotWithinItsAllowedRangeErrorMessageFormat" xml:space="preserve">
+    <value>Must be {0}-{1} characters. Your password may contain letters, numbers, and special characters.</value>
+  </data>
+  <data name="PhoneIsNotWithinItsAllowedRangeErrorMessageFormat" xml:space="preserve">
+    <value>Must be {0}-{1} digits including only numbers.</value>
+  </data>
+  <data name="PasswordsDoNotMatch" xml:space="preserve">
+    <value>Passwords do not match.</value>
+  </data>
+  <data name="RequiredFieldErrorMessage" xml:space="preserve">
+    <value>Please enter this field.</value>
+  </data>
+  <data name="UsernameAlreadyExistsErrorMessage" xml:space="preserve">
+    <value>This username already exists. Please enter a new one.</value>
+  </data>
+  <data name="UserNameIsNotWithinItsAllowedRangeErrorMessageFormat" xml:space="preserve">
+    <value>Must be {0}-{1} characters. Your username may contain alphanumeric characters, dashes(-), underscores(_), apostrophes('), periods(.)</value>
+  </data>
+  <data name="PasswordShouldNotBeEmpty" xml:space="preserve">
+    <value>Password should not be empty</value>
+  </data>
+  <data name="PlayerIsAlreadyLoggedIn" xml:space="preserve">
+    <value>Player {0} is already logged in</value>
+  </data>
+  <data name="UsernamePasswordIsNotValid" xml:space="preserve">
+    <value>Username and password combination is not valid</value>
+  </data>
+  <data name="UsernameShouldNotBeEmpty" xml:space="preserve">
+    <value>Username should not be empty</value>
+  </data>
+  <data name="InactiveBrand" xml:space="preserve">
+    <value>Inactive brand</value>
+  </data>
+  <data name="PlayerDoesNotExist" xml:space="preserve">
+    <value>Player with {0} username does not exist</value>
+  </data>
+  <data name="InvalidCountryCodeErrorMessage" xml:space="preserve">
+    <value>Invalid country code.</value>
+  </data>
+  <data name="InvalidCurrencyCodesErrorMessage" xml:space="preserve">
+    <value>Invalid currency codes.</value>
+  </data>
+  <data name="UsernameHasInvalidFormat" xml:space="preserve">
+    <value>Username has invalid format</value>
+  </data>
+  <data name="UnknownBrand" xml:space="preserve">
+    <value>Unknown brand</value>
+  </data>
+  <data name="ZipCodeIsNotWithinItsAllowedRangeErrorMessageFormat" xml:space="preserve">
+    <value>Must be {0}-{1} characters including only letters and numbers</value>
+  </data>
+  <data name="InvalidGender" xml:space="preserve">
+    <value>Invalid Gender.</value>
+  </data>
+  <data name="InvalidTitle" xml:space="preserve">
+    <value>Invalid Title.</value>
+  </data>
+  <data name="InvalidPlayerStatus" xml:space="preserve">
+    <value>Invalid Status</value>
+  </data>
+  <data name="InvalidContractPreference" xml:space="preserve">
+    <value>Invalid Contract Preference</value>
+  </data>
+  <data name="InvalidIDStatus" xml:space="preserve">
+    <value>Invalid ID Status</value>
+  </data>
+  <data name="NonActiveAccount" xml:space="preserve">
+    <value>Your account is not activated.</value>
+  </data>
+  <data name="InvalidPlayerId" xml:space="preserve">
+    <value>Invalid Player Id</value>
+  </data>
+  <data name="NoPhoneNumbersToRefer" xml:space="preserve">
+    <value>Phone numbers are empty.</value>
+  </data>
+  <data name="PhoneNumbersAreNotValid" xml:space="preserve">
+    <value>All phone numbers should be numeric and 8 - 15 characters long.</value>
+  </data>
+  <data name="ReferrerIdIsEmpty" xml:space="preserve">
+    <value>Referrer id should not be empty.</value>
+  </data>
+  <data name="ReferrerNotFound" xml:space="preserve">
+    <value>Referrer not found.</value>
+  </data>
+  <data name="InvalidSecurityQuestion" xml:space="preserve">
+    <value>InvalidSecurityQuestion</value>
+  </data>
+  <data name="InvalidSecurityQuestionAnswer" xml:space="preserve">
+    <value>Invalid Answer to the security question</value>
+  </data>
+  <data name="InvalidCultureCodeErrorMessage" xml:space="preserve">
+    <value>Invalid culture code.</value>
+  </data>
+  <data name="AccountLocked" xml:space="preserve">
+    <value>You incorrectly attempted to login {0} times. For security reasons, your account has been locked. Please contact a Customer Service Officer to unlock your account.</value>
+  </data>
+  <data name="SecurityQuestionAnswerRequired" xml:space="preserve">
+    <value>Please enter an answer to the security question.</value>
+  </data>
+</root>

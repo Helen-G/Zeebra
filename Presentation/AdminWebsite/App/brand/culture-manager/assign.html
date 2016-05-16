@@ -1,0 +1,53 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label data-bind="attr: { for: licenseeFieldId() }" class="col-sm-3 control-label"> <span data-i18n="app:common.licensee"></span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.licensee">
+            <select class="form-control" data-bind="attr: { id: $root.licenseeFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: brandFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.brand"></span> <span class="red">*</span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.brand">
+            <select class="form-control" data-bind="attr: { id: $root.brandFieldId() }, options: options, optionsText: 'name', value: value, visible: !isReadOnly()"></select> <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly, text: display"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: assignControl">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-2" data-bind="visible: !$root.submitted()">
+            <label class="control-label" data-i18n="app:language.availableLanguages"></label>
+            <select class="form-control" multiple="multiple" data-bind="options: availableItems, selectedOptions: selectedAvailableItems"></select>
+        </div>        
+        <div class="col-xs-1 center" style="margin-top: 65px" data-bind="visible: !$root.submitted()">
+            <button class="btn" data-bind="click: assign">&gt;</button><br />
+            <button class="btn" style="display: none" data-bind="click: unassign, visible: !$root.isActive()">&lt;</button>
+        </div>
+        <div class="col-xs-2">
+            <label class="control-label"><span data-i18n="app:language.assignedLanguages"></span> <span class="red">*</span></label>
+            <select class="form-control" multiple="multiple" data-bind="options: assignedItems, selectedOptions: selectedAssignedItems, disable: $root.submitted"></select>
+        </div>
+        <span class="red" data-bind="validationMessage: assignedItems"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label"><span data-i18n="app:language.brandDefaultLanguage"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.defaultCulture">
+            <select class="form-control" style="display: none" data-bind="options: options, value: value, visible: !isReadOnly() && !$root.isActive(), disable: options().length == 0"></select>
+            <span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="visible: isReadOnly() || $root.isActive(), text: value"></p>
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-primary btn-round" style="display: none" data-bind="click: clear, visible: !submitted() && !isActive()" data-i18n="app:common.clear"></button>
+            <!-- ko if: !submitted() && !isActive() -->
+            &nbsp; &nbsp; &nbsp;
+            <!-- /ko -->
+            <button class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

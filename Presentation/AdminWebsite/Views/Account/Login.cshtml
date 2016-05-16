@@ -1,0 +1,152 @@
+﻿@model AFT.RegoV2.AdminWebsite.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login Page";
+    ViewBag.BodyClass = "login-layout";
+    ViewBag.MetaDescription = "User login page";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@section headStyles
+{
+    <!-- basic styles -->
+    <link rel="stylesheet" href="/content/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/content/css/font-awesome.min.css" />
+
+    <!-- text fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+
+    <!-- rego styles -->
+    <link rel="stylesheet" href="/content/css/regocms.css" />
+    
+    <!-- custom dev styles -->
+    <link rel="stylesheet" href="/content/css/custom.css" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/content/css/ace-part2.min.css" />
+        <link rel="stylesheet" href="/content/css/ace-ie.min.css" />
+     <![endif]-->
+
+    <!-- inline styles related to this page -->
+}
+
+@section headScripts
+{
+    <!-- ace settings handler -->
+    <script src="/scripts/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="/scripts/html5shiv.js"></script>
+        <script src="/scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='/scripts/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+
+    <script type="text/javascript" src="/scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+@section bodyBottomScripts
+{
+    <!-- basic scripts -->
+
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js'>" + "<" + "/script>");
+    </script>
+
+    <!-- inline scripts related to this page -->
+
+    <script type="text/javascript">
+        function show_box(id) {
+            jQuery('.widget-box.visible').removeClass('visible');
+            jQuery('#' + id).addClass('visible');
+        }
+    </script>
+}
+
+<div class="navbar navbar-default" id="navbar">
+    <script type="text/javascript">
+        try { ace.settings.check('navbar', 'fixed'); } catch (e) { }
+    </script>
+
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img height="20px" src="" />
+                </small>
+            </a><!-- /.brand -->
+        </div><!-- /.navbar-header -->
+    </div><!-- /.container -->
+</div>
+
+<div class="main-container">
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="login-container">
+                    <div class="center">
+                        <h1>
+                            <img src="" />
+                        </h1>
+
+                    </div>
+
+                    <div class="space-6"></div>
+
+                    <div class="position-relative">
+                        <div id="login-box" class="login-box visible widget-box no-border">
+                            <div class="widget-body">
+                                <div class="widget-main">
+
+
+                                    <div class="space-6"></div>
+                                    @Html.ValidationSummary(false, "", new { @class = "red alert alert-error" })
+                                    @using (Html.BeginForm())
+                                    {
+                                        <fieldset>
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="text" id="username" class="form-control" name="Username" placeholder="Username" value="superadmin" />
+                                                    <i class="ace-icon fa fa-user"></i>
+                                                </span>
+                                            </label>
+
+                                            <label class="block clearfix">
+                                                <span class="block input-icon input-icon-right">
+                                                    <input type="password" id="password" class="form-control" name="Password" placeholder="Password" value="SuperAdmin" />
+                                                    <i class="ace-icon fa fa-lock"></i>
+                                                </span>
+                                            </label>
+
+                                            <div class="space"></div>
+
+                                            <div class="clearfix">
+                                                <label class="inline">
+                                                    @Html.CheckBoxFor(x => x.RememberMe, new { @class = "ace" })
+                                                    <span class="lbl"> Remember Me</span>
+                                                </label>
+
+                                                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary btn-round">
+                                                    <i class="ace-icon fa fa-key"></i>
+                                                    Login
+                                                </button>
+                                            </div>
+
+                                            <div class="space-4"></div>
+                                        </fieldset>
+                                    }
+
+                                </div><!-- /widget-main -->
+
+                            </div><!-- /widget-body -->
+                        </div><!-- /login-box -->
+
+                    </div><!-- /position-relative -->
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div>
+</div><!-- /.main-container -->

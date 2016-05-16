@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Content/ui/main.css">
+    <link rel="stylesheet" href="/Content/ui/flags/flags.css">
+    <link rel="stylesheet" href="/Content/Site.css">
+</head>
+<body id="main-container">
+
+    @Html.Partial("_PartialLogin")
+    @{
+        Html.RenderAction("Menu", new
+        {
+            currentController = ViewContext.RouteData.Values["controller"].ToString(),
+            currentAction = ViewContext.RouteData.Values["action"].ToString()
+        });
+    }
+    @RenderBody()
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="text-center copyright-wrapper">
+                <p data-i18n="common.homePageFooterInfo.footerFirst"></p>
+                <p data-i18n="common.homePageFooterInfo.footerSecond"></p>
+                <p data-i18n="common.homePageFooterInfo.footerThird"></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/Scripts/jquery-1.9.0.js"></script>
+    <script src="/Scripts/jquery.cookie.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/bootbox.min.js"></script>
+    <script src="/Scripts/knockout-2.2.0.debug.js"></script>
+    <script src="/Scripts/knockout.validation.js"></script>
+    <script src="/Scripts/custom/utilities.js"></script>
+    <script src="/Scripts/custom/apps.js"></script>
+    <script src="/Scripts/custom/login.js"></script>
+    <script src="/Scripts/require.js" type="text/javascript"></script>
+    <script>
+        requirejs.config({
+            paths: {
+                i18next: "@Url.Content("~/Scripts/i18next.amd.withJQuery-1.7.3")",
+                offlineDeposit: "@Url.Content("~/Scripts/custom/offlineDeposit")",
+            }
+        });
+    </script>
+    <script type="text/javascript" src="/Scripts/custom/main.js"></script>
+
+    @RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,104 @@
+﻿<div class="alert" data-bind="visible: message, html: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:common.username"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: username"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: id">
+        <label class="col-sm-3 control-label" data-i18n="app:common.referenceCode"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: id"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.bankName"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: bank"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.province"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: bankProvince"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.withdraw.city"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: bankCity"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.branch"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: bankBranch"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:payment.withdraw.swiftCode"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: bankSwiftCode"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.address"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: bankAddress"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.bankAccountName"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: bankAccountName"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="app:banks.bankAccountNumber"></label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: bankAccountNumber"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: amountFieldId() }" class="col-sm-3 control-label">
+            <span data-i18n="app:common.amount"></span>
+            <span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box">
+			<input class="form-control" maxlength="15" data-bind="attr: { id: amountFieldId() }, value: fields.amount, numeric: fields.amount, visible: !submitted(), disable: disabled" />
+            <span class="red" data-bind="validationMessage: fields.amount"></span>
+            <p class="form-control-static" data-bind="text: fields.amount, visible: submitted"></p>
+        </div>
+    </div>
+	<div class="form-group">
+		<label data-bind="attr: { for: remarksFieldId() }" class="col-sm-3 control-label">
+			<span data-i18n="app:common.remarks"></span>
+		</label>
+		<div class="col-sm-8 field-box">
+			<textarea class="form-control" data-bind="attr: { id: remarksFieldId() }, value: fields.remarks, visible: !submitted(), disable: disabled"></textarea>
+			<span class="red" data-bind="validationMessage: fields.remarks"></span>
+			<p class="form-control-static" data-bind="text: fields.remarks, visible: submitted"></p>
+		</div>
+	</div>
+	<div class="form-group">
+		<label data-bind="attr: { for: notificationTypeFieldId() }" class="col-sm-3 control-label">
+			<span>Notification type</span>
+			<span class="red">*</span>
+		</label>
+		<div class="col-sm-8 field-box">
+			<select class="form-control" data-bind="attr: { id: $root.notificationTypeFieldId() }, options:form.fields.notificationType.options, disable: disabled, optionsText: 'name', value: fields.notificationType, visible: !submitted()"></select> <span class="red" data-bind="validationMessage: fields.notificationType"></span>
+			<p class="form-control-static" data-bind="text: form.fields.notificationType.display, visible: submitted"></p>
+		</div>
+	</div>	
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button type="button" class="btn btn-default btn-round" data-bind="click: close" data-i18n="app:common.close"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted() && !disabled()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="submit" class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted() && !disabled()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

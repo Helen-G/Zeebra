@@ -1,0 +1,44 @@
+﻿<div class="col-sm-2">
+    <label class="control-label" data-bind="text: availableLabelText"></label>
+    <div class="multiselect__checkbox-wrap">
+        <div>
+            <label class="multiselect__checkbox-label">
+                <input type="checkbox" data-bind="click: selectAllAvailableItems, checked: isAllAvailableSelected(), disable: availableItems().length <= 0" />
+                <span>All</span>
+            </label>
+        </div>
+        <ul class="multiselect__checkbox-list" data-bind="foreach: availableItems">
+            <li>
+                <label class="multiselect__checkbox-label">
+                    <input type="checkbox" data-bind="checkedValue: $data, checked: $parent.selectedAvailableItems" />
+                    <span data-bind="text: $data[$parent.settings.optionsText]"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <!--<select class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: settings.optionsText, selectedOptions: selectedAvailableItems"></select>-->
+</div>
+<div class="col-xs-1 center" style="margin-top: 65px">
+    <button class="btn" data-bind="click: assign, disable: selectedAvailableItems().length <= 0">&gt;</button><br />
+    <button class="btn" data-bind="click: unassign, disable: selectedAssignedItems().length <= 0">&lt;</button>
+</div>
+<div class="col-xs-2">
+    <label class="control-label" data-bind="text: selectedLabelText"></label>
+    <div class="multiselect__checkbox-wrap">
+        <div>
+            <label class="multiselect__checkbox-label">
+                <input type="checkbox" data-bind="click: selectAllAssignedItems, checked: isAllAssignedSelected(), disable: assignedItems().length <= 0" />
+                <span>All</span>
+            </label>
+        </div>
+        <ul class="multiselect__checkbox-list" data-bind="foreach: assignedItems">
+            <li>
+                <label class="multiselect__checkbox-label">
+                    <input type="checkbox" data-bind="checkedValue: $data, checked: $parent.selectedAssignedItems" />
+                    <span data-bind="text: $data[$parent.settings.optionsText]"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <!--<select class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: settings.optionsText, selectedOptions: selectedAssignedItems"></select>-->
+</div>

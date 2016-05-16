@@ -1,0 +1,47 @@
+﻿<div data-bind="grid: {
+    source: config.adminApi('Culture/List'),
+    fields: ['Name', 'Code', 'NativeName', 'Status', 'CreatedBy', 'DateCreated', 'UpdatedBy', 'DateUpdated', 'ActivatedBy', 'DateActivated', 'DeactivatedBy', 'DateDeactivated'],
+    filter: ko.computed(function() { return { Name: search() }; }),
+    defaultSort: { field: 'Name', direction: 'asc' },
+    paging: true,
+    useResizeManager: true,
+}">
+    <header>
+        <div data-bind="gridHeader: { context: $data,
+            filters: [
+                ['Name',  'Name', 'text'],
+                ['Code',  'Code', 'text'],
+                ['NativeName',  'Native Name',, 'text'],
+                ['Status',  'Status', 'text'],
+                ['CreatedBy',  'Create dBy', 'text'],
+                ['DateCreated',  'Date Created', 'text'],
+                ['UpdatedBy',  'Updated By', 'text'],
+                ['DateUpdated',  'Date Updated', 'text'],
+                ['ActivatedBy',  'Activated By', 'text'],
+                ['DateActivated',  'Date Activated', 'text'],
+                ['DeactivatedBy',  'Deactivated By', 'text'],
+                ['DateDeactivated',  'Date Deactivated', 'text']
+            ],
+            buttons: [
+                { name: 'new', click: openAddTab, visible: isAddAllowed, text: 'app:common.new', icon: 'plus' },
+                { name: 'edit', click: openEditTab, visible: isEditAllowed, enabled: rowId, text: 'app:common.edit', icon: 'pencil' },
+                { name: 'view', click: openViewTab, enabled: rowId, text: 'app:common.view', icon: 'file-text-o' },
+                { name: 'activate', click: showDialog, visible: isActivateAllowed, enabled: canActivate, text: 'app:common.activate', icon: 'check' },
+                { name: 'deactivate', click: showDialog, visible: isDeactivateAllowed, enabled: canDeactivate, text: 'app:common.deactivate', icon: 'ban' }
+            ]
+        }"></div>
+    </header>
+    <column title="Name" width="100" sort-field="Name" data-value="@Name" />
+    <column title="Code" width="100" sort-field="Code" data-value="@Code" />
+    <column title="Native Name" width="100" sort-field="NativeName" data-value="@NativeName" />
+    <column title="Status" width="100" sort-field="Status" data-value="@Status" />
+    <column title="Created By" width="100" sort-field="CreatedBy" data-value="@CreatedBy" />
+    <column title="Date Created" width="100" sort-field="DateCreated" data-value="@DateCreated" />
+    <column title="Update dBy" width="100" sort-field="UpdatedBy" data-value="@UpdatedBy" />
+    <column title="Date Updated" width="100" sort-field="DateUpdated" data-value="@DateUpdated" />
+    <column title="ActivatedBy" width="100" sort-field="ActivatedBy" data-value="@ActivatedBy" />
+    <column title="Date Activated" width="100" sort-field="DateActivated" data-value="@DateActivated" />
+    <column title="Deactivated By" width="100" sort-field="DeactivatedBy" data-value="@DeactivatedBy" />
+    <column title="Date Deactivated" width="100" sort-field="DateDeactivated" data-value="@DateDeactivated" />
+    <column hidden title="Has Licensee" width="100" sort-field="HasLicensee" data-value="@HasLicensee" />
+</div>

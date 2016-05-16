@@ -1,0 +1,34 @@
+﻿<div data-bind="grid: {
+    source: 'wallet/list',
+    fields: ['Licensee', 'Brand', 'Status', 'CreatedBy', 'DateCreated', 'UpdatedBy', 'DateUpdated'],
+    filter: ko.computed(function() { return { BrandName: search() }; }),
+    defaultSort: { field: 'DateCreated', direction: 'desc' },
+    paging: true,
+    useResizeManager: true,
+    useBrandFilter: true
+}">
+    <header>
+        <div data-bind="gridHeader: { context: $data,
+            filters: [
+                ['Licensee', 'app:common.licensee', 'text'],
+                ['Brand' , 'app:common.brand', 'text'],
+                ['Status' , 'app:common.brandStatus', 'enum', ['Active', 'Inactive']],
+                ['CreatedBy' , 'app:common.createdBy', 'text'],
+                ['DateCreated' , 'app:common.dateCreated', 'date'],
+                ['UpdatedBy' , 'app:common.updatedBy', 'text'],
+                ['DateUpdated' , 'app:common.dateUpdated', 'date']
+            ],
+            buttons: [
+                { name: 'new', click: openAddTab, visible: isAddAllowed, text: 'app:common.new', icon: 'plus' },
+                { name: 'edit', click: openEditTab, visible: isEditAllowed, enabled: rowId, text: 'app:common.edit', icon: 'pencil' },
+            ]
+        }"></div>
+    </header>
+    <column title="app:common.licensee" sort-field="Licensee" width="120" data-value="@Licensee" />
+    <column title="app:common.brand" sort-field="Brand" width="120" data-value="@Brand" />
+    <column title="app:common.brandStatus" sort-field="Status" width="120" data-value="@Status" />
+    <column title="app:common.createdBy" sort-field="CreatedBy" width="120" data-value="@CreatedBy" />
+    <column title="app:common.dateCreated" sort-field="DateCreated" width="120" data-value="$root.moment(@DateCreated).format 'YYYY/MM/DD'" />
+    <column title="app:common.updatedBy" sort-field="UpdatedBy" width="120" data-value="@UpdatedBy" />
+    <column title="app:common.dateUpdated" sort-field="DateUpdated" width="120" data-value="if @DateUpdated? then $root.moment(@DateUpdated).format 'YYYY-MM-DD' else ''" />
+</div>

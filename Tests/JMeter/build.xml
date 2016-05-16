@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="build-tests" default="run-tests" basedir=".">
+
+  <property name="buildNumber" value="buildNumber" />
+  <property name="configurationName" value="configurationName" />
+  <property name="jmeter.home" value="c:\apache-jmeter-2.13" />
+
+  <path id="jmeter.path">
+    <fileset dir="c:\apache-jmeter-2.13\extras" includes="ant-jmeter-1.1.1.jar"/>
+  </path>
+
+  <path id="jmeter.classpath">
+    <fileset dir="c:\apache-jmeter-2.13\extras">
+      <include name="ant-jmeter*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="run-tests">
+    <taskdef
+      name="jmeter"
+      classpathref="jmeter.path" 
+      classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+    <echo message="Run load tests for build #${buildNumber}"></echo>
+    
+    <mkdir dir="c:/RegoV2-Perf/${configurationName}/${buildNumber}/jtl"/>
+    <mkdir dir="c:/RegoV2-Perf/${configurationName}/${buildNumber}/html"/>
+
+    <jmeter
+        jmeterhome="c:\apache-jmeter-2.13\"
+        jmeterproperties="${jmeter.home}/bin/jmeter-${configurationName}.properties"
+        resultlogdir="c:/RegoV2-Perf/${configurationName}/${buildNumber}/jtl"
+        runremote="true" >
+      <testplans dir="${basedir}/${configurationName}/" includes="*.jmx"/>
+    </jmeter>
+
+    <xslt
+        basedir="c:/RegoV2-Perf/${configurationName}/${buildNumber}/jtl"
+        destdir="c:/RegoV2-Perf/${configurationName}/${buildNumber}/html"
+        style="c:\apache-jmeter-2.13\extras\jmeter-results-report_21.xsl"/>
+  </target>
+</project>

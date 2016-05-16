@@ -1,0 +1,78 @@
+﻿<div id="brand-grid" data-bind="
+    grid: {
+    source: config.adminApi('Brand/GetBrands'),
+    fields: ['Code', 'Name', 'Licensee', 'Type', 'Status', 'PlayerPrefix', 'PlayerActivationMethod', 'DefaultLanguage',
+        'CreatedBy', 'DateCreated', 'Remarks', 'UpdatedBy', 'DateUpdated', 'ActivatedBy', 'DateActivated', 'DeactivatedBy', 'DateDeactivated'],
+    filter: ko.computed(function() { return {
+        Name: brandnameSearchPattern()
+    }}),
+    defaultSort: { field: 'Name', direction: 'desc' },
+    paging: true,
+    useResizeManager: true,
+    useBrandFilter: true
+}">
+    <header>
+        <form id="brandname-search-form" action="#" class="pull-left">
+            <input id="brandname-search" type="text" data-i18n="[placeholder]app:brand.name" />
+            <div class="custom-filters" data-bind="visible: filterVisible, compose: { model: 'controls/filters', activationData: [[
+                ['Code', 'Brand Code', 'text'],
+                ['Name' , 'Brand Name', 'text'],
+                ['Licensee' , 'Licensee', 'text'],
+                ['Type' , 'Brand Type', 'text'],
+                ['Status' , 'Status', 'text'],
+                ['PlayerPrefix' , 'Player Prefix', 'text'],
+                ['DefaultLanguage' , 'Default Language', 'text'],
+                ['CreatedBy' , 'Created By', 'text'],
+                ['DateCreated' , 'Created Date', 'date'],
+                ['Remark' , 'Remark', 'text'],
+                ['UpdatedBy' , 'Updated By', 'text'],
+                ['DateUpdated' , 'Updated Date', 'date'],
+                ['ActivatedBy' , 'Activated By', 'text'],
+                ['DateActivated' , 'Activated Date', 'date'],
+                ['DeactivatedBy' , 'Deactivated By', 'text'],
+                ['DateDeactivated' , 'Deactivated Date', 'date']
+            ]] }"></div>
+            <button id="brandname-search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="app:common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: function() { filterVisible(true); }, visible: !filterVisible()">
+                <i class="ace-icon fa fa-filter"></i> <span data-i18n="app:report.common.showFilter"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: function() { filterVisible(false); }, visible: filterVisible()">
+                <i class="ace-icon fa fa-filter"></i> <span data-i18n="app:report.common.hideFilter"></span>
+            </button>
+            <button class="btn btn-sm btn-success btn-round" data-bind="click: openAddTab, visible: isNewBtnVisible">
+                <i class="ace-icon fa fa-plus"></i> <span data-i18n="app:common.new"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openEditTab, visible: isEditBtnVisible, enable: brandId() && canActivate()">
+                <i class="ace-icon fa fa-pencil"></i> <span data-i18n="app:common.edit"></span>
+            </button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="click: openViewTab, visible: isViewBtnVisible, enable: brandId">
+                <i class="ace-icon fa fa-file-text-o"></i> <span data-i18n="app:common.view"></span>
+            </button>
+            <button id="brand-activate-button" class="btn btn-sm btn-primary btn-round" data-bind="click: showActivateDialog, visible: isActivateBtnVisible, enable: canActivate">
+                <i class="ace-icon fa fa-check"></i> <span data-i18n="app:common.activate"></span>
+            </button>
+            <button id="brand-deactivate-button" class="btn btn-sm btn-primary btn-round" data-bind="click: showDeactivateDialog, visible: isDeactivateBtnVisible, enable: canDeactivate">
+                <i class="ace-icon fa fa-ban"></i> <span data-i18n="app:common.deactivate"></span>
+            </button>
+        </div>
+    </header>
+    <column title="app:brand.code" sort-field="Code" width="120" data-value="@Code" />
+    <column title="app:brand.name" sort-field="Name" width="200" data-value="@Name" />
+    <column title="app:common.licensee" sort-field="Licensee" width="120" data-value="@Licensee" />
+    <column title="app:brand.type" sort-field="Type" width="120" data-value="@Type" />
+    <column title="app:brand.status" sort-field="Status" width="120" data-value="@Status" />
+    <column title="app:brand.playerPrefix" sort-field="PlayerPrefix" width="120" data-value="@PlayerPrefix" />
+    <column title="app:brand.playerActivationMethod" sort-field="PlayerActivationMethod" width="190" data-value="@PlayerActivationMethod" />
+    <column title="app:brand.defaultLanguage" sort-field="DefaultLanguage" width="120" data-value="@DefaultLanguage" />
+    <column title="app:common.createdBy" sort-field="CreatedBy" width="120" data-value="@CreatedBy" />
+    <column title="app:common.dateCreated" sort-field="DateCreated" width="120" data-value="@DateCreated" />
+    <column title="app:common.remarks" sort-field="Remark" width="120" data-value="@Remark" />
+    <column title="app:common.updatedBy" sort-field="UpdatedBy" width="120" data-value="@UpdatedBy" />
+    <column title="app:common.dateUpdated" sort-field="DateUpdated" width="120" data-value="@DateUpdated" />
+    <column title="app:common.activatedBy" sort-field="ActivatedBy" width="120" data-value="@ActivatedBy" />
+    <column title="app:common.dateActivated" sort-field="DateActivated" width="120" data-value="@DateActivated" />
+    <column title="app:common.deactivatedBy" sort-field="DeactivatedBy" width="120" data-value="@DeactivatedBy" />
+    <column title="app:common.dateDeactivated" sort-field="DateDeactivated" width="120" data-value="@DateDeactivated" />
+</div>

@@ -1,0 +1,41 @@
+<div id="bonus-grid" data-bind="grid: {
+        source: '/Bonus/Data',
+        fields: ['Name', 'Code', 'Type', 'Mode', 'ActiveFrom', 'ActiveTo', 'LicenseeName', 'BrandName',
+                'Product', 'IsActive', 'CreatedBy', 'CreatedOn', 'UpdatedBy', 'UpdatedOn', 'Description'],
+        filter: ko.computed(function() { return {
+            Name: search(),
+            'Template.Info.Brand.Id': selectedBrands()
+        }}),
+        defaultSort: { field: 'Name' },
+        paging: true,
+        useResizeManager: true
+    }">
+    <header>
+        <form id="bonus-search" action="#" class="pull-left">
+            <input id="bonus-name-search" type="text" data-i18n="[placeholder]common.name" />
+            <button id="bonus-name-search-button" type="submit" class="btn btn-sm btn-white btn-round" data-i18n="common.search"></button>
+        </form>
+        <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-success btn-round" data-bind="visible: isAddBtnVisible, click: openAddBonusTab"><i class="ace-icon fa fa-plus"></i> <span data-i18n="common.new"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="visible: isEditBtnVisible, click: openEditBonusTab, enable: bonusId"><i class="ace-icon fa fa-pencil"></i> <span data-i18n="common.edit"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="visible: isViewBtnVisible, click: openViewBonusTab, enable: bonusId"><i class="ace-icon fa fa-file-text-o"></i> <span data-i18n="common.view"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="visible: isActivateBtnVisible, click: showModalDialog.bind($data, true), enable: isActivateEnabled"><i class="ace-icon fa fa-check"></i> <span data-i18n="common.activate"></span></button>
+            <button class="btn btn-sm btn-primary btn-round" data-bind="visible: isDeactivateBtnVisible, click: showModalDialog.bind($data, false), enable: isDeactivateEnabled"><i class="ace-icon fa fa-ban"></i> <span data-i18n="common.deactivate"></span></button>
+        </div>
+    </header>
+    <column title="app:common.name" sort-field="Name" width="200" data-value="@Name" />
+    <column title="app:bonus.bonusFields.code" sort-field="Code" width="120" data-value="@Code" />
+    <column title="app:common.type" width="120" data-value="$root.typeFormatter.call @" />
+    <column title="app:bonus.templateFields.mode" width="130" data-value="$root.issuanceModeFormatter.call @" />
+    <column title="app:bonus.bonusFields.startDate" sort-field="ActiveFrom" width="100" data-value="@ActiveFrom" />
+    <column title="app:bonus.bonusFields.endDate" sort-field="ActiveTo" width="100" data-value="@ActiveTo" />
+    <column title="app:common.licensee" width="130" data-value="@LicenseeName" />
+    <column title="app:common.brand" width="120" data-value="@BrandName" />
+    <column title="app:payment.product" width="100" data-value="@Product" />
+    <column title="app:bonus.common.status" sort-field="IsActive" width="80" data-value="$root.statusFormatter.call @" />
+    <column title="app:common.createdBy" sort-field="CreatedBy" width="130" data-value="@CreatedBy" />
+    <column title="app:common.dateCreated" sort-field="CreatedOn" width="150" data-value="@CreatedOn" />
+    <column title="app:common.updatedBy" sort-field="UpdatedBy" width="130" data-value="@UpdatedBy" />
+    <column title="app:common.dateUpdated" sort-field="UpdatedOn" width="150" data-value="@UpdatedOn" />
+    <column name="Description" hidden data-value="@Description" />
+</div>

@@ -1,0 +1,181 @@
+﻿<div class="alert" data-bind="visible: message, text: message, css: messageClass"></div>
+
+<form class="form-horizontal" data-bind="validationOptions: { insertMessages: false }">
+    <div class="form-group">
+        <label data-bind="attr: { for: nameFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:licensee.name"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: nameFieldId() }, value: fields.name, visible: !submitted() && isNewOrInactive()" /> <span class="red" data-bind="validationMessage: fields.name"></span>
+            <p class="form-control-static" data-bind="text: fields.name, visible: submitted() || !isNewOrInactive()"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="visible: status">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:common.status"></span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <p class="form-control-static" data-bind="text: status"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: companyNameFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:licensee.companyName"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: companyNameFieldId() }, value: fields.companyName, visible: !submitted()" /> <span class="red" data-bind="validationMessage: fields.companyName"></span>
+            <p class="form-control-static" data-bind="text: fields.companyName, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: affiliateSystemFieldId() }" class="col-sm-3 control-label" data-i18n="app:licensee.affiliateSystem"></label>
+        <div class="col-sm-8 field-box">
+            <input type="checkbox" data-bind="attr: { id: affiliateSystemFieldId() }, checked: fields.affiliateSystem, disable: submitted" /> <span class="red" data-bind="validationMessage: fields.affiliateSystem"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label"><span data-i18n="app:licensee.contractStart"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <div class="input-append" data-bind="attr: { id: contractStartPickerId() }, visible: !submitted()">
+                <input data-bind="attr: { id: contractStartFieldId() }, value: fields.contractStart" class="form-control add-on" data-format="yyyy/MM/dd" type="text"> <span class="red" data-bind="validationMessage: fields.contractStart"></span>
+            </div>
+            <p class="form-control-static" data-bind="text: fields.contractStart, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label"><span data-i18n="app:licensee.contractEnd"></span></label>
+        <div class="col-sm-8 field-box">
+            <div class="input-append" data-bind="attr: { id: contractEndPickerId() }, visible: !submitted() && !isDeactivated()">
+                <input data-bind="attr: { id: contractEndFieldId() }, value: fields.contractEnd, disable: fields.openEnded" class="form-control add-on" data-format="yyyy/MM/dd" type="text"> <span class="red" data-bind="validationMessage: fields.contractEnd"></span>
+            </div>
+            <p class="form-control-static" data-bind="text: fields.contractEnd, visible: submitted() || isDeactivated()"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: openEndedFieldId() }" class="col-sm-3 control-label" data-i18n="app:licensee.openEnded"></label>
+        <div class="col-sm-8 field-box">
+            <input type="checkbox" data-bind="attr: { id: openEndedFieldId() }, checked: fields.openEnded, disable: submitted() || isDeactivated()" /> <span class="red" data-bind="validationMessage: fields.openEnded"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: emailFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:common.email"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: emailFieldId() }, value: fields.email, visible: !submitted()" /> <span class="red" data-bind="validationMessage: fields.email"></span>
+            <p class="form-control-static" data-bind="text: fields.email, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="app:common.timezone"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box" data-bind="with: form.fields.timeZoneId">
+            <select class="form-control" data-bind="options: options, optionsText: 'displayName', value: value, visible: !$root.submitted() && $root.isNewOrInactive()"></select><span class="red" data-bind="validationMessage: value"></span>
+            <p class="form-control-static" data-bind="text: display, visible: $root.submitted() || !$root.isNewOrInactive()"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: brandCountFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:licensee.allowedBrands"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: brandCountFieldId() }, value: fields.brandCount, visible: !submitted()" maxlength="4" /> <span class="red" data-bind="validationMessage: fields.brandCount"></span>
+            <p class="form-control-static" data-bind="text: fields.brandCount, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label data-bind="attr: { for: websiteCountFieldId() }" class="col-sm-3 control-label"><span data-i18n="app:licensee.allowedWebsites"></span><span class="red">*</span></label>
+        <div class="col-sm-8 field-box">
+            <input class="form-control" data-bind="attr: { id: websiteCountFieldId() }, value: fields.websiteCount, visible: !submitted()" maxlength="4" /> <span class="red" data-bind="validationMessage: fields.websiteCount"></span>
+            <p class="form-control-static" data-bind="text: fields.websiteCount, visible: submitted"></p>
+        </div>
+    </div>
+    <div class="form-group" data-bind="with: productsAssignControl">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-2" data-bind="visible: !$root.submitted()">
+            <label class="control-label" data-i18n="app:product.availableProducts"></label>
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: 'name', selectedOptions: selectedAvailableItems"></select>
+        </div>
+        <div class="col-xs-1 center" style="margin-top: 65px" data-bind="visible: !$root.submitted()">
+            <button class="btn" data-bind="click: assign">&gt;</button><br />
+            <div data-bind="attr: { 'data-toggle': $root.isNewOrInactive() ? '' : 'tooltip' }">
+                <button class="btn" data-bind="enable: $root.isNewOrInactive, click: unassign">&lt;</button>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <label class="control-label"><span data-i18n="app:licensee.assignedProducts"></span> <span class="red">*</span></label>
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: 'name', selectedOptions: selectedAssignedItems, disable: $root.submitted"></select>
+        </div>
+        <span class="red" data-bind="validationMessage: assignedItems"></span>
+    </div>
+
+    <div class="form-group" data-bind="with: currenciesAssignControl">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-2" data-bind="visible: !$root.submitted()">
+            <label class="control-label" data-i18n="app:licensee.availableCurrencies"></label>
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: 'code', selectedOptions: selectedAvailableItems"></select>
+        </div>
+        <div class="col-xs-1 center" style="margin-top: 65px" data-bind="visible: !$root.submitted()">
+            <button class="btn" data-bind="click: assign">&gt;</button><br />
+            <div data-bind="attr: { 'data-toggle': $root.isNewOrInactive() ? '' : 'tooltip' }">
+                <button class="btn" data-bind="enable: $root.isNewOrInactive, click: unassign">&lt;</button>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <label class="control-label"><span data-i18n="app:licensee.assignedCurrencies"></span> <span class="red">*</span></label>
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: 'code', selectedOptions: selectedAssignedItems, disable: $root.submitted"></select>
+        </div>
+        <span class="red" data-bind="validationMessage: assignedItems"></span>
+    </div>
+
+    <div class="form-group" data-bind="with: countriesAssignControl">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-2" data-bind="visible: !$root.submitted()">
+            <label class="control-label" data-i18n="app:licensee.availableCountries"></label>
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: 'name', selectedOptions: selectedAvailableItems"></select>
+        </div>
+        <div class="col-xs-1 center" style="margin-top: 65px" data-bind="visible: !$root.submitted()">
+            <button class="btn" data-bind="click: assign">&gt;</button><br />
+            <div data-bind="attr: { 'data-toggle': $root.isNewOrInactive() ? '' : 'tooltip' }">
+                <button class="btn" data-bind="enable: $root.isNewOrInactive, click: unassign">&lt;</button>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <label class="control-label"><span data-i18n="app:licensee.assignedCountries"></span> <span class="red">*</span></label>
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: 'name', selectedOptions: selectedAssignedItems, disable: $root.submitted"></select>
+        </div>
+        <span class="red" data-bind="validationMessage: assignedItems"></span>
+    </div>
+
+    <div class="form-group" data-bind="with: languagesAssignControl">
+        <div class="col-sm-3 control-label"></div>
+        <div class="col-sm-2" data-bind="visible: !$root.submitted()">
+            <label class="control-label" data-i18n="app:licensee.availableLanguages"></label>
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: availableItems, optionsText: 'code', selectedOptions: selectedAvailableItems"></select>
+        </div>
+        <div class="col-xs-1 center" style="margin-top: 65px" data-bind="visible: !$root.submitted()">
+            <button class="btn" data-bind="click: assign">&gt;</button><br />
+            <div data-bind="attr: { 'data-toggle': $root.isNewOrInactive() ? '' : 'tooltip' }">
+                <button class="btn" data-bind="enable: $root.isNewOrInactive, click: unassign">&lt;</button>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <label class="control-label"><span data-i18n="app:licensee.assignedLanguages"></span> <span class="red">*</span></label>
+            <select class="form-control" multiple="multiple" size="10" data-bind="options: assignedItems, optionsText: 'code', selectedOptions: selectedAssignedItems, disable: $root.submitted"></select>
+        </div>
+        <span class="red" data-bind="validationMessage: assignedItems"></span>
+    </div>
+    
+    <div class="form-group" data-bind="visible: status">
+        <label data-bind="attr: { for: remarksFieldId() }" class="col-sm-3 control-label">
+            <span data-i18n="app:common.remarks"></span><span class="red">*</span>
+        </label>
+        <div class="col-sm-8 field-box">
+            <textarea class="form-control" data-bind="attr: { id: remarksFieldId() }, value: fields.remarks, visible: !submitted()" maxlength="200"></textarea>  <span class="red" data-bind="validationMessage: fields.remarks"></span>
+            <p class="form-control-static" data-bind="visible: submitted, text: fields.remarks"></p>
+        </div>
+    </div>   
+    
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-default btn-round" data-bind="click: close, text: closeButtonLabel"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-primary btn-round" data-bind="click: clear, visible: !submitted()" data-i18n="app:common.clear"></button>
+            &nbsp; &nbsp; &nbsp;
+            <button class="btn btn-primary btn-round" data-bind="click: save, visible: !submitted()" data-i18n="app:common.save"></button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,37 @@
+﻿@model AFT.RegoV2.MemberWebsite.Models.RegisterStep3Model
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var startPlayingLink = Url.Action("GameList");
+}
+
+<div id="register-wrapper" class="site-body">
+
+    <div class="container">
+
+        @{ Html.RenderPartial("_PartialRegisterHeader", new { Step = 3 }); }
+
+        <div class="page-wrapper">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="ky-panel ky-margin-row ky-ticket-box">
+                        <h4 class="title">Deposit completed!</h4>
+                        <p style="margin-bottom: 1.5em">Thank you for depositing $@Model.DepositAmount into your @Model.BrandName account. Claim your $@Model.BonusAmount bonus and&nbsp;<a href="@startPlayingLink">start playing!</a></p>
+                        <div style="margin-top: 1.5em; margin-bottom: 1.5em" class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <a href="@startPlayingLink"><button type="button" class="btn btn-info btn-block">Start Playing</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Scripts/custom/login.js"></script>
+}

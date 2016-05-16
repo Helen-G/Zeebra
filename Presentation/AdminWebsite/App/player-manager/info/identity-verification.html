@@ -1,0 +1,26 @@
+﻿<div>
+    <div class="btn-group pull-right">
+        <button class="btn btn-sm btn-success btn-round" data-bind="click: upload">Upload document</button>
+        <button class="btn btn-sm btn-primary btn-round" data-bind="click: verify, enable: verifyEnabled">Verify</button>
+        <button class="btn btn-sm btn-primary btn-round" data-bind="click: unverify, enable: unverifyEnabled">Unverify</button>
+    </div>
+    <div id="id-documents-grid" data-bind="grid: {
+            source: 'PlayerInfo/IdentityVerification',
+            fields: ['DocumentType', 'CardNumber', 'ExpirationDate', 'VerificationStatus', 'VerifiedBy', 'DateVerified','UnverifiedBy', 'DateUnverified', 'UploadedBy', 'DateUploaded'],
+            defaultSort: 'DocumentType',
+            paging: true,
+            useResizeManager: { height: 400 },
+            sendAlso: ko.computed(function() { return [ { playerId: playerId }]; })
+        }">
+        <column title="app:common.documentType" sort-field="DocumentType" width="160" data-value="@DocumentType" />
+        <column title="Card Number" sort-field="CardNumber" width="180" data-value="@CardNumber" />
+        <column title="Expiration Date" sort-field="ExpirationDate" width="120" data-value="@ExpirationDate" />
+        <column title="app:common.verificationStatus" sort-field="VerificationStatus" width="127" data-value="@VerificationStatus" />
+        <column title="app:common.verifiedBy" sort-field="VerifiedBy" width="120" data-value="@VerifiedBy" />
+        <column title="app:common.dateVerified" sort-field="DateVerified" width="150" data-value="@DateVerified" />
+        <column title="Unverified By" sort-field="UnverifiedBy" width="120" data-value="@UnverifiedBy" />
+        <column title="Date Unverified" sort-field="DateUnverified" width="150" data-value="@DateUnverified"/>
+        <column title="Uploaded By" sort-field="UploadedBy" width="120" data-value="@UploadedBy" />
+        <column title="Date Uploaded" sort-field="DateUploaded" width="150" data-value="@DateUploaded" />
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿<form role="form" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.roleFields.roleCode"></span>
+        </label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.code"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.roleFields.roleName"></span>
+        </label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.name"></p>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-sm-3 control-label">
+            <span data-i18n="admin.roleFields.roleLicensee"></span>
+        </label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.displayLicensees"></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" data-i18n="admin.roleFields.roleDescription"></label>
+        <div class="col-sm-8">
+            <p class="form-control-static" data-bind="text: Model.description"></p>
+        </div>
+    </div>
+    
+    <div id="view-permissions-grid" data-bind="grid: { source: Model.selectedModules  }">
+        <column hidden data-value="@id" />
+        <column title="Module" data-value="@name"></column>
+        <column title="Permissions" data-value="@permissions"></column>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="center">
+            <button class="btn btn-white btn-round" id="btn-settings-close" data-bind="click: cancel" data-i18n="common.close"></button>
+        </div>
+    </div>
+</form>
